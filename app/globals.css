@@ -70,3 +70,19 @@ body {
     @apply bg-background text-foreground;
   }
 }
+
+.hero-gradient {
+  background: linear-gradient(to right, rgba(0, 0, 0, 0.8), rgba(0, 0, 0, 0.4)),
+    url("/rotation_pantone.jpg?height=800&width=1600");
+  background-size: cover;
+  background-position: center;
+}
+
+.card-hover {
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.card-hover:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+}

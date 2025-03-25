@@ -1,22 +1,50 @@
-import fs from 'fs/promises';
-import path from 'path';
-import matter from "gray-matter"
-import { MarkdownRenderer } from "@/components/markdown-renderer"
-import { TableOfContents } from '@/components/table-of-contents'
-import DisqusComments from '@/components/disqus-comment';
+"use client"
 
-export default async function Home() {
-  const markdownPath = path.join(process.cwd(), 'contents', 'sample.md');
-  const content = await fs.readFile(markdownPath, 'utf8');
-  const { content: markdownContent } = matter(content)
+import { useEffect } from "react"
+import Navbar from "@/components/navbar"
+import HeroSection from "@/components/hero-section"
+import InfoSection from "@/components/info-section"
+import ProjectsSection from "@/components/projects-section"
+import NewsSection from "@/components/news-section"
+import CTASection from "@/components/cta-section"
+import Footer from "@/components/footer"
+
+export default function Home() {
+  useEffect(() => {
+    // Add smooth scrolling behavior
+    document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+      anchor.addEventListener("click", function (e) {
+        e.preventDefault()
+        // @ts-expect-error: 'this' is expected to be an HTMLAnchorElement
+        const href = this.getAttribute("href")
+        if (!href) return
+
+        const targetElement = document.querySelector(href)
+        if (!targetElement) return
+
+        window.scrollTo({
+          top: targetElement.offsetTop - 80,
+          behavior: "smooth",
+        })
+      })
+    })
+
+    return () => {
+      document.querySelectorAll('a[href^="#"]').forEach((anchor) => {
+        anchor.removeEventListener("click", () => {})
+      })
+    }
+  }, [])
 
   return (
-    <main className="flex container mx-auto py-10">
-      <div>
-        <MarkdownRenderer content={content} />
-        <DisqusComments post={{ id: '1', title: 'Sample Post' }} />
-      </div>
-      <TableOfContents content={markdownContent} />
+    <main className="min-h-screen bg-black text-white">
+      <Navbar />
+      <HeroSection />
+      <NewsSection />
+      <InfoSection />
+      <ProjectsSection />
+      <CTASection />
+      <Footer />
     </main>
   )
 }
