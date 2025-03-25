@@ -1,7 +1,6 @@
 "use client"
 
 import { motion } from "framer-motion"
-import Link from "next/link"
 import { Twitter, Github, Facebook, Rss } from "lucide-react"
 
 export default function Footer() {
@@ -16,10 +15,10 @@ export default function Footer() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-400 flex gap-2 hover:text-white transition-colors"
             >
               <Twitter className="h-6 w-6" />
-              <span className="sr-only">Twitter</span>
+              <span className="font-extrabold">Twitter</span>
             </motion.a>
             <motion.a
               href="https://github.com"
@@ -27,10 +26,10 @@ export default function Footer() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-400 flex gap-2 hover:text-white transition-colors"
             >
               <Github className="h-6 w-6" />
-              <span className="sr-only">GitHub</span>
+              <span className="font-extrabold">GitHub</span>
             </motion.a>
             <motion.a
               href="https://facebook.com"
@@ -38,10 +37,10 @@ export default function Footer() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-400 flex gap-2 hover:text-white transition-colors"
             >
               <Facebook className="h-6 w-6" />
-              <span className="sr-only">Facebook</span>
+              <span className="font-extrabold">Facebook</span>
             </motion.a>
             <motion.a
               href="/feed"
@@ -49,26 +48,11 @@ export default function Footer() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="text-gray-400 hover:text-white transition-colors"
+              className="text-gray-400 flex gap-2 hover:text-white transition-colors"
             >
               <Rss className="h-6 w-6" />
-              <span className="sr-only">RSS Feed</span>
+              <span className="font-extrabold">Feed</span>
             </motion.a>
-          </div>
-
-          <div className="flex flex-wrap justify-center gap-6 mb-8">
-            <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-              Code of Conduct
-            </Link>
-            <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-              Privacy Policy
-            </Link>
-            <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-              Terms of Service
-            </Link>
-            <Link href="#" className="text-gray-400 hover:text-white transition-colors">
-              Contact
-            </Link>
           </div>
 
           <div className="text-gray-500 text-sm text-center">

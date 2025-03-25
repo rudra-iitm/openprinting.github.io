@@ -3,6 +3,7 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import { Button } from "./ui/button"
 
 export default function InfoSection() {
   const ref = useRef(null)
@@ -26,44 +27,42 @@ export default function InfoSection() {
               title: "About Us",
               description:
                 "Learn more about OpenPrinting, how it works, the people involved, and the projects maintained by it",
-              icon: "/placeholder.svg?height=80&width=80",
+              icon: "/OpenPrintingBox.png",
               delay: 0.1,
             },
             {
               title: "Contribute",
               description:
                 "Know how you can be part of an excellent community and help improve printing experience for millions of users",
-              icon: "/placeholder.svg?height=80&width=80",
+              icon: "/contribute.png",
               delay: 0.3,
             },
             {
               title: "CUPS",
               description:
                 "CUPS is the standards-based, open source printing system that is used on Linux® and other operating systems.",
-              icon: "/placeholder.svg?height=80&width=80",
+              icon: "/cups.png",
               delay: 0.5,
             },
           ].map((item, index) => (
             <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: item.delay }}
-              className="bg-gray-800 rounded-lg p-6 card-hover"
+            key={index}
+            initial={{ opacity: 0, y: 30 }}
+            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+            transition={{ duration: 0.5, delay: item.delay }}
+            className="group relative bg-gray-900 rounded-lg overflow-hidden p-6 border border-gray-800 hover:border-brand-lightBlue transition-colors duration-300 hover:cursor-pointer"
+            whileHover={{
+              scale: 1.02,
+              transition: { duration: 0.2 },
+            }}
             >
-              <div className="flex flex-col items-center text-center">
-                <div className="w-20 h-20 mb-4 bg-gray-700 rounded-lg flex items-center justify-center">
-                  <img src={item.icon || "/placeholder.svg"} alt={item.title} className="w-12 h-12" />
+              <div className="flex flex-col items-start text-left">
+                <div className="mb-4 bg-gray-700 rounded-lg flex items-center justify-center">
+                  <img src={item.icon || "/placeholder.svg"} alt={item.title} className="h-full w-full rounded-md" />
                 </div>
-                <h3 className="text-xl font-bold mb-2">{item.title}</h3>
+                <h3 className="text-3xl font-extrabold mb-4">{item.title}</h3>
                 <p className="text-gray-300 mb-4">{item.description}</p>
-                <motion.button
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="px-4 py-2 bg-brand-blue rounded-md hover:bg-brand-blue/80 transition-colors"
-                >
-                  Read More
-                </motion.button>
+                <Button className="bg-blue-500 text-md text-white">Read More</Button>
               </div>
             </motion.div>
           ))}
