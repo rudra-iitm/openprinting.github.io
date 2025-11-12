@@ -7,16 +7,23 @@ interface Post {
 }
 
 const DisqusComments = ({ post }: { post: Post }) => {
+  if (process.env.NODE_ENV !== "production") {
+    return (
+      <div className="text-gray-400 italic mt-6 text-center">
+        Comments are disabled in local mode.
+      </div>
+    );
+  }
 
-  const disqusShortname = "your-disqus-shortname";
+  const disqusShortname = "openprinting"; 
   const disqusConfig = {
-    url: "https://your-site-url/post-slug",
+    url: `https://openprinting.github.io/news/${post.id}`, 
     identifier: post.id,
     title: post.title,
   };
 
   return (
-    <div>
+    <div className="mt-10">
       <DiscussionEmbed
         shortname={disqusShortname}
         config={disqusConfig}
