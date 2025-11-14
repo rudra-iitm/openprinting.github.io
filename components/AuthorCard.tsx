@@ -1,17 +1,21 @@
 import Image from "next/image";
 import { MapPin, Mail, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
-import { Author } from "../data/authors";
+import authors, { Author } from "@/data/authors";
 
 interface Props {
-  author: Author;
+  name: string;          
   className?: string;
 }
 
-export default function AuthorCard({ author, className }: Props) {
+export default function AuthorCard({ name, className }: Props) {
+  const author: Author | undefined = authors.find(a => a.name === name);
+
+  if (!author) return null;
+
   const placeholder = "/authors/placeholder.jpg";
   const imgRaw = author.image && author.image !== "NA" ? author.image : placeholder;
-  const imgSrc = imgRaw.startsWith("/") ? imgRaw : `/${imgRaw.replace(/^\/+/, "")}`;
+  const imgSrc = imgRaw.startsWith("/") ? imgRaw : `/${imgRaw}`;
 
   const avatarSize = 120;
   const ringSize = avatarSize + 15;
@@ -25,6 +29,7 @@ export default function AuthorCard({ author, className }: Props) {
       )}
     >
       <div className="flex flex-col items-start">
+
         <div
           className="relative flex items-center justify-center mb-6"
           style={{ width: ringSize, height: ringSize }}
@@ -61,9 +66,7 @@ export default function AuthorCard({ author, className }: Props) {
         </h2>
 
         {author.role && (
-          <p className="text-lg text-gray-300 mb-5 pl-2">
-            {author.role}
-          </p>
+          <p className="text-lg text-gray-300 mb-5 pl-2">{author.role}</p>
         )}
 
         {author.location && (
