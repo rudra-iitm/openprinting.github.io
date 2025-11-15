@@ -4,12 +4,12 @@ import { cn } from "@/lib/utils";
 import authors, { Author } from "@/data/authors";
 
 interface Props {
-  name: string;          
+  authorKey: string;
   className?: string;
 }
 
-export default function AuthorCard({ name, className }: Props) {
-  const author: Author | undefined = authors.find(a => a.name === name);
+export default function AuthorCard({ authorKey, className }: Props) {
+  const author = authors.find(a => a.key === authorKey);
 
   if (!author) return null;
 
