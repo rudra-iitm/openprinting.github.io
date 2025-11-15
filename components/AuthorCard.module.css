@@ -1,0 +1,19 @@
+.ringWrapper {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem; 
+}
+
+.ringAbsolute {
+  position: absolute;
+  border-radius: 9999px;
+  border: 0.7px solid rgba(255,255,255,0.8);
+  box-shadow: 0 0 0 1px rgba(255,255,255,0.3), inset 0 0 20px rgba(0,0,0,0.4);
+}
+
+.avatarCircle {
+  border-radius: 9999px;
+  overflow: hidden;
+}
