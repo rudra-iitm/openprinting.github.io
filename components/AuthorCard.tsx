@@ -26,22 +26,10 @@ export default function AuthorCard({ authorKey, className }: Props) {
       )}
     >
       <div className="flex flex-col items-start">
-        {/* Outer ring (using Tailwind arbitrary properties) */}
-        <div
-          className={
-            "relative flex items-center justify-center mb-6 " +
-            /* size of outer ring */ "w-[135px] h-[135px]"
-          }
-        >
+        <div className="relative flex items-center justify-center mb-6 w-[135px] h-[135px]">
           <div
             aria-hidden
-            className={
-              /* absolute ring with thin border + custom box-shadow */
-              "absolute rounded-full w-full h-full " +
-              "border-[0.7px] " +
-              "border-[rgba(255,255,255,0.8)] " +
-              "[box-shadow:0_0_0_1px_rgba(255,255,255,0.3),inset_0_0_20px_rgba(0,0,0,0.4)]"
-            }
+            className="absolute rounded-full w-full h-full border-[0.7px] border-[rgba(255,255,255,0.8)] [box-shadow:0_0_0_1px_rgba(255,255,255,0.3),inset_0_0_20px_rgba(0,0,0,0.4)]"
           />
           <div className="rounded-full overflow-hidden w-[120px] h-[120px] border border-white/5">
             <Image
