@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { MapPin, Mail, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
@@ -13,6 +13,29 @@ interface Props {
 
 export default function AuthorCard({ authorKey, className }: Props) {
   const [open, setOpen] = useState(false);
+  const dropdownRef = useRef<HTMLDivElement | null>(null);
+
+  useEffect(() => {
+    if (!open) return;
+
+    function handleClickOutside(event: globalThis.MouseEvent | globalThis.TouchEvent) {
+      if (
+        dropdownRef.current &&
+        !dropdownRef.current.contains(event.target as Node)
+      ) {
+        setOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handleClickOutside);
+    document.addEventListener("touchstart", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("mousedown", handleClickOutside);
+      document.removeEventListener("touchstart", handleClickOutside);
+    };
+  }, [open]);
+
   const author = authors.find((a) => a.key === authorKey);
 
   if (!author) return null;
@@ -45,7 +68,7 @@ export default function AuthorCard({ authorKey, className }: Props) {
           )}
         </div>
 
-        <div className="relative">
+        <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setOpen(!open)}
             className="px-4 py-1.5 text-sm font-medium rounded bg-white text-black hover:bg-gray-100"

@@ -66,9 +66,7 @@ export function TableOfContents({ content, isSticky = false }: TableOfContentsPr
     });
   };
 
-  const containerClasses = `w-full lg:w-64 bg-gray-900 p-4 rounded-lg ${
-    isSticky ? "sticky top-4 self-start" : ""
-  }`;
+  const containerClasses = `w-full bg-gray-900 p-4 rounded-lg ${isSticky ? "sticky top-4 self-start" : ""}`;
 
   return (
     <nav className={containerClasses}>
