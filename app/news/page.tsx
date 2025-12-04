@@ -7,7 +7,12 @@ import DisqusComments from "@/components/disqus-comment";
 import AuthorCard from "@/components/AuthorCard";
 
 export default async function Home() {
-  const markdownPath = path.join(process.cwd(), "contents", "sample.md");
+  const markdownPath = path.join(
+    process.cwd(),
+    "contents",
+    "post",
+    "sample.md"
+  );
   const raw = await fs.readFile(markdownPath, "utf8");
 
   const { data, content: markdownContent = "" } = matter(raw);
