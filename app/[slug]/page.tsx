@@ -9,7 +9,8 @@ import AuthorCard from "@/components/AuthorCard";
 const POSTS_DIR = path.join(process.cwd(), "contents", "post");
 
 async function getPost(slug: string) {
-    const filePath = path.join(POSTS_DIR, `${slug}.md`);
+    const decodedSlug = decodeURIComponent(slug);
+    const filePath = path.join(POSTS_DIR, `${decodedSlug}.md`);
     const raw = await fs.readFile(filePath, "utf8");
     const { data, content } = matter(raw);
     return {
@@ -51,6 +52,10 @@ export default async function PostPage({
             ? frontmatter.readTime.trim()
             : "";
 
+    const showToc =
+        !!frontmatter &&
+        (frontmatter.toc === true || String(frontmatter.toc) === "true");
+
     return (
         <main className="w-full">
             <div className="max-w-[1400px] mx-auto px-4 lg:pl-6 lg:pr-1 py-10 w-full">
@@ -82,9 +87,9 @@ export default async function PostPage({
                             )}
                         </div>
 
-                        <div className="pb-6 px-4 lg:hidden">
+                        {showToc && (<div className="pb-6 px-4 lg:hidden">
                             <TableOfContents content={markdownContent} />
-                        </div>
+                        </div>)}
 
                         <div className="w-full px-4 lg:px-0">
                             <div className="prose prose-invert max-w-none prose-headings:text-white prose-p:text-gray-300 prose-a:text-blue-400">
@@ -97,9 +102,9 @@ export default async function PostPage({
                         </div>
                     </section>
 
-                    <aside className="hidden lg:block w-[320px] flex-shrink-0 sticky top-20 self-start">
+                    {showToc && (<aside className="hidden lg:block w-[320px] flex-shrink-0 sticky top-10 self-start">
                         <TableOfContents content={markdownContent} />
-                    </aside>
+                    </aside>)}
                 </div>
             </div>
         </main>
