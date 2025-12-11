@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Linux App Summit 2022, GSoC 2022, "cups" Snap interface, Snap vs. AppImage for
   printing, approaching cups-filters 2.x, Ubuntu 22.04 LTS
+date: '2022-04-12'
 ---
 ## Ubuntu 22.04 LTS (Jammy Jellyfish) is coming!
 On Thursday next week, April 21, 2021, is Ubuntu release day again! Ubuntu 22.04 LTS!

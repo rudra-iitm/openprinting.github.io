@@ -5,6 +5,7 @@ author: Zdenek
 excerpt: >-
   CUPS 2.4rc1 is a release candidate for OpenPrinting CUPS 2.4.0, which adds two
   enhancements before the stable release.
+date: '2021-11-12'
 ---
 
 CUPS 2.4rc1 is a release candidate for OpenPrinting CUPS 2.4.0, which adds two enhancements before the stable release.

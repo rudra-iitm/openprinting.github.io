@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Sixth beta to improve more for sandboxed packaging, especially streaming print
   data and simplifying D-Bus interface
+date: '2024-06-19'
 ---
 After 10 months, and working currently on [snapping the CPDB backend for CUPS](/OpenPrinting-News-May-2024/#cpdb-cups-backend-snap), we are now releasing the sixth beta of the second generation of the Common Print Dialog Backends (CPDB).
 

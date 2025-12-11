@@ -5,6 +5,7 @@ author: Zdenek
 excerpt: >-
   system-config-printer-1.5.18 brings fix for application crash if libhandy is
   not installed and other fixes
+date: '2022-08-30'
 ---
 
 system-config-printer-1.5.18 brings fix for application crash if libhandy is not installed, which crashes the application on non-GNOME desktops, and other fixes, the complete list is here:

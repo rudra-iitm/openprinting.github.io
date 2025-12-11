@@ -6,6 +6,7 @@ excerpt: >-
   CUPS 2.3.1 and cups-filters 1.26.0 released, lots of improvements and fixes
   for cups-browsed and the "driverless" utility, OpenPrinting meeting in Mandi,
   India, GSoC 2020 org application period announced.
+date: '2019-12-13'
 ---
 ## OpenPrinting Mini Summit at IIT Mandi, India
 On November 9 we had a meeting in India presenting the work of OpenPrinting at one of the universities where our Google Summer of Code students came from.

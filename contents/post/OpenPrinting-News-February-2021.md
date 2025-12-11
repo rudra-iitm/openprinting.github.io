@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   PostScript Printer Application, Driver retro-fit library, GSoC 2021 project
   ideas, IPP Scan, CUPS 2.3.3op2
+date: '2021-02-08'
 ---
 ## Google Summer of Code 2021
 The time window for the mentoring organizations to [apply](https://summerofcode.withgoogle.com/) has opened and the deadline is Feb 19, 2021 ([Timeline](https://developers.google.com/open-source/gsoc/timeline)). We are applying again for the Linux Foundation as mentoring organization, as in the previous years, OpenPrinting being one of the sub groups.

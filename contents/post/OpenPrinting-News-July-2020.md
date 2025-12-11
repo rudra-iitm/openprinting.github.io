@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   We take comments! Students working in GSoC, GSoD, LFMP; libppd and
   pclmtoraster in cups-filters
+date: '2020-07-10'
 ---
 ## NEW: The OpenPrinting web site got comments sections
 Our web pages, these news posts but also most other pages have a comments section now. So you can leave your comment about the page in the comments section at the bottom.

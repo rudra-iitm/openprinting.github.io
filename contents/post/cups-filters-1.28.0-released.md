@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   IPPS and IPP Fax Out support in driverless, log file size limitation and more
   options for cups-browsed, tons of bug fixes
+date: '2020-08-25'
 ---
 Feature release (probably the last one before 2.0.0) which adds IPP Fax Out support, IPPS support, and a command line option to reveal satndard IPP URIs to the "driverless" utility, added log file size limitation and command line options to control what happens to generated queues on shutdown to cups-browsed, fixed several bugs when printing PostScript input files, several bugs and memory leaks in cups-browsed, crashes on the presence of certain fonts, and many more fixes.
 

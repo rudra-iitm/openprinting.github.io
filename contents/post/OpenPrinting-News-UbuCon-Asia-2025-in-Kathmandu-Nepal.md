@@ -5,6 +5,7 @@ toc: true
 toc_sticky: true
 author: Till
 excerpt: Organized by the Ubuntu and GNOME communities of Nepal
+date: '2025-09-22'
 ---
 ## Why attending a conference in Nepal?
 This year we have done the [third Opportunity Open Source](https://oosc.org.in/) in India, and originally having planned to co-host the first [UbuCon India](https://events.canonical.com/event/136/overview) with it we had settled it on the weekend right after this year's [UbuCon Asia](https://2025.ubucon.asia/) which has taken place on August 30-31 in Kathmandu in the neighboring country Nepal, to make it possible that speakers could be on both events with only one round trip.

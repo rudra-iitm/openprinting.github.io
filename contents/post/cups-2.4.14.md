@@ -3,6 +3,7 @@ title: CUPS 2.4.14
 layout: single
 author: Zdenek
 excerpt: CUPS 2.4.14 fixes installation of localized files
+date: '2025-09-11'
 ---
 
 The hotfix release brings fix for installation process of localized templates and CUPS web UI home pages.

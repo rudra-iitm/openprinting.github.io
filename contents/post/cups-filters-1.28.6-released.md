@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Bug fix release, especially memory leaks and performance of cups-browsed, but
   also on the PPD generator and foomatic-rip
+date: '2020-12-02'
 ---
 Bug fix release, fixing lots of memory leaks in cups-browsed, fixed cups-browsed hanging several seconds when there are local print queue with invalid DNS-SD-based URIs, several fixes on the PPD generator for IPP printers, taken from OpenPrinting's fork of CUPS, and fixing bugs on foomatic-rip
 - libcupsfilters: In generated PPDs add a grayscale mode if there are only color printing modes (from OpenPrinting CUPS).

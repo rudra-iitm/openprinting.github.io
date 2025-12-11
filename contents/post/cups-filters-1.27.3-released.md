@@ -7,6 +7,7 @@ excerpt: >-
   work with all Ghostscript versions, building libfontembed tests with correct
   path to test font, re-sharing of remote CUPS queues with cups-browsed and
   others
+date: '2020-03-20'
 ---
 Bug fix release, fixing Ghostscript-based PDF page counting in foomatic-rip to work with all Ghostscript versions, building libfontembed tests with correct path to test font, re-sharing of remote CUPS queues with cups-browsed and others
 - cups-browsed: Allow sharing local queues pointing to remote CUPS queues and re-sharing printers discovered via BrowsePoll by default, using AllowResharingRemoteCUPSPrinters and NewBrowsePollQueuesShared directives in cups-browsed.conf (Issue #101, Pull request #218).

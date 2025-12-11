@@ -5,6 +5,7 @@ toc: false
 toc_sticky: true
 author: Till
 excerpt: Moving on from time-based monthly posts to one post per subject matter
+date: '2024-12-28'
 ---
 
 I have made it, for [5 years I have posted the OpenPrinting News](/OpenPrinting-News-October-2024/) here every month, everything what happened that month and what we had planned and in front of us, and never skipped a single month.

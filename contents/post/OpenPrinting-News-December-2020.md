@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   PAPPL 1.0.0, PostScript Printer Application, GSoC 2021, GSoD ended, CUPS
   2.3.3op1, cups-filters
+date: '2020-12-11'
 ---
 ## Google Summer of Code 2021
 We are currently looking for project ideas for next year's Google Summer of Code.

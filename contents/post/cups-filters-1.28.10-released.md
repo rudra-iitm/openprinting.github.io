@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Bug fix release, more reliable CUPS browsing in cups-browsed, improved PDF
   printer PPDs, minor fixes
+date: '2021-08-17'
 ---
 Bug fix release: More reliable legacy CUPS browsing in cups-browsed, improved PDF printer sample PPDs, with borderless page sizes, eliminated unneeded dependency on DjVu font, minor fixes
 - Sample PPDs: Add borderless page size definitions to Generic PDF Printer, HP Color LaserJet CM3530 MFP PDF, and Ricoh PDF Printer PPD files.

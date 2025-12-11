@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   In September we held a Microconference on the Linux Plumbers Conference in
   Lisbon, now the summary and videos are uploaded to the Linux Plumbers web site
+date: '2019-12-05'
 ---
 
 In September 2019, I have been on the [Linux Plumbers Conference 2019](https://linuxplumbersconf.org/event/4/) in Lisbon and held the first [OpenPrinting Microconference](https://linuxplumbersconf.org/event/4/sessions/52/#20190910) together with Aveek Basu and Rithvik Patibandia.

@@ -3,6 +3,7 @@ title: cups-filters 1.28.8 released!
 layout: single
 author: Till
 excerpt: 'Bugfix release, to fix several different issues'
+date: '2021-03-25'
 ---
 Bug fix release, to fix several different issues
 - libcupsfilters: Made check whether the driverless PPD to generate should be a fax out PPD more reliable (Issue #343).

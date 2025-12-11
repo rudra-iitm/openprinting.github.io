@@ -8,6 +8,7 @@ excerpt: >-
   GUADEC 2023 in Riga, Opportunity Open Source in IIT Mandi, India, Ubuntu
   Summit 2023 in Riga, GSoC 2023, Ubuntu 23.10 with snapped CUPS, versioned
   Printer Applications.
+date: '2023-07-23'
 ---
 My work since the last news post was mainly organizing and preparing for conferences and updating and improving our Snaps, of CUPS, ipp-usb, and the 4 Printer Applications.
 

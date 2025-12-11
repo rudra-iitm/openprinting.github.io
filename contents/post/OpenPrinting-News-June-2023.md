@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   GUADEC 2023 in Riga, Ubuntu Summit 2023 in Riga, GSoC 2023, CUPS 2.4.6,
   cups-filters 2.0rc2, Snap updates, Test the CUPS Snap!
+date: '2023-06-29'
 ---
 Perhaps one or another of you remembers that in [last month's news](/OpenPrinting-News-May-2023/) I have announced that I want to switch Ubuntu 23.10 (Mantic Minotaur) from the CUPS packages in Debian format to the CUPS Snap as its printing environment and correspondingly to Printer Applications instead of classic CUPS printer drivers.
 

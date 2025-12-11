@@ -8,6 +8,7 @@ excerpt: >-
   Linux Foundation accepted as GSoC 2023 org, LAS 2023 in Brno, CPDB accepted
   into GTK 4.9.4, libcups 3.0b1, New Architecture going into Ubuntu and Red Hat,
   cups-filters 2.0b4, pappl-retrofit 1.0b4, CPDB 2.0b2
+date: '2023-02-27'
 ---
 Sorry, we are late this month, there was a lot of work getting the new generations of cups-filters and CPDB [into Ubuntu](#the-new-architecture-is-going-into-ubuntu-and-red-hat).
 

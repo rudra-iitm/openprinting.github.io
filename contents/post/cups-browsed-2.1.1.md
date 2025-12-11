@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Bug fix release, especially to fix the long-standing problem that cups-browsed
   sometimes gets stuck with 100% CPU
+date: '2025-01-11'
 ---
 We have issued this release as it contains a fix for a long-standing bug. Since multi-threading was introduced as a central new feature of the 2.x generation of cups-browsed users started to report that from time to time cups-browsed got stuck with 100% CPU load on 1 or 2 processor cores (Ubuntu bugs [#2049315](https://bugs.launchpad.net/bugs/2049315), [#2067918](https://bugs.launchpad.net/bugs/2067918), and [#2073504](https://bugs.launchpad.net/bugs/2073504)).
 

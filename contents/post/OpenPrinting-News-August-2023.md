@@ -8,6 +8,7 @@ excerpt: >-
   Opportunity Open Source in IIT Mandi, India, DebConf 2023 in Kochi, India,
   Ubuntu Summit 2023 in Riga, GSoC 2023, CUPS Snap switchover postponed, Ubuntu
   Core Desktop first
+date: '2023-09-02'
 ---
 Usually, I am posting each month's news mid-to-end of the month, now it got really late with it, but it is still for August, there will be the September one in the end of this month.
 

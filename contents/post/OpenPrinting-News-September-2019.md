@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   End of Google Summer of Code 2019, Avahi, OpenPrinting web site work, CUPS
   2.3.0 released, cups-filters 1.25.4, cpdb-backend-cups workaround for CUPS bug
+date: '2019-09-03'
 ---
 
 ## Google Summer of Code 2019

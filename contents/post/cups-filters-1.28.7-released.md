@@ -6,6 +6,7 @@ excerpt: >-
   Bug fix release to remove the support quality check from the "driverless"
   utility to do not break CUPS' PPD listing facility and several fixes for
   generating PPDs for driverless printers
+date: '2021-01-07'
 ---
 Bug fix release to remove the support quality check from the "driverless" utility to do not break CUPS' PPD listing facility and several fixes for generating PPDs for driverless printers
 - driverless: Removed the support quality check from Pull request #235 as it takes significant time for each printer being listed, making cups-driverd (`lpinfo -m`) timing out when there are many printers (OpenPrinting CUPS issue #65).

@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Seventh beta with many fixes for bugs found during GSoC 2024, API
   improvements, support for CUPS instances, and explanation how CPDB works.
+date: '2025-02-28'
 ---
 During the Google Summer of Code 2024 Biswadeep Purkayastha has added CPDB support to the print dialog of LibreOffice, mentored by Michael Weghorn, one of the LibreOffice developers. In addition to working on the print dialog of LibreOffice, they both have made a lot of contributions, mainly bug fixes, but also some improvements. **Thanks, Biswadeep and Michael, for all these valuable contributions.**
 

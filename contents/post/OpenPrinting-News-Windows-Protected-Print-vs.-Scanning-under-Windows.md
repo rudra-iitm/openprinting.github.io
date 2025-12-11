@@ -5,6 +5,7 @@ toc: false
 toc_sticky: true
 author: Till
 excerpt: Windows Protected Print protects you from scanning
+date: '2025-01-20'
 ---
 Around a year ago [I reported here](/OpenPrinting-News-December-2023/#new-architecture-under-windows) about Microsoft's plans to make printing under Windows more secure, going the same way as we are going with the [New Architecture in CUPS 3.x](/current/#the-new-architecture-for-printing-and-scanning), an all-IPP print environment without printer drivers, only supporting modern, driverless IPP printers. In Windows it is especially important to get rid of printer drivers, as they are closed-source code pieces running in system or even kernel level. For Windows Protected Print (WPP) Windows does not use CUPS, but Mopria instead, and they do not have a concept for non-driverless legacy printers, whereas we have the [Printer Applications](/current/#printer-applications) ([which can also be used under Windows](/wsl-printer-app/)).
 

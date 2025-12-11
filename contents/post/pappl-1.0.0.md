@@ -5,6 +5,7 @@ author: Mike
 excerpt: >-
   PAPPL is a simple C-based framework/library for developing CUPS Printer
   Applications, which are the recommended replacement for printer drivers.
+date: '2020-12-11'
 ---
 
 The first stable release of PAPPL is now available for download.  PAPPL

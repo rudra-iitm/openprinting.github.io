@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Bug fix release to mainly fix cups-browsed not shutting down and the
   driverless utility being slow when listing available printers/faxes
+date: '2020-09-10'
 ---
 Bug fix release to mainly fix cups-browsed not shutting down and the driverless utility being slow when listing available printers/faxes
 - driverless: Free allocated memory, use MAX_OUTPUT_LEN (Pull request #304).

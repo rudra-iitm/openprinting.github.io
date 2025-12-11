@@ -5,6 +5,7 @@ toc: true
 toc_sticky: true
 author: Till
 excerpt: For our third edition we returned to Kanpur
+date: '2025-10-15'
 ---
 ## From Nepal to India ...
 As reported in my [previous blog](/OpenPrinting-News-UbuCon-Asia-2025-in-Kathmandu-Nepal/) I had also attended the [UbuCon Asia](https://2025.ubucon.asia/) in Kathmandu, in Nepal, on August 30-31. We have set the date for the Opportunity Open Source on the following weekend, September 5-7, to give the possibility to attend both doing one single round trip, which had especially made sense if we had co-hosted [UbuCon India](https://events.canonical.com/event/136/overview).

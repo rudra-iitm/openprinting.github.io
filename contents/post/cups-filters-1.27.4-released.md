@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Bug fix release, several minor fixes and especially memory issues in
   cups-browsed
+date: '2020-04-09'
 ---
 Bug fix release, several minor fixes and especially memory issues in cups-browsed
 - libcupsfilters, cups-browsed: Fix memory issues in ppdgenerator and cups-browsed (Pull request #226).

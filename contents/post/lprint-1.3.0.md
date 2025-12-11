@@ -5,6 +5,7 @@ author: Mike
 excerpt: >-
   LPrint v1.3.0 adds a new dithering algorithm, support for new printers,
   support for configuration files, and fixes a number of bugs.
+date: '2024-01-31'
 ---
 
 LPrint v1.3.0 adds a new dithering algorithm, support for new printers, support

@@ -3,6 +3,7 @@ title: CUPS 2.4.5
 layout: single
 author: Zdenek
 excerpt: CUPS 2.4.5 brings hotfix for corrupted locally saved certificates
+date: '2023-06-13'
 ---
 
 CUPS 2.4.5 is a hotfix release for a bug which corrupted locally saved certificates, which broke secured printing via TLS after the first print job.

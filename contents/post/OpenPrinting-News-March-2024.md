@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   Easter Egg in xz, GSoC 2024, Opportunity Open Source 2024?, CPDB Snap, PAPPL
   scanning, Snap automation, SpliX 2.0.1
+date: '2024-03-31'
 ---
 This Easter weekend was really e**XZ**iting ...
 

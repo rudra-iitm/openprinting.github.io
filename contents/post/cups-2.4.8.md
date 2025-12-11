@@ -5,6 +5,7 @@ author: Zdenek
 excerpt: >-
   CUPS 2.4.8 brings important bug fix for permanent IPP Everywhere printer
   installation
+date: '2024-04-26'
 ---
 
 CUPS 2.4.8 brings many bug fixes which aggregated over the last half a year. It brings the important fix for race conditions and errors which can happen when installing permanent IPP Everywhere printer, support for PAM modules password-auth and system-auth and new option for lpstat which can show only the successful jobs.

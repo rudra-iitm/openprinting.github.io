@@ -6,6 +6,7 @@ excerpt: >-
   OpenPrinting/GSoC in Ubuntu Office Hours, Gutenprint Printer Appl., HPLIP
   Printer Appl. supports HP's plugin, new print GUI in Flutter, CUPS' release
   plan
+date: '2021-10-11'
 ---
 ## Ubuntu 21.10 (Impish Indri) is coming!
 This Thursday, October 14, 2021, is Ubuntu release day again! Ubuntu 21.10!

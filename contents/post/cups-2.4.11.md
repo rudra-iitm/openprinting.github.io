@@ -3,6 +3,7 @@ title: CUPS 2.4.11
 layout: single
 author: Zdenek
 excerpt: CUPS 2.4.11 bring several bug fixes regarding IPP support and Web UI
+date: '2024-09-30'
 ---
 
 CUPS 2.4.11 brings several bug fixes regarding IPP response validation, processing PPD values, Web UI support (checkbox support, modifying printers) and others fixes.

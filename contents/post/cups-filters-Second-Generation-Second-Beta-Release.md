@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   First round of bug fixes, for page size handling, translation support, build
   systems, source code documentation
+date: '2023-01-08'
 ---
 During creation of the Debian/Ubuntu packages for the components of the 2nd-generation cups-filters and also during the further development of the [Common Print Dialog Backends (CPDB)](https://openprinting.github.io/achievements/#common-print-dialog-backends) some bugs were discovered which are fixed now.
 

@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   Opportunity Open Source 3.0, again in IIT Kanpur in India, on Sep 5-7,
   co-located with the first UbuCon India
+date: '2025-05-09'
 ---
 
 ![Some pictures of the OOSC 2.0](../assets/images/oosc-2.0-2024-1.png)![More pictures of the OOSC 2.0](../assets/images/oosc-2.0-2024-2.png)

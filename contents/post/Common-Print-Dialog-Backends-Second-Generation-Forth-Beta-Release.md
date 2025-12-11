@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Forth beta to add build tests (`make check`), development tools get built and
   installed the standard way.
+date: '2023-03-21'
 ---
 We are now releasing the forth beta of the second generation of the Common Print Dialog Backends (CPDB).
 

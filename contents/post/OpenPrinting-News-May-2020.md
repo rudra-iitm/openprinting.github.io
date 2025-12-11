@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   7 students for GSoC; LP accepted for Google Season of Docs; OpenPrinting/PWG
   Meeting; Progress of our projects
+date: '2020-05-18'
 ---
 ## OpenPrinting Summit/PWG Meeting 2020
 During 4 days we have discussed, together with the [Printer Working Group (PWG)](http://www.pwg.org), our plans how we will continue the development printing (and scanning) with free software on Linux and similar operating systems and also about free printing-related standards, especially the Internet Printing Protocol (IPP).

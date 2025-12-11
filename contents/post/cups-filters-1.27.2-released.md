@@ -6,6 +6,7 @@ excerpt: >-
   Bug fix release, mainly to fix regressions cause by the zero-page-job-support
   implementation in foomatic-rip, also some code improvements in foomatic-rip
   and some crasher fixes in cups-browsed
+date: '2020-02-28'
 ---
 Bug fix release, mainly to fix regressions cause by the zero-page-job-support implementation in foomatic-rip, also some code improvements in foomatic-rip and some crasher fixes in cups-browsed
 - foomatic-rip: In some PostScript input files it was possible that option settings did not get inserted or lines inserted on the wron place (Issue #208, Pull request #210).

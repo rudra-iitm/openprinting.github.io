@@ -6,6 +6,7 @@ excerpt: >-
   This release is mainly to improve the DNS-SD advertising to equal the one of
   the network mode of the device and also to advertise its AirScan scanning
   capabilities, but we also have some communication and code base improvements.
+date: '2020-02-19'
 ---
 This release is mainly to improve the DNS-SD advertising to equal the one of the network mode of the device and also to advertise its AirScan scanning capabilities, but we also have some communication and code base improvements.
 - DNS-SD-advertise the devices capabilities based on polling the device via IPP (printing and send-fax part) and via HTTP (eSCL scanning part, if available), the records now contain the same information as the DNS-SD records which the printer broadcasts through its network connection

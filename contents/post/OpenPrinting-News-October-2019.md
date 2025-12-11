@@ -7,6 +7,7 @@ excerpt: >-
   project ideas for Google Summer of Code 2020, Gutenprint as native Printer
   Application, Avahi local service support continued, OpenPrinting web site
   switched over to the new design, cups-filters 1.25.7
+date: '2019-10-08'
 ---
 
 ## Linux Plumber's Conference 2019

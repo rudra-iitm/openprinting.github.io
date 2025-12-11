@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   New CUPS home is OpenPrinting, CUPS Snap and PostScript Printer App in Snap
   Store, Printer setup tools/user experience
+date: '2021-03-05'
 ---
 ## CUPS has new home at OpenPrinting!
 Due to the fact that CUPS development at Apple has stopped since the beginning of 2020 we had [forked CUPS some months ago](https://openprinting.github.io/OpenPrinting-News-September-2020/#cups) to incorporate patches and fixes from the distributions. As Apple did not resume the upstream work on CUPS, we have made OpenPrinting now the official upstream home for CUPS.

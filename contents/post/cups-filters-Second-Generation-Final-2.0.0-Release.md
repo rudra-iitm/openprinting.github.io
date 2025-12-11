@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Now it is there! The 2.0.0 release! Security vulnerability fix and final bug
   fixes
+date: '2023-09-22'
 ---
 Now, in the last 3 months, we got only few bug reports, and a security vulnerability in CUPS, in code which got overtaken into libppd, and therefore the vulnerability is also there. To get the security fix into a release and 3 months being a long time after RC2 I am finally releasing 2.0.0 right now.
 

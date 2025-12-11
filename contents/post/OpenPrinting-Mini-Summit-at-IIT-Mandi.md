@@ -5,6 +5,7 @@ author: Aveek
 excerpt: >-
   On November 9 we had a meeting in India presenting the work of OpenPrinting at
   one of the universities where our Google Summer of Code students came from
+date: '2019-12-13'
 ---
 
 On November 9, 2019 we had a mini OpenPrinting Summit at the Indian Institute of Technology - Mandi (Himachal Pradesh India). Aveek was also invited to be a speaker at one of the Hackathon events which was getting conducted at the university campus during that time.

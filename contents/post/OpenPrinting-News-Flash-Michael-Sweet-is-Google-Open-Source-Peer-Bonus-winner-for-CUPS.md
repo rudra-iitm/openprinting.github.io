@@ -5,6 +5,7 @@ title: >-
 layout: single
 author: Till
 excerpt: Google recognizes Michael Sweet's exceptional work with his CUPS project!
+date: '2023-05-25'
 ---
 Yesterday Google has announced the winners of their
 

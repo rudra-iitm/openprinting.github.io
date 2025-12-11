@@ -9,6 +9,7 @@ author: Till
 excerpt: >-
   Have a look into the amazing presentations and workshops, plan your
   participation!
+date: '2025-08-26'
 ---
 Only 10 days left to the [Opportunity Open Source 3.0](https://oosc3ubucon.netlify.app/) in the IIT Kanpur in India! Now we got all the session proposals which got promised to us and so we have scheduled the contributions now and published everything.
 

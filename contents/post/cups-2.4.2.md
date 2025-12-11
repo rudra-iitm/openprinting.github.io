@@ -5,6 +5,7 @@ author: Zdenek
 excerpt: >-
   CUPS 2.4.2 brings the fix for CVE-2022-26691, LibreSSL/OpenSSL and minimal AIX
   support together with a list of bug fixes
+date: '2022-05-26'
 ---
 
 CUPS 2.4.2 brings the fix for CVE-2022-26691, together with LibreSSL/OpenSSL and minimal AIX support. There are lots of bug fixes as well, feel free to check the list of changes:

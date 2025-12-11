@@ -5,6 +5,7 @@ toc: true
 toc_sticky: true
 author: Till
 excerpt: I am covered to work on OpenPrinting full-time until end-2026
+date: '2025-11-04'
 ---
 
 **Also announced on [Mastodon](https://ubuntu.social/@till/115498465133408746) and on [LinkedIn](https://www.linkedin.com/posts/openprinting_openprinting-news-sovereign-tech-agency-activity-7391969736374427648-oaaV?utm_source=share&utm_medium=member_desktop&rcm=ACoAAAG6HOwBS_L6DNMmPd_4_fH9GMpDr0nDNsQ)** 

@@ -3,6 +3,7 @@ title: system-config-printer 1.5.16 released!
 layout: single
 author: Till
 excerpt: 'Release covering one year of bug fixes, translations, and updated README.md'
+date: '2022-02-20'
 ---
 Release covering one year of bug fixes, translations, and updated README.md
 - updates in README.md: build/install instructions, changes related to s-c-p with CUPS 3.x (IPP services/Printer Applications, no PPDs/drivers/static queues), TODOs, need of new developer(s)

@@ -3,6 +3,7 @@ title: CUPS 2.4.7
 layout: single
 author: Zdenek
 excerpt: CUPS 2.4.7 brings fix for CVE-2023-4504 and other fixes
+date: '2023-09-20'
 ---
 
 CUPS 2.4.7 is released to ship the fix for CVE-2023-4504 and several other changes, among them it is adding OpenSSL support for cupsHashData function and bug fixes.

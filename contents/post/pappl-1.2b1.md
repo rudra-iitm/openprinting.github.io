@@ -5,6 +5,7 @@ author: Mike
 excerpt: >-
   PAPPL v1.b1 adds full localization, support for additional IPP features, and
   some other improvements.
+date: '2022-04-23'
 ---
 
 PAPPL v1.2b1 is now available for download.  PAPPL v1.2 adds full localization, support for additional IPP features, and some other improvements.  Changes include:

@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   cups-browsed RCE vulnerability overhyped, Festa do Software Livre/UbuCon
   Portugal 2024, Ubuntu Summit 2024, GSoC 2024
+date: '2024-10-07'
 ---
 Most impactful in September were the [security advisories reported for cups-browsed](#cups-browsed-remote-command-execution-vulnerability-overhyped), starting with the report of a remote command execution vulnerability discovered by security researcher Simone Margaritelli and his post about it on X (formerly Twitter) before the official disclosure made it overhyped and main subject of bloggers, podcasters, and YouTubers. In the end it turned out to be much less harmful than was the initial impression suggested.
 

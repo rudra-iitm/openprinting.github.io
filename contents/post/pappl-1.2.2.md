@@ -5,6 +5,7 @@ author: Mike
 excerpt: >-
   PAPPL v1.2.2 fixes key issues with localization, client limits, and
   compilation.
+date: '2022-09-21'
 ---
 
 PAPPL v1.2.2 is now available for download and is a general bug fix release.

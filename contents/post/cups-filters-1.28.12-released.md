@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Bug fix release, again backports of cups-filters 2.x, page geometry fixes for
   print-scaling and number-up, cups-browsed, serial backend
+date: '2022-02-17'
 ---
 Bug fix release, containing backports of many of the bugs recently fixed during the preparation of the cups-filters 2.x release. This time many page geometry bugs in the pdftopdf and imageto... filters were fixed especially with `print-scaling` and `number-up`, but also bugs in cups-browsed and in the serial backend got fixed.
 - imagetoraster, imagetopdf: Fixed comparison of the image size with the page size for print-scaling=auto. The image size in pixels was compared with the page size in PostScript points (1/72 inch).

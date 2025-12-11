@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   GSoC, PostScript Printer Application and PIN-based printing, Retro-fitting
   CUPS printer drivers, cups-filters 1.28.9
+date: '2021-06-14'
 ---
 ## Want more news?
 Are you always eagerly waiting until I issue my next news post here after a month?

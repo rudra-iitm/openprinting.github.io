@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   No conference without solid support - Wide range of sponsorship packages
   available
+date: '2025-07-18'
 ---
 The [Opportunity Open Source](https://oosc3ubucon.netlify.app/) is not only an awesome conference because of its speakers, or its audience, but also because of its sponsors. Without them, the event would not be possible, or at least not such a success ...
 

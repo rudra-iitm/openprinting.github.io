@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   Ubuntu Indaba with Michael Sweet and me, Recording on YouTube, Ghostscript
   Printer Application, Ubuntu 21.10 IPP Printing
+date: '2021-08-27'
 ---
 ## The first News Flash
 A lot of new things to talk about, so I do not want tolet you wait until the September News Post here. So here we go, the first News Flash between the months!

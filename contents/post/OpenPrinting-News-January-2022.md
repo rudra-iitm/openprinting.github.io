@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   GSoC 2022 timeline, approaching cups-filters 2.x, PAPPL 1.1.0, LPrint 1.1.0
   PAPPL_based, PDFio 1.0.0, cups-filters 1.28.11
+date: '2022-01-16'
 ---
 ## Google Summer of Code 2022
 Save the dates! The [timeline for 2022](https://developers.google.com/open-source/gsoc/timeline) is out!

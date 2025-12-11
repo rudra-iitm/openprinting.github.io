@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Ubuntu Indaba, Linux Plumbers, GSoC progress, Retro-fitting CUPS drivers with
   easy option setting and backends, CUPS, cups-filters
+date: '2021-08-13'
 ---
 ## The Ubuntu Desktop Indabas and OpenPrinting
 From the [announcement](https://discourse.ubuntu.com/t/ubuntu-desktop-team-indaba-ama-august-27-2021-5pm-utc/):

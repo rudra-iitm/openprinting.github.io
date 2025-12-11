@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Fifth beta to communicate D-Bus-only, without auxiliary files, so that it
   works with sandboxed packaging
+date: '2023-08-02'
 ---
 We are now releasing the fifth beta of the second generation of the Common Print Dialog Backends (CPDB).
 

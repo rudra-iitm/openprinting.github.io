@@ -5,6 +5,7 @@ author: Zdenek
 excerpt: >-
   Pycups 2.0.3 contains changes related to deprecations and removals in newer
   Python3 versions.
+date: '2024-04-17'
 ---
 
 pycups 2.0.3 contains changes from 2.0.2 - mainly changes related to newer Python3 versions:

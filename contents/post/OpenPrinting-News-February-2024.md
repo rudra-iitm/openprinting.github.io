@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   CUPS Snap on Ubuntu Touch, FOSDEM 2024, OpenPrinting Summit/PWG online, GUADEC
   2024, OSS & Plumbers in Vienna, GSoC 2024, Updates of Printer Applications
+date: '2024-02-24'
 ---
 Good News! The [**CUPS Snap works with Ubuntu Touch**](#cups-snap-on-ubuntu-touch), the smartphone operating system formerly created, maintained, and discontinued by Canonical and continued by the community organization UBPorts. So the CUPS Snap has a good chance to get the official printing stack for this system.
 

@@ -3,6 +3,7 @@ title: CUPS 2.4.12
 layout: single
 author: Zdenek
 excerpt: CUPS 2.4.12 brings enhancements in IPP encryption and debugging
+date: '2025-04-08'
 ---
 
 The last planned release of CUPS 2.4.x series (the next will be 2.5.x series) contains several enhancements among set of bug fixes, such following cryptographic policies when using GnuTLS crypto provider and possibility to opt-out from this behavior, logging job debugging history if print queue backends fails, or raising alerts for certificate issues in IPPS backend.

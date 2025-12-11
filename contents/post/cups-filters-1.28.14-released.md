@@ -6,6 +6,7 @@ excerpt: >-
   Bug fix release to get correct PDF output when using "landscape",
   "orientation-requested", and/or "nopdfAutoRotate" options, and to get PCLm
   printing work on printers not telling their PCLM default resolution.
+date: '2022-04-04'
 ---
 Bug fix release to get correct PDF output when using "landscape", "orientation-requested", and/or "nopdfAutoRotate" options, and to get PCLm printing work on printers not telling their PCLM default resolution.
 - pdftopdf: Correct the output when suppressing auto-rotation (option "nopdfAutoRotate"). Depending on the situation pages got cropped in the wrong orientation or de-centered.

@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Coverity scans and appropriate fixes, QPDF 11+ compatibility, cupstestppd
   successor, lots of bug fixes
+date: '2023-02-23'
 ---
 Continuing the packaging for Debian, Ubuntu, and Red Hat distributions more bugs got found and fixed.
 

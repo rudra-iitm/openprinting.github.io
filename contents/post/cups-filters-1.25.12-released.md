@@ -7,6 +7,7 @@ excerpt: >-
   printers when Poppler is used as PDF interpreter, to allow printing on
   printers which claim to accept PWG Raster but actually do not print this
   format, and to eliminate all compiler warnings when building the package
+date: '2019-11-12'
 ---
 Bug fix release, to address a bug of grayscale jobs not printed on PostScript printers when Poppler is used as PDF interpreter, to allow printing on printers which claim to accept PWG Raster but actually do not print this format, and to eliminate all compiler warnings when building the package
 

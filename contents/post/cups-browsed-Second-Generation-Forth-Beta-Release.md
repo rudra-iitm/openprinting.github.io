@@ -3,6 +3,7 @@ title: cups-browsed Second Generation - Forth Beta Release!
 layout: single
 author: Till
 excerpt: 'Test script, for `make check`, CI, autopkgtest, ... and several bug fixes'
+date: '2023-03-16'
 ---
 In this forth beta we have added a test script, to give `make check` functionality but also for using it in the autopkgtests of debian/Ubuntu and for general CI. We also found and fixed many bugs in cups-browsed itself during the development of the script.
 

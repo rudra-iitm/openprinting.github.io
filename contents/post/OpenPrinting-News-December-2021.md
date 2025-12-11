@@ -3,6 +3,7 @@ title: OpenPrinting News - December 2021
 layout: single
 author: Till
 excerpt: 'Testing and bug fixing to approach cups-filters 2.x, CUPS 2.4.0, PAPPL 1.1rc1'
+date: '2021-12-09'
 ---
 This month's news post is somewhat shorter, as not many important features, milestones, or great new ideas we have to talk about. I mainly tested cups-filters and fixed bugs to approach its 2.0.0 release.
 

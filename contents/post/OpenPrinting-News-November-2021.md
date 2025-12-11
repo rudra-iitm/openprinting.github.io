@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Google Summer of Code 2022, all free drivers in Printer Application Snaps,
   Legacy Printer Application, CUPS 2.4rc1, PAPPL 1.1b3
+date: '2021-11-14'
 ---
 ## Google Summer of Code 2022
 On November 5 the virtual Mentor Summit of GSoC 2021 has taken place and there the organization team of the GSoCs at Google has announced that we will have a GSoC again in 2022!

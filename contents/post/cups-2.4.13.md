@@ -3,6 +3,7 @@ title: CUPS 2.4.13
 layout: single
 author: Zdenek
 excerpt: CUPS 2.4.13 fixes important and moderate vulnerabilities
+date: '2025-09-11'
 ---
 
 The release 2.4.13 brings two CVE fixes - fix for important CVE-2025-58060 and fix for moderate CVE-2025-58364, together with several bug fixes.

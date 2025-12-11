@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Now we are really close - Resolution handling, mirrored output, no output at
   all, beh vulnerability, cups-browsed 100% CPU, libppd vs. CUPS sync
+date: '2023-06-20'
 ---
 After the [cups-filters 2.x release party in Brno](https://openprinting.github.io/OpenPrinting-News-May-2023/#linux-app-summit-2023) (Ubuntu 23.04 and Fedora 38 with 2.0rc1) there also came the first bug reports from users. And together with other fixes a lot of stuff came together, so I decided to issue a second release candidate before actually landing the final.
 

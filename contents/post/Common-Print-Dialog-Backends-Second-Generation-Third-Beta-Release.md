@@ -3,6 +3,7 @@ title: Common Print Dialog Backends Second Generation - Third Beta Release!
 layout: single
 author: Till
 excerpt: Third beta to improve translation support
+date: '2023-02-20'
 ---
 We are now releasing the third beta of the second generation of the Common Print Dialog Backends (CPDB).
 

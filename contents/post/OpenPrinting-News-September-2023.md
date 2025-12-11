@@ -8,6 +8,7 @@ excerpt: >-
   40 years of GNU, Opportunity Open Source in IIT Mandi, India, DebConf 2023 in
   Kochi, India, R. I. P. Abraham Raji, Ubuntu Summit 2023 in Riga, GSoC 2023,
   cups-filters 2.0.0, PAPPL 1.4.0, CUPS 3.x
+date: '2023-09-29'
 ---
 We are all talking about Open Source or, more correctly, Free Software, and others are just talking about Linux, which is only a small part of it, but many do not know when and how it all began.
 

@@ -3,6 +3,7 @@ title: OpenPrinting Microconference on Linux Plumbers Conference 2020
 layout: single
 author: Till
 excerpt: We are on the Plumbers again! And this time with live stream on YouTube!
+date: '2020-08-24'
 ---
 **Update:** [Recording on YouTube](https://youtu.be/MPGh9FUW4as)
 

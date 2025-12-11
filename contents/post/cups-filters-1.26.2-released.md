@@ -6,6 +6,7 @@ excerpt: >-
   Bug fix release mainly to make cups-browsed correctly working with a CUPS
   daemon on a non-standard port, and also for cups-filters smoothly building
   with GCC 10
+date: '2020-01-13'
 ---
 Bug fix release mainly to make cups-browsed correctly working with a CUPS daemon on a non-standard port, and also for cups-filters smoothly building with GCC 10
 - cups-browsed: Added crash guards to avoid crashes in case the dummy printer entry for a deleted master entry is used.

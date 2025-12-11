@@ -9,6 +9,7 @@ author: Till
 excerpt: >-
   We will just run the OOSC, as last year, without UbuCon ... And we need more
   session proposals ...
+date: '2025-07-07'
 ---
 Unfortunately, due to some unavoidable circumstances we are not having a joint event. Therefore, we will have the Opportunity Open Source, as originally planned, **on September 5-7 in the IIT Kanpur, but without UbuCon India**. We will focus, as in the first two editions, in 2023 and 2024, on introducing students, and also professors and researchers, at universities and colleges in India.
 

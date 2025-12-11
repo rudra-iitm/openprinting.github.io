@@ -9,6 +9,7 @@ author: Till
 excerpt: >-
   We accept proposals up to the conference dates, but we already start accepting
   and scheduling
+date: '2025-07-16'
 ---
 The [Opportunity Open Source](https://oosc3ubucon.netlify.app/) comes closer, but after our first extension of the deadline for the [Call for Proposals](https://events.canonical.com/event/134/abstracts/) we still have a lot free space in our schedule.
 

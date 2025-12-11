@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   The contributors have passed the midterm evaluations and their projects are
   taking shape ... And we also have some volunteers!
+date: '2025-08-21'
 ---
 We are well in the middle of our journey now and everybody is doing great. This is the forth post about this year's Google Summer of Code, after the [presentation of our project ideas](/OpenPrinting-News-Google-Summer-of-Code-2025-Project-Ideas-List-posted/), [the Linux Foundation being accepted as mentoring organization](/OpenPrinting-News-Google-Summer-of-Code-2025-The-Linux-Foundation-is-accepted-as-mentoring-organization/), and the [first reports from the contributors](/OpenPrinting-News-Google-Summer-of-Code-2025-Contributors-selected-and-projects-started/) we present now the second reports of most contributors.
 

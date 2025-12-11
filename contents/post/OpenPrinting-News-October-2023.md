@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   Ubuntu Summit 2023 in Riga, GSoC 2023, CPDB CUPS backend Snap, libcups3
   support, PAPPL 1.4.2, CUPS 2.4.7, libcups 3.0b2
+date: '2023-10-31'
 ---
 Probably many of you are using a modern driverless multi-function printer and scanner device, and it does not only print but also scan perfectly on your Linux system, or you have your driverless printer connected via USB and it also just works without any device-model-specific driver.
 

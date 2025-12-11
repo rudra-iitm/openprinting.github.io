@@ -3,6 +3,7 @@ title: PAPPL 1.4.8
 layout: single
 author: Mike
 excerpt: PAPPL v1.4.8 is a bug fix release.
+date: '2024-11-14'
 ---
 
 PAPPL v1.4.8 is now available for download and is a bug fix release.  Changes include:

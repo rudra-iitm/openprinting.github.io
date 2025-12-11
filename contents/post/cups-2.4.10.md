@@ -3,6 +3,7 @@ title: CUPS 2.4.10
 layout: single
 author: Zdenek
 excerpt: CUPS 2.4.10 fixes regression for domain socket-only setups
+date: '2024-06-18'
 ---
 
 CUPS 2.4.10 brings two fixes:

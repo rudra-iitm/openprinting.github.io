@@ -5,6 +5,7 @@ author: Mike
 excerpt: >-
   libcups v3.0rc4 is the fourth release candidate of the CUPS v3 library and
   tools which remove deprecated APIs, add new APIs, and normalize existing APIs.
+date: '2025-03-18'
 ---
 
 libcups v3.0rc4 is the fourth release candidate of the CUPS v3 library and tools which remove deprecated APIs, add new APIs, and normalize existing APIs.  Changes include:

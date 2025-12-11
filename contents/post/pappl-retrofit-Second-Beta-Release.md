@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   pappl-retrofit 1.0b2 - Fix issues in source code docs and allow installation
   of Legacy Printer Application as permanently running system daemon.
+date: '2023-02-08'
 ---
 This is the second beta release of the upcoming pappl-retrofit 1.0.0, to fix some issues in the source code documentation and to allow installation of the Legacy Printer Application as a permanently running system daemon.
 - Support for Legacy Printer Application as system daemon

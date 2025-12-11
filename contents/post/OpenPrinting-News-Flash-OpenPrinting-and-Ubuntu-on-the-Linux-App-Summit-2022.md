@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   LAS 2022 in Rovereto, Italy - OpenPrinting talk and Ubuntu 22.04 LTS Release
   parties
+date: '2022-04-25'
 ---
 I will be on this year's [Linux Application Summit](https://conf.linuxappsummit.org/event/4/overview) on April 29 and 30 in Rovereto, Italy, near the Lake Garda!
 

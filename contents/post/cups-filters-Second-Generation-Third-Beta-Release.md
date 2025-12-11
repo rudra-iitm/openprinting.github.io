@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   More bug fixes, especially for those discovered during the distro packaging,
   mainly in build system and source code documentation.
+date: '2023-01-31'
 ---
 During creation of the Debian, Ubuntu, and Red Hat packages for the components of the 2nd-generation of cups-filters and also during the investigation of reported issues some more bugs got discovered and fixed.
 

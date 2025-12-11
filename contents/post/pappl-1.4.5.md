@@ -3,6 +3,7 @@ title: PAPPL 1.4.5
 layout: single
 author: Mike
 excerpt: PAPPL v1.4.5 is a bug fix release.
+date: '2024-01-26'
 ---
 
 PAPPL v1.4.5 is now available for download and is a bug fix release.  Changes include:

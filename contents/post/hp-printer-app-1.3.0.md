@@ -5,6 +5,7 @@ author: Mike
 excerpt: >-
   HP Printer Application v1.3.0 adds support for snap server configuration
   settings and updates the builds.
+date: '2024-02-09'
 ---
 
 HP Printer Application v1.3.0 adds support for snap server configuration

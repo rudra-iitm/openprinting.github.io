@@ -5,6 +5,7 @@ author: Mike
 excerpt: >-
   libcups v3.0rc3 is the third release candidate of the CUPS v3 library and
   tools which remove deprecated APIs, add new APIs, and normalize existing APIs.
+date: '2024-10-22'
 ---
 
 libcups v3.0rc3 is the third release candidate of the CUPS v3 library and tools which remove deprecated APIs, add new APIs, and normalize existing APIs.  Changes include:

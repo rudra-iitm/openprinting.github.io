@@ -3,6 +3,7 @@ title: Common Print Dialog Backends Second Generation - Second Beta Release!
 layout: single
 author: Till
 excerpt: With the CPDB support accepted upstream into GTK we release the second beta
+date: '2023-02-13'
 ---
 We are now releasing the second beta of the second generation of the Common Print Dialog Backends (CPDB).
 

@@ -8,6 +8,7 @@ excerpt: >-
   Printer Applications under Windows, Pages about our work, Linux Plumbers,
   Ubuntu Summit, GUADEC, GSoC, CPDB 2.x, "cups" snapd interface, cups-filters
   2.x
+date: '2022-08-19'
 ---
 ## Using Windows? We can help you, too.
 In March 2019, right before the pandemic broke out, on a Canonical-internal conference, I entered the team room of my team, the Desktop Team, and my colleague Heather Ellsworth introduced me to another person, saying:

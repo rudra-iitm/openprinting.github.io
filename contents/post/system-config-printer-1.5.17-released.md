@@ -3,6 +3,7 @@ title: system-config-printer 1.5.17 released!
 layout: single
 author: Till
 excerpt: Release covering half a year of bug fixes and translations
+date: '2022-08-24'
 ---
 Release covering half a year of bug fixes and translations
 - Migrate from deprecated splittype to urlparse (#268)

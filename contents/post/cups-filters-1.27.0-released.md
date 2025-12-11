@@ -6,6 +6,7 @@ excerpt: >-
   In this release cups-browsed does not need to know the port number of the CUPS
   daemon it is attached to any more when it connects via domain socket and many
   additional filters support zero-page jobs now
+date: '2020-01-26'
 ---
 In this release cups-browsed does not need to know the port number of the CUPS daemon it is attached to any more when it connects via domain socket and many additional filters support zero-page jobs now
 - cups-browsed: Eliminate the use of the local CUPS daemon's (the CUPS we are attached to) port number completely, so that for attaching to an arbitrary local CUPS daemon listening on an arbitrary port (or even not listening on localhost at all) it is enough to tell cups-browsed the domain socket the CUPS daemon is listening on.

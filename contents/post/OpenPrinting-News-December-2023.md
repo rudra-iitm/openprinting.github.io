@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   Fax?!, New Architecture under Windows, from Ubuntu Summit 2023 into YouTube
   and Podcasts, FOSDEM 2024, GSoC 2024, Mailing list moving
+date: '2023-12-15'
 ---
 2023 is coming to an end and this is the last news post of this busy year. 8 conferences, an attempt to switch Ubuntu 23.10 to use the CUPS Snap, 4 GSoC contributors doing amazing work ...
 

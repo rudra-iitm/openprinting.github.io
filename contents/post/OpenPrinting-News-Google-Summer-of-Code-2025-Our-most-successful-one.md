@@ -5,6 +5,7 @@ toc: true
 toc_sticky: true
 author: Till
 excerpt: That's a wrap! All the 11 contributors have made it!
+date: '2025-11-20'
 ---
 The [Google Summer of Code 2025](https://summerofcode.withgoogle.com/programs/2025/organizations/the-linux-foundation) has come to its end! And since we started participating back in 2008 this edition was the best one for us, with 11 contributors having delivered amazing work, nobody has failed this time.
 

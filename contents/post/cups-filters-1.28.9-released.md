@@ -3,6 +3,7 @@ title: cups-filters 1.28.9 released!
 layout: single
 author: Till
 excerpt: 'Bug fix release, fixes backported from the master (2.x) branch'
+date: '2021-06-15'
 ---
 Bug fix release, fixes backported from the master (2.x) branch.
 - libcupsfilters: Silenced compiler warnings

@@ -6,6 +6,7 @@ excerpt: >-
   CUPS 2.3.3op1 is the first OpenPrinting CUPS release which fixes many bugs,
   incorporates common Linux distribution changes, and provides several IPP
   Everywhere improvements.
+date: '2020-11-27'
 ---
 
 CUPS 2.3.3op1 is the first OpenPrinting CUPS release which fixes many bugs,

@@ -7,6 +7,7 @@ excerpt: >-
   Linux Foundation accepted as GSoC mentoring organization, PAPPL Printer
   Application Framework, Avahi 0.8.0 released with localhost support, AirScan in
   Ubuntu 20.04, cups-filters 1.27.3, ippusbxd 1.34
+date: '2020-03-20'
 ---
 ## OpenPrinting Summit/PWG Meeting Virtual
 

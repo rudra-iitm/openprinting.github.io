@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   GSoC 2023 project ideas and more, LAS 2023 in Brno, New Architecture going
   into Debian/Ubuntu, cups-filters fixes and 2.0b2, LPrint 1.2.0, PAPPL 1.3.1
+date: '2023-01-19'
 ---
 Have you already been in need of a new printer and wanted to make sure it works with your prefered operating system, Linux? If this happened longer ago you had to find out whether there is a driver, in most cases one not coming from the manufacturer amd you were looking up the printer models interesting for you in [our database](http://www.openprinting.org/printers/), often with the frustration that they were not listed at all or categorized as a "Paperweight".
 

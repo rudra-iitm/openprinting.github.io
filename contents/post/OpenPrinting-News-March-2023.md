@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   LAS 2023 in Brno, GUADEC 2023 in Riga, GSoC 2023, cups-filters 2.x in Ubuntu
   23.04, libcupsfilters with libcups 3.x, CPDB 2.0b4, cups-browsed 2.0b4
+date: '2023-03-28'
 ---
 I am again late with this month's news, but now a very important step is done: The second generation of cups-filters has [made it into Ubuntu](#cups-filters-20b4-in-ubuntu-2304), version 23.04, the Lunar Lobster! After a lot of hard work adding missing requirements, especially programs and scripts for automatic testing of each build and each upload, and after getting the all the code security-audited, the new packages landed in time on last Friday, 3 days before Beta Freeze yesterday (March 27).
 

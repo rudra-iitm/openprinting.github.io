@@ -5,6 +5,7 @@ author: Zdenek
 excerpt: >-
   CUPS 2.4.3 brings the fix for CVE-2023-32324, several improvements and a ton
   of bug fixes
+date: '2023-06-01'
 ---
 
 CUPS 2.4.3 brings fix for CVE-2023-32324, several improvements and many bug fixes. CUPS now implements fallback for printers with broken firmware, which is not capable of answering to IPP request `get-printer-attributes` with `all, media-col-database` - this enables driverless support for bunch of printers which don't follow IPP Everywhere standard. Aside from the CVE fix the most important fixes are around color settings, printer application support fixes and OpenSSL support.

@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   New pages about our work, GUADEC, GSoC 2022 projects, "cups" snapd interface
   bugs fixed, PPD-independent cups-filters 2.x, CUPS
+date: '2022-07-14'
 ---
 ## New web pages about our work
 At Canonical I got told some weeks ago that someone asked what Canonical is doing for printing with Linux. The person seems not having been aware that Canonical is paying me to lead OpenPrinting full-time.

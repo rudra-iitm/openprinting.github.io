@@ -3,6 +3,7 @@ title: OpenPrinting Live in the Ubuntu Office Hours
 layout: single
 author: Till
 excerpt: Our success in the Google Summer of Code in the Ubuntu Community Live Event
+date: '2021-10-05'
 ---
 ## The Summer of Printers in the Ubuntu Office Hours
 Once a week, every Thursday in the US morning and the European afternoon on the "[Ubuntu OnAir](https://ubuntu.com/blog/ubuntuonair)" YouTube channel of the Ubuntu community, the live event "Ubuntu Office Hours" is taking place. In each episode a free software community member is invited to tell about his project and what is happening in its community.

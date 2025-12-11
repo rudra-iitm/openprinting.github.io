@@ -3,6 +3,7 @@ title: LPrint 1.3.1
 layout: single
 author: Mike
 excerpt: LPrint v1.3.1 is a bug fix release.
+date: '2024-02-09'
 ---
 
 LPrint v1.3.1 is a bug fix release.  Changes include:

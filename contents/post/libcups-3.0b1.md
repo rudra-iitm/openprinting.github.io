@@ -5,6 +5,7 @@ author: Mike
 excerpt: >-
   libcups v3.0b1 is the first beta release of the CUPS v3 library and tools
   which remove deprecated APIs, add new APIs, and normalize existing APIs.
+date: '2023-02-09'
 ---
 
 libcups v3.0b1 is the first beta release of the CUPS v3 library and tools which remove deprecated APIs, add new APIs, and normalize existing APIs.  Changes include:

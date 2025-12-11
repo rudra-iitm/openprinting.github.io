@@ -6,6 +6,7 @@ excerpt: >-
   Bug fix release, to make the cups-browsed-generated local print queues
   actually work on all OS distributions and to get legacy (not actually designed
   for driverless IPP) printers better working
+date: '2020-01-02'
 ---
 Bug fix release, to make the cups-browsed-generated local print queues actually work on all OS distributions and to get legacy (not actually designed for driverless IPP) printers better working
 - build system: Install the "implicitclass" backend with `-rwx------` permissions, so that CUPS executes it as root, as the "ipp" CUPS backend also has to be executed as root (Issue #183).

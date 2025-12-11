@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   5 students for GSoC; LP applies for Google Season of Docs; Progress of PAPPL,
   Driverless Scanning, and CUPS Snap, cups-filters license change
+date: '2020-04-10'
 ---
 
 ## Google Summer of Code 2020

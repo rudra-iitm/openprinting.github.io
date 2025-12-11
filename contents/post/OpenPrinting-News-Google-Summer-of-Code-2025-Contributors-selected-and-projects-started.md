@@ -9,6 +9,7 @@ author: Till
 excerpt: >-
   11 Contributors on CUPS 3.x desktop integration, fuzz testing, visual analysis
   of print filter output, Rust support, and more ...
+date: '2025-06-26'
 ---
 A lot of things happened since [my last post about this year's GSoC](/OpenPrinting-News-Google-Summer-of-Code-2025-The-Linux-Foundation-is-accepted-as-mentoring-organization/). We got a lot of applications and had to make a way to find the best candidates, we needed to line up a vast amount of mentors, we needed to rank our projects mixed with other projects of the Linux Foundation to not step on anybody's toes, we needed to get around with the actual contributor slot count we got, we needed to agree on an individual coding period with each contributors and set final submission deadlines accordingly, ... A lot of things to do to get the best out of the GSoC ...
 

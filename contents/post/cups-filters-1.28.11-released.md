@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Bug fix release, containing backports of many of the bugs recently fixed
   during the preparation of the cups-filters 2.x release.
+date: '2022-01-15'
 ---
 Bug fix release, containing backports of many of the bugs recently fixed during the preparation of the cups-filters 2.x release. Important is that cups-browsed's queue naming is aligned with CUPS' temporary queue naming now and several bugs affecting driverless printing are fixed.
 - libcupsfilters: Let PPD generator take default ColorModel from printer (CUPS issue #277).

@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   Ubuntu 23.04 release, LAS 2023 in Brno, GSoC 2023, Release Candidate for
   cups-filters 2.0.0, CPDB support in print dialogs
+date: '2023-04-14'
 ---
 Not long ago that there were the [March News](/OpenPrinting-News-March-2023/), and now we already have the April ones! April News contain important announcements and therefore they cannot be late, usually the new [Ubuntu release](#ubuntu-2304-lunar-lobster-is-coming), and the latest and greatest about the upcoming [Linux App Summit](#linux-app-summit-2023). But no April fool's pranks, like [this one](https://news.itsfoss.com/ubuntu-ditch-snap/), for that we are too late. But don't worry, we will go on [snappy](https://snapcraft.io/search?q=OpenPrinting) ...
 

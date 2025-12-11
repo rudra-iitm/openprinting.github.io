@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   RISC-V board for OpenPrinting for development and testing, getting it all to
   work, Ubuntu Desktop, Snap on RISC-V
+date: '2025-03-02'
 ---
 ## From a RISC-V SBC to a shiny RISC-V Framework motherboard
 On the [Ubuntu Summit 2024 in the Hague](/OpenPrinting-News-October-2024/#ubuntu-summit-2024-in-the-hague) end-October 2024 there was a booth of [DeepComputing](https://deepcomputing.io/), manufacturer of RISC-V-based laptops and consumer electronics, right next to the booth of [Framework](https://frame.work/), manufacturer of the famous modular, easiliy repairable and upgradeable laptops. At the DeepComputing booth I met DeepComputing's founder Yuning Liang (his Ubuntu Summit [talk](https://events.canonical.com/event/51/contributions/518/), [slides](https://docs.google.com/presentation/d/1Z3_dOIojdL3FHTfyEGkcFXrI0KNTyWMC/edit), [video](https://www.youtube.com/watch?v=RFQ_TvCYBYM)) and told him of OpenPrinting and **he gave me a RISC-V-based SBC for testing OpenPrinting's software on this platform**.

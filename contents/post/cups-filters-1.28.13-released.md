@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Bug fix release, for correct printing on printers which take in the paper
   long-edge-first and for Apple LaserWriter printers
+date: '2022-03-27'
 ---
 Bug fix release, for correct printing on printers which take in the paper long-edge-first and for Apple LaserWriter printers.
 - pdftopdf: Fix N-up printing when paper is taken long-edge-first by the printer.

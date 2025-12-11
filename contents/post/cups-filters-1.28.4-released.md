@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Bug fix release, mainly to solve CUPS performance problems caused by the IPP
   fax support of the "driverless" utility
+date: '2020-10-08'
 ---
 Bug fix release, mainly to solve CUPS performance problems caused by the IPP fax support of the "driverless" utility
 - driverless: Avoid duplicate PPD list entries from the same device via UUID

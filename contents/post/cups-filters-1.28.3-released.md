@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Bug fix release to sove problems caused by an inconsistency between the
   resolvers for DNS-SD-based URIs
+date: '2020-09-24'
 ---
 Bug fix release to sove problems caused by an inconsistency between the resolvers for DNS-SD-based URIs
 - libcupsfilters, cups-browsed: Fixed inconsistency between resolvers for DNS-SD-based URIs, resolve_uri() and ippfind_based_uri_converter(). Now both return a freeable string.

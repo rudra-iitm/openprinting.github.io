@@ -3,6 +3,7 @@ title: CUPS 2.4.6
 layout: single
 author: Zdenek
 excerpt: CUPS 2.4.6 brings fix for CVE-2023-34241
+date: '2023-06-22'
 ---
 
 CUPS 2.4.6 is released to ship the fix for the latest CVE - CVE-2023-34241 - and two other bug fixes.

@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Bug fix release to fix several bugs in the new IPP Fax Out support by the
   "driverless" utility and also to fix some minor issues
+date: '2020-08-26'
 ---
 Bug fix release to fix several bugs in the new IPP Fax Out support by the "driverless" utility and also to fix some minor issues
 - COPYING: Fixed several typos

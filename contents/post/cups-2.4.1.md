@@ -5,6 +5,7 @@ author: Zdenek
 excerpt: >-
   CUPS 2.4.1 is the first bug fix release from 2.4.x series. Among the other bug
   fixes it fixes sharing default color mode to clients and several memory leaks.
+date: '2022-01-27'
 ---
 
 CUPS 2.4.1 is the first bug fix release from 2.4.x series. Among the other bug fixes it fixes sharing default color mode to clients and several memory leaks.

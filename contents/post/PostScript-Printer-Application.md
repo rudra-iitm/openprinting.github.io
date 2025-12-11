@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   The PostScript Printer Application, first PAPPL-based non-Raster Printer
   Application, retro-fitting PPD files
+date: '2020-10-26'
 ---
 ## PostScript Printer Application
 After having all needed filter functions and PPD file collection handling implemented in cups-filters and having the [HP PCL Printer Application](https://github.com/michaelrsweet/hp-printer-app) as example I have created a **Printer Application for PostScript printers**.

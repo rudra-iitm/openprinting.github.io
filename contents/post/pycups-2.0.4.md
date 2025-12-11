@@ -3,6 +3,7 @@ title: Pycups 2.0.4
 layout: single
 author: Zdenek
 excerpt: Pycups 2.0.4 hotfix release
+date: '2024-04-18'
 ---
 
 The hotfix release removes install_requires from setup.py, which is used for generating OS requirements.

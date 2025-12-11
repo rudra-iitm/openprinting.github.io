@@ -5,6 +5,7 @@ author: Mike
 excerpt: >-
   PAPPL v1.3.0 adds new job management, image printing, localization, and
   configuration features.
+date: '2022-12-02'
 ---
 
 PAPPL v1.3.0 is now available for download and adds new job management, image

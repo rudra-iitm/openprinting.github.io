@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   HP madness, Framework printer?, tattoo printer, FOSDEM 2024, GSoC 2024, Snap
   automation, User mailing list
+date: '2024-01-24'
 ---
 You probably remember the [October News](/OpenPrinting-News-October-2023/), where, based on experience of some colleagues and also based on discussions on Mastodon, I changed from recommending HP printers to Brother printers. Unfortunately, there are [many more reasons](#hp-madness) to move on from the formerly well-respected printer manufacturer, mainly their agressive enforcement of their razor-and-blades business model.
 

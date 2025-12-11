@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   GSoC 2022 projects posted, printer setup tool and print dialog, CUPS Snap
   integration, approaching cups-filters 2.x, CUPS 2.4.1
+date: '2022-02-13'
 ---
 ## Google Summer of Code 2022
 

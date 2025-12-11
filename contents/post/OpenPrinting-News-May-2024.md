@@ -8,6 +8,7 @@ excerpt: >-
   20 Years!! CUPS 3.x postponed to mid-2025, OpenPrinting Summit/PWG Meeting,
   GUADEC 2024, aKademy 2024, UbuCon Asia 2024, GSoC 2024, CPDB Snap, Open
   Documentation Academy
+date: '2024-05-23'
 ---
 
 This year is the **20th anniversary**!

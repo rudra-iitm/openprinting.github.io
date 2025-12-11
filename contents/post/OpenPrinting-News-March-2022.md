@@ -6,6 +6,7 @@ excerpt: >-
   Linux Foundation accepted as GSoC 2022 org, "cups" Snap interface for
   applications ready, Snap vs. Flatpak for printing, approaching cups-filters
   2.x, Ghostscript and driverless IPP
+date: '2022-03-18'
 ---
 ## Google Summer of Code 2022
 

@@ -6,6 +6,7 @@ excerpt: >-
   OpenPrinting Micro-Conference on Linux Plumbers, OpenPrinting in Ubuntu Office
   Hours, GSoC results, pappl-retrofit, Ghostscript and HPLIP Printer
   Applications
+date: '2021-09-16'
 ---
 ## Debian has a new printing maintainer!
 Didier Raboud ("OdyX") is going on a 6-month sabbatical and therefore leaving his position as printing guru of Debian. Thorsten Alteholz is overtaking here. OdyX and me have introduced him and he already started off well.

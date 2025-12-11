@@ -9,6 +9,7 @@ author: Till
 excerpt: >-
   A conference is great because its content is amazing, therefore we need more
   ...
+date: '2025-06-16'
 ---
 We are currently in the middle of the preparations for another awesome [Opportunity Open Source](https://oosc3ubucon.netlify.app/), this time co-located with the first UbuCon India. We have already reserved the space in the IIT Kanpur (where we have also been last year), lined up a volunteer team for all the on-location organization work, contacted potential sponsors and potential speakers, announced the event on several platforms, ...
 

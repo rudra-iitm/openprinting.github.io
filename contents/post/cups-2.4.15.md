@@ -3,6 +3,7 @@ title: CUPS 2.4.15
 layout: single
 author: Zdenek
 excerpt: CUPS 2.4.15 fixes two CVEs in scheduler
+date: '2025-11-27'
 ---
 
 The release CUPS 2.4.15 brings two CVE fixes:

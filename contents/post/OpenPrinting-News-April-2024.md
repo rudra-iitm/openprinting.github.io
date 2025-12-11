@@ -8,6 +8,7 @@ excerpt: >-
   Releases of Ubuntu 24.04, Fedora 40, MS-DOS 4.0, OpenPrinting Summit/PWG
   Meeting, LAS 2024, GSoC 2024, system-config-printer revival, KDE Print
   Manager, CUPS 2.4.8, pycups 2.0.4
+date: '2024-04-30'
 ---
 We had three releases of free software operating systems in the last weeks. Both Ubuntu and Fedora came with their 40th release! [Ubuntu 24.04 LTS](https://www.omgubuntu.co.uk/2024/04/ubuntu-24-04-lts-20-changes-to-look-out-for) (Long Term Support) and Fedora 40. Unfortunately we did not have a [Linux App Summit for a joint release party](/OpenPrinting-News-April-2023/#release-party) in that week. This year the [Linux App Summit](#linux-app-summit-2024) will only take place in October (so one could celebrate 20 years of Ubuntu there).
 

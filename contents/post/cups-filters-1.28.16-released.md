@@ -6,6 +6,7 @@ excerpt: >-
   Bug fix release, to make images be printed in their original size with
   "print-scaling=none" and to not use deprecated data types for reading TIFF
   images.
+date: '2022-08-24'
 ---
 Bug fix release, to make images be printed in their original size with "print-scaling=none" and to not use deprecated data types for reading TIFF images.
 - imagetoraster, imagetopdf, libcupsfilters: Added support for reading the resolution of an image from its EXIF data when loading it. This way we get the image reproduced in its original size with "print-scaling=none" (Issue #362).

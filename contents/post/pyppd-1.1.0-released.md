@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   Vastly reduced memory consumption when extracting a PPD file and incorporated
   the patches of the Debian/Ubuntu package
+date: '2020-02-26'
 ---
 Vastly reduced memory consumption when extracting a PPD file and incorporated the patches of the Debian/Ubuntu package
 

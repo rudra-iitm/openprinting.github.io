@@ -6,6 +6,7 @@ excerpt: >-
   CUPS 2.4.0 is the latest stable OpenPrinting CUPS release. Among the changes
   from beta and release candidate the stable release adds two new configuration
   options for optimizing cupsd setup on servers and several other changes.
+date: '2021-11-29'
 ---
 
 CUPS 2.4.0 is the latest stable OpenPrinting CUPS release. Among the changes from beta and release candidate the stable release adds two new configuration options for optimizing cupsd setup on servers and several other changes.

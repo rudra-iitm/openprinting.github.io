@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   OpenPrinting Summit/PWG Meeting, GSoC, GSoD, CUPS Snap proxy mode, PostScript
   Printer Application, CUPS
+date: '2021-05-21'
 ---
 ## OpenPrinting Summit/PWG Meeting
 

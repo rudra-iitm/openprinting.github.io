@@ -3,6 +3,7 @@ title: CUPS 2.3.3op2
 layout: single
 author: Mike
 excerpt: CUPS 2.3.3op2 is the latest OpenPrinting CUPS security and bug fix release.
+date: '2021-02-01'
 ---
 
 CUPS 2.3.3op2 is the latest OpenPrinting CUPS security and bug fix

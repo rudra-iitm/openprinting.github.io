@@ -8,6 +8,7 @@ excerpt: >-
   Ubuntu 22.10 Kinetic Kudu, Ubuntu Summit, GSoC 2022, CPDB 2.x, "cups" snapd
   interface, cups-filters 2.0, retro-fitting Printer Applications, foomatic-db
   daily snapshots, PAPPL 1.2.3
+date: '2022-10-20'
 ---
 ## Today is Release Day, of Ubuntu 22.10 (Kinetic Kudu)!
 It is not yet switching to the New Architecture for printing and scanning, but has a lot of nice new features, mainly GNOME 43 with a new quick settings panel, Ubuntu Desktop section in System Settings, Nautilus and System Settings with window layout adapting to the window size, improved dock, ... Also the audio stack is based on the new PipeWire which has less bugs than the old PulseAudio and makes especially Bluetooth audio devices work more reliably.

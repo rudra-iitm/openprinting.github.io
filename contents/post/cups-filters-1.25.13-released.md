@@ -8,6 +8,7 @@ excerpt: >-
   the PPD generator to catch up with the one of CUPS. Prefer Apple Raster
   instead of PWG Raster as some printers have bugs in their PWG Raster
   implementation.
+date: '2019-11-29'
 ---
 Bug fix release, mainly to solve problems of cups-browsed, mainly for compatibility problems with some printers, leaks, and crashes. Also updated the PPD generator to catch up with the one of CUPS. Prefer Apple Raster instead of PWG Raster as some printers have bugs in their PWG Raster implementation.
 - implicitclass: When passing on the job via the "ipp" CUPS backend, set argv[0] to the destination printer URI (Pull request #173).

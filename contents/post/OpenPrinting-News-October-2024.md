@@ -8,6 +8,7 @@ excerpt: >-
   5 years of OpenPrinting News, Festa do Software Livre/UbuCon Portugal 2024,
   Ubuntu Summit 2024, 4 times in Podcast Ubuntu Portugal, GSoC 2024 completed,
   new releases
+date: '2024-11-25'
 ---
 **This month we have the 5th anniversary of the OpenPrinting News!**
 

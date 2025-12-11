@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   pappl-retrofit 1.0b1 - Library for converting classic CUPS drivers/PPD files
   into Printer Applications
+date: '2022-12-09'
 ---
 This is the first beta release of the upcoming pappl-retrofit 1.0.0.
 

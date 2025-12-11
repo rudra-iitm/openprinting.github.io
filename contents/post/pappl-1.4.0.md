@@ -3,6 +3,7 @@ title: PAPPL 1.4.0
 layout: single
 author: Mike
 excerpt: PAPPL v1.4.0 is a feature release.
+date: '2023-09-28'
 ---
 
 PAPPL v1.4.0 is now available for download and is a feature release.  Changes in 1.4.0 include:

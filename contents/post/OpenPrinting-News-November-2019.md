@@ -8,6 +8,7 @@ excerpt: >-
   and IPP System Service, CUPS 2.3.x in Ubuntu 20.04 LTS (Focal Fossa),
   cups-filters 1.25.11, for ippusbxd David Valleau will look into allowing
   classic USB access in parallel
+date: '2019-11-06'
 ---
 
 ## Google Code-In 2019

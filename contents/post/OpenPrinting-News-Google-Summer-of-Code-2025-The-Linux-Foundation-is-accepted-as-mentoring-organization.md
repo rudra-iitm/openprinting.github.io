@@ -7,6 +7,7 @@ toc: false
 toc_sticky: true
 author: Till
 excerpt: The LF is in and so OpenPrinting as part of it will mentor again.
+date: '2025-03-01'
 ---
 Now it is official and we do not need to tell any more to any interested contributor candidate "If we get accepted ...". We welcome contributors for OpenPrinting for the 17th time now!
 

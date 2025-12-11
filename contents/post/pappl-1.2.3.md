@@ -3,6 +3,7 @@ title: PAPPL 1.2.3
 layout: single
 author: Mike
 excerpt: 'PAPPL v1.2.3 fixes TLS upgrade, USB device ID, and vendor text option bugs.'
+date: '2022-10-08'
 ---
 
 PAPPL v1.2.3 is now available for download and is a general bug fix release.

@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   OP Summit Summary, GUADEC, GSoC 2022 projects started, first apps use "cups"
   Snap interface, PPD-independent cups-filters 2.x, PAPPL 1.2.1, CUPS 2.4.2
+date: '2022-06-14'
 ---
 ## OpenPrinting Summit/PWG Meeting
 On May 17-19 we had our annual meeting together with the [PWG](https://www.pwg.org/) (Printer Working Group) again, the [OpenPrinting Summit/PWG Meeting](https://www.pwg.org/chair/meeting-info/may-2022-virtual.html).

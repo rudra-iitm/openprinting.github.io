@@ -8,6 +8,7 @@ excerpt: >-
   Printer Application Snaps under Windows, OpenPrinting MC, OSS, Ubuntu Summit,
   GSoC, CPDB 2.0, "cups" snapd interface, cups-filters 2.0, Printer App look-up,
   PAPPL 1.2.2
+date: '2022-09-22'
 ---
 We are a little late this month, mainly due to my conference trip to Dublin, Ireland, last week, but also to catch the release of systemd/Snap-supporting WSL2. The month is nearly over, tomorrow there is already the new [Ubuntu Desktop Team Indaba](https://discourse.ubuntu.com/t/ubuntu-desktop-team-indaba-september-23-2022-15-00-utc/), this time about snapcraft 7/Ubuntu Core 22. Do not miss it while reading all the exciting stuff here ...
 

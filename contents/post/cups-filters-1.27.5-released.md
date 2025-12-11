@@ -7,6 +7,7 @@ excerpt: >-
   server to attach to, to correctly create queues pointing to a second local
   CUPS instance, and to not remove the locally created queues on shutdown. Also
   included several bug fixes from contributors
+date: '2020-06-05'
 ---
 Several fixes/improvements on cups-browsed, to correctly determine the CUPS server to attach to, to correctly create queues pointing to a second local CUPS instance, and to not remove the locally created queues on shutdown. Also included several bug fixes from contributors
 - cups-browsed: Do not remove the created local queues on shutdown, to avoid their re-creation on restart, so that desktops get no cluttered with notifications of new queues being created. One can return to the old behavior via "KeepGeneratedQueuesOnShutdown No" in cups-browsed.conf (Ubuntu bug #1869981, #1878241).

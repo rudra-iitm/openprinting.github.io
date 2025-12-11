@@ -7,6 +7,7 @@ author: Till
 excerpt: >-
   OpenPrinting is mentoring organization in the WoC 4.0! Apply for doing a
   1-month project until Dec 31!
+date: '2024-12-29'
 ---
 Some weeks ago I got e-mail from the Google Developer Groups (GDG) on Campus IIIT Kalyani inviting me as Google Summer of Code (GSoC) org admin for the Linux Foundation to participate in the [Winter of Code (WoC)](https://winterofcode.tech/#about) which they are organizing. Actually, they seem to have invited all the GSoC mentoring organizations, as I got the same e-mail also via the LibreOffice developer mailing list.
 

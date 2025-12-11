@@ -3,6 +3,7 @@ title: PAPPL 1.3.4
 layout: single
 author: Mike
 excerpt: PAPPL v1.3.4 is a general bug fix release.
+date: '2023-09-07'
 ---
 
 PAPPL v1.3.4 is now available for download and is a general bug fix release.

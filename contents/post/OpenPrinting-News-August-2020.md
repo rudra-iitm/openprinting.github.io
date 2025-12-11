@@ -5,6 +5,7 @@ author: Till
 excerpt: >-
   20 years working on printing, Linux Plumbers, GSoC, LFMP, cups-filters 2.0.0
   approaching
+date: '2020-08-13'
 ---
 ## 20 Years of working on printing with free software!
 This month I have my 20th work anniversary of working with printing under Linux and free software. In August 2000 I have started at MandrakeSoft in Paris (later Mandriva) to switch the first Linux distribution from LPD/LPRng to CUPS.

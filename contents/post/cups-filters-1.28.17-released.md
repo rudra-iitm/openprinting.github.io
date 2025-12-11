@@ -6,6 +6,7 @@ excerpt: >-
   Bug fix release, to more reliably discover all printer capablities from
   driverless printers, especially borderless printing, and to preferably use
   Apple Raster instead of PWG Raster or PCLM
+date: '2023-01-24'
 ---
 Bug fix release, to more reliably discover all printer capablities from driverless printers, especially borderless printing, and to preferably use Apple Raster instead of PWG Raster or PCLM.
 - libcupsfilters: In PPD generator create only one `*cupsFilter2:` line for raster. Only use the most desirable/reliable format, usually Apple Raster (Issue #498).

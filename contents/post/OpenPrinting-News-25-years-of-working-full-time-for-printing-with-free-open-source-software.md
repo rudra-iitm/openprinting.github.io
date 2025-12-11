@@ -7,6 +7,7 @@ toc: true
 toc_sticky: true
 author: Till
 excerpt: Dedicated to make printing just work ... And the show must go on!
+date: '2025-08-01'
 ---
 ## Working full-time for printing with FOSS
 **Exactly 25 years ago**, on Tuesday, August 1, 2000, **I started my job at MandrakeSoft in Paris**, to which I got invited when showing off my print dialog [X Printing Panel (XPP)](http://cups.sourceforge.net/xpp.html) on the LinuxTag 2000 in Stuttgart, Germany, in the beginning of July 2000.

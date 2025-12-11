@@ -6,6 +6,7 @@ excerpt: >-
   LPrint v1.1.0 adds support for EPL and 600dpi ZPL label printers, adds several
   auto-connfiguration and status reporting improvements, and fixes all known
   bugs in the previous release.
+date: '2021-12-23'
 ---
 
 LPrint v1.1.0 adds support for EPL and 600dpi ZPL label printers, adds status reporting and automatic label configuration for ZPL label printers, adds auto-setup and test labels for printers, adds system service files for macOS and Linux, and fixes all known bugs in the previous release.  Changes include:

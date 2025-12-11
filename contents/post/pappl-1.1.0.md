@@ -3,6 +3,7 @@ title: PAPPL 1.1.0
 layout: single
 author: Mike
 excerpt: "PAPPL v1.1.0 adds support for Wi-Fi configuration, IPP-USB, printer driver lookup and auto-add functionality, improves management of multiple printers, and adds support for Microsoft® Windows®\_10."
+date: '2021-12-15'
 ---
 
 PAPPL v1.1.0 is now available for download.  PAPPL v1.1 adds support for Wi-Fi

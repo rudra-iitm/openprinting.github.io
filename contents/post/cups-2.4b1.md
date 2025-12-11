@@ -5,6 +5,7 @@ author: Zdenek
 excerpt: >-
   CUPS v2.4b1 is the beta release for OpenPrinting CUPS 2.4 which contains new
   features, deprecations, removals and bugfixes.
+date: '2021-10-27'
 ---
 
 CUPS 2.4b1 is the beta release for OpenPrinting CUPS 2.4 which contains  several new features such as basic OAuth support, support for AirPrint and Mopria clients and support for running CUPS as a snap, several deprecations (Kerberos, cups-config), removals of old deprecated directives, and many bug fixes.

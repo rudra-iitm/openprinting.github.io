@@ -5,6 +5,7 @@ author: Mike
 excerpt: >-
   LPrint v1.2.0 adds support for snap configuration and EPL/ZPL auto-typing
   support, and fixes a number of bugs.
+date: '2022-12-31'
 ---
 
 LPrint v1.2.0 adds support for snap configuration and EPL/ZPL auto-typing
