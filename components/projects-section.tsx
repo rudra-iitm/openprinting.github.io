@@ -3,7 +3,10 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import Image from "next/image"
 import { Button } from "./ui/button"
+
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 export default function ProjectsSection() {
   const ref = useRef(null)
@@ -14,21 +17,21 @@ export default function ProjectsSection() {
       title: "Driverless Printers",
       description:
         "Most modern printers work ‘out of the box’ with OpenPrinting software. Browse the thousands of driverless printers.",
-      image: "/ipp-everywhere.png",
+      image: `${basePath}/ipp-everywhere.png`,
       delay: 0.1,
     },
     {
       title: "Legacy Printers",
       description:
         "The Foomatic printer database lists all of the printers that are supported by free software printer drivers.",
-      image: "/printer.png",
+      image: `${basePath}/printer.png`,
       delay: 0.3,
     },
     {
       title: "Windows?!",
       description:
         "Our Printer Applications revive old printers under current Windows, any model which works under Linux.",
-      image: "/wsl-printing-icon.png",
+      image: `${basePath}/wsl-printing-icon.png`,
       delay: 0.5,
     },
   ]
@@ -39,21 +42,21 @@ export default function ProjectsSection() {
       title: "Printer Working Group",
       description:
         "OpenPrinting collaborates with the PWG's Internet Printing Protocol workgroup to support this ubiquitous printing standard.",
-      image: "/pwg.png",
+      image: `${basePath}/pwg.png`,
       delay: 0.1,
     },
     {
       title: "GSoC - OpenPrinting",
       description:
         "OpenPrinting participates in the GSoC program under its umbrella organization The Linux Foundation.",
-      image: "/gsoc.jpeg",
+      image: `${basePath}/gsoc.jpeg`,
       delay: 0.3,
     },
     {
       title: "GSoD - OpenPrinting",
       description:
         "OpenPrinting participates in the GSoD program under its umbrella organization The Linux Foundation.",
-      image: "/gsod.jpg",
+      image: `${basePath}/gsod.jpg`,
       delay: 0.5,
     },
   ]
@@ -101,9 +104,11 @@ export default function ProjectsSection() {
             }}
             >
               <div className="mb-4 bg-white rounded-lg flex items-center justify-center">
-                <img
-                  src={software.image || "/placeholder.svg"}
+                <Image
+                  src={software.image || `${basePath}/placeholder.svg`}
                   alt={software.title}
+                  width={300}
+                  height={200}
                   className="h-full w-full rounded-md object-contain"
                 />
               </div>
@@ -145,9 +150,11 @@ export default function ProjectsSection() {
             }}
             >
               <div className="mb-4 bg-white rounded-lg flex items-center justify-center">
-                <img
-                  src={project.image || "/placeholder.svg"}
+                <Image
+                  src={project.image || `${basePath}/placeholder.svg`}
                   alt={project.title}
+                  width={300}
+                  height={200}
                   className="h-full w-full rounded-md object-contain"
                 />
               </div>

@@ -3,7 +3,10 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
+import Image from "next/image"
 import { Button } from "./ui/button"
+
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 export default function InfoSection() {
   const ref = useRef(null)
@@ -27,21 +30,21 @@ export default function InfoSection() {
               title: "About Us",
               description:
                 "Learn more about OpenPrinting, how it works, the people involved, and the projects maintained by it",
-              icon: "/OpenPrintingBox.png",
+              icon: `${basePath}/OpenPrintingBox.png`,
               delay: 0.1,
             },
             {
               title: "Contribute",
               description:
                 "Know how you can be part of an excellent community and help improve printing experience for millions of users",
-              icon: "/contribute.png",
+              icon: `${basePath}/contribute.png`,
               delay: 0.3,
             },
             {
               title: "CUPS",
               description:
                 "CUPS is the standards-based, open source printing system that is used on Linux® and other operating systems.",
-              icon: "/cups.png",
+              icon: `${basePath}/cups.png`,
               delay: 0.5,
             },
           ].map((item, index) => (
@@ -58,7 +61,7 @@ export default function InfoSection() {
             >
               <div className="flex flex-col items-start text-left">
                 <div className="mb-4 bg-gray-700 rounded-lg flex items-center justify-center">
-                  <img src={item.icon || "/placeholder.svg"} alt={item.title} className="h-full w-full rounded-md" />
+                  <Image src={item.icon || `${basePath}/placeholder.svg`} alt={item.title} width={200} height={200} className="h-full w-full rounded-md" />
                 </div>
                 <h3 className="text-3xl font-extrabold mb-4">{item.title}</h3>
                 <p className="text-gray-300 mb-4">{item.description}</p>

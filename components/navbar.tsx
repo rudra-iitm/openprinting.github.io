@@ -9,6 +9,8 @@ import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 // import Search from "./search"
 
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+
 const navItems = [
   { name: "About Us", href: "#about" },
   { name: "News and Events", href: "#news" },
@@ -42,7 +44,7 @@ export default function Navbar() {
             <Link href="/" className="flex items-center space-x-2">
               <div className="relative w-10 h-10">
                 <Image
-                  src="/openprinting.png?height=40&width=40"
+                  src={`${basePath}/openprinting.png`}
                   alt="OpenPrinting Logo"
                   width={40}
                   height={40}

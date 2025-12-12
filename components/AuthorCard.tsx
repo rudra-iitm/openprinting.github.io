@@ -6,6 +6,8 @@ import { MapPin, Mail, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
 import authors from "@/data/authors";
 
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+
 interface Props {
   authorKey: string;
   className?: string;
@@ -40,10 +42,10 @@ export default function AuthorCard({ authorKey, className }: Props) {
 
   if (!author) return null;
 
-  const placeholder = "/authors/placeholder.jpg";
+  const placeholder = `${basePath}/authors/placeholder.jpg`;
   const imgRaw =
     author.image && author.image !== "NA" ? author.image : placeholder;
-  const imgSrc = imgRaw.startsWith("/") ? imgRaw : `/${imgRaw}`;
+  const imgSrc = imgRaw.startsWith("/") ? `${basePath}${imgRaw}` : `${basePath}/${imgRaw}`;
 
   return (
     <>

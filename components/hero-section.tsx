@@ -4,11 +4,13 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import Link from "next/link"
 
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+
 export default function HeroSection() {
   return (
     <>
     <section className="relative min-h-[60vh] flex items-center hero-gradient">
-      <div className="absolute inset-0 bg-[url('/rotation_pantone.jpg')] bg-cover bg-center z-0 before:absolute before:inset-0 before:bg-black/50"></div>
+      <div className="absolute inset-0 bg-cover bg-center z-0 before:absolute before:inset-0 before:bg-black/50" style={{ backgroundImage: `url('${basePath}/rotation_pantone.jpg')` }}></div>
 
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="max-w-4xl">
