@@ -57,7 +57,7 @@ export default async function PostPage({
         (frontmatter.toc === true || String(frontmatter.toc) === "true");
 
     return (
-        <main className="w-full">
+        <main className="w-full mt-10">
             <div className="max-w-[1400px] mx-auto px-4 lg:pl-6 lg:pr-1 py-10 w-full">
                 <div className="flex flex-col lg:flex-row gap-8 items-start">
                     {authorKey && (
