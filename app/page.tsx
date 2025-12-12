@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect } from "react"
-import Navbar from "@/components/navbar"
 import HeroSection from "@/components/hero-section"
 import InfoSection from "@/components/info-section"
 import ProjectsSection from "@/components/projects-section"
@@ -37,7 +36,6 @@ export default function Home() {
 
   return (
     <main className="min-h-screen bg-black text-white">
-      {/* <Navbar /> */}
       <HeroSection />
       <NewsSection />
       <InfoSection />
