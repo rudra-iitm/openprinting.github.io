@@ -10,7 +10,7 @@ export default function Footer() {
         <div className="flex flex-col items-center">
           <div className="flex space-x-6 mb-8">
             <motion.a
-              href="https://twitter.com"
+              href="https://x.com/open_printing"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
@@ -21,7 +21,7 @@ export default function Footer() {
               <span className="font-extrabold">Twitter</span>
             </motion.a>
             <motion.a
-              href="https://github.com"
+              href="https://github.com/OpenPrinting"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
@@ -32,7 +32,7 @@ export default function Footer() {
               <span className="font-extrabold">GitHub</span>
             </motion.a>
             <motion.a
-              href="https://facebook.com"
+              href="https://www.facebook.com/sharer/sharer.php?u=https://openprinting.github.io/"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
@@ -43,7 +43,7 @@ export default function Footer() {
               <span className="font-extrabold">Facebook</span>
             </motion.a>
             <motion.a
-              href="/feed"
+              href="https://openprinting.github.io/feed.xml"
               target="_blank"
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
