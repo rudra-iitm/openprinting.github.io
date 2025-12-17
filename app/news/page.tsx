@@ -36,7 +36,7 @@ export default async function Home() {
 
   return (
     <main className="w-full">
-      <div className="max-w-[1400px] mx-auto px-4 lg:pl-6 lg:pr-1 py-10 w-full">
+      <div className="max-w-[1400px] mx-auto px-4 lg:pl-6 lg:pr-1 py-10 w-full mt-6 lg:mt-12">
         <div className="flex flex-col lg:flex-row gap-8 items-start">
           {authorKey && (
             <aside className="w-full lg:w-[260px] flex-shrink-0 lg:sticky lg:top-20 lg:self-start">

@@ -12,11 +12,11 @@ import { Button } from "@/components/ui/button"
 const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 const navItems = [
-  { name: "About Us", href: "#about" },
-  { name: "News and Events", href: "#news" },
-  { name: "Projects", href: "#projects" },
-  { name: "Downloads", href: "#downloads" },
-  { name: "Documentation", href: "#documentation" },
+  { name: "About Us", href: "/about-us" },
+  { name: "News and Events", href: "/news" },
+  { name: "Projects", href: "/projects" },
+  { name: "Downloads", href: "/downloads" },
+  { name: "Documentation", href: "/documentation" },
 ]
 
 export default function Navbar() {
