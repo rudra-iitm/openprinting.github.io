@@ -5,6 +5,9 @@ import { useInView } from "framer-motion"
 import { useRef } from "react"
 import Link from "next/link"
 
+const basePath =
+  process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+
 function formatDate(dateString: string) {
   const date = new Date(dateString)
   return date.toLocaleDateString("en-US", {
@@ -51,9 +54,8 @@ export default function NewsSection({ posts }: { posts: NewsPost[] }) {
                 transition: { duration: 0.2 },
               }}
             >
-              <div className="absolute inset-0 bg-gradient-to-r from-brand-blue/0 to-brand-blue/0 group-hover:from-brand-blue/5 group-hover:to-brand-blue/10 transition-all duration-300"></div>
-
-              <Link href={`/${item.slug}`} className="block h-full">
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-brand-blue/0 to-brand-blue/0 group-hover:from-brand-blue/5 group-hover:to-brand-blue/10 transition-all duration-300"></div>
+              <Link href={`${basePath}/${item.slug}`} className="block h-full">
                 <h3 className="text-xl font-bold mb-3 text-brand-lightBlue">{item.title}</h3>
 
                 <div className="flex items-center text-sm text-gray-400 mb-4">
