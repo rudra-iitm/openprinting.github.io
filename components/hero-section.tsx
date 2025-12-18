@@ -39,10 +39,10 @@ export default function HeroSection() {
             className="flex flex-col sm:flex-row gap-4"
           >
             <Button asChild size="lg" className="bg-brand-blue text-white hover:bg-brand-blue/90">
-              <Link href="#about">Learn More</Link>
+              <Link href={`${basePath}/about-us`}>Learn More</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-              <Link href="#downloads">Find a Printer</Link>
+              <Link href={`${basePath}/printers`}>Find a Printer</Link>
             </Button>
           </motion.div>
         </div>

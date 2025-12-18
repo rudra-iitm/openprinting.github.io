@@ -2,6 +2,9 @@
 
 import { motion } from "framer-motion"
 import { Twitter, Github, Facebook, Rss } from "lucide-react"
+import Link from "next/link"
+
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 export default function Footer() {
   return (
@@ -43,8 +46,7 @@ export default function Footer() {
               <span className="font-extrabold">Facebook</span>
             </motion.a>
             <motion.a
-              href="https://openprinting.github.io/feed.xml"
-              target="_blank"
+              href={`${basePath}/feed.xml`}
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
