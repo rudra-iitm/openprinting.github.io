@@ -11,7 +11,8 @@ import matter from "gray-matter"
 import { Clock } from 'lucide-react';
 
 interface MarkdownRendererProps {
-  content: string
+  content: string,
+  showMeta?: boolean
 }
 
 export interface Metadata {
@@ -24,24 +25,26 @@ export interface Metadata {
   [key: string]: unknown
 }
 
-export function MarkdownRenderer({ content }: MarkdownRendererProps) {
+export function MarkdownRenderer({ content, showMeta = true }: MarkdownRendererProps) {
   const { data, content: markdownContent } = matter(content)
   const metadata: Metadata = data
   const stats = readingTime(markdownContent)
 
   return (
     <div className="p-4 md:p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
-      <div className="mb-4 md:mb-6">
-        {metadata.title && (
-          <h1 className="text-2xl md:text-5xl font-black mb-3 md:mb-4 text-white">
-            {metadata.title}
-          </h1>
-        )}
-        <div className="flex items-center gap-2 text-sm md:text-base text-gray-400">
-          <Clock size={16} />
-          <span>{Math.ceil(stats.minutes)} minute read</span>
+      {showMeta && (
+        <div className="mb-4 md:mb-6">
+          {metadata.title && (
+            <h1 className="text-2xl md:text-5xl font-black mb-3 md:mb-4 text-white">
+              {metadata.title}
+            </h1>
+          )}
+          <div className="flex items-center gap-2 text-sm md:text-base text-gray-400">
+            <Clock size={16} />
+            <span>{Math.ceil(stats.minutes)} minute read</span>
+          </div>
         </div>
-      </div>
+      )}
       <div className="flex">
         <div className="prose prose-invert prose-github max-w-none w-full">
           <ReactMarkdown

@@ -38,7 +38,7 @@ export default async function ProjectsPage() {
         </h1>
 
         <div className="prose prose-invert max-w-none mb-10">
-          <MarkdownRenderer content={content} />
+          <MarkdownRenderer content={content} showMeta={false} />
         </div>
 
         <h2 className="text-2xl font-bold mb-6">Project List</h2>
@@ -48,7 +48,7 @@ export default async function ProjectsPage() {
             <li key={project.slug}>
               <Link
                 href={`/projects/${project.slug}`}
-                className="text-[#00bcd4] underline text-xl font-semibold hover:text-[#4dd0e1]"
+                className="text-[#03A9F4] underline text-xl font-semibold hover:text-[#4dd0e1]"
               >
                 {project.title}
               </Link>

@@ -26,6 +26,29 @@ export default async function ProjectDetail({
   const raw = await fs.readFile(filePath, "utf8")
   const { data, content } = matter(raw)
 
+  if (typeof data.redirect === "string") {
+    return (
+      <html>
+        <head>
+          <meta httpEquiv="refresh" content={`0; url=${data.redirect}`} />
+          <link rel="canonical" href={data.redirect} />
+        </head>
+        <body className="bg-black text-white flex items-center justify-center min-h-screen">
+          <p>
+            Redirecting to{" "}
+            <a
+              href={data.redirect}
+              className="text-[#03A9F4] underline"
+            >
+              {data.redirect}
+            </a>
+            …
+          </p>
+        </body>
+      </html>
+    )
+  }
+
   const title =
     typeof data.title === "string"
       ? data.title
