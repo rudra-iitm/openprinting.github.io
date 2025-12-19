@@ -47,9 +47,9 @@ export function MarkdownRenderer({ content }: MarkdownRendererProps) {
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[
+              rehypeRaw,
               [rehypeHighlight, { languages: { bash }, detect: true, ignoreMissing: true }],
               rehypeSlug,
-              rehypeRaw,
               [rehypeAutolinkHeadings, { behavior: "wrap" }],
             ]}
             components={{
