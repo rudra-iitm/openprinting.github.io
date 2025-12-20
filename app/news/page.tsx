@@ -1,90 +1,151 @@
-import fs from "fs/promises";
-import path from "path";
-import matter from "gray-matter";
-import { MarkdownRenderer } from "@/components/markdown-renderer";
-import { TableOfContents } from "@/components/table-of-contents";
-import DisqusComments from "@/components/disqus-comment";
-import AuthorCard from "@/components/AuthorCard";
+import fs from "fs/promises"
+import path from "path"
+import matter from "gray-matter"
+import Link from "next/link"
+import OpenPrintingCard from "@/components/OpenPrintingCard"
 
-export default async function Home() {
-  const markdownPath = path.join(
-    process.cwd(),
-    "contents",
-    "post",
-    "sample.md"
-  );
-  const raw = await fs.readFile(markdownPath, "utf8");
+type Post = {
+  slug: string
+  title: string
+  excerpt: string
+  date: Date
+  year: number
+  readTime: string
+}
 
-  const { data, content: markdownContent = "" } = matter(raw);
-  const frontmatter = data as Record<string, unknown>;
+const POSTS_DIR = path.join(process.cwd(), "contents", "post")
 
-  const rawAuthor =
-    typeof frontmatter.author === "string" ? frontmatter.author.trim() : "";
-  const authorKey = rawAuthor !== "" ? rawAuthor : undefined;
+export default async function NewsPage() {
+  const files = await fs.readdir(POSTS_DIR)
 
-  const title =
-    typeof frontmatter.title === "string" &&
-      frontmatter.title.trim() !== ""
-      ? frontmatter.title.trim()
-      : "Untitled Article";
+  const posts: Post[] = await Promise.all(
+    files
+      .filter((f) => f.endsWith(".md"))
+      .map(async (file) => {
+        const raw = await fs.readFile(
+          path.join(POSTS_DIR, file),
+          "utf8"
+        )
+        const { data } = matter(raw)
+        const date = new Date(data.date ?? "1970-01-01")
 
-  const readTime =
-    typeof frontmatter.readTime === "string" &&
-      frontmatter.readTime.trim() !== ""
-      ? frontmatter.readTime.trim()
-      : "";
+        return {
+          slug: file.replace(/\.md$/, ""),
+          title:
+            typeof data.title === "string"
+              ? data.title
+              : file.replace(/\.md$/, ""),
+          excerpt:
+            typeof data.excerpt === "string"
+              ? data.excerpt
+              : "",
+          date,
+          year: date.getFullYear(),
+          readTime:
+            typeof data.readTime === "string"
+              ? data.readTime
+              : "less than 1 minute read",
+        }
+      })
+  )
+
+  posts.sort((a, b) => b.date.getTime() - a.date.getTime())
+
+  const postsByYear = posts.reduce<Record<number, Post[]>>(
+    (acc, post) => {
+      acc[post.year] = acc[post.year] || []
+      acc[post.year].push(post)
+      return acc
+    },
+    {}
+  )
+
+  const years = Object.keys(postsByYear)
+    .map(Number)
+    .sort((a, b) => b - a)
 
   return (
-    <main className="w-full">
-      <div className="max-w-[1400px] mx-auto px-4 lg:pl-6 lg:pr-1 py-10 w-full mt-6 lg:mt-12">
-        <div className="flex flex-col lg:flex-row gap-8 items-start">
-          {authorKey && (
-            <aside className="w-full lg:w-[260px] flex-shrink-0 lg:sticky lg:top-20 lg:self-start">
-              <AuthorCard authorKey={authorKey} />
-            </aside>
-          )}
+    <main className="min-h-screen bg-black text-white py-12">
+      <div className="max-w-7xl mx-auto px-6">
+        <div className="grid grid-cols-12 gap-8">
 
-          <section className="w-full lg:flex-1 lg:min-w-0 lg:max-w-[720px]">
-            <div className="mb-6 px-4">
-              <h1 className="text-3xl xl:text-4xl font-bold text-white leading-tight mb-3">
-                {title}
-              </h1>
-              {readTime && (
-                <div className="flex items-center gap-2 text-gray-400 text-sm">
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle cx="12" cy="12" r="10" strokeWidth="2" />
-                    <path strokeWidth="2" d="M12 6v6l4 2" />
-                  </svg>
-                  <span>{readTime}</span>
-                </div>
-              )}
+          <aside className="col-span-12 lg:col-span-3">
+            <div className="sticky top-20">
+              <OpenPrintingCard />
+            </div>
+          </aside>
+
+          <section className="col-span-12 lg:col-span-6">
+            <h1 className="text-4xl font-bold mb-10">
+              News and Events
+            </h1>
+
+            <div className="mb-10">
+              <a
+                href="http://ftp.pwg.org/pub/pwg/liaison/openprinting/minutes/"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="text-xl text-blue-400 underline font-semibold"
+              >
+                Monthly Call Minutes
+              </a>
             </div>
 
-            <div className="pb-6 px-4 lg:hidden">
-              <TableOfContents content={markdownContent} />
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-10 gap-y-4 mb-14 text-lg">
+              {years.map((year) => (
+                <a
+                  key={year}
+                  href={`#year-${year}`}
+                  className="flex justify-between border-b border-gray-700 pb-1 text-gray-300 hover:text-white"
+                >
+                  <span>{year}</span>
+                  <span className="text-gray-500 text-sm">
+                    {postsByYear[year].length}
+                  </span>
+                </a>
+              ))}
             </div>
 
-            <div className="w-full px-4 lg:px-0">
-              <div className="prose prose-invert max-w-none prose-headings:text-white prose-p:text-gray-300 prose-a:text-blue-400">
-                <MarkdownRenderer content={markdownContent} />
-              </div>
+            <div className="space-y-20">
+              {years.map((year) => (
+                <section key={year} id={`year-${year}`}>
+                  <h2 className="text-3xl font-bold mb-8 text-gray-500">
+                    {year}
+                  </h2>
 
-              <div className="mt-10">
-                <DisqusComments post={{ id: "1", title }} />
-              </div>
+                  <div className="space-y-12">
+                    {postsByYear[year].map((post) => (
+                      <div
+                        key={post.slug}
+                        className="border-2 border-transparent p-4 hover:border-gray-600 transition-colors duration-200 rounded"
+                      >
+                        <Link
+                          href={`/${post.slug}`}
+                          className="text-2xl font-bold text-[#03A9F4] underline hover:text-[#4dd0e1]"
+                        >
+                          {post.title}
+                        </Link>
+
+                        <div className="text-sm text-gray-400 mt-2 mb-3">
+                          {post.readTime}
+                        </div>
+
+                        {post.excerpt && (
+                          <p className="text-gray-300 max-w-4xl">
+                            {post.excerpt}
+                          </p>
+                        )}
+                      </div>
+                    ))}
+                  </div>
+                </section>
+              ))}
             </div>
           </section>
 
-          <aside className="hidden lg:block w-[320px] flex-shrink-0 sticky top-20 self-start">
-            <TableOfContents content={markdownContent} />
-          </aside>
+          <div className="hidden lg:block lg:col-span-3" />
         </div>
       </div>
     </main>
-  );
+  )
 }
