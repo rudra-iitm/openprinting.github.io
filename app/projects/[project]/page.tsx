@@ -20,9 +20,11 @@ export async function generateStaticParams() {
 export default async function ProjectDetail({
   params,
 }: {
-  params: { project: string }
+  params: Promise<{ project: string }>
 }) {
-  const filePath = path.join(PROJECTS_DIR, `${params.project}.md`)
+  const { project } = await params
+
+  const filePath = path.join(PROJECTS_DIR, `${project}.md`)
   const raw = await fs.readFile(filePath, "utf8")
   const { data, content } = matter(raw)
 
@@ -36,10 +38,7 @@ export default async function ProjectDetail({
         <body className="bg-black text-white flex items-center justify-center min-h-screen">
           <p>
             Redirecting to{" "}
-            <a
-              href={data.redirect}
-              className="text-[#03A9F4] underline"
-            >
+            <a href={data.redirect} className="text-[#03A9F4] underline">
               {data.redirect}
             </a>
             …
@@ -52,7 +51,7 @@ export default async function ProjectDetail({
   const title =
     typeof data.title === "string"
       ? data.title
-      : params.project.replace(/^\d+-/, "").replace(/-/g, " ")
+      : project.replace(/^\d+-/, "").replace(/-/g, " ")
 
   return (
     <main className="min-h-screen bg-black text-white py-10">

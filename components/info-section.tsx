@@ -51,16 +51,13 @@ export default function InfoSection() {
               href: `${basePath}/cups`,
               delay: 0.5,
             },
-          ] as InfoItem[]).map((item, index) => (
+          ] as InfoItem[]).map((item) => (
             <motion.div
+              key={item.title}
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.5, delay: item.delay }}
               className="group relative bg-gray-900 rounded-lg overflow-hidden p-6 border border-gray-800 hover:border-brand-lightBlue transition-colors duration-300 hover:cursor-pointer"
-              whileHover={{
-                scale: 1.02,
-                transition: { duration: 0.2 },
-              }}
             >
               <div className="flex flex-col items-start text-left">
                 <div className="mb-4 bg-gray-700 rounded-lg flex items-center justify-center">

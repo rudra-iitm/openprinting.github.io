@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion"
 import { Twitter, Github, Facebook, Rss } from "lucide-react"
-import Link from "next/link"
 
 const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 

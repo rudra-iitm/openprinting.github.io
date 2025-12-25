@@ -20,16 +20,18 @@ export async function generateStaticParams() {
 export default async function DocumentationDetail({
   params,
 }: {
-  params: { doc: string }
+  params: Promise<{ doc: string }>
 }) {
-  const filePath = path.join(DOCS_DIR, `${params.doc}.md`)
+  const { doc } = await params
+
+  const filePath = path.join(DOCS_DIR, `${doc}.md`)
   const raw = await fs.readFile(filePath, "utf8")
   const { data, content } = matter(raw)
 
   const title =
     typeof data.title === "string"
       ? data.title
-      : params.doc.replace(/^\d+-/, "").replace(/-/g, " ")
+      : doc.replace(/^\d+-/, "").replace(/-/g, " ")
 
   return (
     <main className="min-h-screen bg-black text-white py-10">
