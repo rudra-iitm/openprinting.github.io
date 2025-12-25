@@ -41,8 +41,6 @@ export default async function DocumentationPage() {
           <MarkdownRenderer content={content} showMeta={false} />
         </div>
 
-        <h2 className="text-2xl font-bold mb-6">Documentation</h2>
-
         <ul className="space-y-4">
           {docs.map((doc) => (
             <li key={doc.slug}>
