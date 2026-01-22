@@ -47,25 +47,6 @@ export default function HeroSection() {
           </motion.div>
         </div>
       </div>
-
-      <motion.div
-        initial={{ opacity: 0 }}
-        animate={{ opacity: 1 }}
-        transition={{ duration: 1, delay: 1 }}
-        className="absolute bottom-10 left-1/2 transform -translate-x-1/2"
-      >
-        <motion.div
-          animate={{ y: [0, 10, 0] }}
-          transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
-          className="w-6 h-10 border-2 border-white rounded-full flex justify-center p-1"
-        >
-          <motion.div
-            animate={{ height: ["0%", "30%", "0%"] }}
-            transition={{ duration: 2, repeat: Number.POSITIVE_INFINITY, repeatType: "reverse" }}
-            className="w-1 bg-white rounded-full"
-          />
-        </motion.div>
-      </motion.div>
     </section>
     <h2 className="text-xl md:text-2xl text-center font-bold my-12 leading-relaxed">
       OpenPrinting develops IPP-based printing technology for Linux®/Unix® operating systems.
