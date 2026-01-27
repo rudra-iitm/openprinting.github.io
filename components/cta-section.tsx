@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
 import { Button } from "@/components/ui/button"
+import Link from "next/link"
 
 export default function CTASection() {
   const ref = useRef(null)
@@ -40,8 +41,10 @@ export default function CTASection() {
             <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90">
               Download Now
             </Button>
-            <Button variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
-              Find a Printer
+            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
+              <Link href="/printers/" prefetch={false}>
+                Find a Printer
+              </Link>
             </Button>
           </motion.div>
         </div>

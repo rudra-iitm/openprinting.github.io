@@ -7,14 +7,13 @@ import Image from "next/image"
 import { Button } from "./ui/button"
 import Link from "next/link"
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
-
 type SoftwareItem = {
   title: string
   description: string
   image: string
   href: string
   delay: number
+  isExternal?: boolean
 }
 
 type ProjectItem = {
@@ -23,6 +22,7 @@ type ProjectItem = {
   image: string
   href: string
   delay: number
+  isExternal?: boolean
 }
 
 export default function ProjectsSection() {
@@ -34,24 +34,24 @@ export default function ProjectsSection() {
       title: "Driverless Printers",
       description:
         "Most modern printers work ‘out of the box’ with OpenPrinting software. Browse the thousands of driverless printers.",
-      image: `${basePath}/ipp-everywhere.png`,
-      href: `${basePath}/printers`,
+      image: "/ipp-everywhere.png",
+      href: "/printers",
       delay: 0.1,
     },
     {
       title: "Legacy Printers",
       description:
         "The Foomatic printer database lists all of the printers that are supported by free software printer drivers.",
-      image: `${basePath}/printer.png`,
-      href: `${basePath}/printers`,
+      image: "/printer.png",
+      href: "/printers",
       delay: 0.3,
     },
     {
       title: "Windows?!",
       description:
         "Our Printer Applications revive old printers under current Windows, any model which works under Linux.",
-      image: `${basePath}/wsl-printing-icon.png`,
-      href: `${basePath}/wsl-printer-app`,
+      image: "/wsl-printing-icon.png",
+      href: "/wsl-printer-app",
       delay: 0.5,
     },
   ]
@@ -61,7 +61,7 @@ export default function ProjectsSection() {
       title: "Printer Working Group",
       description:
         "OpenPrinting collaborates with the PWG's Internet Printing Protocol workgroup to support this ubiquitous printing standard.",
-      image: `${basePath}/pwg.png`,
+      image: "/pwg.png",
       href: "https://www.pwg.org/ipp/",
       delay: 0.1,
     },
@@ -69,16 +69,16 @@ export default function ProjectsSection() {
       title: "GSoC - OpenPrinting",
       description:
         "OpenPrinting participates in the GSoC program under its umbrella organization The Linux Foundation.",
-      image: `${basePath}/gsoc.jpeg`,
-      href: `${basePath}/gsoc`,
+      image: "/gsoc.jpeg",
+      href: "/gsoc",
       delay: 0.3,
     },
     {
       title: "GSoD - OpenPrinting",
       description:
         "OpenPrinting participates in the GSoD program under its umbrella organization The Linux Foundation.",
-      image: `${basePath}/gsod.jpg`,
-      href: `${basePath}/gsod`,
+      image: "/gsod.jpg",
+      href: "/gsod",
       delay: 0.5,
     },
   ]
@@ -127,7 +127,7 @@ export default function ProjectsSection() {
             >
               <div className="mb-4 bg-white rounded-lg flex items-center justify-center">
                 <Image
-                  src={software.image || `${basePath}/placeholder.svg`}
+                  src={software.image || "/placeholder.svg"}
                   alt={software.title}
                   width={300}
                   height={200}
@@ -137,11 +137,11 @@ export default function ProjectsSection() {
               <div className="pt-6">
                 <h3 className="text-xl font-bold mb-2">{software.title}</h3>
                 <p className="text-gray-300 mb-4">{software.description}</p>
-                <Link href={software.href}>
-                  <Button className="bg-blue-500 text-md text-white">
-                    Browse
-                  </Button>
-                </Link>
+                <Button asChild className="bg-blue-500 text-md text-white">
+                  <Link href={software.href} prefetch={false}>
+                    {software.title === "Windows?!" ? "Read More" : "Browse"}
+                  </Link>
+                </Button>
               </div>
             </motion.div>
           ))}
@@ -177,7 +177,7 @@ export default function ProjectsSection() {
             >
               <div className="mb-4 bg-white rounded-lg flex items-center justify-center">
                 <Image
-                  src={project.image || `${basePath}/placeholder.svg`}
+                  src={project.image || "/placeholder.svg"}
                   alt={project.title}
                   width={300}
                   height={200}
@@ -188,17 +188,17 @@ export default function ProjectsSection() {
                 <h3 className="text-xl font-bold mb-2">{project.title}</h3>
                 <p className="text-gray-300 mb-4">{project.description}</p>
                 {project.href.startsWith("http") ? (
-                  <a href={project.href} target="_blank" rel="noopener noreferrer">
-                    <Button className="bg-blue-500 text-md text-white">
+                  <Button asChild className="bg-blue-500 text-md text-white">
+                    <a href={project.href} target="_blank" rel="noopener noreferrer">
                       Read More
-                    </Button>
-                  </a>
+                    </a>
+                  </Button>
                 ) : (
-                  <Link href={project.href}>
-                    <Button className="bg-blue-500 text-md text-white">
+                  <Button asChild className="bg-blue-500 text-md text-white">
+                    <Link href={project.href} prefetch={false}>
                       Read More
-                    </Button>
-                  </Link>
+                    </Link>
+                  </Button>
                 )}
               </div>
             </motion.div>
