@@ -41,7 +41,7 @@ export default function HeroSection() {
             <Button asChild size="lg" className="bg-brand-blue text-white hover:bg-brand-blue/90">
               <Link href={`${basePath}/about-us`}>Learn More</Link>
             </Button>
-            <Button asChild variant="outline" size="lg" className="border-gray-900 text-gray-900 hover:bg-gray-100 dark:border-white dark:text-white dark:hover:bg-white/10">
+            <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
               <Link href={`${basePath}/printers`}>Find a Printer</Link>
             </Button>
           </motion.div>
