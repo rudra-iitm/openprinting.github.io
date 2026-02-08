@@ -4,6 +4,8 @@ import tailwindAnimation from "tailwindcss-animate";
 import tailwindTypography from "@tailwindcss/typography";
 
 const config: Config = {
+  // Use class-based dark mode so the site defaults to light unless the
+  // user explicitly chooses dark (stored in localStorage).
   darkMode: ["class"],
   content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
   theme: {
@@ -21,6 +23,11 @@ const config: Config = {
         ring: "hsl(var(--ring))",
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
+        brand: {
+          blue: "#0092ca",
+          darkBlue: "#222831",
+          lightBlue: "#0092ca",
+        },
         primary: {
           DEFAULT: "hsl(var(--primary))",
           foreground: "hsl(var(--primary-foreground))",

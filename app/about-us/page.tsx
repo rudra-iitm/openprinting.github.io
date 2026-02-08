@@ -18,17 +18,31 @@ export default async function AboutUsPage() {
     typeof data.title === "string" ? data.title : "About Us"
 
   return (
-    <main className="min-h-screen bg-black text-white py-10">
-      <div className="max-w-4xl mx-auto px-4">
-        <h1 className="text-3xl md:text-4xl font-bold mb-8">
-          {title}
-        </h1>
-
-        <div className="prose prose-invert max-w-none">
-          {/* overview page → no reading time / meta */}
-          <MarkdownRenderer content={content} showMeta={false} />
+    <>
+      {/* Hero Section - always dark band (theme-independent) like original */}
+      <div className="relative bg-zinc-900 text-white py-24 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-right bg-no-repeat opacity-40"
+          style={{ backgroundImage: "url('/rotation_pantone.jpg')" }}
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-zinc-900/90" aria-hidden />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            {title}
+          </h1>
+          <p className="text-xl text-white/80">
+            Learn more about OpenPrinting
+          </p>
         </div>
       </div>
-    </main>
+
+      {/* Content Section - OpenPrinting heading, short line, then links like original */}
+      <main className="min-h-screen bg-background text-foreground pt-24 pb-16">
+        <div className="max-w-4xl mx-auto px-4 about-us-content">
+          <MarkdownRenderer content={content} showMeta={false} noCard />
+        </div>
+      </main>
+    </>
   )
 }

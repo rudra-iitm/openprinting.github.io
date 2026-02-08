@@ -65,7 +65,7 @@ export default async function NewsPage() {
     .sort((a, b) => b - a)
 
   return (
-    <main className="min-h-screen bg-black text-white py-12">
+    <main className="min-h-screen bg-background text-foreground pt-24 pb-12">
       <div className="max-w-7xl mx-auto px-6">
         <div className="grid grid-cols-12 gap-8">
 
@@ -85,7 +85,7 @@ export default async function NewsPage() {
                 href="http://ftp.pwg.org/pub/pwg/liaison/openprinting/minutes/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xl text-blue-400 underline font-semibold"
+                className="text-xl text-primary underline font-semibold"
               >
                 Monthly Call Minutes
               </a>
@@ -96,10 +96,10 @@ export default async function NewsPage() {
                 <a
                   key={year}
                   href={`#year-${year}`}
-                  className="flex justify-between border-b border-gray-700 pb-1 text-gray-300 hover:text-white"
+                  className="flex justify-between border-b border-border pb-1 text-foreground hover:text-primary"
                 >
                   <span>{year}</span>
-                  <span className="text-gray-500 text-sm">
+                  <span className="text-muted-foreground text-sm">
                     {postsByYear[year].length}
                   </span>
                 </a>
@@ -109,7 +109,7 @@ export default async function NewsPage() {
             <div className="space-y-20">
               {years.map((year) => (
                 <section key={year} id={`year-${year}`}>
-                  <h2 className="text-3xl font-bold mb-8 text-gray-500">
+                  <h2 className="text-3xl font-bold mb-8 text-muted-foreground">
                     {year}
                   </h2>
 
@@ -117,21 +117,22 @@ export default async function NewsPage() {
                     {postsByYear[year].map((post) => (
                       <div
                         key={post.slug}
-                        className="border-2 border-transparent p-4 hover:border-gray-600 transition-colors duration-200 rounded"
+                        className="border-2 border-transparent p-4 hover:border-border transition-colors duration-200 rounded"
                       >
                         <Link
                           href={`/${post.slug}`}
-                          className="text-2xl font-bold text-[#03A9F4] underline hover:text-[#4dd0e1]"
+                          prefetch={false}
+                          className="text-2xl font-bold text-primary underline hover:text-primary/80"
                         >
                           {post.title}
                         </Link>
 
-                        <div className="text-sm text-gray-400 mt-2 mb-3">
+                        <div className="text-sm text-muted-foreground mt-2 mb-3">
                           {post.readTime}
                         </div>
 
                         {post.excerpt && (
-                          <p className="text-gray-300 max-w-4xl">
+                          <p className="text-foreground max-w-4xl">
                             {post.excerpt}
                           </p>
                         )}

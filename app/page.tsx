@@ -7,7 +7,7 @@ import { getLatestPosts } from "@/lib/get-latest-posts"
 export default function Home() {
   const latestPosts = getLatestPosts(3)
   return (
-    <main className="min-h-screen bg-black text-white">
+    <main className="min-h-screen bg-background text-foreground">
       <HeroSection />
       <NewsSection posts={latestPosts} />
       <InfoSection />

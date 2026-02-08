@@ -57,7 +57,7 @@ export default async function PostPage({
         (frontmatter.toc === true || String(frontmatter.toc) === "true");
 
     return (
-        <main className="w-full min-h-screen py-10">
+        <main className="w-full min-h-screen pt-24 pb-10 bg-background text-foreground">
             <div className="max-w-[1400px] mx-auto px-4 lg:pl-6 lg:pr-1 py-10 w-full">
                 <div className="flex flex-col lg:flex-row gap-8 items-start">
                     {authorKey && (
@@ -68,11 +68,11 @@ export default async function PostPage({
 
                     <section className="w-full lg:flex-1 lg:min-w-0 lg:max-w-[720px]">
                         <div className="mb-6 px-4">
-                            <h1 className="text-3xl xl:text-4xl font-bold text-white leading-tight mb-3">
+                            <h1 className="text-3xl xl:text-4xl font-bold text-foreground leading-tight mb-3">
                                 {title}
                             </h1>
                             {readTime && (
-                                <div className="flex items-center gap-2 text-gray-400 text-sm">
+                                <div className="flex items-center gap-2 text-muted-foreground text-sm">
                                     <svg
                                         className="w-4 h-4"
                                         fill="none"
@@ -92,7 +92,7 @@ export default async function PostPage({
                         </div>)}
 
                         <div className="w-full px-4 lg:px-0">
-                            <div className="prose prose-invert max-w-none prose-headings:text-white prose-p:text-gray-300 prose-a:text-blue-400">
+                            <div className="prose max-w-none">
                                 <MarkdownRenderer content={markdownContent} />
                             </div>
 

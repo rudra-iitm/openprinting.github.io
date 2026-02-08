@@ -84,27 +84,18 @@ export default function ProjectsSection() {
   ]
 
   return (
-    <section ref={ref} className="bg-black text-white" id="projects">
+    <section ref={ref} className="bg-background text-foreground" id="projects">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.7 }}
-          className="text-center"
-        >
-          <div className="w-24 h-1 bg-brand-lightBlue mx-auto"></div>
-        </motion.div>
-
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7, delay: 0.7 }}
           className="text-center"
         >
-          <p className="text-xl md:text-2xl text-center font-bold mb-4 leading-relaxed">
+          <p className="text-xl md:text-2xl text-center font-bold mb-4 leading-relaxed text-foreground">
             Most modern printers work using OpenPrinting software without additional drivers or software.
           </p>
-          <p className="text-lg text-gray-300">
+          <p className="text-lg text-foreground">
             OpenPrinting also hosts a printer compatibility database of legacy printers supported by free software
             drivers.
           </p>
@@ -119,13 +110,13 @@ export default function ProjectsSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.5, delay: software.delay }}
-              className="group relative bg-gray-900 rounded-lg overflow-hidden p-6 border border-gray-800 hover:border-brand-lightBlue transition-colors duration-300"
+              className="group relative bg-card rounded-lg overflow-hidden p-6 border border-border hover:border-primary hover:shadow-lg transition-all duration-300"
               whileHover={{
                 scale: 1.02,
                 transition: { duration: 0.2 },
               }}
             >
-              <div className="mb-4 bg-white rounded-lg flex items-center justify-center">
+              <div className="mb-4 bg-muted rounded-lg flex items-center justify-center">
                 <Image
                   src={software.image || "/placeholder.svg"}
                   alt={software.title}
@@ -135,9 +126,9 @@ export default function ProjectsSection() {
                 />
               </div>
               <div className="pt-6">
-                <h3 className="text-xl font-bold mb-2">{software.title}</h3>
-                <p className="text-gray-300 mb-4">{software.description}</p>
-                <Button asChild className="bg-blue-500 text-md text-white">
+                <h3 className="text-xl font-bold mb-2 text-card-foreground">{software.title}</h3>
+                <p className="text-card-foreground mb-4">{software.description}</p>
+                <Button asChild className="bg-primary text-md text-primary-foreground hover:bg-primary/90">
                   <Link href={software.href} prefetch={false}>
                     {software.title === "Windows?!" ? "Read More" : "Browse"}
                   </Link>
@@ -155,7 +146,7 @@ export default function ProjectsSection() {
           transition={{ duration: 0.7, delay: 0.7 }}
           className="text-center"
         >
-          <p className="text-xl md:text-2xl text-center font-bold mb-4 leading-relaxed">
+          <p className="text-xl md:text-2xl text-center font-bold mb-4 leading-relaxed text-foreground">
             OpenPrinting collaborates with standards groups and participates in coding/documentation programs.
           </p>
         </motion.div>
@@ -169,13 +160,13 @@ export default function ProjectsSection() {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.5, delay: project.delay }}
-              className="group relative bg-gray-900 rounded-lg overflow-hidden p-6 border border-gray-800 hover:border-brand-lightBlue transition-colors duration-300"
+              className="group relative bg-card rounded-lg overflow-hidden p-6 border border-border hover:border-primary hover:shadow-lg transition-all duration-300"
               whileHover={{
                 scale: 1.02,
                 transition: { duration: 0.2 },
               }}
             >
-              <div className="mb-4 bg-white rounded-lg flex items-center justify-center">
+              <div className="mb-4 bg-muted rounded-lg flex items-center justify-center">
                 <Image
                   src={project.image || "/placeholder.svg"}
                   alt={project.title}
@@ -185,16 +176,16 @@ export default function ProjectsSection() {
                 />
               </div>
               <div className="pt-6">
-                <h3 className="text-xl font-bold mb-2">{project.title}</h3>
-                <p className="text-gray-300 mb-4">{project.description}</p>
+                <h3 className="text-xl font-bold mb-2 text-card-foreground">{project.title}</h3>
+                <p className="text-card-foreground mb-4">{project.description}</p>
                 {project.href.startsWith("http") ? (
-                  <Button asChild className="bg-blue-500 text-md text-white">
+                  <Button asChild className="bg-primary text-md text-primary-foreground hover:bg-primary/90">
                     <a href={project.href} target="_blank" rel="noopener noreferrer">
                       Read More
                     </a>
                   </Button>
                 ) : (
-                  <Button asChild className="bg-blue-500 text-md text-white">
+                  <Button asChild className="bg-primary text-md text-primary-foreground hover:bg-primary/90">
                     <Link href={project.href} prefetch={false}>
                       Read More
                     </Link>

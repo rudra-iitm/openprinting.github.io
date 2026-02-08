@@ -38,8 +38,8 @@ export default function CTASection() {
             transition={{ duration: 0.7, delay: 0.4 }}
             className="flex flex-col sm:flex-row gap-4 justify-center"
           >
-            <Button size="lg" className="bg-brand-blue hover:bg-brand-blue/90">
-              Download Now
+            <Button asChild size="lg" className="bg-brand-blue hover:bg-brand-blue/90">
+              <Link href="/downloads/" prefetch={false}>Download Now</Link>
             </Button>
             <Button asChild variant="outline" size="lg" className="border-white text-white hover:bg-white/10">
               <Link href="/printers/" prefetch={false}>

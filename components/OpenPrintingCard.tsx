@@ -37,10 +37,10 @@ export default function OpenPrintingCard({ className }: Props) {
     <>
       <div className="lg:hidden flex items-center gap-3 px-4 py-4">
         <div className="flex-1 min-w-0">
-          <h2 className="text-base font-semibold text-white leading-tight">
+          <h2 className="text-base font-semibold text-foreground leading-tight">
             OpenPrinting
           </h2>
-          <p className="text-[15px] text-gray-400 mt-0.5">
+          <p className="text-[15px] text-muted-foreground mt-0.5">
             Making Printing Just Work!
           </p>
         </div>
@@ -48,23 +48,23 @@ export default function OpenPrintingCard({ className }: Props) {
         <div className="relative" ref={dropdownRef}>
           <button
             onClick={() => setOpen(!open)}
-            className="px-4 py-1.5 text-sm font-medium rounded bg-white text-black hover:bg-gray-100"
+            className="px-4 py-1.5 text-sm font-medium rounded bg-primary text-primary-foreground hover:bg-primary/90"
           >
             Follow
           </button>
 
           {open && (
-            <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded shadow-xl border border-gray-200 py-1 z-50">
-              <div className="flex items-center gap-2 px-3 py-2 text-gray-700">
-                <MapPin size={16} className="text-gray-500" />
+            <div className="absolute right-0 top-full mt-2 w-48 bg-card rounded shadow-xl border border-border py-1 z-50">
+              <div className="flex items-center gap-2 px-3 py-2 text-foreground">
+                <MapPin size={16} className="text-muted-foreground" />
                 <span className="text-sm">Linux Foundation</span>
               </div>
 
               <a
                 href="https://openprinting.github.io/"
-                className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:bg-gray-50"
+                className="flex items-center gap-2 px-3 py-2 text-foreground hover:bg-muted"
               >
-                <Globe size={16} className="text-gray-500" />
+                <Globe size={16} className="text-muted-foreground" />
                 <span className="text-sm">Website</span>
               </a>
 
@@ -72,9 +72,9 @@ export default function OpenPrintingCard({ className }: Props) {
                 href="https://github.com/OpenPrinting"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:bg-gray-50"
+                className="flex items-center gap-2 px-3 py-2 text-foreground hover:bg-muted"
               >
-                <Github size={16} className="text-gray-500" />
+                <Github size={16} className="text-muted-foreground" />
                 <span className="text-sm">GitHub</span>
               </a>
             </div>
@@ -84,20 +84,20 @@ export default function OpenPrintingCard({ className }: Props) {
 
       <div
         className={cn(
-          "hidden lg:block bg-inherit text-gray-300 pt-2 px-6 pb-6 w-full max-w-[260px]",
+          "hidden lg:block bg-card text-foreground pt-2 px-6 pb-6 w-full max-w-[260px] rounded-lg border border-border",
           className
         )}
       >
         <div className="flex flex-col items-start">
-          <h2 className="text-2xl font-extrabold tracking-tight text-gray-300 mb-3 pl-2">
+          <h2 className="text-2xl font-extrabold tracking-tight text-foreground mb-3 pl-2">
             OpenPrinting
           </h2>
 
-          <p className="text-[15px] text-gray-300 mb-5 pl-2">
+          <p className="text-[15px] text-muted-foreground mb-5 pl-2">
             Making Printing Just Work!
           </p>
 
-          <div className="flex items-center gap-3 text-gray-400 mb-4 pl-2">
+          <div className="flex items-center gap-3 text-muted-foreground mb-4 pl-2">
             <MapPin size={16} />
             <span className="text-sm">Linux Foundation</span>
           </div>
@@ -105,7 +105,7 @@ export default function OpenPrintingCard({ className }: Props) {
           <div className="flex flex-col items-start pl-2 gap-3">
             <a
               href="https://openprinting.github.io/"
-              className="inline-flex items-center gap-3 text-gray-400 hover:text-gray-200"
+              className="inline-flex items-center gap-3 text-muted-foreground hover:text-primary"
             >
               <Globe size={18} />
               <span className="text-sm">Website</span>
@@ -115,7 +115,7 @@ export default function OpenPrintingCard({ className }: Props) {
               href="https://github.com/OpenPrinting"
               target="_blank"
               rel="noopener noreferrer"
-              className="inline-flex items-center gap-3 text-gray-400 hover:text-gray-200"
+              className="inline-flex items-center gap-3 text-muted-foreground hover:text-primary"
             >
               <Github size={18} />
               <span className="text-sm">GitHub</span>

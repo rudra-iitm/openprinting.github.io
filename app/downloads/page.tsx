@@ -30,7 +30,7 @@ export default async function DownloadsPage() {
     : []
 
   return (
-    <main className="min-h-screen bg-black text-white py-16">
+    <main className="min-h-screen bg-background text-foreground pt-24 pb-16">
       <div className="max-w-6xl mx-auto px-6">
         <h1 className="text-4xl font-bold mb-14">
           {title}
@@ -39,7 +39,7 @@ export default async function DownloadsPage() {
         <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-12">
           {features.map((item, idx) => (
             <div key={idx}>
-              <div className="bg-[#bdbdbd] rounded-xl w-full h-[260px] flex items-center justify-center mb-6">
+              <div className="bg-muted rounded-xl w-full h-[260px] flex items-center justify-center mb-6">
                 <Image
                   src={`/${item.image_path}`}
                   alt={item.alt}
@@ -55,7 +55,7 @@ export default async function DownloadsPage() {
                 href={item.url}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-block border border-[#0288d1] text-[#0288d1] px-6 py-2 rounded-md hover:bg-[#0288d1] hover:text-white transition"
+                className="inline-block border border-sky-500 text-sky-600 dark:text-sky-400 px-6 py-2 rounded-md hover:bg-sky-500 hover:text-white transition"
               >
                 {item.btn_label ?? "Download"}
               </a>

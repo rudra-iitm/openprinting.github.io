@@ -34,14 +34,14 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300",
-        scrolled ? "bg-black/90 backdrop-blur-sm shadow-md" : "bg-transparent",
+        "fixed top-0 w-full z-50 transition-all duration-300 bg-background border-b border-border",
+        scrolled && "shadow-md"
       )}
     >
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           <div className="flex items-center">
-            <Link href="/" className="flex items-center space-x-2">
+            <Link href="/" prefetch={false} className="flex items-center space-x-2">
               <div className="relative w-10 h-10">
                 <Image
                   src={`${basePath}/openprinting.png`}
@@ -55,7 +55,7 @@ export default function Navbar() {
                 initial={{ opacity: 0, x: -10 }}
                 animate={{ opacity: 1, x: 0 }}
                 transition={{ duration: 0.5 }}
-                className="text-xl font-bold text-white"
+                className="text-xl font-bold text-foreground"
               >
                 OpenPrinting
               </motion.span>
@@ -71,7 +71,7 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
-                  <Link href={item.href} className="text-gray-300 hover:text-white transition-colors duration-200">
+                  <Link href={item.href} prefetch={false} className="text-foreground hover:text-primary transition-colors duration-200">
                     {item.name}
                   </Link>
                 </motion.div>
@@ -91,7 +91,7 @@ export default function Navbar() {
               variant="ghost"
               size="icon"
               onClick={() => setIsOpen(!isOpen)}
-              className="text-gray-300 hover:text-white"
+              className="text-foreground hover:text-primary"
             >
               {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
             </Button>
@@ -106,7 +106,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
-            className="md:hidden bg-black/95 backdrop-blur-sm"
+            className="md:hidden bg-background border-t border-border"
           >
             <div className="px-4 pt-2 pb-4 space-y-1">
               {navItems.map((item, index) => (
@@ -118,7 +118,8 @@ export default function Navbar() {
                 >
                   <Link
                     href={item.href}
-                    className="block py-2 text-gray-300 hover:text-white"
+                    prefetch={false}
+                    className="block py-2 text-foreground hover:text-primary"
                     onClick={() => setIsOpen(false)}
                   >
                     {item.name}

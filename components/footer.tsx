@@ -7,7 +7,7 @@ const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.i
 
 export default function Footer() {
   return (
-    <footer className="bg-gray-900 text-white">
+    <footer className="bg-card text-foreground border-t border-border">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
         <div className="flex flex-col items-center">
           <div className="flex space-x-6 mb-8">
@@ -17,7 +17,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="text-gray-400 flex gap-2 hover:text-white transition-colors"
+              className="text-muted-foreground flex gap-2 hover:text-primary transition-colors"
             >
               <Twitter className="h-6 w-6" />
               <span className="font-extrabold">Twitter</span>
@@ -28,7 +28,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="text-gray-400 flex gap-2 hover:text-white transition-colors"
+              className="text-muted-foreground flex gap-2 hover:text-primary transition-colors"
             >
               <Github className="h-6 w-6" />
               <span className="font-extrabold">GitHub</span>
@@ -39,7 +39,7 @@ export default function Footer() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="text-gray-400 flex gap-2 hover:text-white transition-colors"
+              className="text-muted-foreground flex gap-2 hover:text-primary transition-colors"
             >
               <Facebook className="h-6 w-6" />
               <span className="font-extrabold">Facebook</span>
@@ -49,14 +49,14 @@ export default function Footer() {
               rel="noopener noreferrer"
               whileHover={{ scale: 1.1 }}
               whileTap={{ scale: 0.9 }}
-              className="text-gray-400 flex gap-2 hover:text-white transition-colors"
+              className="text-muted-foreground flex gap-2 hover:text-primary transition-colors"
             >
               <Rss className="h-6 w-6" />
               <span className="font-extrabold">Feed</span>
             </motion.a>
           </div>
 
-          <div className="text-gray-500 text-sm text-center">
+          <div className="text-muted-foreground text-sm text-center">
             <p>© {new Date().getFullYear()} OpenPrinting. All rights reserved.</p>
             <p className="mt-1">Powered by Next.js and Tailwind CSS.</p>
           </div>

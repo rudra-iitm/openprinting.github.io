@@ -35,10 +35,10 @@ export default async function ProjectDetail({
           <meta httpEquiv="refresh" content={`0; url=${data.redirect}`} />
           <link rel="canonical" href={data.redirect} />
         </head>
-        <body className="bg-black text-white flex items-center justify-center min-h-screen">
+        <body className="bg-background text-foreground flex items-center justify-center min-h-screen">
           <p>
             Redirecting to{" "}
-            <a href={data.redirect} className="text-[#03A9F4] underline">
+            <a href={data.redirect} className="text-primary underline">
               {data.redirect}
             </a>
             …
@@ -54,13 +54,13 @@ export default async function ProjectDetail({
       : project.replace(/^\d+-/, "").replace(/-/g, " ")
 
   return (
-    <main className="min-h-screen bg-black text-white py-10">
+    <main className="min-h-screen bg-background text-foreground pt-24 pb-10">
       <div className="max-w-4xl mx-auto px-4">
         <h1 className="text-3xl md:text-4xl font-bold mb-8">
           {title}
         </h1>
 
-        <div className="prose prose-invert max-w-none">
+        <div className="prose max-w-none">
           <MarkdownRenderer content={content} />
         </div>
       </div>

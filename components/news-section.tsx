@@ -30,15 +30,15 @@ export default function NewsSection({ posts }: { posts: NewsPost[] }) {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <section ref={ref} className="bg-black text-white" id="news">
+    <section ref={ref} className="bg-background text-foreground py-16" id="news">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
         <motion.div
           initial={{ opacity: 0, y: 30 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
           transition={{ duration: 0.7 }}
-          className="text-center"
+          className="mb-12"
         >
-          <div className="w-24 h-1 bg-brand-lightBlue mx-auto"></div>
+          <div className="w-[70%] max-w-2xl mx-auto h-px bg-foreground" aria-hidden />
         </motion.div>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
@@ -48,29 +48,29 @@ export default function NewsSection({ posts }: { posts: NewsPost[] }) {
               initial={{ opacity: 0, y: 30 }}
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
               transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="group relative bg-gray-900 rounded-lg overflow-hidden p-6 border border-gray-800 hover:border-brand-lightBlue transition-colors duration-300 hover:cursor-pointer"
+              className="group relative bg-card rounded-lg overflow-hidden p-6 border border-border hover:border-primary hover:shadow-lg transition-all duration-300 hover:cursor-pointer"
               whileHover={{
                 scale: 1.02,
                 transition: { duration: 0.2 },
               }}
             >
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-brand-blue/0 to-brand-blue/0 group-hover:from-brand-blue/5 group-hover:to-brand-blue/10 transition-all duration-300"></div>
-              <Link href={`${basePath}/${item.slug}`} className="block h-full">
-                <h3 className="text-xl font-bold mb-3 text-brand-lightBlue">{item.title}</h3>
+              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-primary/10 transition-all duration-300"></div>
+              <Link href={`${basePath}/${item.slug}`} prefetch={false} className="block h-full">
+                <h3 className="text-xl font-bold mb-3 text-card-foreground">{item.title}</h3>
 
-                <div className="flex items-center text-sm text-gray-400 mb-4">
+                <div className="flex items-center text-sm text-muted-foreground mb-4">
                   <span>Author: {item.author}</span>
                   <span className="mx-2">•</span>
                   <span>Date: {formatDate(item.date)}</span>
                 </div>
 
-                <p className="text-gray-300 mb-6">{item.excerpt}</p>
+                <p className="text-card-foreground mb-6">{item.excerpt}</p>
 
               </Link>
 
               {/* Animated border effect on hover */}
               <motion.div
-                className="absolute bottom-0 left-0 h-[2px] bg-brand-lightBlue"
+                className="absolute bottom-0 left-0 h-[2px] bg-primary"
                 initial={{ width: 0 }}
                 whileHover={{ width: "100%" }}
                 transition={{ duration: 0.3 }}
