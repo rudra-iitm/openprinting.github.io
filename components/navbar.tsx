@@ -1,5 +1,7 @@
 "use client"
 
+import { Search as SearchIcon } from "lucide-react";
+import SearchModal from "@/components/search/SearchModal";
 import { useState, useEffect } from "react"
 import Link from "next/link"
 import Image from "next/image"
@@ -7,7 +9,6 @@ import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
-// import Search from "./search"
 
 const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
@@ -22,6 +23,7 @@ const navItems = [
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
+  const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -82,11 +84,25 @@ export default function Navbar() {
               animate={{ opacity: 1, scale: 1 }}
               transition={{ duration: 0.3, delay: 0.5 }}
             >
-              {/* <Search /> */}
+              <Button
+                onClick={() => setSearchOpen(true)}
+                className="text-gray-300 hover:text-white transition"
+              >
+                <SearchIcon className="w-5 h-5" />
+              </Button>
             </motion.div>
           </div>
 
-          <div className="md:hidden">
+          <div className="md:hidden flex items-center gap-3">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setSearchOpen(true)}
+              className="text-gray-300 hover:text-white"
+            >
+              <SearchIcon className="h-5 w-5" />
+            </Button>
+
             <Button
               variant="ghost"
               size="icon"
@@ -125,20 +141,14 @@ export default function Navbar() {
                   </Link>
                 </motion.div>
               ))}
-              <motion.div
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.2, delay: navItems.length * 0.05 }}
-                className="pt-2"
-              >
-                <Button variant="outline" size="sm" className="w-full" onClick={() => setIsOpen(false)}>
-                  {/* <Search /> */}
-                </Button>
-              </motion.div>
             </div>
           </motion.div>
         )}
       </AnimatePresence>
+      <SearchModal
+        isOpen={searchOpen}
+        onClose={() => setSearchOpen(false)}
+      />
     </header>
   )
 }
