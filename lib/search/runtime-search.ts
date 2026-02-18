@@ -1,0 +1,39 @@
+import MiniSearch from "minisearch";
+import type { SearchDocument } from "./types";
+
+let miniSearch: MiniSearch<SearchDocument> | null = null;
+let isInitialized = false;
+
+async function initializeSearch() {
+  if (isInitialized && miniSearch) return miniSearch;
+
+  const response = await fetch("/search/static-index.json");
+  const data = await response.json();
+
+  const documents: SearchDocument[] = data.documents;
+
+  miniSearch = new MiniSearch<SearchDocument>({
+    fields: ["title", "content", "headings"],
+    storeFields: ["id", "title", "url", "snippet", "type", "source"],
+    searchOptions: {
+      boost: { title: 3, headings: 2 },
+      fuzzy: 0.2,
+    },
+  });
+
+  miniSearch.addAll(documents);
+
+  isInitialized = true;
+
+  return miniSearch;
+}
+
+export async function searchRuntime(query: string) {
+  if (!query.trim()) return [];
+
+  const engine = await initializeSearch();
+
+  const results = engine.search(query);
+
+  return results;
+}
