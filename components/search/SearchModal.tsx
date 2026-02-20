@@ -3,7 +3,7 @@
 import { useEffect, useState } from "react";
 import { X, Search as SearchIcon } from "lucide-react";
 import { searchRuntime } from "@/lib/search/runtime-search";
-import type { SearchDocument } from "@/lib/search/types";
+import type { SearchRuntimeResult } from "@/lib/search/runtime-search";
 import { Button } from "@/components/ui/button"
 import Link from "next/link";
 
@@ -14,8 +14,7 @@ interface SearchModalProps {
 
 export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     const [query, setQuery] = useState("");
-    const [results, setResults] = useState<SearchDocument[]>([]);
-
+    const [results, setResults] = useState<SearchRuntimeResult[]>([]);
     useEffect(() => {
         if (!query.trim()) {
             setResults([]);
@@ -24,7 +23,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
 
         const runSearch = async () => {
             const res = await searchRuntime(query);
-            setResults(res as any);
+            setResults(res);
         };
 
         runSearch();

@@ -1,10 +1,10 @@
-import MiniSearch from "minisearch";
+import MiniSearch, { type SearchResult } from "minisearch";
 import type { SearchDocument } from "./types";
 
 let miniSearch: MiniSearch<SearchDocument> | null = null;
 let isInitialized = false;
 
-async function initializeSearch() {
+async function initializeSearch(): Promise<MiniSearch<SearchDocument>> {
   if (isInitialized && miniSearch) return miniSearch;
 
   const response = await fetch("/search/static-index.json");
@@ -28,12 +28,14 @@ async function initializeSearch() {
   return miniSearch;
 }
 
-export async function searchRuntime(query: string) {
+export type SearchRuntimeResult = SearchResult;
+
+export async function searchRuntime(
+  query: string,
+): Promise<SearchRuntimeResult[]> {
   if (!query.trim()) return [];
 
   const engine = await initializeSearch();
 
-  const results = engine.search(query);
-
-  return results;
+  return engine.search(query);
 }
