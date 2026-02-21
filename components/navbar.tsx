@@ -33,6 +33,27 @@ export default function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll)
   }, [])
 
+  useEffect(() => {
+    const handleKeyDown = (event: KeyboardEvent) => {
+      const isMac = navigator.platform.toUpperCase().includes("MAC");
+
+      if (
+        (isMac && event.metaKey && event.key.toLowerCase() === "k") ||
+        (!isMac && event.ctrlKey && event.key.toLowerCase() === "k")
+      ) {
+        event.preventDefault();
+        setSearchOpen(true);
+      }
+
+      if (event.key === "Escape") {
+        setSearchOpen(false);
+      }
+    };
+
+    window.addEventListener("keydown", handleKeyDown);
+    return () => window.removeEventListener("keydown", handleKeyDown);
+  }, []);
+
   return (
     <header
       className={cn(
