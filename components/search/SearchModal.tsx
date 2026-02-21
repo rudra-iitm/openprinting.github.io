@@ -15,19 +15,31 @@ interface SearchModalProps {
 export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState<SearchRuntimeResult[]>([]);
+    const [debouncedQuery, setDebouncedQuery] = useState(query);
+
     useEffect(() => {
-        if (!query.trim()) {
+        const handler = setTimeout(() => {
+            setDebouncedQuery(query);
+        }, 200);
+
+        return () => {
+            clearTimeout(handler);
+        };
+    }, [query]);
+
+    useEffect(() => {
+        if (!debouncedQuery.trim()) {
             setResults([]);
             return;
         }
 
         const runSearch = async () => {
-            const res = await searchRuntime(query);
+            const res = await searchRuntime(debouncedQuery);
             setResults(res);
         };
 
         runSearch();
-    }, [query]);
+    }, [debouncedQuery]);
 
     if (!isOpen) return null;
 
