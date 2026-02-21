@@ -37,5 +37,5 @@ export async function searchRuntime(
 
   const engine = await initializeSearch();
 
-  return engine.search(query);
+  return engine.search(query).slice(0, 8);
 }
