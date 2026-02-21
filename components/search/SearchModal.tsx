@@ -16,6 +16,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
     const [query, setQuery] = useState("");
     const [results, setResults] = useState<SearchRuntimeResult[]>([]);
     const [debouncedQuery, setDebouncedQuery] = useState(query);
+    const [loading, setLoading] = useState(false);
 
     useEffect(() => {
         const handler = setTimeout(() => {
@@ -34,8 +35,10 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         }
 
         const runSearch = async () => {
+            setLoading(true);
             const res = await searchRuntime(debouncedQuery);
             setResults(res);
+            setLoading(false);
         };
 
         runSearch();
@@ -66,6 +69,11 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                 </div>
 
                 <div className="max-h-96 overflow-y-auto space-y-3">
+                    {loading && (
+                        <div className="text-gray-500 text-sm">
+                            Loading search index...
+                        </div>
+                    )}
                     {results.map((result) => (
                         <Link
                             key={result.id}
@@ -82,7 +90,7 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                         </Link>
                     ))}
 
-                    {query && results.length === 0 && (
+                    {!loading && query && results.length === 0 && (
                         <div className="text-gray-500 text-sm">
                             No results found.
                         </div>
