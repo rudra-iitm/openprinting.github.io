@@ -7,6 +7,7 @@ import GithubSlugger from "github-slugger";
 import { unified } from "unified";
 import remarkParse from "remark-parse";
 import type { Node } from "unist";
+import { cn } from "@/lib/utils";
 
 interface TocEntry {
   value: string;
@@ -40,6 +41,8 @@ export function TableOfContents({ content, isSticky = false }: TableOfContentsPr
     return tocEntries;
   }, [content]);
 
+  if (toc.length === 0) return null;
+
   const handleClick = (event: MouseEvent<HTMLAnchorElement>, url: string) => {
     event.preventDefault();
 
@@ -56,7 +59,7 @@ export function TableOfContents({ content, isSticky = false }: TableOfContentsPr
 
     if (!target) return;
 
-    const yOffset = 80;
+    const yOffset = 96;
     const rect = target.getBoundingClientRect();
     const scrollTop = window.scrollY + rect.top - yOffset;
 
@@ -66,16 +69,24 @@ export function TableOfContents({ content, isSticky = false }: TableOfContentsPr
     });
   };
 
-  const containerClasses = `w-full bg-gray-900 p-4 rounded-lg ${isSticky ? "sticky top-4 self-start" : ""}`;
-
   return (
-    <nav className={containerClasses}>
-      <h2 className="text-lg font-semibold mb-2 text-white">Table of Contents</h2>
-      <ul className="space-y-2">
+    <nav
+      className={cn(
+        "modern-card w-full",
+        isSticky ? "sticky top-24 self-start" : ""
+      )}
+    >
+      <h2 className="text-sm font-semibold uppercase tracking-[0.14em] text-cyan-700 dark:text-cyan-200">
+        Table of Contents
+      </h2>
+      <ul className="mt-4 space-y-2.5">
         {toc.map((entry, index) => (
           <li
-            key={index}
-            className={`${entry.depth > 2 ? "ml-4" : ""} text-sm hover:text-blue-400 transition-colors`}
+            key={`${entry.url}-${index}`}
+            className={cn(
+              "text-sm leading-relaxed text-gray-600 transition-colors hover:text-cyan-700 dark:text-slate-300 dark:hover:text-cyan-200",
+              entry.depth > 2 ? "ml-4 text-gray-400 dark:text-slate-400" : ""
+            )}
           >
             <a
               href={`#${entry.url}`}

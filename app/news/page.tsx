@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
+import { Clock3 } from "lucide-react";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
 import { TableOfContents } from "@/components/table-of-contents";
 import DisqusComments from "@/components/disqus-comment";
@@ -24,64 +25,59 @@ export default async function Home() {
 
   const title =
     typeof frontmatter.title === "string" &&
-      frontmatter.title.trim() !== ""
+    frontmatter.title.trim() !== ""
       ? frontmatter.title.trim()
       : "Untitled Article";
 
   const readTime =
     typeof frontmatter.readTime === "string" &&
-      frontmatter.readTime.trim() !== ""
+    frontmatter.readTime.trim() !== ""
       ? frontmatter.readTime.trim()
       : "";
 
   return (
-    <main className="w-full">
-      <div className="max-w-[1400px] mx-auto px-4 lg:pl-6 lg:pr-1 py-10 w-full">
-        <div className="flex flex-col lg:flex-row gap-8 items-start">
-          {authorKey && (
-            <aside className="w-full lg:w-[260px] flex-shrink-0 lg:sticky lg:top-20 lg:self-start">
+    <main className="section-shell pt-28 md:pt-32">
+      <div className="container relative z-10">
+        <header className="modern-card mb-8">
+          <p className="section-kicker">Sample News</p>
+          <h1 className="mt-5 max-w-4xl text-3xl font-semibold leading-tight text-gray-900 dark:text-slate-100 md:text-5xl">
+            {title}
+          </h1>
+          {readTime && (
+            <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50/70 px-3 py-1 text-sm text-gray-600 dark:border-slate-600/80 dark:bg-slate-900/70 dark:text-slate-300">
+              <Clock3 className="h-4 w-4" />
+              <span>{readTime}</span>
+            </div>
+          )}
+        </header>
+
+        <div className="grid gap-6 xl:grid-cols-[280px_minmax(0,1fr)_300px]">
+          {authorKey ? (
+            <aside className="xl:sticky xl:top-24 xl:self-start">
               <AuthorCard authorKey={authorKey} />
             </aside>
+          ) : (
+            <div className="hidden xl:block" />
           )}
 
-          <section className="w-full lg:flex-1 lg:min-w-0 lg:max-w-[720px]">
-            <div className="mb-6 px-4">
-              <h1 className="text-3xl xl:text-4xl font-bold text-white leading-tight mb-3">
-                {title}
-              </h1>
-              {readTime && (
-                <div className="flex items-center gap-2 text-gray-400 text-sm">
-                  <svg
-                    className="w-4 h-4"
-                    fill="none"
-                    stroke="currentColor"
-                    viewBox="0 0 24 24"
-                  >
-                    <circle cx="12" cy="12" r="10" strokeWidth="2" />
-                    <path strokeWidth="2" d="M12 6v6l4 2" />
-                  </svg>
-                  <span>{readTime}</span>
-                </div>
-              )}
-            </div>
-
-            <div className="pb-6 px-4 lg:hidden">
+          <section className="min-w-0">
+            <div className="mb-6 xl:hidden">
               <TableOfContents content={markdownContent} />
             </div>
 
-            <div className="w-full px-4 lg:px-0">
-              <div className="prose prose-invert max-w-none prose-headings:text-white prose-p:text-gray-300 prose-a:text-blue-400">
+            <article className="modern-card">
+              <div className="prose prose-gray dark:prose-invert max-w-none prose-headings:scroll-mt-28 prose-headings:font-semibold prose-a:text-cyan-600 prose-a:no-underline hover:prose-a:text-cyan-500 dark:prose-a:text-cyan-300 dark:hover:prose-a:text-cyan-200 prose-code:rounded prose-code:bg-gray-100 prose-code:px-1 prose-code:py-0.5 dark:prose-code:bg-slate-800">
                 <MarkdownRenderer content={markdownContent} />
               </div>
+            </article>
 
-              <div className="mt-10">
-                <DisqusComments post={{ id: "1", title }} />
-              </div>
-            </div>
+            <section className="modern-card mt-8">
+              <DisqusComments post={{ id: "sample-news", title }} />
+            </section>
           </section>
 
-          <aside className="hidden lg:block w-[320px] flex-shrink-0 sticky top-20 self-start">
-            <TableOfContents content={markdownContent} />
+          <aside className="hidden xl:block">
+            <TableOfContents content={markdownContent} isSticky />
           </aside>
         </div>
       </div>

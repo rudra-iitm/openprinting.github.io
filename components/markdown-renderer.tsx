@@ -3,74 +3,52 @@ import remarkGfm from "remark-gfm"
 import rehypeHighlight from "rehype-highlight"
 import rehypeAutolinkHeadings from "rehype-autolink-headings"
 import rehypeSlug from "rehype-slug"
-import rehypeRaw from 'rehype-raw'
+import rehypeRaw from "rehype-raw"
 import readingTime from "reading-time"
 import "highlight.js/styles/github-dark.css"
 import bash from "highlight.js/lib/languages/bash"
-import matter from "gray-matter"
-import { Clock } from 'lucide-react';
 
 interface MarkdownRendererProps {
   content: string
 }
 
-export interface Metadata {
-  title?: string
-  layout?: string
-  toc?: boolean
-  toc_sticky?: boolean
-  author?: string
-  excerpt?: string
-  [key: string]: unknown
-}
-
 export function MarkdownRenderer({ content }: MarkdownRendererProps) {
-  const { data, content: markdownContent } = matter(content)
-  const metadata: Metadata = data
-  const stats = readingTime(markdownContent)
+  const stats = readingTime(content)
 
   return (
-    <div className="p-4 md:p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
-      <div className="mb-4 md:mb-6">
-        {metadata.title && (
-          <h1 className="text-2xl md:text-5xl font-black mb-3 md:mb-4 text-white">
-            {metadata.title}
-          </h1>
-        )}
-        <div className="flex items-center gap-2 text-sm md:text-base text-gray-400">
-          <Clock size={16} />
-          <span>{Math.ceil(stats.minutes)} minute read</span>
-        </div>
+    <div>
+      <div className="mb-6 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50/70 px-3 py-1 text-xs text-gray-600 dark:border-slate-600/80 dark:bg-slate-900/70 dark:text-slate-300">
+        <span className="font-medium">Estimated read</span>
+        <span>{Math.max(1, Math.ceil(stats.minutes))} min</span>
       </div>
-      <div className="flex">
-        <div className="prose prose-invert prose-github max-w-none w-full">
-          <ReactMarkdown
-            remarkPlugins={[remarkGfm]}
-            rehypePlugins={[
-              [rehypeHighlight, { languages: { bash }, detect: true, ignoreMissing: true }],
-              rehypeSlug,
-              rehypeRaw,
-              [rehypeAutolinkHeadings, { behavior: "wrap" }],
-            ]}
-            components={{
-              // @ts-expect-error: TypeScript does not recognize the code component props
-              code({ inline, className, children, ...props }) {
-                const match = /language-(\w+)/.exec(className || "")
-                return !inline ? (
-                  <code className={`${className || ""} ${!match ? "language-bash" : ""} rounded-md`} {...props}>
-                    {children}
-                  </code>
-                ) : (
-                  <code className={className} {...props}>
-                    {children}
-                  </code>
-                )
-              },
-            }}
-          >
-            {markdownContent}
-          </ReactMarkdown>
-        </div>
+
+      <div className="prose prose-gray dark:prose-invert prose-github max-w-none">
+        <ReactMarkdown
+          remarkPlugins={[remarkGfm]}
+          rehypePlugins={[
+            [rehypeHighlight, { languages: { bash }, detect: true, ignoreMissing: true }],
+            rehypeSlug,
+            rehypeRaw,
+            [rehypeAutolinkHeadings, { behavior: "wrap" }],
+          ]}
+          components={{
+            // @ts-expect-error: TypeScript does not recognize the code component props
+            code({ inline, className, children, ...props }) {
+              const match = /language-(\w+)/.exec(className || "")
+              return !inline ? (
+                <code className={`${className || ""} ${!match ? "language-bash" : ""} rounded-md`} {...props}>
+                  {children}
+                </code>
+              ) : (
+                <code className={className} {...props}>
+                  {children}
+                </code>
+              )
+            },
+          }}
+        >
+          {content}
+        </ReactMarkdown>
       </div>
     </div>
   )

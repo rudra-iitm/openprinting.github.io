@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
+import { Clock3 } from "lucide-react";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
 import { TableOfContents } from "@/components/table-of-contents";
 import DisqusComments from "@/components/disqus-comment";
@@ -9,104 +10,103 @@ import AuthorCard from "@/components/AuthorCard";
 const POSTS_DIR = path.join(process.cwd(), "contents", "post");
 
 async function getPost(slug: string) {
-    const decodedSlug = decodeURIComponent(slug);
-    const filePath = path.join(POSTS_DIR, `${decodedSlug}.md`);
-    const raw = await fs.readFile(filePath, "utf8");
-    const { data, content } = matter(raw);
-    return {
-        frontmatter: data as Record<string, unknown>,
-        content: content ?? "",
-    };
+  const decodedSlug = decodeURIComponent(slug);
+  const filePath = path.join(POSTS_DIR, `${decodedSlug}.md`);
+  const raw = await fs.readFile(filePath, "utf8");
+  const { data, content } = matter(raw);
+  return {
+    frontmatter: data as Record<string, unknown>,
+    content: content ?? "",
+  };
 }
 
 export async function generateStaticParams() {
-    const entries = await fs.readdir(POSTS_DIR);
-    return entries
-        .filter((name) => name.endsWith(".md"))
-        .map((name) => ({
-            slug: name.replace(/\.md$/, ""),
-        }));
+  const entries = await fs.readdir(POSTS_DIR);
+  return entries
+    .filter((name) => name.endsWith(".md"))
+    .map((name) => ({
+      slug: name.replace(/\.md$/, ""),
+    }));
 }
 
 export default async function PostPage({
-    params,
+  params,
 }: {
-    params: Promise<{ slug: string }>;
+  params: Promise<{ slug: string }>;
 }) {
-    const { slug } = await params;
+  const { slug } = await params;
 
-    const { frontmatter, content: markdownContent } = await getPost(slug);
+  const { frontmatter, content: markdownContent } = await getPost(slug);
 
-    const rawAuthor =
-        typeof frontmatter.author === "string" ? frontmatter.author.trim() : "";
-    const authorKey = rawAuthor !== "" ? rawAuthor : undefined;
+  const rawAuthor =
+    typeof frontmatter.author === "string" ? frontmatter.author.trim() : "";
+  const authorKey = rawAuthor !== "" ? rawAuthor : undefined;
 
-    const title =
-        typeof frontmatter.title === "string" && frontmatter.title.trim() !== ""
-            ? frontmatter.title.trim()
-            : "Untitled Article";
+  const title =
+    typeof frontmatter.title === "string" && frontmatter.title.trim() !== ""
+      ? frontmatter.title.trim()
+      : "Untitled Article";
 
-    const readTime =
-        typeof frontmatter.readTime === "string" &&
-            frontmatter.readTime.trim() !== ""
-            ? frontmatter.readTime.trim()
-            : "";
+  const readTime =
+    typeof frontmatter.readTime === "string" &&
+    frontmatter.readTime.trim() !== ""
+      ? frontmatter.readTime.trim()
+      : "";
 
-    const showToc =
-        !!frontmatter &&
-        (frontmatter.toc === true || String(frontmatter.toc) === "true");
+  const showToc =
+    !!frontmatter &&
+    (frontmatter.toc === true || String(frontmatter.toc) === "true");
 
-    return (
-        <main className="w-full min-h-screen py-10">
-            <div className="max-w-[1400px] mx-auto px-4 lg:pl-6 lg:pr-1 py-10 w-full">
-                <div className="flex flex-col lg:flex-row gap-8 items-start">
-                    {authorKey && (
-                        <aside className="w-full lg:w-[260px] flex-shrink-0 lg:sticky lg:top-20 lg:self-start">
-                            <AuthorCard authorKey={authorKey} />
-                        </aside>
-                    )}
-
-                    <section className="w-full lg:flex-1 lg:min-w-0 lg:max-w-[720px]">
-                        <div className="mb-6 px-4">
-                            <h1 className="text-3xl xl:text-4xl font-bold text-white leading-tight mb-3">
-                                {title}
-                            </h1>
-                            {readTime && (
-                                <div className="flex items-center gap-2 text-gray-400 text-sm">
-                                    <svg
-                                        className="w-4 h-4"
-                                        fill="none"
-                                        stroke="currentColor"
-                                        viewBox="0 0 24 24"
-                                    >
-                                        <circle cx="12" cy="12" r="10" strokeWidth="2" />
-                                        <path strokeWidth="2" d="M12 6v6l4 2" />
-                                    </svg>
-                                    <span>{readTime}</span>
-                                </div>
-                            )}
-                        </div>
-
-                        {showToc && (<div className="pb-6 px-4 lg:hidden">
-                            <TableOfContents content={markdownContent} />
-                        </div>)}
-
-                        <div className="w-full px-4 lg:px-0">
-                            <div className="prose prose-invert max-w-none prose-headings:text-white prose-p:text-gray-300 prose-a:text-blue-400">
-                                <MarkdownRenderer content={markdownContent} />
-                            </div>
-
-                            <div className="mt-10">
-                                <DisqusComments post={{ id: slug, title }} />
-                            </div>
-                        </div>
-                    </section>
-
-                    {showToc && (<aside className="hidden lg:block w-[320px] flex-shrink-0 sticky top-10 self-start">
-                        <TableOfContents content={markdownContent} />
-                    </aside>)}
-                </div>
+  return (
+    <main className="section-shell pt-28 md:pt-32">
+      <div className="container relative z-10">
+        <header className="modern-card mb-8">
+          <p className="section-kicker">OpenPrinting Article</p>
+          <h1 className="mt-5 max-w-4xl text-3xl font-semibold leading-tight text-gray-900 dark:text-slate-100 md:text-5xl">
+            {title}
+          </h1>
+          {readTime && (
+            <div className="mt-4 inline-flex items-center gap-2 rounded-full border border-gray-200 bg-gray-50/70 px-3 py-1 text-sm text-gray-600 dark:border-slate-600/80 dark:bg-slate-900/70 dark:text-slate-300">
+              <Clock3 className="h-4 w-4" />
+              <span>{readTime}</span>
             </div>
-        </main>
-    );
+          )}
+        </header>
+
+        <div className="grid gap-6 xl:grid-cols-[280px_minmax(0,1fr)_300px]">
+          {authorKey ? (
+            <aside className="xl:sticky xl:top-24 xl:self-start">
+              <AuthorCard authorKey={authorKey} />
+            </aside>
+          ) : (
+            <div className="hidden xl:block" />
+          )}
+
+          <section className="min-w-0">
+            {showToc && (
+              <div className="mb-6 xl:hidden">
+                <TableOfContents content={markdownContent} />
+              </div>
+            )}
+
+            <article className="modern-card prose-headings:scroll-mt-28 prose-a:text-cyan-600 hover:prose-a:text-cyan-500 dark:prose-a:text-cyan-300 dark:hover:prose-a:text-cyan-200">
+              <MarkdownRenderer content={markdownContent} />
+            </article>
+
+            <section className="modern-card mt-8">
+              <DisqusComments post={{ id: slug, title }} />
+            </section>
+          </section>
+
+          {showToc ? (
+            <aside className="hidden xl:block">
+              <TableOfContents content={markdownContent} isSticky />
+            </aside>
+          ) : (
+            <div className="hidden xl:block" />
+          )}
+        </div>
+      </div>
+    </main>
+  );
 }

@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { MapPin, Mail, Github } from "lucide-react";
+import { MapPin, Mail, Github, ChevronDown } from "lucide-react";
 import { cn } from "@/lib/utils";
 import authors from "@/data/authors";
 
@@ -43,125 +43,115 @@ export default function AuthorCard({ authorKey, className }: Props) {
   if (!author) return null;
 
   const placeholder = `${basePath}/authors/placeholder.jpg`;
-  const imgRaw =
-    author.image && author.image !== "NA" ? author.image : placeholder;
+  const imgRaw = author.image && author.image !== "NA" ? author.image : placeholder;
   const imgSrc = imgRaw.startsWith("/") ? `${basePath}${imgRaw}` : `${basePath}/${imgRaw}`;
 
   return (
     <>
-      <div className="lg:hidden flex items-center gap-3 px-4 py-4">
-        <div className="rounded-full overflow-hidden w-[52px] h-[52px] border border-white/20">
-          <Image
-            src={imgSrc}
-            alt={author.name}
-            width={52}
-            height={52}
-            className="object-cover w-full h-full"
-            priority
-          />
-        </div>
+      {/* Mobile card */}
+      <div className="modern-card lg:hidden">
+        <div className="flex items-center gap-3">
+          <div className="h-14 w-14 overflow-hidden rounded-full border border-gray-300 dark:border-slate-500/60">
+            <Image
+              src={imgSrc}
+              alt={author.name}
+              width={56}
+              height={56}
+              className="h-full w-full object-cover"
+              priority
+            />
+          </div>
 
-        <div className="flex-1 min-w-0">
-          <h2 className="text-base font-semibold text-white leading-tight">
-            {author.name}
-          </h2>
-          {author.role && (
-            <p className="text-[15px] text-gray-400 mt-0.5">{author.role}</p>
-          )}
-        </div>
+          <div className="min-w-0 flex-1">
+            <h2 className="truncate text-base font-semibold text-gray-900 dark:text-slate-100">{author.name}</h2>
+            {author.role && <p className="truncate text-sm text-gray-500 dark:text-slate-400">{author.role}</p>}
+          </div>
 
-        <div className="relative" ref={dropdownRef}>
-          <button
-            onClick={() => setOpen(!open)}
-            className="px-4 py-1.5 text-sm font-medium rounded bg-white text-black hover:bg-gray-100"
-          >
-            Follow
-          </button>
+          <div className="relative" ref={dropdownRef}>
+            <button
+              onClick={() => setOpen((prev) => !prev)}
+              className="inline-flex items-center gap-1.5 rounded-lg border border-gray-300 bg-white/70 px-3 py-1.5 text-sm text-gray-700 transition-colors hover:border-cyan-500/60 hover:text-cyan-700 dark:border-slate-600 dark:bg-slate-900/70 dark:text-slate-200 dark:hover:border-cyan-300/60 dark:hover:text-cyan-200"
+            >
+              Profile
+              <ChevronDown size={14} />
+            </button>
 
-          {open && (
-            <div className="absolute right-0 top-full mt-2 w-48 bg-white rounded shadow-xl border border-gray-200 py-1 z-50">
-              {author.location && (
-                <div className="flex items-center gap-2 px-3 py-2 text-gray-700">
-                  <MapPin size={16} className="text-gray-500" />
-                  <span className="text-sm">{author.location}</span>
-                </div>
-              )}
+            {open && (
+              <div className="absolute right-0 top-full z-50 mt-2 w-56 rounded-xl border border-gray-200 bg-white/95 p-2 shadow-xl dark:border-slate-700 dark:bg-slate-950/95">
+                {author.location && (
+                  <div className="flex items-center gap-2 rounded-md px-3 py-2 text-gray-600 dark:text-slate-300">
+                    <MapPin size={16} className="text-gray-400 dark:text-slate-400" />
+                    <span className="text-sm">{author.location}</span>
+                  </div>
+                )}
 
-              {author.email && (
-                <a
-                  href={author.email}
-                  className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:bg-gray-50"
-                >
-                  <Mail size={16} className="text-gray-500" />
-                  <span className="text-sm">Email</span>
-                </a>
-              )}
+                {author.email && (
+                  <a
+                    href={author.email}
+                    className="flex items-center gap-2 rounded-md px-3 py-2 text-gray-600 transition-colors hover:bg-gray-50 hover:text-cyan-700 dark:text-slate-300 dark:hover:bg-slate-800/80 dark:hover:text-cyan-200"
+                  >
+                    <Mail size={16} className="text-gray-400 dark:text-slate-400" />
+                    <span className="text-sm">Email</span>
+                  </a>
+                )}
 
-              {author.github && (
-                <a
-                  href={author.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-2 text-gray-700 hover:bg-gray-50"
-                >
-                  <Github size={16} className="text-gray-500" />
-                  <span className="text-sm">GitHub</span>
-                </a>
-              )}
-            </div>
-          )}
+                {author.github && (
+                  <a
+                    href={author.github}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="flex items-center gap-2 rounded-md px-3 py-2 text-gray-600 transition-colors hover:bg-gray-50 hover:text-cyan-700 dark:text-slate-300 dark:hover:bg-slate-800/80 dark:hover:text-cyan-200"
+                  >
+                    <Github size={16} className="text-gray-400 dark:text-slate-400" />
+                    <span className="text-sm">GitHub</span>
+                  </a>
+                )}
+              </div>
+            )}
+          </div>
         </div>
       </div>
 
+      {/* Desktop card */}
       <div
         className={cn(
-          "hidden lg:block bg-inherit text-gray-300 pt-2 px-6 pb-6 w-full max-w-[260px]",
+          "modern-card hidden w-full max-w-[280px] lg:block",
           className
         )}
       >
         <div className="flex flex-col items-start">
-          <div className="flex items-center justify-center mb-6 w-[135px] h-[135px] relative">
-            <div
-              aria-hidden
-              className="absolute rounded-full w-full h-full border-[0.7px] border-[rgba(255,255,255,0.8)] [box-shadow:0_0_0_1px_rgba(255,255,255,0.3),inset_0_0_20px_rgba(0,0,0,0.4)]"
+          <div className="mb-5 flex h-[108px] w-[108px] items-center justify-center overflow-hidden rounded-full border border-gray-300 dark:border-slate-500/70">
+            <Image
+              src={imgSrc}
+              alt={author.name}
+              width={108}
+              height={108}
+              className="h-full w-full object-cover"
+              priority
             />
-            <div className="rounded-full overflow-hidden w-[120px] h-[120px] border border-white/5">
-              <Image
-                src={imgSrc}
-                alt={author.name}
-                width={120}
-                height={120}
-                className="object-cover w-full h-full"
-                priority
-              />
-            </div>
           </div>
 
-          <h2 className="text-2xl font-extrabold tracking-tight text-gray-300 mb-3 pl-2">
-            {author.name}
-          </h2>
+          <h2 className="text-2xl font-semibold tracking-tight text-gray-900 dark:text-slate-100">{author.name}</h2>
 
           {author.role && (
-            <p className="text-[15px] text-gray-300 mb-5 pl-2">
-              {author.role}
-            </p>
+            <p className="mt-1 text-sm text-gray-500 dark:text-slate-400">{author.role}</p>
           )}
 
           {author.location && (
-            <div className="flex items-center gap-3 text-gray-400 mb-4 pl-2">
-              <MapPin size={16} />
+            <div className="mt-4 flex items-center gap-2 text-gray-500 dark:text-slate-400">
+              <MapPin size={15} />
               <span className="text-sm">{author.location}</span>
             </div>
           )}
 
-          <div className="flex flex-col items-start pl-2 gap-3">
+          <div className="mt-5 flex flex-col items-start gap-2">
             {author.email && (
               <a
                 href={author.email}
-                className="inline-flex items-center gap-3 text-gray-400 hover:text-gray-200"
+                className="inline-flex items-center gap-2 text-sm text-gray-600 transition-colors hover:text-cyan-700 dark:text-slate-300 dark:hover:text-cyan-200"
               >
-                <Mail size={18} />
-                <span className="text-sm">Email</span>
+                <Mail size={16} />
+                <span>Email</span>
               </a>
             )}
 
@@ -170,10 +160,10 @@ export default function AuthorCard({ authorKey, className }: Props) {
                 href={author.github}
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 text-gray-400 hover:text-gray-200"
+                className="inline-flex items-center gap-2 text-sm text-gray-600 transition-colors hover:text-cyan-700 dark:text-slate-300 dark:hover:text-cyan-200"
               >
-                <Github size={18} />
-                <span className="text-sm">GitHub</span>
+                <Github size={16} />
+                <span>GitHub</span>
               </a>
             )}
           </div>
