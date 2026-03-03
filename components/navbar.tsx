@@ -103,13 +103,16 @@ export default function Navbar() {
             <motion.div
               initial={{ opacity: 0, scale: 0.8 }}
               animate={{ opacity: 1, scale: 1 }}
+              whileHover={{ scale: 1.05 }}
               transition={{ duration: 0.3, delay: 0.5 }}
             >
               <Button
                 onClick={() => setSearchOpen(true)}
-                className="text-gray-300 hover:text-white transition"
+                variant="outline"
+                className="rounded-full text-white/80 border-gray-400 bg-transparent px-4 py-2 font-semibold hover:bg-white/10 hover:border-white hover:text-white focus-visible:ring-2 focus-visible:ring-white/50 transition-colors"
               >
                 <SearchIcon className="w-5 h-5" />
+                <span className="ml-2">Search</span>
               </Button>
             </motion.div>
           </div>
@@ -119,7 +122,8 @@ export default function Navbar() {
               variant="ghost"
               size="icon"
               onClick={() => setSearchOpen(true)}
-              className="text-gray-300 hover:text-white"
+              className="text-gray-300 hover:text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/50 rounded-full p-2"
+              aria-label="Search"
             >
               <SearchIcon className="h-5 w-5" />
             </Button>
