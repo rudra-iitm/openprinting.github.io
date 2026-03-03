@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
+import { redirect, notFound } from "next/navigation";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
 import { TableOfContents } from "@/components/table-of-contents";
 import DisqusComments from "@/components/disqus-comment";
@@ -19,13 +20,52 @@ async function getPost(slug: string) {
     };
 }
 
+async function getAllPostsMetadata() {
+    const entries = await fs.readdir(POSTS_DIR);
+
+    const posts = await Promise.all(
+        entries
+            .filter((name) => name.endsWith(".md"))
+            .map(async (name) => {
+                const filePath = path.join(POSTS_DIR, name);
+                const raw = await fs.readFile(filePath, "utf8");
+                const { data } = matter(raw);
+
+                return {
+                    slug: name.replace(/\.md$/, ""),
+                    previousSlugs: Array.isArray(data.previousSlugs)
+                        ? data.previousSlugs
+                        : [],
+                };
+            })
+    );
+
+    return posts;
+}
+
 export async function generateStaticParams() {
     const entries = await fs.readdir(POSTS_DIR);
-    return entries
-        .filter((name) => name.endsWith(".md"))
-        .map((name) => ({
-            slug: name.replace(/\.md$/, ""),
-        }));
+
+    const params: { slug: string }[] = [];
+
+    for (const name of entries) {
+        if (!name.endsWith(".md")) continue;
+
+        const slug = name.replace(/\.md$/, "");
+        params.push({ slug });
+
+        const filePath = path.join(POSTS_DIR, name);
+        const raw = await fs.readFile(filePath, "utf8");
+        const { data } = matter(raw);
+
+        if (Array.isArray(data.previousSlugs)) {
+            for (const prevSlug of data.previousSlugs) {
+                params.push({ slug: prevSlug });
+            }
+        }
+    }
+
+    return params;
 }
 
 export default async function PostPage({
@@ -34,6 +74,22 @@ export default async function PostPage({
     params: Promise<{ slug: string }>;
 }) {
     const { slug } = await params;
+
+    const allPosts = await getAllPostsMetadata();
+
+    const directMatch = allPosts.find((post) => post.slug === slug);
+
+    if (!directMatch) {
+        const redirectMatch = allPosts.find((post) =>
+            post.previousSlugs.includes(slug)
+        );
+
+        if (redirectMatch) {
+            redirect(`/${redirectMatch.slug}`);
+        }
+
+        notFound();
+    }
 
     const { frontmatter, content: markdownContent } = await getPost(slug);
 
