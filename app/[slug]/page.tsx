@@ -74,14 +74,15 @@ export default async function PostPage({
     params: Promise<{ slug: string }>;
 }) {
     const { slug } = await params;
+    const decodedSlug = decodeURIComponent(slug);
 
     const allPosts = await getAllPostsMetadata();
 
-    const directMatch = allPosts.find((post) => post.slug === slug);
+    const directMatch = allPosts.find((post) => post.slug === decodedSlug);
 
     if (!directMatch) {
         const redirectMatch = allPosts.find((post) =>
-            post.previousSlugs.includes(slug)
+            post.previousSlugs.includes(decodedSlug)
         );
 
         if (redirectMatch) {
@@ -91,7 +92,7 @@ export default async function PostPage({
         notFound();
     }
 
-    const { frontmatter, content: markdownContent } = await getPost(slug);
+    const { frontmatter, content: markdownContent } = await getPost(decodedSlug);
 
     const rawAuthor =
         typeof frontmatter.author === "string" ? frontmatter.author.trim() : "";
