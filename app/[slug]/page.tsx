@@ -46,6 +46,16 @@ export default async function PostPage({
             ? frontmatter.title.trim()
             : "Untitled Article";
 
+    let formattedDate = "";
+    if (typeof frontmatter.date === "string" && frontmatter.date.trim() !== "") {
+        const parsedDate = new Date(frontmatter.date);
+        formattedDate = parsedDate.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+        });
+    }
+
     const readTime =
         typeof frontmatter.readTime === "string" &&
             frontmatter.readTime.trim() !== ""
@@ -68,9 +78,14 @@ export default async function PostPage({
 
                     <section className="w-full lg:flex-1 lg:min-w-0 lg:max-w-[720px]">
                         <div className="mb-6 px-4">
-                            <h1 className="text-3xl xl:text-4xl font-bold text-white leading-tight mb-3">
+                            <h1 className="text-3xl xl:text-4xl font-bold text-white leading-tight mb-2">
                                 {title}
                             </h1>
+                            {formattedDate && (
+                                <div className="text-gray-400 text-sm mb-3">
+                                    {formattedDate}
+                                </div>
+                            )}
                             {readTime && (
                                 <div className="flex items-center gap-2 text-gray-400 text-sm">
                                     <svg
