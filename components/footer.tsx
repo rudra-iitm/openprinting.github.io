@@ -1,65 +1,109 @@
 "use client"
 
-import { motion } from "framer-motion"
-import { Twitter, Github, Facebook, Rss } from "lucide-react"
+import Link from "next/link"
+import { Github, Twitter, Facebook, Rss } from "lucide-react"
+
+const footerLinks = {
+  "Quick Links": [
+    { name: "About Us", href: "/about-us" },
+    { name: "Projects", href: "/projects" },
+    { name: "News and Events", href: "/news" },
+    { name: "Downloads", href: "/downloads" },
+    { name: "Documentation", href: "/documentation" },
+  ],
+  Community: [
+    { name: "GitHub", href: "https://github.com/OpenPrinting" },
+    { name: "Google Summer of Code", href: "/gsoc" },
+    { name: "Google Season of Docs", href: "/gsod" },
+    { name: "Contribute", href: "/contribute" },
+  ],
+  Resources: [
+    { name: "CUPS", href: "/cups" },
+    { name: "Printer Database", href: "/printers" },
+    { name: "Printer Working Group", href: "https://www.pwg.org/ipp/" },
+  ],
+}
+
+const socialLinks = [
+  { icon: Twitter, href: "https://x.com/open_printing", label: "Twitter" },
+  { icon: Github, href: "https://github.com/OpenPrinting", label: "GitHub" },
+  { icon: Facebook, href: "https://www.facebook.com/sharer/sharer.php?u=https://openprinting.github.io/", label: "Facebook" },
+  { icon: Rss, href: "/feed.xml", label: "RSS Feed" },
+]
 
 const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 export default function Footer() {
   return (
-    <footer className="bg-card text-foreground border-t border-border">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="flex flex-col items-center">
-          <div className="flex space-x-6 mb-8">
-            <motion.a
-              href="https://x.com/open_printing"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-muted-foreground flex gap-2 hover:text-primary transition-colors"
-            >
-              <Twitter className="h-6 w-6" />
-              <span className="font-extrabold">Twitter</span>
-            </motion.a>
-            <motion.a
-              href="https://github.com/OpenPrinting"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-muted-foreground flex gap-2 hover:text-primary transition-colors"
-            >
-              <Github className="h-6 w-6" />
-              <span className="font-extrabold">GitHub</span>
-            </motion.a>
-            <motion.a
-              href="https://www.facebook.com/sharer/sharer.php?u=https://openprinting.github.io/"
-              target="_blank"
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-muted-foreground flex gap-2 hover:text-primary transition-colors"
-            >
-              <Facebook className="h-6 w-6" />
-              <span className="font-extrabold">Facebook</span>
-            </motion.a>
-            <motion.a
-              href={`${basePath}/feed.xml`}
-              rel="noopener noreferrer"
-              whileHover={{ scale: 1.1 }}
-              whileTap={{ scale: 0.9 }}
-              className="text-muted-foreground flex gap-2 hover:text-primary transition-colors"
-            >
-              <Rss className="h-6 w-6" />
-              <span className="font-extrabold">Feed</span>
-            </motion.a>
+    <footer className="bg-black border-t border-white/[0.06]">
+      <div className="max-w-6xl mx-auto px-6 py-16">
+        <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-8">
+          {/* Brand */}
+          <div className="md:col-span-2">
+            <h3 className="text-lg font-semibold text-white mb-3 tracking-tight">OpenPrinting</h3>
+            <p className="text-sm text-neutral-500 leading-relaxed max-w-xs mb-6">
+              Making printing just work on Linux, Unix, and other operating systems through open-source technology.
+            </p>
+            <div className="flex items-center gap-3">
+              {socialLinks.map((social) => (
+                <a
+                  key={social.label}
+                  href={social.label === "RSS Feed" ? `${basePath}${social.href}` : social.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="w-9 h-9 rounded-full border border-white/[0.08] bg-white/[0.02] flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/[0.16] transition-all duration-200"
+                  aria-label={social.label}
+                >
+                  <social.icon className="w-4 h-4" />
+                </a>
+              ))}
+            </div>
           </div>
 
-          <div className="text-muted-foreground text-sm text-center">
-            <p>© {new Date().getFullYear()} OpenPrinting. All rights reserved.</p>
-            <p className="mt-1">Powered by Next.js and Tailwind CSS.</p>
-          </div>
+          {/* Link Columns */}
+          {Object.entries(footerLinks).map(([category, links]) => (
+            <div key={category}>
+              <h4 className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-4">
+                {category}
+              </h4>
+              <ul className="space-y-2.5">
+                {links.map((link) => (
+                  <li key={link.name}>
+                    {link.href.startsWith("http") ? (
+                      <a
+                        href={link.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
+                        className="text-sm text-neutral-500 hover:text-white transition-colors duration-200"
+                      >
+                        {link.name}
+                      </a>
+                    ) : (
+                      <Link
+                        href={link.href}
+                        prefetch={false}
+                        className="text-sm text-neutral-500 hover:text-white transition-colors duration-200"
+                      >
+                        {link.name}
+                      </Link>
+                    )}
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </div>
+
+      {/* Bottom bar */}
+      <div className="border-t border-white/[0.04]">
+        <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
+          <p className="text-xs text-neutral-600">
+            © {new Date().getFullYear()} OpenPrinting. All rights reserved.
+          </p>
+          <p className="text-xs text-neutral-600">
+            Built with Next.js
+          </p>
         </div>
       </div>
     </footer>

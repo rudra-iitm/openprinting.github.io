@@ -66,20 +66,23 @@ export function TableOfContents({ content, isSticky = false }: TableOfContentsPr
     });
   };
 
-  const containerClasses = `w-full bg-card border border-border mt-4 p-4 rounded-lg ${isSticky ? "sticky top-4 self-start" : ""}`;
+  const containerClasses = `w-full rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 max-h-[calc(100vh-8rem)] overflow-y-auto ${isSticky ? "sticky top-4 self-start" : ""}`;
 
   return (
     <nav className={containerClasses}>
-      <h2 className="text-lg lg:mt-2 font-semibold mb-2 text-card-foreground">Table of Contents</h2>
-      <ul className="space-y-2 text-card-foreground">
+      <h2 className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-4 sticky top-0 bg-inherit pb-2">
+        On This Page
+      </h2>
+      <ul className="space-y-1">
         {toc.map((entry, index) => (
           <li
             key={index}
-            className={`${entry.depth > 2 ? "ml-4" : ""} text-sm hover:text-primary transition-colors`}
+            className={`${entry.depth > 2 ? "ml-4" : ""}`}
           >
             <a
               href={`#${entry.url}`}
               onClick={(event) => handleClick(event, entry.url)}
+              className="block py-1.5 px-3 text-sm text-neutral-500 hover:text-white rounded-md hover:bg-white/[0.04] transition-all duration-200 border-l-2 border-transparent hover:border-blue-400"
             >
               {entry.value}
             </a>

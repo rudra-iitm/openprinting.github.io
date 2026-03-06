@@ -24,9 +24,11 @@ const config: Config = {
         background: "hsl(var(--background))",
         foreground: "hsl(var(--foreground))",
         brand: {
-          blue: "#0092ca",
-          darkBlue: "#222831",
-          lightBlue: "#0092ca",
+          cyan: "#0092ca",
+          blue: "#3b82f6",
+          lightBlue: "#60a5fa",
+          darkBlue: "#1e3a5f",
+          legacyDark: "#222831",
         },
         primary: {
           DEFAULT: "hsl(var(--primary))",
@@ -74,10 +76,15 @@ const config: Config = {
           from: { height: "var(--radix-accordion-content-height)" },
           to: { height: "0" },
         },
+        "glow-pulse": {
+          "0%, 100%": { opacity: "0.4" },
+          "50%": { opacity: "0.8" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
+        "glow-pulse": "glow-pulse 3s ease-in-out infinite",
       },
       typography: (theme: (arg0: string) => unknown) => ({
         invert: {

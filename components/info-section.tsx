@@ -4,8 +4,8 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
 import Image from "next/image"
-import { Button } from "./ui/button"
 import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 
 const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
@@ -21,71 +21,90 @@ export default function InfoSection() {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
-  return (
-    <section ref={ref} className="bg-background text-foreground">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+  const items: InfoItem[] = [
+    {
+      title: "About Us",
+      description:
+        "Learn more about OpenPrinting, how it works, the people involved, and the projects maintained by it",
+      icon: `${basePath}/OpenPrintingBox.png`,
+      href: "/about-us",
+      delay: 0.1,
+    },
+    {
+      title: "Contribute",
+      description:
+        "Know how you can be part of an excellent community and help improve printing experience for millions of users",
+      icon: `${basePath}/contribute.png`,
+      href: "/contribute",
+      delay: 0.2,
+    },
+    {
+      title: "CUPS",
+      description:
+        "CUPS is the standards-based, open source printing system that is used on Linux® and other operating systems.",
+      icon: `${basePath}/cups.png`,
+      href: "/cups",
+      delay: 0.3,
+    },
+  ]
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {([
-            {
-              title: "About Us",
-              description:
-                "Learn more about OpenPrinting, how it works, the people involved, and the projects maintained by it",
-              icon: `${basePath}/OpenPrintingBox.png`,
-              href: `${basePath}/about-us`,
-              delay: 0.1,
-            },
-            {
-              title: "Contribute",
-              description:
-                "Know how you can be part of an excellent community and help improve printing experience for millions of users",
-              icon: `${basePath}/contribute.png`,
-              href: `${basePath}/contribute`,
-              delay: 0.3,
-            },
-            {
-              title: "CUPS",
-              description:
-                "CUPS is the standards-based, open source printing system that is used on Linux® and other operating systems.",
-              icon: `${basePath}/cups.png`,
-              href: `${basePath}/cups`,
-              delay: 0.5,
-            },
-          ] as InfoItem[]).map((item) => (
+  return (
+    <section ref={ref} className="relative py-24 bg-black" id="about">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Section Header */}
+        <motion.div
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
+        >
+          <p className="text-sm font-medium text-blue-400 mb-3 tracking-wide uppercase">Who We Are</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+            About OpenPrinting
+          </h2>
+        </motion.div>
+
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
+          {items.map((item, index) => (
             <motion.div
-              key={item.title}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              key={index}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: item.delay }}
-              className="group relative bg-card rounded-lg overflow-hidden p-8 border border-border hover:border-primary hover:shadow-lg transition-all duration-300 hover:cursor-pointer"
+              className="group"
             >
-              <div className="flex flex-col items-start text-left">
-                <div className="mb-6 bg-muted rounded-lg flex items-center justify-center w-full h-48 overflow-hidden">
+              <div className="h-full rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] card-glow">
+                <div className="mb-5 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center overflow-hidden p-4 h-40">
                   <Image
-                    src={item.icon}
+                    src={item.icon || `${basePath}/placeholder.svg`}
                     alt={item.title}
-                    width={200}
-                    height={200}
-                    className="h-full w-full object-cover rounded-md"
+                    width={160}
+                    height={120}
+                    className="object-contain max-h-full"
                   />
                 </div>
-
-                <h3 className="text-2xl font-bold mb-4 text-card-foreground">{item.title}</h3>
-                <p className="text-card-foreground mb-6 leading-relaxed">{item.description}</p>
-
-                <Button asChild className="bg-primary text-primary-foreground hover:bg-primary/90">
-                  <Link href={item.href} prefetch={false}>
-                    Read More
-                  </Link>
-                </Button>
-
+                <h3 className="text-lg font-semibold text-white mb-2 tracking-tight">
+                  {item.title}
+                </h3>
+                <p className="text-sm text-neutral-400 leading-relaxed mb-5">
+                  {item.description}
+                </p>
+                <Link
+                  href={item.href}
+                  prefetch={false}
+                  className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-400 group-hover:text-blue-300 transition-colors duration-200"
+                >
+                  Read More
+                  <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                </Link>
               </div>
             </motion.div>
           ))}
 
         </div>
       </div>
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent my-16"></div>
+
+      <div className="section-divider mt-24 mx-auto max-w-6xl" />
     </section>
   )
 }

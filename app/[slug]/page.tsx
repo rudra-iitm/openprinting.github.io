@@ -124,22 +124,22 @@ export default async function PostPage({
         (frontmatter.toc === true || String(frontmatter.toc) === "true");
 
     return (
-        <main className="w-full min-h-screen pt-24 pb-10 bg-background text-foreground">
-            <div className="max-w-[1400px] mx-auto px-4 lg:pl-6 lg:pr-1 py-10 w-full">
-                <div className="flex flex-col lg:flex-row gap-8 items-start">
+        <main className="w-full min-h-screen pt-24 pb-16 bg-background text-foreground">
+            <div className="max-w-[1400px] mx-auto px-6 lg:pl-8 lg:pr-4 py-8 w-full">
+                <div className="flex flex-col lg:flex-row gap-10 items-start">
                     {authorKey && (
-                        <aside className="w-full lg:w-[260px] flex-shrink-0 lg:sticky lg:top-20 lg:self-start">
+                        <aside className="w-full lg:w-[260px] flex-shrink-0 lg:sticky lg:top-24 lg:self-start">
                             <AuthorCard authorKey={authorKey} />
                         </aside>
                     )}
 
                     <section className="w-full lg:flex-1 lg:min-w-0 lg:max-w-[720px]">
-                        <div className="mb-6 px-4">
-                            <h1 className="text-3xl xl:text-4xl font-bold text-foreground leading-tight mb-3">
+                        <div className="mb-8 px-4">
+                            <h1 className="text-3xl xl:text-4xl font-bold leading-tight tracking-tight mb-3">
                                 {title}
                             </h1>
                             {formattedDate && (
-                                <div className="text-gray-400 text-sm mb-3">
+                                <div className="text-muted-foreground text-sm mb-2">
                                     {formattedDate}
                                 </div>
                             )}
@@ -157,6 +157,7 @@ export default async function PostPage({
                                     <span>{readTime}</span>
                                 </div>
                             )}
+                            <div className="section-divider mt-8" />
                         </div>
 
                         {showToc && (<div className="pb-6 px-4 lg:hidden">
@@ -164,17 +165,17 @@ export default async function PostPage({
                         </div>)}
 
                         <div className="w-full px-4 lg:px-0">
-                            <div className="prose max-w-none">
+                            <div className="prose max-w-none dark:prose-invert prose-headings:tracking-tight prose-a:text-blue-600 hover:prose-a:text-blue-500 dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-300">
                                 <MarkdownRenderer content={markdownContent} />
                             </div>
 
-                            <div className="mt-10">
+                            <div className="mt-12">
                                 <DisqusComments post={{ id: slug, title }} />
                             </div>
                         </div>
                     </section>
 
-                    {showToc && (<aside className="hidden lg:block w-[320px] flex-shrink-0 sticky top-10 self-start">
+                    {showToc && (<aside className="hidden lg:block w-[320px] flex-shrink-0 sticky top-24 self-start">
                         <TableOfContents content={markdownContent} />
                     </aside>)}
                 </div>

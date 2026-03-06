@@ -32,7 +32,6 @@ const hamburgerItems = [
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
-  const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false);
 
@@ -68,153 +67,148 @@ export default function Navbar() {
   return (
     <header
       className={cn(
-        "fixed top-0 w-full z-50 transition-all duration-300 bg-background border-b border-border",
-        scrolled && "shadow-md"
+        "fixed top-0 w-full z-50 transition-all duration-500",
+        scrolled
+          ? "bg-black/80 backdrop-blur-xl border-b border-white/[0.06] shadow-[0_1px_0_0_rgba(255,255,255,0.02)]"
+          : "bg-transparent border-b border-transparent",
       )}
     >
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+      <div className="max-w-6xl mx-auto px-6">
         <div className="flex items-center justify-between h-16">
-          <div className="flex items-center">
-            <Link href="/" prefetch={false} className="flex items-center space-x-2">
-              <div className="relative w-10 h-10">
-                <Image
-                  src={`${basePath}/openprinting.png`}
-                  alt="OpenPrinting Logo"
-                  width={40}
-                  height={40}
-                  className="object-contain"
-                />
-              </div>
-              <motion.span
-                initial={{ opacity: 0, x: -10 }}
-                animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.5 }}
-                className="text-xl font-bold text-foreground"
-              >
-                OpenPrinting
-              </motion.span>
-            </Link>
-          </div>
+          <Link href="/" className="flex items-center gap-3 group">
+            <div className="relative w-8 h-8">
+              <Image
+                src={`${basePath}/openprinting.png`}
+                alt="OpenPrinting Logo"
+                width={32}
+                height={32}
+                className="object-contain transition-transform duration-300 group-hover:scale-110"
+              />
+            </div>
+            <span className="text-[15px] font-semibold text-white tracking-tight">
+              OpenPrinting
+            </span>
+          </Link>
 
-          <div className="flex items-center space-x-8">
-            <nav className="hidden lg:flex items-center space-x-6">
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.3, delay: index * 0.1 }}
+          <nav className="hidden md:flex items-center gap-1">
+            {navItems.map((item, index) => (
+              <motion.div
+                key={item.name}
+                initial={{ opacity: 0, y: -8 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.3, delay: index * 0.05 }}
+              >
+                <Link
+                  href={item.href}
+                  prefetch={false}
+                  className="relative px-3 py-2 text-sm text-neutral-400 hover:text-white transition-colors duration-200 rounded-md hover:bg-white/[0.04]"
                 >
-                  <Link href={item.href} prefetch={false} className="text-foreground hover:text-primary transition-colors duration-200">
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
-            </nav>
+                  {item.name}
+                </Link>
+              </motion.div>
+            ))}
             <motion.div
-              initial={{ opacity: 0, scale: 0.8 }}
+              initial={{ opacity: 0, scale: 0.9 }}
               animate={{ opacity: 1, scale: 1 }}
               whileHover={{ scale: 1.05 }}
-              transition={{ duration: 0.3, delay: 0.5 }}
+              transition={{ duration: 0.3, delay: 0.4 }}
+              className="ml-2"
             >
               <Button
                 onClick={() => setSearchOpen(true)}
                 variant="outline"
-                className="rounded-full text-white/80 border-gray-400 bg-transparent px-4 py-2 font-semibold hover:bg-white/10 hover:border-white hover:text-white focus-visible:ring-2 focus-visible:ring-white/50 transition-colors"
+                size="sm"
+                className="rounded-full text-white/80 border-gray-400 bg-transparent h-8 px-4 font-medium hover:bg-white/10 hover:border-white hover:text-white focus-visible:ring-2 focus-visible:ring-white/50 transition-colors"
               >
-                <SearchIcon className="w-5 h-5" />
-                <span className="ml-2 hidden sm:inline">Search</span>
+                <SearchIcon className="w-4 h-4" />
+                <span className="ml-2 text-xs">Search</span>
+                <span className="ml-3 hidden lg:flex items-center gap-0.5 text-[10px] font-medium text-white/40">
+                  <kbd className="font-sans">Cmd/Ctrl</kbd>
+                  <kbd className="font-sans">+</kbd>
+                  <kbd className="font-sans">K</kbd>
+                </span>
               </Button>
             </motion.div>
-
-            <div className="hidden lg:flex items-center gap-3 relative">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.5 }}
+              className="ml-2"
+            >
               <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsOpen(!isOpen)}
-                className="text-foreground hover:text-primary border-2 border-cyan-500"
+                asChild
+                size="sm"
+                className="bg-white text-black hover:bg-neutral-200 text-xs font-medium h-8 px-4 rounded-full transition-all duration-200"
               >
-                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+                <Link href="https://github.com/OpenPrinting" target="_blank" rel="noopener noreferrer">
+                  GitHub
+                </Link>
               </Button>
+            </motion.div>
+          </nav>
 
-              <AnimatePresence>
-                {isOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute top-16 right-0 w-64 bg-background border border-cyan-500 rounded-lg overflow-hidden z-40"
-                  >
-                    <div className="flex flex-col">
-                      {hamburgerItems.map((item) => (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          prefetch={false}
-                          className="px-6 py-4 text-foreground hover:text-primary border-b border-gray-600 last:border-b-0 hover:bg-white/5 transition-colors"
-                          onClick={() => setIsOpen(false)}
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
-
-            {/* Mobile Hamburger - Shows ALL items */}
-            <div className="lg:hidden flex items-center gap-3 relative">
-              <Button
-                variant="ghost"
-                size="icon"
-                onClick={() => setIsMobileOpen(!isMobileOpen)}
-                className="text-foreground hover:text-primary border-2 border-cyan-500"
-              >
-                {isMobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-              </Button>
-
-              <AnimatePresence>
-                {isMobileOpen && (
-                  <motion.div
-                    initial={{ opacity: 0, x: 20 }}
-                    animate={{ opacity: 1, x: 0 }}
-                    exit={{ opacity: 0, x: 20 }}
-                    transition={{ duration: 0.3 }}
-                    className="absolute top-16 right-0 w-64 bg-background border border-cyan-500 rounded-lg overflow-hidden z-40 max-h-96 overflow-y-auto"
-                  >
-                    <div className="flex flex-col">
-                      {navItems.map((item) => (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          prefetch={false}
-                          className="px-6 py-4 text-foreground hover:text-primary border-b border-gray-600 hover:bg-white/5 transition-colors"
-                          onClick={() => setIsMobileOpen(false)}
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                      {hamburgerItems.map((item) => (
-                        <Link
-                          key={item.name}
-                          href={item.href}
-                          prefetch={false}
-                          className="px-6 py-4 text-foreground hover:text-primary border-b border-gray-600 last:border-b-0 hover:bg-white/5 transition-colors"
-                          onClick={() => setIsMobileOpen(false)}
-                        >
-                          {item.name}
-                        </Link>
-                      ))}
-                    </div>
-                  </motion.div>
-                )}
-              </AnimatePresence>
-            </div>
+          <div className="flex items-center gap-2 md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setIsOpen(!isOpen)}
+              className="text-neutral-400 hover:text-white hover:bg-white/[0.04] h-9 w-9"
+              aria-label="Toggle menu"
+            >
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
+            </Button>
           </div>
         </div>
       </div>
+
+      <AnimatePresence>
+        {isOpen && (
+          <motion.div
+            initial={{ opacity: 0, height: 0 }}
+            animate={{ opacity: 1, height: "auto" }}
+            exit={{ opacity: 0, height: 0 }}
+            transition={{ duration: 0.2 }}
+            className="md:hidden bg-black/95 backdrop-blur-xl border-t border-white/[0.06]"
+          >
+            <div className="px-6 py-4 space-y-1">
+              {[...navItems, ...hamburgerItems].map((item, index) => (
+                <motion.div
+                  key={item.name}
+                  initial={{ opacity: 0, x: -12 }}
+                  animate={{ opacity: 1, x: 0 }}
+                  transition={{ duration: 0.15, delay: index * 0.03 }}
+                >
+                  <Link
+                    href={item.href}
+                    prefetch={false}
+                    className="block py-2.5 px-3 text-sm text-neutral-400 hover:text-white rounded-lg hover:bg-white/[0.04] transition-all duration-200"
+                    onClick={() => setIsOpen(false)}
+                  >
+                    {item.name}
+                  </Link>
+                </motion.div>
+              ))}
+              <motion.div
+                initial={{ opacity: 0, x: -12 }}
+                animate={{ opacity: 1, x: 0 }}
+                transition={{ duration: 0.15, delay: navItems.length * 0.04 }}
+                className="pt-3"
+              >
+                <Button
+                  asChild
+                  size="sm"
+                  className="w-full bg-white text-black hover:bg-neutral-200 text-xs font-medium rounded-full"
+                  onClick={() => setIsOpen(false)}
+                >
+                  <Link href="https://github.com/OpenPrinting" target="_blank" rel="noopener noreferrer">
+                    GitHub
+                  </Link>
+                </Button>
+              </motion.div>
+            </div>
+          </motion.div>
+        )}
+      </AnimatePresence>
       <SearchModal
         isOpen={searchOpen}
         onClose={() => setSearchOpen(false)}

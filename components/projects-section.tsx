@@ -4,8 +4,11 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
 import Image from "next/image"
-import { Button } from "./ui/button"
 import Link from "next/link"
+import { ArrowRight } from "lucide-react"
+
+const basePath =
+  process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 type SoftwareItem = {
   title: string
@@ -27,14 +30,14 @@ type ProjectItem = {
 
 export default function ProjectsSection() {
   const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.2 })
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   const softwares: SoftwareItem[] = [
     {
       title: "Driverless Printers",
       description:
-        "Most modern printers work ‘out of the box’ with OpenPrinting software. Browse the thousands of driverless printers.",
-      image: "/ipp-everywhere.png",
+        "Most modern printers work 'out of the box' with OpenPrinting software. Browse the thousands of driverless printers.",
+      image: `${basePath}/ipp-everywhere.png`,
       href: "/printers",
       delay: 0.1,
     },
@@ -42,17 +45,17 @@ export default function ProjectsSection() {
       title: "Legacy Printers",
       description:
         "The Foomatic printer database lists all of the printers that are supported by free software printer drivers.",
-      image: "/printer.png",
+      image: `${basePath}/printer.png`,
+      delay: 0.2,
       href: "/printers",
-      delay: 0.3,
     },
     {
       title: "Windows?!",
       description:
         "Our Printer Applications revive old printers under current Windows, any model which works under Linux.",
-      image: "/wsl-printing-icon.png",
+      image: `${basePath}/wsl-printing-icon.png`,
+      delay: 0.3,
       href: "/wsl-printer-app",
-      delay: 0.5,
     },
   ]
 
@@ -61,142 +64,185 @@ export default function ProjectsSection() {
       title: "Printer Working Group",
       description:
         "OpenPrinting collaborates with the PWG's Internet Printing Protocol workgroup to support this ubiquitous printing standard.",
-      image: "/pwg.png",
+      image: `${basePath}/pwg.png`,
       href: "https://www.pwg.org/ipp/",
       delay: 0.1,
+      isExternal: true,
     },
     {
       title: "GSoC - OpenPrinting",
       description:
         "OpenPrinting participates in the GSoC program under its umbrella organization The Linux Foundation.",
-      image: "/gsoc.jpeg",
+      image: `${basePath}/gsoc.jpeg`,
+      delay: 0.2,
       href: "/gsoc",
-      delay: 0.3,
     },
     {
       title: "GSoD - OpenPrinting",
       description:
         "OpenPrinting participates in the GSoD program under its umbrella organization The Linux Foundation.",
-      image: "/gsod.jpg",
+      image: `${basePath}/gsod.jpg`,
+      delay: 0.3,
       href: "/gsod",
-      delay: 0.5,
     },
   ]
 
   return (
-    <section ref={ref} className="bg-background text-foreground" id="projects">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="relative py-24 bg-black" id="projects">
+      <div className="max-w-6xl mx-auto px-6">
+        {/* Find Your Printer */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.7, delay: 0.7 }}
-          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+          className="mb-6"
         >
-          <p className="text-xl md:text-2xl text-center font-bold mb-4 leading-relaxed text-foreground">
-            Most modern printers work using OpenPrinting software without additional drivers or software.
-          </p>
-          <p className="text-lg text-foreground">
-            OpenPrinting also hosts a printer compatibility database of legacy printers supported by free software
-            drivers.
-          </p>
+          <p className="text-sm font-medium text-blue-400 mb-3 tracking-wide uppercase">Find Your Printer</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+            Printer Compatibility
+          </h2>
         </motion.div>
 
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent my-16"></div>
+        <motion.p
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+          className="text-neutral-400 text-sm md:text-base max-w-2xl mb-12 leading-relaxed"
+        >
+          Most modern printers work using OpenPrinting software without additional drivers. We also host a compatibility database for legacy printers supported by free software drivers.
+        </motion.p>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
           {softwares.map((software, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: software.delay }}
-              className="group relative bg-card rounded-lg overflow-hidden p-6 border border-border hover:border-primary hover:shadow-lg transition-all duration-300"
-              whileHover={{
-                scale: 1.02,
-                transition: { duration: 0.2 },
-              }}
+              className="group"
             >
-              <div className="mb-4 bg-muted rounded-lg flex items-center justify-center">
-                <Image
-                  src={software.image || "/placeholder.svg"}
-                  alt={software.title}
-                  width={300}
-                  height={200}
-                  className="h-full w-full rounded-md object-contain"
-                />
-              </div>
-              <div className="pt-6">
-                <h3 className="text-xl font-bold mb-2 text-card-foreground">{software.title}</h3>
-                <p className="text-card-foreground mb-4">{software.description}</p>
-                <Button asChild className="bg-primary text-md text-primary-foreground hover:bg-primary/90">
-                  <Link href={software.href} prefetch={false}>
+              <Link
+                href={software.href}
+                prefetch={false}
+                className="block h-full rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] card-glow"
+              >
+                <div className="p-4 bg-white/[0.03] border-b border-white/[0.04] flex items-center justify-center">
+                  <Image
+                    src={software.image || `${basePath}/placeholder.svg`}
+                    alt={software.title}
+                    width={200}
+                    height={120}
+                    className="h-24 w-auto object-contain"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-base font-semibold text-white mb-2 tracking-tight">
+                    {software.title}
+                  </h3>
+                  <p className="text-sm text-neutral-400 leading-relaxed mb-4">
+                    {software.description}
+                  </p>
+                  <span className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-400 group-hover:text-blue-300 transition-colors duration-200">
                     {software.title === "Windows?!" ? "Read More" : "Browse"}
-                  </Link>
-                </Button>
-              </div>
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                  </span>
+                </div>
+              </Link>
             </motion.div>
           ))}
         </div>
 
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent my-16"></div>
+        <div className="section-divider mb-24" />
 
+        {/* Collaborations */}
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.7, delay: 0.7 }}
-          className="text-center"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6, delay: 0.2 }}
+          className="mb-12"
         >
-          <p className="text-xl md:text-2xl text-center font-bold mb-4 leading-relaxed text-foreground">
-            OpenPrinting collaborates with standards groups and participates in coding/documentation programs.
+          <p className="text-sm font-medium text-blue-400 mb-3 tracking-wide uppercase">Community</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+            Collaborations & Programs
+          </h2>
+          <p className="text-neutral-400 text-sm md:text-base max-w-2xl mt-4 leading-relaxed">
+            OpenPrinting collaborates with standards groups and participates in coding and documentation programs.
           </p>
         </motion.div>
 
-        <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent my-16"></div>
-
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {projects.map((project, index) => (
             <motion.div
               key={index}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: project.delay }}
-              className="group relative bg-card rounded-lg overflow-hidden p-6 border border-border hover:border-primary hover:shadow-lg transition-all duration-300"
-              whileHover={{
-                scale: 1.02,
-                transition: { duration: 0.2 },
-              }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: project.delay + 0.3 }}
+              className="group"
             >
-              <div className="mb-4 bg-muted rounded-lg flex items-center justify-center">
-                <Image
-                  src={project.image || "/placeholder.svg"}
-                  alt={project.title}
-                  width={300}
-                  height={200}
-                  className="h-full w-full rounded-md object-contain"
-                />
-              </div>
-              <div className="pt-6">
-                <h3 className="text-xl font-bold mb-2 text-card-foreground">{project.title}</h3>
-                <p className="text-card-foreground mb-4">{project.description}</p>
-                {project.href.startsWith("http") ? (
-                  <Button asChild className="bg-primary text-md text-primary-foreground hover:bg-primary/90">
-                    <a href={project.href} target="_blank" rel="noopener noreferrer">
+              {project.isExternal ? (
+                <a
+                  href={project.href}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="block h-full rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] card-glow"
+                >
+                  <div className="p-4 bg-white/[0.03] border-b border-white/[0.04] flex items-center justify-center">
+                    <Image
+                      src={project.image || `${basePath}/placeholder.svg`}
+                      alt={project.title}
+                      width={200}
+                      height={120}
+                      className="h-24 w-auto object-contain"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-base font-semibold text-white mb-2 tracking-tight">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-neutral-400 leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-400 group-hover:text-blue-300 transition-colors duration-200">
                       Read More
-                    </a>
-                  </Button>
-                ) : (
-                  <Button asChild className="bg-primary text-md text-primary-foreground hover:bg-primary/90">
-                    <Link href={project.href} prefetch={false}>
-                      Read More
-                    </Link>
-                  </Button>
-                )}
-              </div>
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                    </span>
+                  </div>
+                </a>
+              ) : (
+                <Link
+                  href={project.href}
+                  prefetch={false}
+                  className="block h-full rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] card-glow"
+                >
+                <div className="p-4 bg-white/[0.03] border-b border-white/[0.04] flex items-center justify-center">
+                  <Image
+                    src={project.image || `${basePath}/placeholder.svg`}
+                    alt={project.title}
+                    width={200}
+                    height={120}
+                    className="h-24 w-auto object-contain"
+                  />
+                </div>
+                <div className="p-6">
+                  <h3 className="text-base font-semibold text-white mb-2 tracking-tight">
+                    {project.title}
+                  </h3>
+                  <p className="text-sm text-neutral-400 leading-relaxed mb-4">
+                    {project.description}
+                  </p>
+                  <span className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-400 group-hover:text-blue-300 transition-colors duration-200">
+                    Read More
+                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                  </span>
+                </div>
+                </Link>
+              )}
             </motion.div>
           ))}
         </div>
       </div>
-      <div className="w-full h-16"></div>
+
+      <div className="section-divider mt-24 mx-auto max-w-6xl" />
     </section>
   )
 }

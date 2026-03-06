@@ -65,78 +65,77 @@ export default async function NewsPage() {
     .sort((a, b) => b - a)
 
   return (
-    <main className="min-h-screen bg-background text-foreground pt-24 pb-12">
-      <div className="max-w-7xl mx-auto px-6">
-        <div className="grid grid-cols-12 gap-8">
-
+    <main className="w-full min-h-screen pt-24 pb-16 bg-background text-foreground">
+      <div className="max-w-[1400px] mx-auto px-6 lg:pl-8 lg:pr-4 py-8 w-full">
+        <div className="grid grid-cols-12 gap-10 items-start">
           <aside className="col-span-12 lg:col-span-3">
-            <div className="sticky top-20">
+            <div className="sticky top-24">
               <OpenPrintingCard />
             </div>
           </aside>
 
           <section className="col-span-12 lg:col-span-6">
-            <h1 className="text-4xl font-bold mb-10">
-              News and Events
-            </h1>
-
             <div className="mb-10">
+              <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+                News and Events
+              </h1>
               <a
                 href="http://ftp.pwg.org/pub/pwg/liaison/openprinting/minutes/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="text-xl text-primary underline font-semibold"
+                className="inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
               >
                 Monthly Call Minutes
               </a>
+              <div className="section-divider mt-8" />
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-10 gap-y-4 mb-14 text-lg">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-10 gap-y-4 mb-14">
               {years.map((year) => (
                 <a
                   key={year}
                   href={`#year-${year}`}
-                  className="flex justify-between border-b border-border pb-1 text-foreground hover:text-primary"
+                  className="flex justify-between border-b border-border/60 pb-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
                 >
                   <span>{year}</span>
-                  <span className="text-muted-foreground text-sm">
+                  <span className="text-xs text-muted-foreground">
                     {postsByYear[year].length}
                   </span>
                 </a>
               ))}
             </div>
 
-            <div className="space-y-20">
+            <div className="space-y-16">
               {years.map((year) => (
-                <section key={year} id={`year-${year}`}>
-                  <h2 className="text-3xl font-bold mb-8 text-muted-foreground">
+                <section key={year} id={`year-${year}`} className="scroll-mt-24">
+                  <h2 className="text-2xl md:text-3xl font-bold mb-8 text-muted-foreground">
                     {year}
                   </h2>
 
-                  <div className="space-y-12">
+                  <div className="space-y-6">
                     {postsByYear[year].map((post) => (
-                      <div
+                      <article
                         key={post.slug}
-                        className="border-2 border-transparent p-4 hover:border-border transition-colors duration-200 rounded"
+                        className="rounded-xl border border-border/60 bg-card/50 p-6 transition-all duration-300 hover:border-border card-glow"
                       >
                         <Link
                           href={`/${post.slug}`}
                           prefetch={false}
-                          className="text-2xl font-bold text-primary underline hover:text-primary/80"
+                          className="text-lg md:text-xl font-semibold text-foreground hover:text-blue-400 transition-colors"
                         >
                           {post.title}
                         </Link>
 
-                        <div className="text-sm text-muted-foreground mt-2 mb-3">
+                        <div className="text-xs text-muted-foreground mt-2 mb-3">
                           {post.readTime}
                         </div>
 
                         {post.excerpt && (
-                          <p className="text-foreground max-w-4xl">
+                          <p className="text-sm text-muted-foreground leading-relaxed">
                             {post.excerpt}
                           </p>
                         )}
-                      </div>
+                      </article>
                     ))}
                   </div>
                 </section>
