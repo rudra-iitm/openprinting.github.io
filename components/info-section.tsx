@@ -1,16 +1,15 @@
-"use client"
+"use client";
 
-import { motion } from "framer-motion"
-import { useInView } from "framer-motion"
-import { useRef } from "react"
-import Image from "next/image"
-import { Button } from "./ui/button"
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+import { motion } from "framer-motion";
+import { useInView } from "framer-motion";
+import { useRef } from "react";
+import Image from "next/image";
+import { Button } from "./ui/button";
+import { basePath } from "@/lib/utils";
 
 export default function InfoSection() {
-  const ref = useRef(null)
-  const isInView = useInView(ref, { once: true, amount: 0.3 })
+  const ref = useRef(null);
+  const isInView = useInView(ref, { once: true, amount: 0.3 });
 
   return (
     <section ref={ref} className="bg-black text-white" id="about">
@@ -49,23 +48,31 @@ export default function InfoSection() {
             },
           ].map((item, index) => (
             <motion.div
-            key={index}
-            initial={{ opacity: 0, y: 30 }}
-            animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-            transition={{ duration: 0.5, delay: item.delay }}
-            className="group relative bg-gray-900 rounded-lg overflow-hidden p-6 border border-gray-800 hover:border-brand-lightBlue transition-colors duration-300 hover:cursor-pointer"
-            whileHover={{
-              scale: 1.02,
-              transition: { duration: 0.2 },
-            }}
+              key={index}
+              initial={{ opacity: 0, y: 30 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
+              transition={{ duration: 0.5, delay: item.delay }}
+              className="group relative bg-gray-900 rounded-lg overflow-hidden p-6 border border-gray-800 hover:border-brand-lightBlue transition-colors duration-300 hover:cursor-pointer"
+              whileHover={{
+                scale: 1.02,
+                transition: { duration: 0.2 },
+              }}
             >
               <div className="flex flex-col items-start text-left">
                 <div className="mb-4 bg-gray-700 rounded-lg flex items-center justify-center">
-                  <Image src={item.icon || `${basePath}/placeholder.svg`} alt={item.title} width={200} height={200} className="h-full w-full rounded-md" />
+                  <Image
+                    src={item.icon || `${basePath}/placeholder.svg`}
+                    alt={item.title}
+                    width={200}
+                    height={200}
+                    className="h-full w-full rounded-md"
+                  />
                 </div>
                 <h3 className="text-3xl font-extrabold mb-4">{item.title}</h3>
                 <p className="text-gray-300 mb-4">{item.description}</p>
-                <Button className="bg-blue-500 text-md text-white">Read More</Button>
+                <Button className="bg-blue-500 text-md text-white">
+                  Read More
+                </Button>
               </div>
             </motion.div>
           ))}
@@ -73,5 +80,5 @@ export default function InfoSection() {
       </div>
       <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent my-16"></div>
     </section>
-  )
+  );
 }

@@ -1,16 +1,14 @@
-"use client"
+"use client";
 
 import { Search as SearchIcon } from "lucide-react";
 import SearchModal from "@/components/search/SearchModal";
-import { useState, useEffect } from "react"
-import Link from "next/link"
-import Image from "next/image"
-import { Menu, X } from "lucide-react"
-import { motion, AnimatePresence } from "framer-motion"
-import { cn } from "@/lib/utils"
-import { Button } from "@/components/ui/button"
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+import { useState, useEffect } from "react";
+import Link from "next/link";
+import Image from "next/image";
+import { Menu, X } from "lucide-react";
+import { motion, AnimatePresence } from "framer-motion";
+import { basePath, cn } from "@/lib/utils";
+import { Button } from "@/components/ui/button";
 
 const navItems = [
   { name: "About Us", href: "#about" },
@@ -18,20 +16,20 @@ const navItems = [
   { name: "Projects", href: "#projects" },
   { name: "Downloads", href: "#downloads" },
   { name: "Documentation", href: "#documentation" },
-]
+];
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false)
-  const [scrolled, setScrolled] = useState(false)
+  const [isOpen, setIsOpen] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
   const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10)
-    }
-    window.addEventListener("scroll", handleScroll)
-    return () => window.removeEventListener("scroll", handleScroll)
-  }, [])
+      setScrolled(window.scrollY > 10);
+    };
+    window.addEventListener("scroll", handleScroll);
+    return () => window.removeEventListener("scroll", handleScroll);
+  }, []);
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -94,7 +92,10 @@ export default function Navbar() {
                   animate={{ opacity: 1, y: 0 }}
                   transition={{ duration: 0.3, delay: index * 0.1 }}
                 >
-                  <Link href={item.href} className="text-gray-300 hover:text-white transition-colors duration-200">
+                  <Link
+                    href={item.href}
+                    className="text-gray-300 hover:text-white transition-colors duration-200"
+                  >
                     {item.name}
                   </Link>
                 </motion.div>
@@ -134,7 +135,11 @@ export default function Navbar() {
               onClick={() => setIsOpen(!isOpen)}
               className="text-gray-300 hover:text-white"
             >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              {isOpen ? (
+                <X className="h-6 w-6" />
+              ) : (
+                <Menu className="h-6 w-6" />
+              )}
             </Button>
           </div>
         </div>
@@ -170,10 +175,7 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-      <SearchModal
-        isOpen={searchOpen}
-        onClose={() => setSearchOpen(false)}
-      />
+      <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
     </header>
-  )
+  );
 }

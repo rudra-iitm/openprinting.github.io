@@ -3,10 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
 import { MapPin, Mail, Github } from "lucide-react";
-import { cn } from "@/lib/utils";
+import { basePath, cn } from "@/lib/utils";
 import authors from "@/data/authors";
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 interface Props {
   authorKey: string;
@@ -20,7 +18,9 @@ export default function AuthorCard({ authorKey, className }: Props) {
   useEffect(() => {
     if (!open) return;
 
-    function handleClickOutside(event: globalThis.MouseEvent | globalThis.TouchEvent) {
+    function handleClickOutside(
+      event: globalThis.MouseEvent | globalThis.TouchEvent,
+    ) {
       if (
         dropdownRef.current &&
         !dropdownRef.current.contains(event.target as Node)
@@ -45,7 +45,9 @@ export default function AuthorCard({ authorKey, className }: Props) {
   const placeholder = `${basePath}/authors/placeholder.jpg`;
   const imgRaw =
     author.image && author.image !== "NA" ? author.image : placeholder;
-  const imgSrc = imgRaw.startsWith("/") ? `${basePath}${imgRaw}` : `${basePath}/${imgRaw}`;
+  const imgSrc = imgRaw.startsWith("/")
+    ? `${basePath}${imgRaw}`
+    : `${basePath}/${imgRaw}`;
 
   return (
     <>
@@ -116,7 +118,7 @@ export default function AuthorCard({ authorKey, className }: Props) {
       <div
         className={cn(
           "hidden lg:block bg-inherit text-gray-300 pt-2 px-6 pb-6 w-full max-w-[260px]",
-          className
+          className,
         )}
       >
         <div className="flex flex-col items-start">
@@ -142,9 +144,7 @@ export default function AuthorCard({ authorKey, className }: Props) {
           </h2>
 
           {author.role && (
-            <p className="text-[15px] text-gray-300 mb-5 pl-2">
-              {author.role}
-            </p>
+            <p className="text-[15px] text-gray-300 mb-5 pl-2">{author.role}</p>
           )}
 
           {author.location && (

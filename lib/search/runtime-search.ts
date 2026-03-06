@@ -1,10 +1,11 @@
 import MiniSearch, { type SearchResult } from "minisearch";
 import type { SearchDocument } from "./types";
+import { basePath } from "../utils";
 
 let miniSearch: MiniSearch<SearchDocument> | null = null;
 let isInitialized = false;
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+
 
 async function initializeSearch(): Promise<MiniSearch<SearchDocument>> {
   if (isInitialized && miniSearch) return miniSearch;
