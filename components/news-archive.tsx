@@ -8,13 +8,11 @@ import type { PostSummary } from "@/lib/posts";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import authors from "@/data/authors";
+import { basePath } from "@/lib/utils";
 
 interface NewsArchiveProps {
   posts: PostSummary[];
 }
-
-const basePath =
-  process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 function getPublisherProfile(authorKey: string) {
   const author = authors.find((item) => item.key === authorKey);

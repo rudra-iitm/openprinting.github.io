@@ -2,13 +2,11 @@ import Image from "next/image";
 import Link from "next/link";
 import { getLatestPosts, PostSummary } from "@/lib/posts";
 import authors from "@/data/authors";
+import { basePath } from "@/lib/utils";
 
 interface NewsSectionProps {
   posts: PostSummary[];
 }
-
-const basePath =
-  process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 function getPublisherProfile(authorKey: string) {
   const author = authors.find((item) => item.key === authorKey);
