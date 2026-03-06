@@ -118,7 +118,7 @@ export default function Navbar() {
                 onClick={() => setSearchOpen(true)}
                 variant="outline"
                 size="sm"
-                className="rounded-full text-white/80 border-gray-400 bg-transparent h-8 px-4 font-medium hover:bg-white/10 hover:border-white hover:text-white focus-visible:ring-2 focus-visible:ring-white/50 transition-colors"
+                className="rounded-full text-white/80 border-gray-400 bg-transparent h-8 px-4 font-medium hover:bg-white/10 hover:border-white hover:text-white focus-visible:ring-2 focus-visible:ring-white/50 transition-colors flex items-center"
               >
                 <SearchIcon className="w-4 h-4" />
                 <span className="ml-2 text-xs">Search</span>
