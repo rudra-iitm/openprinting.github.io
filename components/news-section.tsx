@@ -4,10 +4,6 @@ import { getLatestPosts, PostSummary } from "@/lib/posts";
 import authors from "@/data/authors";
 import { basePath } from "@/lib/utils";
 
-interface NewsSectionProps {
-  posts: PostSummary[];
-}
-
 function getPublisherProfile(authorKey: string) {
   const author = authors.find((item) => item.key === authorKey);
   const rawImage =
