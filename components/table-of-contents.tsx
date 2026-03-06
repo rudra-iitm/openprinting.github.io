@@ -70,7 +70,7 @@ export function TableOfContents({ content, isSticky = false }: TableOfContentsPr
 
   return (
     <nav className={containerClasses}>
-      <h2 className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-4 sticky top-0 bg-inherit pb-2">
+      <h2 className="text-xs bg-blue-500 font-semibold rounded-md text-white uppercase tracking-wider mb-4 sticky top-0 bg-inherit p-2 px-4">
         On This Page
       </h2>
       <ul className="space-y-1">
