@@ -38,4 +38,7 @@ yarn-error.log*
 
 # typescript
 *.tsbuildinfo
+
+# generated foomatic data
+/public/foomatic-db/
 next-env.d.ts

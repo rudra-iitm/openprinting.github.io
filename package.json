@@ -4,7 +4,8 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "prebuild": "tsx scripts/search/build-index.ts",
+    "prebuild": "tsx scripts/search/build-index.ts && npm run build:foomatic",
+    "build:foomatic": "node scripts/foomatic/generate-from-xml.mjs && node scripts/foomatic/combine-data.mjs && node scripts/foomatic/split-printers.mjs",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
@@ -27,6 +28,7 @@
     "react": "^19.0.0",
     "react-dom": "^19.0.0",
     "react-markdown": "^9.0.1",
+    "react-syntax-highlighter": "^16.1.1",
     "reading-time": "^1.5.0",
     "rehype-autolink-headings": "^7.1.0",
     "rehype-highlight": "^7.0.1",
