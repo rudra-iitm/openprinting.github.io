@@ -66,16 +66,16 @@ export function TableOfContents({ content, isSticky = false }: TableOfContentsPr
     });
   };
 
-  const containerClasses = `w-full bg-gray-900 p-4 rounded-lg ${isSticky ? "sticky top-4 self-start" : ""}`;
+  const containerClasses = `w-full bg-card border border-border mt-4 p-4 rounded-lg ${isSticky ? "sticky top-4 self-start" : ""}`;
 
   return (
     <nav className={containerClasses}>
-      <h2 className="text-lg font-semibold mb-2 text-white">Table of Contents</h2>
-      <ul className="space-y-2">
+      <h2 className="text-lg lg:mt-2 font-semibold mb-2 text-card-foreground">Table of Contents</h2>
+      <ul className="space-y-2 text-card-foreground">
         {toc.map((entry, index) => (
           <li
             key={index}
-            className={`${entry.depth > 2 ? "ml-4" : ""} text-sm hover:text-blue-400 transition-colors`}
+            className={`${entry.depth > 2 ? "ml-4" : ""} text-sm hover:text-primary transition-colors`}
           >
             <a
               href={`#${entry.url}`}

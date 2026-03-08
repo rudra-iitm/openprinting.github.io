@@ -11,7 +11,10 @@ import matter from "gray-matter"
 import { Clock } from 'lucide-react';
 
 interface MarkdownRendererProps {
-  content: string
+  content: string,
+  showMeta?: boolean
+  /** When true, no card wrapper (flat on page background, e.g. About Us) */
+  noCard?: boolean
 }
 
 export interface Metadata {
@@ -24,32 +27,34 @@ export interface Metadata {
   [key: string]: unknown
 }
 
-export function MarkdownRenderer({ content }: MarkdownRendererProps) {
+export function MarkdownRenderer({ content, showMeta = true, noCard = false }: MarkdownRendererProps) {
   const { data, content: markdownContent } = matter(content)
   const metadata: Metadata = data
   const stats = readingTime(markdownContent)
 
   return (
-    <div className="p-4 md:p-6 rounded-lg shadow-lg max-w-4xl mx-auto">
-      <div className="mb-4 md:mb-6">
-        {metadata.title && (
-          <h1 className="text-2xl md:text-5xl font-black mb-3 md:mb-4 text-white">
-            {metadata.title}
-          </h1>
-        )}
-        <div className="flex items-center gap-2 text-sm md:text-base text-gray-400">
-          <Clock size={16} />
-          <span>{Math.ceil(stats.minutes)} minute read</span>
+    <div className={noCard ? "max-w-4xl mx-auto" : "p-4 md:p-6 rounded-lg shadow-lg max-w-4xl mx-auto bg-card border border-border"}>
+      {showMeta && (
+        <div className="mb-4 md:mb-6">
+          {metadata.title && (
+            <h1 className="text-2xl md:text-5xl font-black mb-3 md:mb-4 text-card-foreground">
+              {metadata.title}
+            </h1>
+          )}
+          <div className="flex items-center gap-2 text-sm md:text-base text-muted-foreground">
+            <Clock size={16} />
+            <span>{Math.ceil(stats.minutes)} minute read</span>
+          </div>
         </div>
-      </div>
+      )}
       <div className="flex">
-        <div className="prose prose-invert prose-github max-w-none w-full">
+        <div className={`prose prose-neutral dark:prose-invert max-w-none w-full ${noCard ? "text-foreground" : "text-card-foreground"}`}>
           <ReactMarkdown
             remarkPlugins={[remarkGfm]}
             rehypePlugins={[
+              rehypeRaw,
               [rehypeHighlight, { languages: { bash }, detect: true, ignoreMissing: true }],
               rehypeSlug,
-              rehypeRaw,
               [rehypeAutolinkHeadings, { behavior: "wrap" }],
             ]}
             components={{
