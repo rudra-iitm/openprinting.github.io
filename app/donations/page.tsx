@@ -2,23 +2,20 @@ import fs from "fs/promises"
 import path from "path"
 import matter from "gray-matter"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
-import AuthorCard from "@/components/AuthorCard"
 
 const FILE_PATH = path.join(
   process.cwd(),
   "contents",
   "pages",
-  "wsl-printer-app-snap.md"
+  "donations.md"
 )
 
-export default async function WSLPrinterAppPage() {
+export default async function DonationsPage() {
   const raw = await fs.readFile(FILE_PATH, "utf8")
   const { data } = matter(raw)
 
   const title =
-    typeof data.title === "string" ? data.title : "Reviving an older printer with Ubuntu WSL and Printer Application Snaps"
-  
-  const author = typeof data.author === "string" ? data.author : null
+    typeof data.title === "string" ? data.title : "Donations"
 
   return (
     <>
@@ -37,21 +34,8 @@ export default async function WSLPrinterAppPage() {
       </div>
 
       <main className="min-h-screen bg-background text-foreground pt-24 pb-16">
-        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
-          <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Sidebar with Author Card */}
-            {author && (
-              <aside className="lg:col-span-1">
-                <div className="sticky top-24">
-                  <AuthorCard authorKey={author} />
-                </div>
-              </aside>
-            )}
-            
-            <div className={author ? "lg:col-span-3" : "lg:col-span-4"}>
-              <MarkdownRenderer content={raw} showMeta={false} noCard={true} />
-            </div>
-          </div>
+        <div className="max-w-4xl mx-auto px-4">
+          <MarkdownRenderer content={raw} showMeta={false} noCard={true} />
         </div>
       </main>
     </>

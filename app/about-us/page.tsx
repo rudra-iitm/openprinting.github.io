@@ -19,7 +19,6 @@ export default async function AboutUsPage() {
 
   return (
     <>
-      {/* Hero Section - always dark band (theme-independent) like original */}
       <div className="relative bg-zinc-900 text-white py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-right bg-no-repeat opacity-40"
@@ -37,7 +36,6 @@ export default async function AboutUsPage() {
         </div>
       </div>
 
-      {/* Content Section - OpenPrinting heading, short line, then links like original */}
       <main className="min-h-screen bg-background text-foreground pt-24 pb-16">
         <div className="max-w-4xl mx-auto px-4 about-us-content">
           <MarkdownRenderer content={content} showMeta={false} noCard />

@@ -22,7 +22,7 @@ export default function InfoSection() {
   const isInView = useInView(ref, { once: true, amount: 0.3 })
 
   return (
-    <section ref={ref} className="bg-background text-foreground py-16">
+    <section ref={ref} className="bg-background text-foreground">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8">
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8">

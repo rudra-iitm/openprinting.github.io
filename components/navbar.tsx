@@ -20,8 +20,19 @@ const navItems = [
   { name: "Documentation", href: "/documentation" },
 ]
 
+const hamburgerItems = [
+  { name: "Upcoming Technologies", href: "/upcoming-technologies" },
+  { name: "Driverless Printing", href: "/driverless" },
+  { name: "Printers", href: "/printers" },
+  { name: "Printer Drivers", href: "/drivers" },
+  { name: "Legacy Printers under Windows", href: "/wsl-printer-app" },
+  { name: "Contact Us", href: "/contact" },
+  { name: "Donations", href: "/donations" },
+]
+
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
+  const [isMobileOpen, setIsMobileOpen] = useState(false)
   const [scrolled, setScrolled] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false);
 
@@ -85,8 +96,8 @@ export default function Navbar() {
             </Link>
           </div>
 
-          <div className="hidden md:flex items-center space-x-8">
-            <nav className="flex items-center space-x-6">
+          <div className="flex items-center space-x-8">
+            <nav className="hidden lg:flex items-center space-x-6">
               {navItems.map((item, index) => (
                 <motion.div
                   key={item.name}
@@ -112,65 +123,98 @@ export default function Navbar() {
                 className="rounded-full text-white/80 border-gray-400 bg-transparent px-4 py-2 font-semibold hover:bg-white/10 hover:border-white hover:text-white focus-visible:ring-2 focus-visible:ring-white/50 transition-colors"
               >
                 <SearchIcon className="w-5 h-5" />
-                <span className="ml-2">Search</span>
+                <span className="ml-2 hidden sm:inline">Search</span>
               </Button>
             </motion.div>
-          </div>
 
-          <div className="md:hidden flex items-center gap-3">
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setSearchOpen(true)}
-              className="text-gray-300 hover:text-white hover:bg-white/10 focus-visible:ring-2 focus-visible:ring-white/50 rounded-full p-2"
-              aria-label="Search"
-            >
-              <SearchIcon className="h-5 w-5" />
-            </Button>
+            <div className="hidden lg:flex items-center gap-3 relative">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-foreground hover:text-primary border-2 border-cyan-500"
+              >
+                {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
 
-            <Button
-              variant="ghost"
-              size="icon"
-              onClick={() => setIsOpen(!isOpen)}
-              className="text-foreground hover:text-primary"
-            >
-              {isOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
-            </Button>
+              <AnimatePresence>
+                {isOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute top-16 right-0 w-64 bg-background border border-cyan-500 rounded-lg overflow-hidden z-40"
+                  >
+                    <div className="flex flex-col">
+                      {hamburgerItems.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          prefetch={false}
+                          className="px-6 py-4 text-foreground hover:text-primary border-b border-gray-600 last:border-b-0 hover:bg-white/5 transition-colors"
+                          onClick={() => setIsOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
+
+            {/* Mobile Hamburger - Shows ALL items */}
+            <div className="lg:hidden flex items-center gap-3 relative">
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsMobileOpen(!isMobileOpen)}
+                className="text-foreground hover:text-primary border-2 border-cyan-500"
+              >
+                {isMobileOpen ? <X className="h-6 w-6" /> : <Menu className="h-6 w-6" />}
+              </Button>
+
+              <AnimatePresence>
+                {isMobileOpen && (
+                  <motion.div
+                    initial={{ opacity: 0, x: 20 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    exit={{ opacity: 0, x: 20 }}
+                    transition={{ duration: 0.3 }}
+                    className="absolute top-16 right-0 w-64 bg-background border border-cyan-500 rounded-lg overflow-hidden z-40 max-h-96 overflow-y-auto"
+                  >
+                    <div className="flex flex-col">
+                      {navItems.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          prefetch={false}
+                          className="px-6 py-4 text-foreground hover:text-primary border-b border-gray-600 hover:bg-white/5 transition-colors"
+                          onClick={() => setIsMobileOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                      {hamburgerItems.map((item) => (
+                        <Link
+                          key={item.name}
+                          href={item.href}
+                          prefetch={false}
+                          className="px-6 py-4 text-foreground hover:text-primary border-b border-gray-600 last:border-b-0 hover:bg-white/5 transition-colors"
+                          onClick={() => setIsMobileOpen(false)}
+                        >
+                          {item.name}
+                        </Link>
+                      ))}
+                    </div>
+                  </motion.div>
+                )}
+              </AnimatePresence>
+            </div>
           </div>
         </div>
       </div>
-
-      <AnimatePresence>
-        {isOpen && (
-          <motion.div
-            initial={{ opacity: 0, height: 0 }}
-            animate={{ opacity: 1, height: "auto" }}
-            exit={{ opacity: 0, height: 0 }}
-            transition={{ duration: 0.3 }}
-            className="md:hidden bg-background border-t border-border"
-          >
-            <div className="px-4 pt-2 pb-4 space-y-1">
-              {navItems.map((item, index) => (
-                <motion.div
-                  key={item.name}
-                  initial={{ opacity: 0, x: -10 }}
-                  animate={{ opacity: 1, x: 0 }}
-                  transition={{ duration: 0.2, delay: index * 0.05 }}
-                >
-                  <Link
-                    href={item.href}
-                    prefetch={false}
-                    className="block py-2 text-foreground hover:text-primary"
-                    onClick={() => setIsOpen(false)}
-                  >
-                    {item.name}
-                  </Link>
-                </motion.div>
-              ))}
-            </div>
-          </motion.div>
-        )}
-      </AnimatePresence>
       <SearchModal
         isOpen={searchOpen}
         onClose={() => setSearchOpen(false)}

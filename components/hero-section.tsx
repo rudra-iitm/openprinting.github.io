@@ -47,7 +47,7 @@ export default function HeroSection() {
         </div>
       </div>
     </section>
-    <h2 className="text-xl md:text-2xl text-center font-bold my-4 leading-relaxed outline-none" tabIndex={-1}>
+    <h2 className="text-xl md:text-2xl text-center font-bold pt-10 leading-relaxed outline-none" tabIndex={-1}>
       OpenPrinting develops IPP-based printing technology for Linux®/Unix® operating systems.
     </h2>
     </>

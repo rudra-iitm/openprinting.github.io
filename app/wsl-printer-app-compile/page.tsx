@@ -8,15 +8,15 @@ const FILE_PATH = path.join(
   process.cwd(),
   "contents",
   "pages",
-  "wsl-printer-app-snap.md"
+  "wsl-printer-app-compile.md"
 )
 
-export default async function WSLPrinterAppPage() {
+export default async function WSLPrinterAppCompilePage() {
   const raw = await fs.readFile(FILE_PATH, "utf8")
   const { data } = matter(raw)
 
   const title =
-    typeof data.title === "string" ? data.title : "Reviving an older printer with Ubuntu WSL and Printer Application Snaps"
+    typeof data.title === "string" ? data.title : "Reviving an older printer with Ubuntu WSL and Printer Applications"
   
   const author = typeof data.author === "string" ? data.author : null
 
@@ -39,7 +39,6 @@ export default async function WSLPrinterAppPage() {
       <main className="min-h-screen bg-background text-foreground pt-24 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Sidebar with Author Card */}
             {author && (
               <aside className="lg:col-span-1">
                 <div className="sticky top-24">
