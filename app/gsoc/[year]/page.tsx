@@ -1,63 +1,13 @@
-import Link from "next/link";
 import {
   getGsocProjectsByYear,
   getGsocYearOverview,
   getGsocYears,
 } from "@/lib/gsoc";
-import ReactMarkdown from "react-markdown";
-import remarkGfm from "remark-gfm";
-import rehypeRaw from "rehype-raw";
-
-function escapeHtml(value: string): string {
-  return value
-    .replace(/&/g, "&amp;")
-    .replace(/</g, "&lt;")
-    .replace(/>/g, "&gt;")
-    .replace(/"/g, "&quot;")
-    .replace(/'/g, "&#39;");
-}
-
-function renderStudentsAsCards(markdown: string): string {
-  const sectionPattern =
-    /(##\s+[^\n]*students[^\n]*\n)([\s\S]*?)(?=\n##\s+|$)/gi;
-
-  return markdown.replace(sectionPattern, (_match, heading, body) => {
-    const entryPattern =
-      /###\s+([^\n]+)\n+!\[([^\]]*)\]\(([^)]+)\)\n+([\s\S]*?)(?=(?:\n###\s+)|$)/gi;
-
-    const cards: string[] = [];
-    let entryMatch: RegExpExecArray | null = entryPattern.exec(body);
-
-    while (entryMatch) {
-      const name = entryMatch[1].trim();
-      const alt = entryMatch[2].trim() || name;
-      const src = entryMatch[3].trim();
-      const description = entryMatch[4].replace(/\n+/g, " ").trim();
-
-      cards.push(
-        `<article class="not-prose rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--muted))] p-4">
-          <div class="flex items-start gap-4">
-            <img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" class="h-[100px] w-[100px] rounded-full object-cover border border-[hsl(var(--border))]" loading="lazy" />
-            <div>
-              <h3 class="m-0 text-base font-semibold text-[hsl(var(--foreground))]">${escapeHtml(name)}</h3>
-              <p class="mt-2 text-sm text-[hsl(var(--muted-foreground))]">${escapeHtml(description)}</p>
-            </div>
-          </div>
-        </article>`,
-      );
-
-      entryMatch = entryPattern.exec(body);
-    }
-
-    if (cards.length === 0) return `${heading}${body}`;
-
-    return `${heading}
-<div class="mt-4 grid gap-4 md:grid-cols-2">
-${cards.join("\n")}
-</div>
-`;
-  });
-}
+import {
+  getContributorsByYear,
+  getOrgUrlByYear,
+} from "@/data/gsoc-contributors";
+import { GsocYearClient } from "./year-client";
 
 export async function generateStaticParams() {
   const years = await getGsocYears();
@@ -72,63 +22,17 @@ export default async function GsocYearPage({
   const { year } = await params;
   const projects = await getGsocProjectsByYear(year);
   const overview = await getGsocYearOverview(year);
-  const yearTitle = overview.title;
-  const yearContent = renderStudentsAsCards(overview.content);
+  const contributors = getContributorsByYear(Number(year));
+  const orgUrl = getOrgUrlByYear(Number(year));
 
   return (
-    <main className="min-h-screen bg-background px-6 pb-16 pt-24 text-foreground">
-      <div className="mx-auto max-w-5xl">
-        <header className="mb-8 border-b border-border pb-4">
-          <Link
-            href="/gsoc"
-            className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300"
-          >
-            ← Back to all years
-          </Link>
-          <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">
-            {yearTitle}
-          </h1>
-        </header>
-
-        <section className="mb-10 rounded-xl border border-border bg-card p-5 md:p-6">
-          <div className="prose dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-blue-600 dark:prose-a:text-blue-400">
-            <ReactMarkdown
-              remarkPlugins={[remarkGfm]}
-              rehypePlugins={[rehypeRaw]}
-            >
-              {yearContent}
-            </ReactMarkdown>
-          </div>
-        </section>
-
-        <section>
-          <div className="mb-5 flex items-end justify-between gap-3 border-b border-border pb-3">
-            <h2 className="text-2xl font-semibold tracking-tight">
-              Project Ideas
-            </h2>
-            <span className="text-sm text-muted-foreground">
-              {projects.length} entries
-            </span>
-          </div>
-
-          <div className="space-y-4">
-            {projects.map((project) => (
-              <Link
-                key={project.slug}
-                href={`/gsoc/${year}/${encodeURIComponent(project.slug)}`}
-                className="block rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:border-border hover:shadow-md card-glow"
-              >
-                <h2 className="text-lg font-semibold text-foreground">
-                  {project.title}
-                </h2>
-                <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
-                  {project.excerpt}
-                </p>
-              </Link>
-            ))}
-          </div>
-        </section>
-      </div>
-    </main>
+    <GsocYearClient
+      year={year}
+      yearTitle={overview.title}
+      yearContent={overview.content}
+      projects={projects}
+      contributors={contributors}
+      orgUrl={orgUrl}
+    />
   );
 }

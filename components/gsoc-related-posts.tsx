@@ -52,22 +52,22 @@ export function GsocRelatedPosts({
   const relatedPosts = postsByYear[selectedYear] ?? [];
 
   return (
-    <section className="mt-10 border-t border-border pt-6">
+    <section className="mt-16 border-t border-white/[0.06] pt-10">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h2 className="text-xl font-semibold text-foreground">
+          <p className="text-sm font-medium text-blue-400 mb-2 tracking-wide uppercase">
             Related Posts
-          </h2>
-          <p className="mt-1 text-xs text-muted-foreground">
-            Showing posts for {selectedYear}
           </p>
+          <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+            From the Blog
+          </h2>
         </div>
-        <span className="rounded-full border border-border px-3 py-1 text-xs text-muted-foreground">
-          {relatedPosts.length} posts
+        <span className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1 text-xs text-neutral-400">
+          {relatedPosts.length} post{relatedPosts.length !== 1 ? "s" : ""}
         </span>
       </div>
 
-      <div className="mt-4 flex flex-wrap gap-2">
+      <div className="mt-5 flex flex-wrap gap-2">
         {yearsWithPosts.map((item) => {
           const isSelected = item.year === selectedYear;
           return (
@@ -77,8 +77,8 @@ export function GsocRelatedPosts({
               onClick={() => setSelectedYear(item.year)}
               className={
                 isSelected
-                  ? "rounded-full border border-blue-400 bg-blue-500/20 px-3 py-1 text-xs font-semibold text-blue-700 dark:text-blue-200"
-                  : "rounded-full border border-border px-3 py-1 text-xs text-muted-foreground transition-colors hover:border-border hover:text-foreground"
+                  ? "rounded-full border border-blue-400/30 bg-blue-500/15 px-3 py-1.5 text-xs font-semibold text-blue-300"
+                  : "rounded-full border border-white/[0.08] bg-white/[0.02] px-3 py-1.5 text-xs text-neutral-400 transition-colors hover:border-white/[0.12] hover:text-white"
               }
             >
               {item.year}
@@ -87,20 +87,20 @@ export function GsocRelatedPosts({
         })}
       </div>
 
-      <ul className="mt-4 space-y-3">
+      <ul className="mt-5 space-y-3">
         {relatedPosts.map((post) => (
           <li
             key={post.url}
-            className="rounded-lg border border-border bg-card p-4 transition-colors hover:border-border hover:shadow-sm"
+            className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-colors hover:border-white/[0.12] hover:bg-white/[0.04]"
           >
             <Link
               href={post.url}
-              className="text-sm font-medium text-foreground transition-colors hover:text-blue-600 dark:hover:text-blue-400"
+              className="text-sm font-medium text-white transition-colors hover:text-blue-400"
             >
               {post.title}
             </Link>
             {post.snippet && (
-              <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-muted-foreground">
+              <p className="mt-2 line-clamp-2 text-xs leading-relaxed text-neutral-500">
                 {post.snippet}
               </p>
             )}
