@@ -4,6 +4,7 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
 import Link from "next/link"
+import { ArrowRight, Calendar, User } from "lucide-react"
 
 const basePath =
   process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
@@ -30,57 +31,64 @@ export default function NewsSection({ posts }: { posts: NewsPost[] }) {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <section ref={ref} className="bg-background text-foreground py-16" id="news">
-      <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+    <section ref={ref} className="relative py-24 bg-black" id="news">
+      <div className="hero-glow-blue opacity-30" />
+      <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-          transition={{ duration: 0.7 }}
-          className="mb-12"
+          initial={{ opacity: 0, y: 20 }}
+          animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+          transition={{ duration: 0.6 }}
+          className="mb-16"
         >
-          <div className="w-[70%] max-w-2xl mx-auto h-px bg-foreground" aria-hidden />
+          <p className="text-sm font-medium text-blue-400 mb-3 tracking-wide uppercase">What&apos;s New</p>
+          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+            Latest News
+          </h2>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           {posts.map((item, index) => (
             <motion.div
               key={item.slug}
-              initial={{ opacity: 0, y: 30 }}
-              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 30 }}
-              transition={{ duration: 0.5, delay: index * 0.2 }}
-              className="group relative bg-card rounded-lg overflow-hidden p-6 border border-border hover:border-primary hover:shadow-lg transition-all duration-300 hover:cursor-pointer"
-              whileHover={{
-                scale: 1.02,
-                transition: { duration: 0.2 },
-              }}
+              initial={{ opacity: 0, y: 20 }}
+              animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
+              transition={{ duration: 0.5, delay: index * 0.08 }}
             >
-              <div className="pointer-events-none absolute inset-0 bg-gradient-to-r from-primary/0 to-primary/0 group-hover:from-primary/5 group-hover:to-primary/10 transition-all duration-300"></div>
-              <Link href={`${basePath}/${item.slug}`} prefetch={false} className="block h-full">
-                <h3 className="text-xl font-bold mb-3 text-card-foreground">{item.title}</h3>
+              <Link
+                href={`${basePath}/${item.slug}`}
+                prefetch={false}
+                className="group block h-full rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] card-glow"
+              >
+                <h3 className="text-base font-semibold text-white mb-3 leading-snug group-hover:text-blue-400 transition-colors duration-200 line-clamp-2">
+                  {item.title}
+                </h3>
 
-                <div className="flex items-center text-sm text-muted-foreground mb-4">
-                  <span>Author: {item.author}</span>
-                  <span className="mx-2">•</span>
-                  <span>Date: {formatDate(item.date)}</span>
+                <div className="flex items-center gap-4 text-xs text-neutral-500 mb-4">
+                  <span className="flex items-center gap-1.5">
+                    <User className="w-3 h-3" />
+                    {item.author}
+                  </span>
+                  <span className="flex items-center gap-1.5">
+                    <Calendar className="w-3 h-3" />
+                    {formatDate(item.date)}
+                  </span>
                 </div>
 
-                <p className="text-card-foreground mb-6">{item.excerpt}</p>
+                <p className="text-sm text-neutral-400 leading-relaxed line-clamp-3">
+                  {item.excerpt}
+                </p>
 
+                <div className="mt-5 flex items-center gap-1.5 text-xs font-medium text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                  Read more
+                  <ArrowRight className="w-3 h-3" />
+                </div>
               </Link>
-
-              {/* Animated border effect on hover */}
-              <motion.div
-                className="absolute bottom-0 left-0 h-[2px] bg-primary"
-                initial={{ width: 0 }}
-                whileHover={{ width: "100%" }}
-                transition={{ duration: 0.3 }}
-              />
             </motion.div>
           ))}
         </div>
       </div>
-      <div className="w-full h-px bg-gradient-to-r from-transparent via-border to-transparent my-16"></div>
+
+      <div className="section-divider mt-24 mx-auto max-w-6xl" />
     </section>
   )
 }
-
