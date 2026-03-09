@@ -10,7 +10,12 @@ export default function HeroSection() {
     <section className="relative min-h-[65vh] flex flex-col items-center justify-center overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 bg-black" />
-      <div className="hero-banner-image" />
+      <div
+        className="hero-banner-image"
+        style={{
+          backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/rotation_pantone.jpg)`,
+        }}
+      />
       <div className="hero-glow" />
       <div className="hero-glow-blue" />
       <div className="grid-pattern absolute inset-0" />

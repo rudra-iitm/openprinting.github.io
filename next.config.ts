@@ -9,6 +9,9 @@ const nextConfig: NextConfig = {
   assetPrefix: isProd ? "/openprinting.github.io/" : "",
   trailingSlash: true,
   images: { unoptimized: true },
+  env: {
+    NEXT_PUBLIC_BASE_PATH: isProd ? "/openprinting.github.io" : "",
+  },
 };
 
 export default nextConfig;

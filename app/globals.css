@@ -87,7 +87,6 @@
 .hero-banner-image {
   position: absolute;
   inset: 0;
-  background-image: url("/rotation_pantone.jpg");
   background-size: cover;
   background-position: 80% 0;
   opacity: 0.15;
