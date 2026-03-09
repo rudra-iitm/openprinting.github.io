@@ -65,37 +65,37 @@ export default async function NewsPage() {
     .sort((a, b) => b - a)
 
   return (
-    <main className="w-full min-h-screen pt-24 pb-16 bg-background text-foreground">
-      <div className="max-w-[1400px] mx-auto px-6 lg:pl-8 lg:pr-4 py-8 w-full">
-        <div className="grid grid-cols-12 gap-10 items-start">
+    <main className="w-full min-h-screen pt-20 sm:pt-24 pb-12 sm:pb-16 bg-background text-foreground">
+      <div className="max-w-[1400px] mx-auto px-4 sm:px-6 lg:pl-8 lg:pr-4 py-6 sm:py-8 w-full">
+        <div className="grid grid-cols-12 gap-6 sm:gap-10 items-start">
           <aside className="col-span-12 lg:col-span-3">
-            <div className="sticky top-24">
+            <div className="sticky top-20 sm:top-24">
               <OpenPrintingCard />
             </div>
           </aside>
 
           <section className="col-span-12 lg:col-span-6">
-            <div className="mb-10">
-              <h1 className="text-3xl md:text-4xl font-bold tracking-tight mb-4">
+            <div className="mb-8 sm:mb-10">
+              <h1 className="text-2xl sm:text-3xl md:text-4xl font-bold tracking-tight mb-3 sm:mb-4">
                 News and Events
               </h1>
               <a
                 href="http://ftp.pwg.org/pub/pwg/liaison/openprinting/minutes/"
                 target="_blank"
                 rel="noopener noreferrer"
-                className="inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors"
+                className="inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors break-all sm:break-normal"
               >
                 Monthly Call Minutes
               </a>
-              <div className="section-divider mt-8" />
+              <div className="section-divider mt-6 sm:mt-8" />
             </div>
 
-            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-10 gap-y-4 mb-14">
+            <div className="grid grid-cols-2 sm:grid-cols-3 gap-x-4 sm:gap-x-10 gap-y-3 sm:gap-y-4 mb-10 sm:mb-14">
               {years.map((year) => (
                 <a
                   key={year}
                   href={`#year-${year}`}
-                  className="flex justify-between border-b border-border/60 pb-1 text-sm text-muted-foreground hover:text-foreground transition-colors"
+                  className="flex justify-between items-center border-b border-border/60 pb-1 text-sm text-muted-foreground hover:text-foreground transition-colors min-w-0"
                 >
                   <span>{year}</span>
                   <span className="text-xs text-muted-foreground">
@@ -105,33 +105,33 @@ export default async function NewsPage() {
               ))}
             </div>
 
-            <div className="space-y-16">
+            <div className="space-y-10 sm:space-y-16">
               {years.map((year) => (
-                <section key={year} id={`year-${year}`} className="scroll-mt-24">
-                  <h2 className="text-2xl md:text-3xl font-bold mb-8 text-muted-foreground">
+                <section key={year} id={`year-${year}`} className="scroll-mt-20 sm:scroll-mt-24">
+                  <h2 className="text-xl sm:text-2xl md:text-3xl font-bold mb-6 sm:mb-8 text-muted-foreground">
                     {year}
                   </h2>
 
-                  <div className="space-y-6">
+                  <div className="space-y-4 sm:space-y-6">
                     {postsByYear[year].map((post) => (
                       <article
                         key={post.slug}
-                        className="rounded-xl border border-border/60 bg-card/50 p-6 transition-all duration-300 hover:border-border card-glow"
+                        className="rounded-xl border border-border/60 bg-card/50 p-4 sm:p-6 transition-all duration-300 hover:border-border card-glow"
                       >
                         <Link
                           href={`/${post.slug}`}
                           prefetch={false}
-                          className="text-lg md:text-xl font-semibold text-foreground hover:text-blue-400 transition-colors"
+                          className="text-base sm:text-lg md:text-xl font-semibold text-foreground hover:text-blue-400 transition-colors block break-words"
                         >
                           {post.title}
                         </Link>
 
-                        <div className="text-xs text-muted-foreground mt-2 mb-3">
+                        <div className="text-xs text-muted-foreground mt-1.5 sm:mt-2 mb-2 sm:mb-3">
                           {post.readTime}
                         </div>
 
                         {post.excerpt && (
-                          <p className="text-sm text-muted-foreground leading-relaxed">
+                          <p className="text-sm text-muted-foreground leading-relaxed break-words">
                             {post.excerpt}
                           </p>
                         )}
