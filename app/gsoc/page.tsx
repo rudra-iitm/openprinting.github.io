@@ -1,12 +1,10 @@
 import Link from "next/link";
-import { getGsocPostsByYear, getGsocYearSummaries } from "@/lib/gsoc";
+import { getGsocYearSummaries } from "@/lib/gsoc";
 import { getContributorsByYear } from "@/data/gsoc-contributors";
-import { GsocRelatedPosts } from "@/components/gsoc-related-posts";
 import { ArrowRight, Users, FolderOpen } from "lucide-react";
 
 export default async function GsocIndexPage() {
   const years = await getGsocYearSummaries();
-  const gsocPostsByYear = await getGsocPostsByYear();
 
   return (
     <main className="min-h-screen bg-black text-white">
@@ -89,15 +87,6 @@ export default async function GsocIndexPage() {
               );
             })}
           </div>
-        </div>
-      </section>
-
-      <div className="section-divider mx-auto max-w-6xl" />
-
-      {/* Related posts */}
-      <section className="pb-16">
-        <div className="max-w-6xl mx-auto px-6">
-          <GsocRelatedPosts years={years} postsByYear={gsocPostsByYear} />
         </div>
       </section>
     </main>

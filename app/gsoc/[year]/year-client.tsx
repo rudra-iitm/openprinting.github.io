@@ -9,9 +9,12 @@ import {
   ExternalLink,
   Code2,
   BookOpen,
+  Newspaper,
+  Quote,
 } from "lucide-react";
 import { GsocOrgBanner } from "@/components/gsoc-org-banner";
 import type { GsocContributor } from "@/data/gsoc-contributors";
+import type { GsocWorkSummary } from "@/data/gsoc-work-summaries";
 
 type ProjectSummary = {
   year: string;
@@ -21,12 +24,21 @@ type ProjectSummary = {
   tags: string[];
 };
 
+type RelatedPost = {
+  title: string;
+  url: string;
+  snippet: string;
+  tags: string[];
+};
+
 export function GsocYearClient({
   year,
   yearTitle,
   projects,
   contributors,
   orgUrl,
+  relatedPosts,
+  workSummaries,
 }: {
   year: string;
   yearTitle: string;
@@ -34,7 +46,15 @@ export function GsocYearClient({
   projects: ProjectSummary[];
   contributors: GsocContributor[];
   orgUrl: string;
+  relatedPosts: RelatedPost[];
+  workSummaries: GsocWorkSummary[];
 }) {
+  // Contributors whose project wasn't in the ideas list (contributor-provided)
+  const contributorOnlyProjects = contributors.filter((c) => !c.slug);
+
+  // Helper to look up work summary by contributor name
+  const getSummary = (name: string) =>
+    workSummaries.find((s) => s.name === name);
   return (
     <main className="min-h-screen bg-black text-white">
       {/* Header */}
@@ -53,7 +73,8 @@ export function GsocYearClient({
             <span className="text-gradient">{yearTitle}</span>
           </h1>
           <p className="mt-3 text-base text-neutral-400 max-w-2xl leading-relaxed">
-            Project ideas, contributors, and mentoring details for GSoC {year}.
+            Contributors, completed projects, and mentoring details for GSoC{" "}
+            {year}.
           </p>
           {orgUrl && (
             <Link
@@ -115,12 +136,17 @@ export function GsocYearClient({
                     </span>
                   </div>
 
-                  {/* Hover tooltip showing project & links */}
-                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-56 rounded-lg border border-white/[0.1] bg-[#0a0a0a] p-3 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-20">
-                    <p className="text-[11px] font-medium text-white leading-snug mb-2">
+                  {/* Hover tooltip showing project, status, summary & links */}
+                  <div className="absolute left-1/2 -translate-x-1/2 bottom-full mb-2 w-64 rounded-lg border border-white/[0.1] bg-[#0a0a0a] p-3 shadow-xl opacity-0 invisible group-hover:opacity-100 group-hover:visible transition-all duration-200 z-20">
+                    <p className="text-[11px] font-medium text-white leading-snug mb-1.5">
                       {contributor.project}
                     </p>
-                    <div className="flex gap-1.5">
+                    {getSummary(contributor.name)?.summary && (
+                      <p className="text-[10px] text-neutral-400 leading-relaxed mb-2 line-clamp-3">
+                        {getSummary(contributor.name)!.summary}
+                      </p>
+                    )}
+                    <div className="flex flex-wrap gap-1.5">
                       {contributor.projectUrl && (
                         <Link
                           href={contributor.projectUrl}
@@ -164,102 +190,299 @@ export function GsocYearClient({
 
         <div className="section-divider" />
 
-        {/* Project ideas */}
-        <section>
-          <motion.div
-            initial={{ opacity: 0, y: 20 }}
-            animate={{ opacity: 1, y: 0 }}
-            transition={{ duration: 0.5 }}
-            className="mb-8"
-          >
-            <div className="flex items-end justify-between gap-4">
-              <div>
-                <p className="text-sm font-medium text-blue-400 mb-2 tracking-wide uppercase">
-                  OPEN PRINTING
-                </p>
-                <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
-                  GSOC {year} Projects
-                </h2>
+        {/* Completed projects */}
+        {(projects.length > 0 || contributorOnlyProjects.length > 0) && (
+          <section>
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              animate={{ opacity: 1, y: 0 }}
+              transition={{ duration: 0.5 }}
+              className="mb-8"
+            >
+              <div className="flex items-end justify-between gap-4">
+                <div>
+                  <p className="text-sm font-medium text-blue-400 mb-2 tracking-wide uppercase">
+                    Completed Work
+                  </p>
+                  <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                    GSoC {year} Projects
+                  </h2>
+                </div>
+                <span className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1 text-xs text-neutral-400">
+                  {projects.length + contributorOnlyProjects.length} project
+                  {projects.length + contributorOnlyProjects.length === 1
+                    ? ""
+                    : "s"}
+                </span>
               </div>
-              <span className="rounded-full border border-white/[0.08] bg-white/[0.04] px-3 py-1 text-xs text-neutral-400">
-                {projects.length} entries
-              </span>
-            </div>
-          </motion.div>
+            </motion.div>
 
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
-            {projects.map((project, index) => {
-              const projectContributors = contributors.filter(
-                (c) => c.slug === project.slug,
-              );
-              const mentors = [
-                ...new Set(projectContributors.flatMap((c) => c.mentors)),
-              ];
-              return (
-                <motion.div
-                  key={project.slug}
-                  initial={{ opacity: 0, y: 20 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ duration: 0.4, delay: index * 0.04 }}
-                >
-                  <Link
-                    href={`/gsoc/${year}/${encodeURIComponent(project.slug)}`}
-                    className="group flex flex-col h-full rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] card-glow"
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
+              {projects.map((project, index) => {
+                const projectContributors = contributors.filter(
+                  (c) => c.slug === project.slug,
+                );
+                const mentors = [
+                  ...new Set(projectContributors.flatMap((c) => c.mentors)),
+                ];
+                // Grab the first contributor's work summary for this project
+                const firstSummary = projectContributors
+                  .map((c) => getSummary(c.name))
+                  .find(Boolean);
+                return (
+                  <motion.div
+                    key={project.slug}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.4, delay: index * 0.04 }}
                   >
-                    <h3 className="text-sm font-semibold text-white leading-snug group-hover:text-blue-400 transition-colors duration-200 line-clamp-2">
-                      {project.title}
-                    </h3>
-                    <p className="mt-2 text-xs text-neutral-400 leading-relaxed line-clamp-3 flex-1">
-                      {project.excerpt}
-                    </p>
+                    <Link
+                      href={`/gsoc/${year}/${encodeURIComponent(project.slug)}`}
+                      className="group flex flex-col h-full rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] card-glow"
+                    >
+                      <h3 className="text-sm font-semibold text-white leading-snug group-hover:text-blue-400 transition-colors duration-200 line-clamp-2">
+                        {project.title}
+                      </h3>
+                      <p className="mt-2 text-xs text-neutral-400 leading-relaxed line-clamp-3 flex-1">
+                        {firstSummary?.summary || project.excerpt}
+                      </p>
 
-                    {projectContributors.length > 0 && (
-                      <div className="mt-3 flex flex-wrap gap-1.5">
-                        {projectContributors.map((c, i) => (
-                          <span
-                            key={`c-${i}`}
-                            className="inline-flex items-center gap-1 rounded-full border border-blue-400/20 bg-blue-500/10 pl-0.5 pr-2 py-0.5 text-[10px] font-medium text-blue-300"
-                          >
-                            <span className="flex h-4 w-4 items-center justify-center rounded-full bg-blue-500/20">
-                              <User className="w-2.5 h-2.5" />
-                            </span>
-                            {c.name}
-                          </span>
-                        ))}
-                      </div>
-                    )}
-
-                    {mentors.length > 0 && (
-                      <div className="mt-2">
-                        <p className="text-[10px] text-neutral-500 uppercase tracking-wider mb-1.5">
-                          Mentors
-                        </p>
-                        <div className="flex flex-wrap gap-1.5">
-                          {mentors.map((mentor) => (
+                      {projectContributors.length > 0 && (
+                        <div className="mt-3 flex flex-wrap gap-1.5">
+                          {projectContributors.map((c, i) => (
                             <span
-                              key={mentor}
-                              className="inline-flex items-center gap-1 rounded-full border border-purple-400/20 bg-purple-500/10 pl-0.5 pr-2 py-0.5 text-[10px] font-medium text-purple-300"
+                              key={`c-${i}`}
+                              className="inline-flex items-center gap-1 rounded-full border border-blue-400/20 bg-blue-500/10 pl-0.5 pr-2 py-0.5 text-[10px] font-medium text-blue-300"
                             >
-                              <span className="flex h-4 w-4 items-center justify-center rounded-full bg-purple-500/20">
+                              <span className="flex h-4 w-4 items-center justify-center rounded-full bg-blue-500/20">
                                 <User className="w-2.5 h-2.5" />
                               </span>
-                              {mentor}
+                              {c.name}
                             </span>
                           ))}
                         </div>
-                      </div>
-                    )}
+                      )}
 
-                    <div className="mt-4 flex items-center gap-1.5 text-xs font-medium text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                      Read details
-                      <ArrowRight className="w-3 h-3" />
+                      {mentors.length > 0 && (
+                        <div className="mt-2">
+                          <p className="text-[10px] text-neutral-500 uppercase tracking-wider mb-1.5">
+                            Mentors
+                          </p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {mentors.map((mentor) => (
+                              <span
+                                key={mentor}
+                                className="inline-flex items-center gap-1 rounded-full border border-purple-400/20 bg-purple-500/10 pl-0.5 pr-2 py-0.5 text-[10px] font-medium text-purple-300"
+                              >
+                                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-purple-500/20">
+                                  <User className="w-2.5 h-2.5" />
+                                </span>
+                                {mentor}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      <div className="mt-4 flex items-center gap-1.5 text-xs font-medium text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                        Read details
+                        <ArrowRight className="w-3 h-3" />
+                      </div>
+                    </Link>
+                  </motion.div>
+                );
+              })}
+
+              {/* Contributor-provided projects (not in project ideas list) */}
+              {contributorOnlyProjects.map((contributor, index) => {
+                const contribSummary = getSummary(contributor.name);
+                return (
+                  <motion.div
+                    key={`contrib-${contributor.name}-${index}`}
+                    initial={{ opacity: 0, y: 20 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{
+                      duration: 0.4,
+                      delay: (projects.length + index) * 0.04,
+                    }}
+                  >
+                    <div className="group flex flex-col h-full rounded-xl border border-white/[0.06] bg-white/[0.02] p-5 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] card-glow">
+                      <h3 className="text-sm font-semibold text-white leading-snug line-clamp-2">
+                        {contributor.project}
+                      </h3>
+                      <p className="mt-2 text-xs text-neutral-400 leading-relaxed line-clamp-3 flex-1">
+                        {contribSummary?.summary || (
+                          <span className="italic text-neutral-500">
+                            Contributor-provided project
+                          </span>
+                        )}
+                      </p>
+
+                      <div className="mt-3 flex flex-wrap gap-1.5">
+                        <span className="inline-flex items-center gap-1 rounded-full border border-blue-400/20 bg-blue-500/10 pl-0.5 pr-2 py-0.5 text-[10px] font-medium text-blue-300">
+                          <span className="flex h-4 w-4 items-center justify-center rounded-full bg-blue-500/20">
+                            <User className="w-2.5 h-2.5" />
+                          </span>
+                          {contributor.name}
+                        </span>
+                      </div>
+
+                      {contributor.mentors.length > 0 && (
+                        <div className="mt-2">
+                          <p className="text-[10px] text-neutral-500 uppercase tracking-wider mb-1.5">
+                            Mentors
+                          </p>
+                          <div className="flex flex-wrap gap-1.5">
+                            {contributor.mentors.map((mentor) => (
+                              <span
+                                key={mentor}
+                                className="inline-flex items-center gap-1 rounded-full border border-purple-400/20 bg-purple-500/10 pl-0.5 pr-2 py-0.5 text-[10px] font-medium text-purple-300"
+                              >
+                                <span className="flex h-4 w-4 items-center justify-center rounded-full bg-purple-500/20">
+                                  <User className="w-2.5 h-2.5" />
+                                </span>
+                                {mentor}
+                              </span>
+                            ))}
+                          </div>
+                        </div>
+                      )}
+
+                      {(contributor.projectUrl || contributor.codeUrl) && (
+                        <div className="mt-3 flex flex-wrap gap-1.5">
+                          {contributor.projectUrl && (
+                            <Link
+                              href={contributor.projectUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-2 py-0.5 text-[10px] text-neutral-300 hover:bg-white/[0.06] hover:text-white transition-colors"
+                            >
+                              <BookOpen className="w-2.5 h-2.5" />
+                              GSoC
+                            </Link>
+                          )}
+                          {contributor.codeUrl && (
+                            <Link
+                              href={contributor.codeUrl}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                              className="inline-flex items-center gap-1 rounded-full border border-white/[0.08] bg-white/[0.03] px-2 py-0.5 text-[10px] text-neutral-300 hover:bg-white/[0.06] hover:text-white transition-colors"
+                            >
+                              <Code2 className="w-2.5 h-2.5" />
+                              Code
+                            </Link>
+                          )}
+                        </div>
+                      )}
                     </div>
-                  </Link>
-                </motion.div>
-              );
-            })}
-          </div>
-        </section>
+                  </motion.div>
+                );
+              })}
+            </div>
+          </section>
+        )}
+
+        {/* Contributor Highlights — quotes from blog */}
+        {workSummaries.filter((s) => s.quote).length > 0 && (
+          <>
+            <div className="section-divider" />
+            <section>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mb-8"
+              >
+                <p className="text-sm font-medium text-blue-400 mb-2 tracking-wide uppercase">
+                  In Their Words
+                </p>
+                <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                  Contributor Highlights
+                </h2>
+              </motion.div>
+
+              <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+                {workSummaries
+                  .filter((s) => s.quote)
+                  .map((s, index) => (
+                    <motion.div
+                      key={`quote-${s.name}`}
+                      initial={{ opacity: 0, y: 16 }}
+                      animate={{ opacity: 1, y: 0 }}
+                      transition={{ duration: 0.4, delay: index * 0.05 }}
+                      className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5"
+                    >
+                      <Quote className="w-4 h-4 text-blue-400/40 mb-2" />
+                      <p className="text-xs text-neutral-300 leading-relaxed italic line-clamp-4">
+                        &ldquo;{s.quote}&rdquo;
+                      </p>
+                      <div className="mt-3 flex items-center gap-2">
+                        <div className="flex h-5 w-5 items-center justify-center rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/[0.08]">
+                          <User className="w-2.5 h-2.5 text-blue-400" />
+                        </div>
+                        <span className="text-[11px] font-medium text-white">
+                          {s.name}
+                        </span>
+                      </div>
+                    </motion.div>
+                  ))}
+              </div>
+            </section>
+          </>
+        )}
+
+        {/* Related news posts */}
+        {relatedPosts.length > 0 && (
+          <>
+            <div className="section-divider" />
+            <section>
+              <motion.div
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                transition={{ duration: 0.5 }}
+                className="mb-8"
+              >
+                <p className="text-sm font-medium text-blue-400 mb-2 tracking-wide uppercase">
+                  From the Blog
+                </p>
+                <h2 className="text-2xl md:text-3xl font-bold text-white tracking-tight">
+                  News &amp; Updates
+                </h2>
+                <p className="mt-2 text-sm text-neutral-400">
+                  Blog posts related to GSoC {year}.
+                </p>
+              </motion.div>
+
+              <div className="space-y-3">
+                {relatedPosts.map((post, index) => (
+                  <motion.div
+                    key={post.url}
+                    initial={{ opacity: 0, y: 12 }}
+                    animate={{ opacity: 1, y: 0 }}
+                    transition={{ duration: 0.3, delay: index * 0.03 }}
+                  >
+                    <Link
+                      href={post.url}
+                      className="group flex items-start gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] p-4 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04]"
+                    >
+                      <Newspaper className="w-4 h-4 text-neutral-500 mt-0.5 shrink-0 group-hover:text-blue-400 transition-colors" />
+                      <div className="min-w-0">
+                        <h3 className="text-sm font-medium text-white group-hover:text-blue-400 transition-colors">
+                          {post.title}
+                        </h3>
+                        {post.snippet && (
+                          <p className="mt-1 text-xs text-neutral-500 line-clamp-2 leading-relaxed">
+                            {post.snippet}
+                          </p>
+                        )}
+                      </div>
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </section>
+          </>
+        )}
       </div>
     </main>
   );
