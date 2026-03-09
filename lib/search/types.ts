@@ -23,7 +23,6 @@ export interface SearchDocument {
 
 export interface StaticSearchIndex {
   version: "1.0";
-  generatedAt: string;
   documents: SearchDocument[];
 
   metadata: {

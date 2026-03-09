@@ -42,7 +42,6 @@ async function buildIndex() {
 
   const index: StaticSearchIndex = {
     version: "1.0",
-    generatedAt: new Date().toISOString(),
     documents,
     metadata: {
       documentCount: documents.length,
