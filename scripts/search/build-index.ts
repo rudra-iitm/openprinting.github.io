@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import { extractPosts } from "./extract-posts";
+import { extractContent, type RawStaticContent } from "./extract-content";
 import { normalizeMarkdown } from "./normalize-markdown";
 import { type SearchDocument, type StaticSearchIndex } from "@/lib/search/types";
 
@@ -15,8 +16,9 @@ async function buildIndex() {
   console.log("Building static search index...");
 
   const rawPosts = await extractPosts();
+  const rawContent: RawStaticContent[] = await extractContent();
 
-  const documents: SearchDocument[] = rawPosts.map((post) => {
+  const postDocuments: SearchDocument[] = rawPosts.map((post) => {
     const title =
       safeString(post.frontmatter.title) || "Untitled Article";
 
@@ -40,12 +42,45 @@ async function buildIndex() {
     };
   });
 
+  const contentDocuments: SearchDocument[] = rawContent.map((post) => {
+    const title = safeString(post.frontmatter.title) || "Untitled Article";
+    const excerpt = safeString(post.frontmatter.excerpt);
+
+    const { headings, text, snippet } = normalizeMarkdown(post.content);
+
+    let url: string;
+    if (post.type === "documentation" || post.type === "project") {
+      url = `/${post.type}/${post.slug}`;
+    } else if (post.type === "page") {
+      url = `/${post.slug}`;
+    } else {
+      url = `/${post.slug}`;
+    }
+
+    return {
+      id: `${post.type}:${post.slug}`,
+      source: "static",
+      type: post.type,
+
+      title,
+      url,
+
+      headings,
+      tags: [],
+
+      snippet: excerpt || snippet,
+      content: text,
+    };
+  });
+
+  const documents: SearchDocument[] = [...postDocuments, ...contentDocuments];
+
   const index: StaticSearchIndex = {
     version: "1.0",
     documents,
     metadata: {
       documentCount: documents.length,
-      contentTypes: ["post"],
+      contentTypes: ["post", "documentation", "project", "page"],
     },
   };
 
