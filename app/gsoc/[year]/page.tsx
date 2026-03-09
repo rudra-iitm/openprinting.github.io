@@ -30,12 +30,12 @@ function renderStudentsAsCards(markdown: string): string {
       const description = entryMatch[4].replace(/\n+/g, " ").trim();
 
       cards.push(
-        `<article class="not-prose rounded-lg border border-gray-800 bg-gray-900/60 p-4">
+        `<article class="not-prose rounded-xl border border-[hsl(var(--border))] bg-[hsl(var(--muted))] p-4">
           <div class="flex items-start gap-4">
-            <img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" class="h-[100px] w-[100px] rounded-full object-cover border border-gray-700" loading="lazy" />
+            <img src="${escapeHtml(src)}" alt="${escapeHtml(alt)}" class="h-[100px] w-[100px] rounded-full object-cover border border-[hsl(var(--border))]" loading="lazy" />
             <div>
-              <h3 class="m-0 text-base font-semibold text-white">${escapeHtml(name)}</h3>
-              <p class="mt-2 text-sm text-gray-300">${escapeHtml(description)}</p>
+              <h3 class="m-0 text-base font-semibold text-[hsl(var(--foreground))]">${escapeHtml(name)}</h3>
+              <p class="mt-2 text-sm text-[hsl(var(--muted-foreground))]">${escapeHtml(description)}</p>
             </div>
           </div>
         </article>`,
@@ -67,17 +67,17 @@ export default async function GsocYearPage({ params }: { params: Promise<{ year:
   const yearContent = renderStudentsAsCards(overview.content);
 
   return (
-    <main className="min-h-screen bg-black px-4 pb-16 pt-24 text-white sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-background px-6 pb-16 pt-24 text-foreground">
       <div className="mx-auto max-w-5xl">
-        <header className="mb-8 border-b border-gray-800 pb-4">
-          <Link href="/gsoc" className="text-sm text-blue-300 hover:text-blue-200">
+        <header className="mb-8 border-b border-border pb-4">
+          <Link href="/gsoc" className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300">
             ← Back to all years
           </Link>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight">{yearTitle}</h1>
+          <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{yearTitle}</h1>
         </header>
 
-        <section className="mb-10 rounded-md border border-gray-800 bg-gray-950 p-5 md:p-6">
-          <div className="prose prose-invert max-w-none prose-headings:text-white prose-p:text-gray-300 prose-a:text-blue-400">
+        <section className="mb-10 rounded-xl border border-border bg-card p-5 md:p-6">
+          <div className="prose dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-blue-600 dark:prose-a:text-blue-400">
             <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
               {yearContent}
             </ReactMarkdown>
@@ -85,9 +85,9 @@ export default async function GsocYearPage({ params }: { params: Promise<{ year:
         </section>
 
         <section>
-          <div className="mb-5 flex items-end justify-between gap-3 border-b border-gray-800 pb-3">
+          <div className="mb-5 flex items-end justify-between gap-3 border-b border-border pb-3">
             <h2 className="text-2xl font-semibold tracking-tight">Project Ideas</h2>
-            <span className="text-sm text-gray-400">{projects.length} entries</span>
+            <span className="text-sm text-muted-foreground">{projects.length} entries</span>
           </div>
 
           <div className="space-y-4">
@@ -95,10 +95,10 @@ export default async function GsocYearPage({ params }: { params: Promise<{ year:
             <Link
               key={project.slug}
               href={`/gsoc/${year}/${encodeURIComponent(project.slug)}`}
-              className="block rounded-md border border-gray-800 bg-gray-950 p-5 transition-colors hover:border-gray-700 hover:bg-gray-900/70"
+              className="block rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:border-border hover:shadow-md card-glow"
             >
-              <h2 className="text-lg font-semibold text-white">{project.title}</h2>
-              <p className="mt-2 text-sm text-gray-400 line-clamp-2">{project.excerpt}</p>
+              <h2 className="text-lg font-semibold text-foreground">{project.title}</h2>
+              <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{project.excerpt}</p>
             </Link>
           ))}
           </div>

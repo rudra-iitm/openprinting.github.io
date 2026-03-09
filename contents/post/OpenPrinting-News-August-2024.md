@@ -8,6 +8,7 @@ excerpt: >-
   Soumyadeep Ghosh, Opportunity Open Source in IIT Kanpur, UbuCon Asia 2024,
   Open Source Summit Europe 2024, Ubuntu Summit 2024, GSoC 2024, Pull Requests
 date: '2024-09-11'
+tags: [gsoc]
 ---
 Sorry for posting late, but events are following close to each other ...
 

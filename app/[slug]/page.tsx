@@ -6,6 +6,7 @@ import { MarkdownRenderer } from "@/components/markdown-renderer";
 import { TableOfContents } from "@/components/table-of-contents";
 import GiscusComments from "@/components/giscus-comment";
 import AuthorCard from "@/components/AuthorCard";
+import { extractHashtags, parseTagsFromUnknown, uniqueTags } from "@/lib/tags";
 
 const POSTS_DIR = path.join(process.cwd(), "contents", "post");
 
@@ -122,6 +123,13 @@ export default async function PostPage({
     const showToc =
         !!frontmatter &&
         (frontmatter.toc === true || String(frontmatter.toc) === "true");
+    const postTags = uniqueTags([
+        ...parseTagsFromUnknown(frontmatter.tags),
+        ...extractHashtags(markdownContent),
+        ...(title.toLowerCase().includes("google summer of code") || /\bgsoc\b/i.test(title)
+            ? ["gsoc"]
+            : []),
+    ]);
 
     return (
         <main className="w-full min-h-screen pt-24 pb-16 bg-background text-foreground">
@@ -168,6 +176,24 @@ export default async function PostPage({
                             <div className="prose max-w-none dark:prose-invert prose-headings:tracking-tight prose-a:text-blue-600 hover:prose-a:text-blue-500 dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-300">
                                 <MarkdownRenderer content={markdownContent} />
                             </div>
+
+                            {postTags.length > 0 && (
+                                <div className="mt-10 border-t border-border/60 pt-5">
+                                    <h2 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                                        Tags
+                                    </h2>
+                                    <div className="mt-2 flex flex-wrap gap-2">
+                                        {postTags.map((tag) => (
+                                            <span
+                                                key={tag}
+                                                className="rounded-full border border-border/70 px-2.5 py-1 text-xs text-muted-foreground"
+                                            >
+                                                #{tag}
+                                            </span>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
 
                             <div className="mt-12">
                                 <GiscusComments />

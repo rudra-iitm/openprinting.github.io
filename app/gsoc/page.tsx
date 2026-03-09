@@ -1,48 +1,49 @@
 import Link from "next/link";
 import { getGsocPostsByYear, getGsocYearSummaries } from "@/lib/gsoc";
+import { GsocRelatedPosts } from "@/components/gsoc-related-posts";
 
 export default async function GsocIndexPage() {
   const years = await getGsocYearSummaries();
   const gsocPostsByYear = await getGsocPostsByYear();
 
   return (
-    <main className="min-h-screen bg-black px-4 pb-16 pt-24 text-white sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-background px-6 pb-16 pt-24 text-foreground">
       <div className="mx-auto max-w-5xl">
-        <header className="mb-8 border-b border-gray-800 pb-4">
-          <h1 className="text-3xl font-bold tracking-tight">
+        <header className="mb-8 border-b border-border pb-4">
+          <h1 className="text-3xl md:text-4xl font-bold tracking-tight">
             Google Summer of Code
           </h1>
-          <p className="mt-2 max-w-3xl text-sm text-gray-400">
+          <p className="mt-2 max-w-3xl text-sm text-muted-foreground">
             Browse OpenPrinting GSoC projects year by year. Each year page
             contains the program context and all project entries.
           </p>
         </header>
 
         <section>
-          <div className="grid grid-cols-1 gap-4 sm:grid-cols-2 lg:grid-cols-3">
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-3">
             {years.map((item) => {
               return (
                 <article
                   key={item.year}
-                  className="rounded-md border border-gray-800 bg-gray-950 p-5"
+                  className="rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-border hover:shadow-md card-glow"
                 >
                   <Link
                     href={`/gsoc/${item.year}`}
-                    className="group block rounded-sm transition-colors hover:text-white"
+                    className="group block rounded-sm transition-colors"
                   >
                     <div className="flex items-start justify-between gap-3">
-                      <h3 className="text-xl font-semibold text-white">
+                      <h3 className="text-xl font-semibold text-foreground">
                         GSoC {item.year}
                       </h3>
-                      <span className="rounded-full border border-gray-700 px-2 py-0.5 text-[11px] text-gray-300">
+                      <span className="rounded-full border border-border px-2 py-0.5 text-[11px] text-muted-foreground">
                         {item.projectCount} Projects
                       </span>
                     </div>
-                    <p className="mt-3 text-sm text-gray-400">
+                    <p className="mt-3 text-sm text-muted-foreground">
                       OpenPrinting projects and mentoring topics for {item.year}
                       .
                     </p>
-                    <p className="mt-4 text-sm text-blue-300 transition-colors group-hover:text-blue-200">
+                    <p className="mt-4 text-sm text-blue-600 dark:text-blue-400 transition-colors group-hover:text-blue-500 dark:group-hover:text-blue-300">
                       View projects →
                     </p>
                   </Link>
@@ -52,38 +53,7 @@ export default async function GsocIndexPage() {
           </div>
         </section>
 
-        <section className="mt-10 border-t border-gray-800 pt-6">
-          <h2 className="text-xl font-semibold text-white">Related Posts</h2>
-          <div className="mt-4 space-y-4">
-            {years.map((item) => {
-              const relatedPosts = gsocPostsByYear[item.year] ?? [];
-              if (relatedPosts.length === 0) return null;
-
-              return (
-                <div
-                  key={`posts-${item.year}`}
-                  className="rounded-md border border-gray-800 bg-gray-950 p-4"
-                >
-                  <h3 className="text-sm font-semibold uppercase tracking-wide text-gray-300">
-                    {item.year}
-                  </h3>
-                  <ul className="mt-2 space-y-2">
-                    {relatedPosts.map((post) => (
-                      <li key={post.url}>
-                        <Link
-                          href={post.url}
-                          className="text-sm text-gray-300 transition-colors hover:text-blue-300"
-                        >
-                          {post.title}
-                        </Link>
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              );
-            })}
-          </div>
-        </section>
+        <GsocRelatedPosts years={years} postsByYear={gsocPostsByYear} />
       </div>
     </main>
   );

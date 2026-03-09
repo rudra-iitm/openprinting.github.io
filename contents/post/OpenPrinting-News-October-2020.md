@@ -6,6 +6,7 @@ excerpt: >-
   PostScript Printer Application, GSoC 2021, GSoD, LFMP, PAPPL, CUPS fork,
   cups-filters 1.28.5
 date: '2020-10-26'
+tags: [gsoc]
 ---
 ## First year of monthly news posts completed!
 

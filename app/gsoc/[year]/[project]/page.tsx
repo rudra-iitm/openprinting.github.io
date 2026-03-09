@@ -28,28 +28,46 @@ export default async function GsocProjectPage({
   const currentSlug = decodeURIComponent(project);
 
   return (
-    <main className="min-h-screen bg-black px-4 pb-16 pt-24 text-white sm:px-6 lg:px-8">
+    <main className="min-h-screen bg-background px-6 pb-16 pt-24 text-foreground">
       <div className="mx-auto max-w-6xl">
-        <header className="mb-8 border-b border-gray-800 pb-4">
-          <Link href={`/gsoc/${year}`} className="text-sm text-blue-300 hover:text-blue-200">
+        <header className="mb-8 border-b border-border pb-4">
+          <Link href={`/gsoc/${year}`} className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300">
             ← Back to GSoC {year}
           </Link>
-          <h1 className="mt-3 text-3xl font-bold tracking-tight">{post.title}</h1>
+          <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{post.title}</h1>
         </header>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
           <div className="min-w-0">
-            <div className="prose prose-invert max-w-none prose-headings:text-white prose-p:text-gray-300 prose-a:text-blue-400">
+            <div className="prose dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-blue-600 dark:prose-a:text-blue-400">
               <MarkdownRenderer content={post.content} />
             </div>
+
+            {post.tags.length > 0 && (
+              <div className="mt-8 border-t border-border pt-4">
+                <h2 className="text-xs font-semibold uppercase tracking-wide text-muted-foreground">
+                  Tags
+                </h2>
+                <div className="mt-2 flex flex-wrap gap-2">
+                  {post.tags.map((tag) => (
+                    <span
+                      key={tag}
+                      className="rounded-full border border-border px-2.5 py-1 text-xs text-muted-foreground"
+                    >
+                      #{tag}
+                    </span>
+                  ))}
+                </div>
+              </div>
+            )}
           </div>
 
           <aside className="hidden lg:block">
             <div className="sticky top-20 space-y-4">
               <TableOfContents content={post.content} />
 
-              <div className="rounded-lg bg-gray-900 p-4">
-                <h2 className="mb-3 text-lg font-semibold text-white">More in GSoC {year}</h2>
+              <div className="rounded-lg bg-muted p-4">
+                <h2 className="mb-3 text-lg font-semibold text-foreground">More in GSoC {year}</h2>
                 <ul className="space-y-2">
                   {yearProjects.map((item) => {
                     const href = `/gsoc/${year}/${encodeURIComponent(item.slug)}`;
@@ -61,8 +79,8 @@ export default async function GsocProjectPage({
                           href={href}
                           className={
                             isCurrent
-                              ? "block rounded-md bg-white/10 px-2 py-1 text-sm text-white"
-                              : "block rounded-md px-2 py-1 text-sm text-gray-300 hover:bg-white/5 hover:text-white"
+                              ? "block rounded-md bg-accent px-2 py-1 text-sm text-foreground"
+                              : "block rounded-md px-2 py-1 text-sm text-muted-foreground hover:bg-accent hover:text-foreground"
                           }
                         >
                           {item.title}

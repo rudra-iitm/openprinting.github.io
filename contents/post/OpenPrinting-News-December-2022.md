@@ -9,6 +9,7 @@ excerpt: >-
   coverage, GSoC 2022 upstreamizing, CPDB 2.0b1 release, pappl-retrofit first
   release, PAPPL 1.3.0, Snaps updated, bug fixes
 date: '2022-12-15'
+tags: [gsoc]
 ---
 This is the last News Post of 2022. Most of us will be meeting family and friends during the holidays. And many of them are not Linux and free software users as we are.
 

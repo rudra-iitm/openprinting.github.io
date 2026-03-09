@@ -9,6 +9,7 @@ excerpt: >-
   cups-filters 1.25.11, for ippusbxd David Valleau will look into allowing
   classic USB access in parallel
 date: '2019-11-06'
+tags: [gsoc]
 ---
 
 ## Google Code-In 2019

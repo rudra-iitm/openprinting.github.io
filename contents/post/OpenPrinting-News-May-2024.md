@@ -9,6 +9,7 @@ excerpt: >-
   GUADEC 2024, aKademy 2024, UbuCon Asia 2024, GSoC 2024, CPDB Snap, Open
   Documentation Academy
 date: '2024-05-23'
+tags: [gsoc]
 ---
 
 This year is the **20th anniversary**!

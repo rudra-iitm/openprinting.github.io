@@ -4,6 +4,7 @@ layout: single
 author: Till
 excerpt: A brief history of OpenPrinting
 date: '2019-11-08'
+tags: [gsoc]
 ---
 
 This is a short write-up about how I got into printing with free software, right from the top of my head. probably I will improve this later, with links, pictures, more info, and also on a more adequate location on this site.

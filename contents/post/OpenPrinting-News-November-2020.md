@@ -6,6 +6,7 @@ excerpt: >-
   PAPPL first beta, PostScript Printer Application, GSoC 2021, GSoD, LFMP, CUPS
   fork in Debian, cups-filters
 date: '2020-11-12'
+tags: [gsoc]
 ---
 ## Lexmark second manufacturer (after HP) to certify IPP Everywhere printers
 The days (months?, years?) of only HP being present on the PWG's [certified IPP Everywhere printers list](https://www.pwg.org/printers/) are counted. Lexmark has entered as second manufacturer, registering 92 IPP Everywhere v1.1 printers and with this the first v1.1 certifications at all. The total amount of printers in the list is currently 625.

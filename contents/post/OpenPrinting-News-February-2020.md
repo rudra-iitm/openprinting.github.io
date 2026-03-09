@@ -7,6 +7,7 @@ excerpt: >-
   localhost support finally accepted, projects moved to OpenPrinting GitHub,
   driverless scanning, cups-filters 1.27.1 released, IPP-over-USB improvements
 date: '2020-02-16'
+tags: [gsoc]
 ---
 ## We will be presenting on the Linux Foundation Member Summit 2020!
 The talk proposal by Aveek Basu and me, "Revitalizing an Open Source Community - Nurturing the New Contributors to Carry on the Baton" got accepted for the [Linux Foundation Member Summit 2020](https://events.linuxfoundation.org/lf-member-summit/), Lake Tahoe, California.

@@ -8,6 +8,7 @@ excerpt: >-
   Ubuntu Summit 2023 in Riga, FOSDEM 2024, GSoC 2024, GSoC 2023, Snap workshops,
   CPDB CUPS backend Snap, PAPPL 1.4.3
 date: '2023-11-24'
+tags: [gsoc]
 ---
 Probably most of you have made their first desktop computer experience with Windows, and later on started working with a Linux desktop system. Many of your daily tasks which you formerly did under Windows you are doing under Linux now. Some work great, for others you wish your Windows back ...
 

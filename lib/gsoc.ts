@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
 import type { StaticSearchIndex } from "@/lib/search/types";
+import { extractHashtags, parseTagsFromUnknown, uniqueTags } from "@/lib/tags";
 
 const GSOC_DIR = path.join(process.cwd(), "contents", "gsoc");
 const SEARCH_INDEX_FILE = path.join(
@@ -21,6 +22,7 @@ export interface GsocProjectSummary {
   slug: string;
   title: string;
   excerpt: string;
+  tags: string[];
 }
 
 export interface GsocProject extends GsocProjectSummary {
@@ -37,6 +39,7 @@ export interface GsocRelatedPost {
   title: string;
   url: string;
   snippet: string;
+  tags: string[];
 }
 
 function isYearDirectory(name: string) {
@@ -111,6 +114,61 @@ function getTitle(frontmatter: Record<string, unknown>, slug: string): string {
   return readable.length > 0 ? readable : slug;
 }
 
+function getGsocProjectTags(
+  frontmatter: Record<string, unknown>,
+  content: string,
+  title: string,
+  year: string,
+): string[] {
+  const frontmatterTags = parseTagsFromUnknown(frontmatter.tags);
+  const inferred: string[] = ["gsoc", year, `gsoc-${year}`];
+  const normalizedContent = content.toLowerCase();
+  const normalizedTitle = title.toLowerCase();
+
+  if (
+    normalizedContent.includes("ai/ml-related project") ||
+    normalizedContent.includes("ai- and security-related project") ||
+    normalizedContent.includes("security- and ai-related project")
+  ) {
+    inferred.push("ai-ml");
+  }
+
+  if (
+    normalizedContent.includes("security-related project") ||
+    normalizedContent.includes("ai- and security-related project") ||
+    normalizedContent.includes("security- and ai-related project")
+  ) {
+    inferred.push("security");
+  }
+
+  if (normalizedTitle.includes("fuzz")) inferred.push("fuzzing");
+  if (normalizedTitle.includes("print")) inferred.push("printing");
+  if (normalizedTitle.includes("scan")) inferred.push("scanning");
+  if (normalizedTitle.includes("cups")) inferred.push("cups");
+  if (normalizedTitle.includes("cpdb")) inferred.push("cpdb");
+  if (normalizedTitle.includes("pdf")) inferred.push("pdf");
+  if (normalizedTitle.includes("desktop")) inferred.push("desktop");
+  if (normalizedTitle.includes("zephyr")) inferred.push("zephyr");
+
+  return uniqueTags([...frontmatterTags, ...inferred, ...extractHashtags(content)]);
+}
+
+function getGsocRelatedPostTags(
+  indexTags: string[],
+  title: string,
+  snippet: string,
+  content: string,
+  year: string,
+): string[] {
+  return uniqueTags([
+    ...indexTags,
+    "gsoc",
+    year,
+    `gsoc-${year}`,
+    ...extractHashtags(`${title}\n${snippet}\n${content}`),
+  ]);
+}
+
 export async function getGsocYears(): Promise<string[]> {
   const entries = await fs.readdir(GSOC_DIR, { withFileTypes: true });
 
@@ -154,6 +212,12 @@ export async function getGsocProjectsByYear(year: string): Promise<GsocProjectSu
           slug,
           title: getTitle(data as Record<string, unknown>, slug),
           excerpt: getExcerpt(content, getTitle(data as Record<string, unknown>, slug)),
+          tags: getGsocProjectTags(
+            data as Record<string, unknown>,
+            content,
+            getTitle(data as Record<string, unknown>, slug),
+            year,
+          ),
         };
       }),
   );
@@ -193,6 +257,12 @@ export async function getGsocProject(year: string, slug: string): Promise<GsocPr
     title: getTitle(data as Record<string, unknown>, slug),
     excerpt: getExcerpt(content, getTitle(data as Record<string, unknown>, slug)),
     content,
+    tags: getGsocProjectTags(
+      data as Record<string, unknown>,
+      content,
+      getTitle(data as Record<string, unknown>, slug),
+      year,
+    ),
   };
 }
 
@@ -217,9 +287,11 @@ export async function getGsocPostsByYear(): Promise<Record<string, GsocRelatedPo
     if (document.type !== "post") continue;
 
     const title = document.title.toLowerCase();
-    const isGsocPost =
-      title.includes("google summer of code") ||
-      /\bgsoc\b/.test(title);
+    const tags = document.tags ?? [];
+    const hasGsocTag = tags.some((tag) => tag.toLowerCase() === "gsoc");
+    const isGsocPostByTitle =
+      title.includes("google summer of code") || /\bgsoc\b/.test(title);
+    const isGsocPost = hasGsocTag || isGsocPostByTitle;
 
     if (!isGsocPost) continue;
 
@@ -231,6 +303,13 @@ export async function getGsocPostsByYear(): Promise<Record<string, GsocRelatedPo
       title: document.title.trim(),
       url: document.url.trim(),
       snippet: document.snippet.trim(),
+      tags: getGsocRelatedPostTags(
+        document.tags ?? [],
+        document.title,
+        document.snippet,
+        document.content,
+        year,
+      ),
     });
   }
 

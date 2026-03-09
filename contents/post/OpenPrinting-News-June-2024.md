@@ -9,6 +9,7 @@ excerpt: >-
   Europe, Ubuntu Summit 2024, GSoC 2024, KDE Print Manager, Gutenprint, CPDB
   2.0b6, CUPS 2.4.10
 date: '2024-06-27'
+tags: [gsoc]
 ---
 This month we have again a lot of great News!
 
