@@ -2,7 +2,11 @@ import fs from "fs/promises"
 import path from "path"
 import matter from "gray-matter"
 import Link from "next/link"
+import Image from "next/image"
 import OpenPrintingCard from "@/components/OpenPrintingCard"
+import authors from "@/data/authors"
+
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 type Post = {
   slug: string
@@ -11,6 +15,10 @@ type Post = {
   date: Date
   year: number
   readTime: string
+  authorKey?: string
+  authorName?: string
+  authorImage?: string
+  formattedDate: string
 }
 
 const POSTS_DIR = path.join(process.cwd(), "contents", "post")
@@ -29,22 +37,31 @@ export default async function NewsPage() {
         const { data } = matter(raw)
         const date = new Date(data.date ?? "1970-01-01")
 
+        const authorKeyRaw = typeof data.author === "string" ? data.author.trim() : undefined;
+        const authorDef = authorKeyRaw ? authors.find(a => a.key === authorKeyRaw) : undefined;
+
+        let authorImage;
+        if (authorDef) {
+          const placeholder = `/authors/placeholder.jpg`;
+          const imgRaw = authorDef.image && authorDef.image !== "NA" ? authorDef.image : placeholder;
+          authorImage = imgRaw.startsWith("/") ? `${basePath}${imgRaw}` : `${basePath}/${imgRaw}`;
+        }
+
         return {
           slug: file.replace(/\.md$/, ""),
-          title:
-            typeof data.title === "string"
-              ? data.title
-              : file.replace(/\.md$/, ""),
-          excerpt:
-            typeof data.excerpt === "string"
-              ? data.excerpt
-              : "",
+          title: typeof data.title === "string" ? data.title : file.replace(/\.md$/, ""),
+          excerpt: typeof data.excerpt === "string" ? data.excerpt : "",
           date,
           year: date.getFullYear(),
-          readTime:
-            typeof data.readTime === "string"
-              ? data.readTime
-              : "less than 1 minute read",
+          readTime: typeof data.readTime === "string" ? data.readTime : "less than 1 minute read",
+          authorKey: authorKeyRaw,
+          authorName: authorDef ? authorDef.name : authorKeyRaw,
+          authorImage,
+          formattedDate: date.toLocaleDateString("en-US", {
+            year: "numeric",
+            month: "long",
+            day: "numeric",
+          }),
         }
       })
   )
@@ -126,8 +143,35 @@ export default async function NewsPage() {
                           {post.title}
                         </Link>
 
-                        <div className="text-xs text-muted-foreground mt-1.5 sm:mt-2 mb-2 sm:mb-3">
-                          {post.readTime}
+                        <div className="flex items-center gap-2 text-xs text-muted-foreground mt-2 sm:mt-2.5 mb-2.5 sm:mb-3 flex-wrap">
+                          {post.authorName && (
+                            <>
+                              <div className="flex items-center gap-1.5 shrink-0">
+                                {post.authorImage && (
+                                  <div className="rounded-full overflow-hidden w-5 h-5 border border-border/50 shrink-0">
+                                    <Image
+                                      src={post.authorImage}
+                                      alt={post.authorName}
+                                      width={20}
+                                      height={20}
+                                      className="object-cover w-full h-full"
+                                    />
+                                  </div>
+                                )}
+                                <span className="font-medium text-foreground/80">{post.authorName}</span>
+                              </div>
+                              <span className="text-border/60 shrink-0">•</span>
+                            </>
+                          )}
+                          <span className="shrink-0">{post.formattedDate}</span>
+                          <span className="text-border/60 shrink-0">•</span>
+                          <span className="flex items-center gap-1 shrink-0">
+                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                              <circle cx="12" cy="12" r="10" strokeWidth="2" />
+                              <path strokeWidth="2" d="M12 6v6l4 2" />
+                            </svg>
+                            {post.readTime}
+                          </span>
                         </div>
 
                         {post.excerpt && (
