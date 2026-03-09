@@ -1,12 +1,11 @@
-"use client";
+"use client"
 
-import { Button } from "@/components/ui/button";
-import { motion } from "framer-motion";
-import Link from "next/link";
-import { ArrowRight, ChevronDown } from "lucide-react";
+import { Button } from "@/components/ui/button"
+import { motion } from "framer-motion"
+import Link from "next/link"
+import { ArrowRight, ChevronDown } from "lucide-react"
 
-const basePath =
-  process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 export default function HeroSection() {
   return (
@@ -68,11 +67,7 @@ export default function HeroSection() {
               size="lg"
               className="bg-white text-black hover:bg-neutral-200 font-medium h-11 px-8 rounded-full text-sm transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
             >
-              <Link
-                href="/about-us"
-                prefetch={false}
-                className="flex items-center gap-2"
-              >
+              <Link href="/about-us" prefetch={false} className="flex items-center gap-2">
                 Learn More
                 <ArrowRight className="w-4 h-4" />
               </Link>
@@ -83,9 +78,7 @@ export default function HeroSection() {
               size="lg"
               className="border-white/[0.12] text-neutral-300 hover:bg-white/[0.04] hover:text-white font-medium h-11 px-8 rounded-full text-sm bg-transparent transition-all duration-200"
             >
-              <Link href="/printers" prefetch={false}>
-                Find a Printer
-              </Link>
+              <Link href="/printers" prefetch={false}>Find a Printer</Link>
             </Button>
           </motion.div>
         </div>
@@ -102,12 +95,10 @@ export default function HeroSection() {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="text-xs text-neutral-500 uppercase tracking-widest">
-            Scroll
-          </span>
+          <span className="text-xs text-neutral-500 uppercase tracking-widest">Scroll</span>
           <ChevronDown className="w-4 h-4 text-neutral-500" />
         </motion.div>
       </motion.div>
     </section>
-  );
+  )
 }

@@ -1,18 +1,17 @@
-"use client";
+"use client"
 
 import { Search as SearchIcon } from "lucide-react";
 import SearchModal from "@/components/search/SearchModal";
-import { useState, useEffect } from "react";
-import Link from "next/link";
-import Image from "next/image";
-import { Menu, X } from "lucide-react";
-import { motion, AnimatePresence } from "framer-motion";
-import { cn } from "@/lib/utils";
-import { Button } from "@/components/ui/button";
-import { ThemeToggle } from "@/components/theme-toggle";
+import { useState, useEffect } from "react"
+import Link from "next/link"
+import Image from "next/image"
+import { Menu, X } from "lucide-react"
+import { motion, AnimatePresence } from "framer-motion"
+import { cn } from "@/lib/utils"
+import { Button } from "@/components/ui/button"
+import { ThemeToggle } from "@/components/theme-toggle"
 
-const basePath =
-  process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 const navItems = [
   { name: "About Us", href: "/about-us" },
@@ -20,7 +19,7 @@ const navItems = [
   { name: "Projects", href: "/projects" },
   { name: "Downloads", href: "/downloads" },
   { name: "Documentation", href: "/documentation" },
-];
+]
 
 const hamburgerItems = [
   { name: "Upcoming Technologies", href: "/upcoming-technologies" },
@@ -30,20 +29,20 @@ const hamburgerItems = [
   { name: "Legacy Printers under Windows", href: "/wsl-printer-app" },
   { name: "Contact Us", href: "/contact" },
   { name: "Donations", href: "/donations" },
-];
+]
 
 export default function Navbar() {
-  const [isOpen, setIsOpen] = useState(false);
-  const [scrolled, setScrolled] = useState(false);
+  const [isOpen, setIsOpen] = useState(false)
+  const [scrolled, setScrolled] = useState(false)
   const [searchOpen, setSearchOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => {
-      setScrolled(window.scrollY > 10);
-    };
-    window.addEventListener("scroll", handleScroll);
-    return () => window.removeEventListener("scroll", handleScroll);
-  }, []);
+      setScrolled(window.scrollY > 10)
+    }
+    window.addEventListener("scroll", handleScroll)
+    return () => window.removeEventListener("scroll", handleScroll)
+  }, [])
 
   useEffect(() => {
     const handleKeyDown = (event: KeyboardEvent) => {
@@ -151,11 +150,7 @@ export default function Navbar() {
                 size="sm"
                 className="bg-foreground text-background hover:bg-foreground/90 text-xs font-medium h-8 px-4 rounded-full transition-all duration-200"
               >
-                <Link
-                  href="https://github.com/OpenPrinting"
-                  target="_blank"
-                  rel="noopener noreferrer"
-                >
+                <Link href="https://github.com/OpenPrinting" target="_blank" rel="noopener noreferrer">
                   GitHub
                 </Link>
               </Button>
@@ -196,11 +191,7 @@ export default function Navbar() {
               className="text-muted-foreground hover:text-foreground hover:bg-accent h-9 w-9"
               aria-label="Toggle menu"
             >
-              {isOpen ? (
-                <X className="h-5 w-5" />
-              ) : (
-                <Menu className="h-5 w-5" />
-              )}
+              {isOpen ? <X className="h-5 w-5" /> : <Menu className="h-5 w-5" />}
             </Button>
           </div>
         </div>
@@ -279,11 +270,7 @@ export default function Navbar() {
                   className="w-full bg-foreground text-background hover:bg-foreground/90 text-xs font-medium rounded-full"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Link
-                    href="https://github.com/OpenPrinting"
-                    target="_blank"
-                    rel="noopener noreferrer"
-                  >
+                  <Link href="https://github.com/OpenPrinting" target="_blank" rel="noopener noreferrer">
                     GitHub
                   </Link>
                 </Button>
@@ -292,7 +279,10 @@ export default function Navbar() {
           </motion.div>
         )}
       </AnimatePresence>
-      <SearchModal isOpen={searchOpen} onClose={() => setSearchOpen(false)} />
+      <SearchModal
+        isOpen={searchOpen}
+        onClose={() => setSearchOpen(false)}
+      />
     </header>
-  );
+  )
 }
