@@ -55,7 +55,7 @@ export default function NewsSection({ posts }: { posts: NewsPost[] }) {
               transition={{ duration: 0.5, delay: index * 0.08 }}
             >
               <Link
-                href={`${basePath}/${item.slug}`}
+                href={item.slug}
                 prefetch={false}
                 className="group block h-full rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] card-glow"
               >
