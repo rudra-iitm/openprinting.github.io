@@ -1,36 +1,54 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# OpenPrinting Website
+
+The official website for [OpenPrinting](https://openprinting.github.io/), built with Next.js, Tailwind CSS, and Framer Motion.
+
+OpenPrinting is a Linux Foundation workgroup that manages the printing architecture for Linux and UNIX-like operating systems.
 
 ## Getting Started
 
-First, run the development server:
+First, make sure you have [Node.js](https://nodejs.org/) installed, and then install the dependencies using your preferred package manager:
 
 ```bash
-npm run dev
+yarn install
 # or
+npm install
+```
+
+Start the development server:
+
+```bash
 yarn dev
 # or
-pnpm dev
-# or
-bun dev
+npm run dev
 ```
 
 Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Project Structure
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+- `app/` - Next.js App Router containing pages and layouts.
+- `components/` - Reusable UI components.
+- `contents/` - Markdown content representing news, blogs, and documentation.
+- `lib/` - Utility functions and shared library code.
+- `scripts/` - Build scripts, such as search index generation.
+- `public/` - Static files and assets.
 
-## Learn More
+## Contributing
 
-To learn more about Next.js, take a look at the following resources:
+Contributions are welcome! Please open an issue or submit a pull request if you find a bug or want to propose an enhancement.
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+When making UI changes, please follow the existing Tailwind CSS design patterns.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Deployment
 
-## Deploy on Vercel
+This project is meant to be deployed statically on GitHub Pages. Note that Next.js is configured for static export in this repository.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+To build the static export locally:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+```bash
+yarn build
+# or
+npm run build
+```
+
+This will generate an `out/` directory containing the static HTML/CSS/JS files which are then hosted on GitHub Pages.
