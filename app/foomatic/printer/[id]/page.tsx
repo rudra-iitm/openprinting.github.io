@@ -37,7 +37,6 @@ export default async function PrinterPage({ params }: PrinterPageProps) {
   return (
     <>
       <PrinterPageClient printerId={id} />
-      <Footer />
     </>
   );
 }

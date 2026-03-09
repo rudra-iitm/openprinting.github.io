@@ -2,19 +2,11 @@
 
 import { useEffect, useState } from "react";
 import type { Printer } from "@/lib/foomatic/types";
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
 import { Badge } from "@/components/ui/badge";
 import Link from "next/link";
 import { Button } from "@/components/ui/button";
 import { Prism as SyntaxHighlighter } from "react-syntax-highlighter";
 import { vscDarkPlus } from "react-syntax-highlighter/dist/esm/styles/prism";
-import { Separator } from "@/components/ui/separator";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   ArrowLeft,
@@ -43,27 +35,15 @@ export default function PrinterPageClient({
   const getStatusStyling = (status: string) => {
     switch (status.toLowerCase()) {
       case "perfect":
-        return {
-          variant: "default" as const,
-          className: "bg-green-500/20 text-green-300 border-green-400/30",
-        };
+        return "bg-green-500/15 text-green-400 border-green-500/25";
       case "partial":
       case "mostly":
-        return {
-          variant: "secondary" as const,
-          className: "bg-yellow-500/20 text-yellow-300 border-yellow-400/30",
-        };
+        return "bg-yellow-500/15 text-yellow-400 border-yellow-500/25";
       case "unsupported":
-        return {
-          variant: "secondary" as const,
-          className: "bg-red-500/20 text-red-300 border-red-400/30",
-        };
+        return "bg-red-500/15 text-red-400 border-red-500/25";
       case "unknown":
       default:
-        return {
-          variant: "secondary" as const,
-          className: "bg-gray-500/20 text-gray-300 border-gray-400/30",
-        };
+        return "bg-white/[0.04] text-neutral-400 border-white/[0.08]";
     }
   };
 
@@ -96,64 +76,60 @@ export default function PrinterPageClient({
 
   if (loading) {
     return (
-      <div className="container mx-auto p-4 pt-24">
-        <div className="flex items-center mb-6">
-          <Link href="/foomatic">
-            <Button
-              variant="outline"
-              size="sm"
-              className="gap-2 border-border/50 text-muted-foreground hover:bg-muted/50"
-            >
-              <ArrowLeft className="h-4 w-4" />
-              Back
-            </Button>
-          </Link>
-          <div className="ml-4 flex items-center gap-2 text-sm text-muted-foreground">
-            <PrinterIcon className="h-4 w-4" />
-            <span>OpenPrinting Database</span>
-          </div>
-        </div>
-
-        <div className="flex items-start gap-4 mb-6">
-          <Skeleton className="h-16 w-16 rounded-xl" />
-          <div className="flex-1">
-            <Skeleton className="h-10 w-64 mb-2" />
-            <Skeleton className="h-6 w-32 mb-3" />
-            <div className="flex gap-3">
-              <Skeleton className="h-6 w-20" />
-              <Skeleton className="h-6 w-16" />
+      <div className="min-h-screen bg-black text-white">
+        <div className="max-w-6xl mx-auto px-6 pt-24">
+          <div className="flex items-center mb-8">
+            <Link href="/foomatic">
+              <Button
+                variant="ghost"
+                size="sm"
+                className="gap-2 text-neutral-400 hover:text-white hover:bg-white/[0.04] h-8"
+              >
+                <ArrowLeft className="h-4 w-4" />
+                Back
+              </Button>
+            </Link>
+            <div className="ml-3 flex items-center gap-2 text-xs text-neutral-600">
+              <PrinterIcon className="h-3.5 w-3.5" />
+              <span>OpenPrinting Database</span>
             </div>
           </div>
-        </div>
 
-        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-          <Card className="border-border/50 shadow-sm">
-            <CardHeader>
-              <Skeleton className="h-6 w-48" />
-              <Skeleton className="h-4 w-24" />
-            </CardHeader>
-            <CardContent>
-              <Skeleton className="h-4 w-12 mb-1" />
-              <Skeleton className="h-5 w-20" />
-            </CardContent>
-          </Card>
+          <div className="flex items-start gap-4 mb-8">
+            <Skeleton className="h-14 w-14 rounded-xl bg-white/[0.06]" />
+            <div className="flex-1">
+              <Skeleton className="h-9 w-64 mb-2 bg-white/[0.06]" />
+              <Skeleton className="h-5 w-32 mb-3 bg-white/[0.06]" />
+              <div className="flex gap-2">
+                <Skeleton className="h-5 w-20 bg-white/[0.06]" />
+                <Skeleton className="h-5 w-16 bg-white/[0.06]" />
+              </div>
+            </div>
+          </div>
 
-          <div className="lg:col-span-2">
-            <div className="flex items-center gap-3 mb-6">
-              <Loader2 className="h-7 w-7 text-primary animate-spin" />
-              <Skeleton className="h-8 w-48" />
+          <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+              <Skeleton className="h-6 w-48 mb-4 bg-white/[0.06]" />
+              <Skeleton className="h-4 w-24 mb-6 bg-white/[0.06]" />
+              <Skeleton className="h-4 w-12 mb-1 bg-white/[0.06]" />
+              <Skeleton className="h-5 w-20 bg-white/[0.06]" />
             </div>
 
-            {[...Array(2)].map((_, i) => (
-              <Card key={i} className="border-border/50 shadow-sm mb-6">
-                <CardHeader>
-                  <Skeleton className="h-6 w-32" />
-                </CardHeader>
-                <CardContent>
-                  <Skeleton className="h-16 w-full" />
-                </CardContent>
-              </Card>
-            ))}
+            <div className="lg:col-span-2">
+              <div className="flex items-center gap-3 mb-6">
+                <Loader2 className="h-5 w-5 text-blue-400 animate-spin" />
+                <Skeleton className="h-7 w-48 bg-white/[0.06]" />
+              </div>
+              {[...Array(2)].map((_, i) => (
+                <div
+                  key={i}
+                  className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 mb-5"
+                >
+                  <Skeleton className="h-6 w-32 mb-4 bg-white/[0.06]" />
+                  <Skeleton className="h-16 w-full bg-white/[0.06]" />
+                </div>
+              ))}
+            </div>
           </div>
         </div>
       </div>
@@ -162,183 +138,217 @@ export default function PrinterPageClient({
 
   if (error || !printer) {
     return (
-      <div className="container mx-auto p-4 text-center pt-24">
-        <div className="py-20">
-          <div className="p-6 rounded-full bg-destructive/10 border border-destructive/20 text-destructive w-24 h-24 mx-auto mb-8 flex items-center justify-center">
-            <PrinterIcon className="h-12 w-12" />
+      <div className="min-h-screen bg-black text-white">
+        <div className="max-w-6xl mx-auto px-6 text-center pt-24">
+          <div className="py-20">
+            <div className="p-6 rounded-2xl border border-red-500/20 bg-red-500/5 w-24 h-24 mx-auto mb-8 flex items-center justify-center">
+              <PrinterIcon className="h-12 w-12 text-red-400" />
+            </div>
+            <h1 className="text-3xl font-bold text-white mb-4">
+              Printer not found
+            </h1>
+            <p className="text-neutral-400 text-lg mb-8">
+              {error ||
+                "This printer may have been removed or doesn't exist in the OpenPrinting database."}
+            </p>
+            <Link href="/foomatic">
+              <Button className="gap-2 bg-white text-black hover:bg-neutral-200 rounded-full h-10 px-6 text-sm font-medium">
+                <ArrowLeft className="h-4 w-4" />
+                Back to all printers
+              </Button>
+            </Link>
           </div>
-          <h1 className="text-3xl font-bold text-foreground mb-4">
-            Printer not found
-          </h1>
-          <p className="text-muted-foreground text-lg mb-8">
-            {error ||
-              "This printer may have been removed or doesn't exist in the OpenPrinting database."}
-          </p>
-          <Link href="/foomatic">
-            <Button className="gap-2">
-              <ArrowLeft className="h-4 w-4" />
-              Back to all printers
-            </Button>
-          </Link>
         </div>
       </div>
     );
   }
 
   return (
-    <div className="container mx-auto p-4 pt-24">
-      <div className="flex items-center mb-6">
-        <Link href="/foomatic">
-          <Button
-            variant="outline"
-            size="sm"
-            className="gap-2 border-border/50 text-muted-foreground hover:bg-muted/50"
-          >
-            <ArrowLeft className="h-4 w-4" />
-            Back
-          </Button>
-        </Link>
-
-        <div className="ml-4 flex items-center gap-2 text-sm text-muted-foreground">
-          <PrinterIcon className="h-4 w-4" />
-          <span>OpenPrinting Database</span>
-        </div>
-      </div>
-
-      {/* HEADER */}
-      <div className="flex items-start gap-4 mb-8">
-        <div className="p-4 rounded-xl bg-primary/10 border border-primary/30">
-          <PrinterIcon className="h-8 w-8 text-primary" />
-        </div>
-
-        <div>
-          <h1 className="text-4xl font-bold text-foreground mb-2">
-            {printer.model}
-          </h1>
-          <p className="text-xl text-muted-foreground">
-            {printer.manufacturer}
-          </p>
-
-          <div className="flex items-center gap-3 mt-3">
-            {(() => {
-              const accurateStatus = calculateAccurateStatus(printer);
-              const style = getStatusStyling(accurateStatus);
-              return (
-                <Badge variant={style.variant} className={style.className}>
-                  {accurateStatus}
-                </Badge>
-              );
-            })()}
-
-            <Badge
-              variant="outline"
-              className="border-border bg-muted/50 text-muted-foreground"
+    <div className="min-h-screen bg-black text-white">
+      <div className="max-w-6xl mx-auto px-6 pt-24 pb-16">
+        {/* Breadcrumb */}
+        <div className="flex items-center mb-8">
+          <Link href="/foomatic">
+            <Button
+              variant="ghost"
+              size="sm"
+              className="gap-2 text-neutral-400 hover:text-white hover:bg-white/[0.04] h-8"
             >
-              {printer.type}
-            </Badge>
+              <ArrowLeft className="h-4 w-4" />
+              Back
+            </Button>
+          </Link>
+          <div className="ml-3 flex items-center gap-2 text-xs text-neutral-600">
+            <PrinterIcon className="h-3.5 w-3.5" />
+            <span>OpenPrinting Database</span>
           </div>
         </div>
-      </div>
 
-      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-        {/* LEFT CARD */}
-        <div>
-          <Card className="border-border/50 shadow-sm">
-            <CardHeader>
-              <CardTitle className="text-2xl text-foreground flex items-center gap-2">
-                <Info className="h-5 w-5 text-primary" />
-                Printer Information
-              </CardTitle>
-              <CardDescription className="text-muted-foreground">
-                {printer.manufacturer}
-              </CardDescription>
-            </CardHeader>
+        {/* Header */}
+        <div className="flex items-start gap-5 mb-10">
+          <div className="p-4 rounded-xl bg-white/[0.04] border border-white/[0.08]">
+            <PrinterIcon className="h-8 w-8 text-blue-400" />
+          </div>
 
-            <CardContent>
-              <p className="text-sm font-medium text-muted-foreground mb-1">
-                Type
-              </p>
-              <p className="text-foreground">{printer.type}</p>
+          <div>
+            <h1 className="text-3xl md:text-4xl font-bold text-white mb-1 tracking-tight">
+              {printer.model}
+            </h1>
+            <p className="text-lg text-neutral-400 mb-3">
+              {printer.manufacturer}
+            </p>
 
-              <Separator className="my-4 bg-border" />
-
-              <p className="text-sm font-medium text-muted-foreground mb-1">
-                Status
-              </p>
+            <div className="flex items-center gap-2">
               {(() => {
                 const accurateStatus = calculateAccurateStatus(printer);
-                const style = getStatusStyling(accurateStatus);
                 return (
-                  <Badge variant={style.variant} className={style.className}>
+                  <Badge
+                    variant="outline"
+                    className={`text-xs ${getStatusStyling(accurateStatus)}`}
+                  >
                     {accurateStatus}
                   </Badge>
                 );
               })()}
-
-              {printer.notes && (
-                <>
-                  <Separator className="my-4 bg-border" />
-                  <h3 className="font-semibold mb-2 text-foreground">Notes</h3>
-                  <div
-                    className="prose prose-sm prose-invert max-w-none text-muted-foreground"
-                    dangerouslySetInnerHTML={{ __html: printer.notes }}
-                  />
-                </>
-              )}
-            </CardContent>
-          </Card>
+              <Badge
+                variant="outline"
+                className="text-xs border-white/[0.08] bg-white/[0.03] text-neutral-500"
+              >
+                {printer.type}
+              </Badge>
+            </div>
+          </div>
         </div>
 
-        {/* RIGHT SECTION — DRIVERS */}
-        <div className="lg:col-span-2">
-          <h2 className="text-3xl font-bold mb-6 text-foreground flex items-center gap-3">
-            <Code className="h-7 w-7 text-primary" />
-            Available Drivers
-          </h2>
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          {/* Left - Info Card */}
+          <div>
+            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+              <div className="flex items-center gap-2 mb-5">
+                <Info className="h-4 w-4 text-blue-400" />
+                <h2 className="text-base font-semibold text-white tracking-tight">
+                  Printer Information
+                </h2>
+              </div>
 
-          <div className="space-y-6">
-            {(printer.drivers ?? [])
-              .sort((a, b) => {
-                if (a.id === printer.recommended_driver) return -1;
-                if (b.id === printer.recommended_driver) return 1;
-                return 0;
-              })
-              .map((driver) => (
-                <Card key={driver.id} className="border-border/50 shadow-sm">
-                  <CardHeader className="flex flex-row items-start justify-between">
-                    <div className="flex-1">
-                      <CardTitle className="text-xl text-foreground">
-                        {driver.name}
-                      </CardTitle>
+              <div className="space-y-4">
+                <div>
+                  <p className="text-xs font-medium text-neutral-500 mb-1 uppercase tracking-wider">
+                    Manufacturer
+                  </p>
+                  <p className="text-sm text-neutral-300">
+                    {printer.manufacturer}
+                  </p>
+                </div>
 
-                      {driver.url && (
-                        <Link
-                          href={driver.url}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-sm text-primary hover:underline flex items-center gap-1 mt-2"
+                <div className="h-px bg-white/[0.06]" />
+
+                <div>
+                  <p className="text-xs font-medium text-neutral-500 mb-1 uppercase tracking-wider">
+                    Type
+                  </p>
+                  <p className="text-sm text-neutral-300">{printer.type}</p>
+                </div>
+
+                <div className="h-px bg-white/[0.06]" />
+
+                <div>
+                  <p className="text-xs font-medium text-neutral-500 mb-1 uppercase tracking-wider">
+                    Status
+                  </p>
+                  {(() => {
+                    const accurateStatus = calculateAccurateStatus(printer);
+                    return (
+                      <Badge
+                        variant="outline"
+                        className={`text-xs ${getStatusStyling(accurateStatus)}`}
+                      >
+                        {accurateStatus}
+                      </Badge>
+                    );
+                  })()}
+                </div>
+
+                {printer.notes && (
+                  <>
+                    <div className="h-px bg-white/[0.06]" />
+                    <div>
+                      <p className="text-xs font-medium text-neutral-500 mb-2 uppercase tracking-wider">
+                        Notes
+                      </p>
+                      <div
+                        className="prose prose-sm prose-invert max-w-none text-neutral-400 [&_a]:text-blue-400 [&_a:hover]:text-blue-300"
+                        dangerouslySetInnerHTML={{ __html: printer.notes }}
+                      />
+                    </div>
+                  </>
+                )}
+              </div>
+            </div>
+          </div>
+
+          {/* Right - Drivers */}
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-2 mb-6">
+              <Code className="h-4 w-4 text-blue-400" />
+              <h2 className="text-lg font-semibold text-white tracking-tight">
+                Available Drivers
+              </h2>
+              <span className="text-xs text-neutral-600 ml-1">
+                ({(printer.drivers ?? []).length})
+              </span>
+            </div>
+
+            <div className="space-y-5">
+              {(printer.drivers ?? [])
+                .sort((a, b) => {
+                  if (a.id === printer.recommended_driver) return -1;
+                  if (b.id === printer.recommended_driver) return 1;
+                  return 0;
+                })
+                .map((driver) => (
+                  <div
+                    key={driver.id}
+                    className={`rounded-xl border p-6 transition-colors ${
+                      driver.id === printer.recommended_driver
+                        ? "border-green-500/20 bg-green-500/[0.03]"
+                        : "border-white/[0.06] bg-white/[0.02]"
+                    }`}
+                  >
+                    <div className="flex items-start justify-between mb-4">
+                      <div className="flex-1 min-w-0">
+                        <h3 className="text-base font-semibold text-white tracking-tight">
+                          {driver.name}
+                        </h3>
+                        {driver.url && (
+                          <Link
+                            href={driver.url}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                            className="inline-flex items-center gap-1 text-xs text-blue-400 hover:text-blue-300 transition-colors mt-1"
+                          >
+                            <ExternalLink className="h-3 w-3" />
+                            {driver.url}
+                          </Link>
+                        )}
+                      </div>
+                      {driver.id === printer.recommended_driver && (
+                        <Badge
+                          variant="outline"
+                          className="text-xs bg-green-500/15 text-green-400 border-green-500/25 shrink-0 ml-3"
                         >
-                          <ExternalLink className="h-3 w-3" />
-                          {driver.url}
-                        </Link>
+                          Recommended
+                        </Badge>
                       )}
                     </div>
 
-                    {driver.id === printer.recommended_driver && (
-                      <Badge className="bg-green-500/20 text-green-300 border-green-400/30">
-                        Recommended
-                      </Badge>
-                    )}
-                  </CardHeader>
-
-                  <CardContent>
                     <div className="space-y-4">
                       <div>
-                        <h4 className="font-semibold text-foreground mb-2">
+                        <p className="text-xs font-medium text-neutral-500 mb-1.5 uppercase tracking-wider">
                           Comments
-                        </h4>
+                        </p>
                         <div
-                          className="prose prose-sm prose-invert max-w-none text-muted-foreground"
+                          className="prose prose-sm prose-invert max-w-none text-neutral-400 text-sm leading-relaxed [&_a]:text-blue-400 [&_a:hover]:text-blue-300"
                           dangerouslySetInnerHTML={{
                             __html: driver.comments || "No comments available.",
                           }}
@@ -347,20 +357,20 @@ export default function PrinterPageClient({
 
                       {driver.execution && (
                         <details className="group">
-                          <summary className="cursor-pointer font-semibold text-foreground hover:text-primary list-none flex items-center gap-2">
-                            <Code className="h-4 w-4" />
-                            View PPD Generation Command
-                            <span className="text-xs text-muted-foreground group-open:hidden">
+                          <summary className="cursor-pointer text-sm font-medium text-neutral-400 hover:text-white list-none flex items-center gap-2 transition-colors">
+                            <Code className="h-3.5 w-3.5 text-blue-400" />
+                            PPD Generation Command
+                            <span className="text-xs text-neutral-600 group-open:hidden">
                               (click to expand)
                             </span>
                           </summary>
 
-                          <div className="mt-3 rounded-lg overflow-hidden border border-border/50">
+                          <div className="mt-3 rounded-lg overflow-hidden border border-white/[0.06]">
                             <SyntaxHighlighter
                               language="bash"
                               style={vscDarkPlus}
                               customStyle={{
-                                background: "hsl(var(--muted))",
+                                background: "rgba(255,255,255,0.02)",
                                 border: "none",
                                 padding: "1rem",
                                 margin: 0,
@@ -372,9 +382,9 @@ export default function PrinterPageClient({
                         </details>
                       )}
                     </div>
-                  </CardContent>
-                </Card>
-              ))}
+                  </div>
+                ))}
+            </div>
           </div>
         </div>
       </div>
