@@ -37,7 +37,7 @@ Subscribing/Unsubscribing [instructions](https://subspace.kernel.org/subscribing
 
 ## The full episode
 
-[![Brodie Robertson's 'Tech over Tea' episode #300: Till Kamppeter about OpenPrinting](https://img.youtube.com/vi/X8NoAXgGIP8/0.jpg)](https://www.youtube.com/watch?v=X8NoAXgGIP8 "Brodie Robertson's 'Tech over Tea' episode #300: Till Kamppeter about OpenPrinting")
+<iframe width="560" height="315" src="https://www.youtube.com/embed/X8NoAXgGIP8?si=trfqYNAdAk9uItfx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 Brodie's announcement on [Mastodon](https://mstdn.social/@BrodieOnLinux/115590329229450474):
 > Today we have the legendary @till (Till Kamppeter) on the show, the man keeping printers working on Linux to talk about his decades of experience in this space
@@ -61,13 +61,13 @@ The first of them is about the incident with Canonical and how I am recovering, 
 
 1 comment on YouTube
 
-[!['Tech over Tea' #300, highlight clip #1: Why Did Canonical Part With The Leader Of Linux Printing](https://img.youtube.com/vi/0QZGjlci19Y/0.jpg)](https://www.youtube.com/watch?v=0QZGjlci19Y "'Tech over Tea' #300, highlight clip #1: Why Did Canonical Part With The Leader Of Linux Printing")
+<iframe width="560" height="315" src="https://www.youtube.com/embed/0QZGjlci19Y?si=9FNG3yIGMeHPVGcg" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### The Future Of OpenPrinting
 
 The second one is about the future of OpenPrinting and how it will get continued on the long run.
 
-[!['Tech over Tea' #300, highlight clip #2: The Future Of OpenPrinting](https://img.youtube.com/vi/GhLRI82Hwlk/0.jpg)](https://www.youtube.com/watch?v=GhLRI82Hwlk "'Tech over Tea' #300, highlight clip #2: The Future Of OpenPrinting")
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GhLRI82Hwlk?si=uq62qLjgxGcsYXCS" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### OpenPrinting CUPS vs. Apple CUPS
 
@@ -75,7 +75,7 @@ This one is not only about what happened to CUPS after Michael Sweet had left Ap
 
 9 comments on YouTube, including all answers
 
-[!['Tech over Tea' #300, highlight clip #3: OpenPrinting CUPS vs. Apple CUPS](https://img.youtube.com/vi/RvSF40_yeaw/0.jpg)](https://www.youtube.com/watch?v=RvSF40_yeaw "'Tech over Tea' #300, highlight clip #3: OpenPrinting CUPS vs. Apple CUPS")
+<iframe width="560" height="315" src="https://www.youtube.com/embed/RvSF40_yeaw?si=YZRmF_VrOc_xEQPV" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### He's Why Printers Work On Linux
 
@@ -83,7 +83,7 @@ This clip is about what OpenPrinting is, how we make use of the Google Summer of
 
 28 comments on YouTube, including all answers
 
-[!['Tech over Tea' #300, highlight clip #4: He's Why Printers Work On Linux](https://img.youtube.com/vi/kdN163VxMEQ/0.jpg)](https://www.youtube.com/watch?v=kdN163VxMEQ "'Tech over Tea' #300, highlight clip #4: He's Why Printers Work On Linux")
+<iframe width="560" height="315" src="https://www.youtube.com/embed/kdN163VxMEQ?si=4uZs173IyhaEWImQ" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### The State Of Linux Printing Before CUPS
 
@@ -91,10 +91,10 @@ Now it is about my time as system administrator in the Theoretical Physics depar
 
 1 comment on YouTube
 
-[!['Tech over Tea' #300, highlight clip #5: The State Of Linux Printing Before CUPS](https://img.youtube.com/vi/GZ25yx-wJyA/0.jpg)](https://www.youtube.com/watch?v=GZ25yx-wJyA "'Tech over Tea' #300, highlight clip #5: The State Of Linux Printing Before CUPS")
+<iframe width="560" height="315" src="https://www.youtube.com/embed/GZ25yx-wJyA?si=gxdp5BkRp880-jzF" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
 
 ### The Long History Behind OpenPrinting On Linux
 
 The last one is about how I discovered CUPS and how after that I got discovered for making CUPS what it is today.
 
-[!['Tech over Tea' #300, highlight clip 6: The Long History Behind OpenPrinting On Linux](https://img.youtube.com/vi/WH4CHWEdV3c/0.jpg)](https://www.youtube.com/watch?v=WH4CHWEdV3c "'Tech over Tea' #300, highlight clip 6: The Long History Behind OpenPrinting On Linux")
+<iframe width="560" height="315" src="https://www.youtube.com/embed/WH4CHWEdV3c?si=svWyU88xlaui5Bpx" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
