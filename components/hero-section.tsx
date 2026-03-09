@@ -9,7 +9,7 @@ const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.i
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[65vh] flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative min-h-[60vh] flex flex-col items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-black" />
       <div
         className="hero-banner-image"
@@ -23,63 +23,65 @@ export default function HeroSection() {
 
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-to-b from-blue-500/[0.07] via-transparent to-transparent rounded-full blur-3xl" />
 
-      <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.6 }}
-          className="mb-8"
-        >
-          <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] text-xs text-neutral-400 font-medium backdrop-blur-sm">
-            <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-glow-pulse" />
-            Open Source Printing Infrastructure
-          </span>
-        </motion.div>
-
-        <motion.h1
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.15 }}
-          className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-6"
-        >
-          <span className="text-gradient">Open</span>
-          <span className="text-gradient-blue">Printing</span>
-        </motion.h1>
-
-        <motion.p
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          className="text-base md:text-lg text-neutral-400 max-w-2xl mx-auto mb-10 leading-relaxed"
-        >
-          We make printing just work.
-        </motion.p>
-
-        <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          animate={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.45 }}
-          className="flex flex-col sm:flex-row items-center justify-center gap-4"
-        >
-          <Button
-            asChild
-            size="lg"
-            className="bg-white text-black hover:bg-neutral-200 font-medium h-11 px-8 rounded-full text-sm transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+      <div className="relative z-10 max-w-7xl w-full mx-auto px-6 lg:px-12 text-left">
+        <div className="max-w-3xl">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.6 }}
+            className="mb-8"
           >
-            <Link href="/about-us" prefetch={false} className="flex items-center gap-2">
-              Learn More
-              <ArrowRight className="w-4 h-4" />
-            </Link>
-          </Button>
-          <Button
-            asChild
-            variant="outline"
-            size="lg"
-            className="border-white/[0.12] text-neutral-300 hover:bg-white/[0.04] hover:text-white font-medium h-11 px-8 rounded-full text-sm bg-transparent transition-all duration-200"
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] text-xs text-neutral-400 font-medium backdrop-blur-sm">
+              <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-glow-pulse" />
+              Open Source Printing Infrastructure
+            </span>
+          </motion.div>
+
+          <motion.h1
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.15 }}
+            className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-6"
           >
-            <Link href="/printers" prefetch={false}>Find a Printer</Link>
-          </Button>
-        </motion.div>
+            <span className="text-gradient">Open</span>
+            <span className="text-gradient-blue">Printing</span>
+          </motion.h1>
+
+          <motion.p
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.3 }}
+            className="text-base md:text-lg text-neutral-400 max-w-2xl mb-10 leading-relaxed"
+          >
+            We make printing just work.
+          </motion.p>
+
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.45 }}
+            className="flex flex-col sm:flex-row items-start sm:items-center justify-start gap-4"
+          >
+            <Button
+              asChild
+              size="lg"
+              className="bg-white text-black hover:bg-neutral-200 font-medium h-11 px-8 rounded-full text-sm transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+            >
+              <Link href="/about-us" prefetch={false} className="flex items-center gap-2">
+                Learn More
+                <ArrowRight className="w-4 h-4" />
+              </Link>
+            </Button>
+            <Button
+              asChild
+              variant="outline"
+              size="lg"
+              className="border-white/[0.12] text-neutral-300 hover:bg-white/[0.04] hover:text-white font-medium h-11 px-8 rounded-full text-sm bg-transparent transition-all duration-200"
+            >
+              <Link href="/printers" prefetch={false}>Find a Printer</Link>
+            </Button>
+          </motion.div>
+        </div>
       </div>
 
       <motion.div
