@@ -147,7 +147,16 @@ export default function Navbar() {
             </motion.div>
           </nav>
 
-          <div className="flex items-center gap-2 md:hidden">
+          <div className="flex items-center gap-1 md:hidden">
+            <Button
+              variant="ghost"
+              size="icon"
+              onClick={() => setSearchOpen(true)}
+              className="text-neutral-400 hover:text-white hover:bg-white/[0.04] h-9 w-9"
+              aria-label="Open search"
+            >
+              <SearchIcon className="h-5 w-5" />
+            </Button>
             <Button
               variant="ghost"
               size="icon"
