@@ -19,6 +19,7 @@ const navItems = [
   { name: "Projects", href: "/projects" },
   { name: "Downloads", href: "/downloads" },
   { name: "Documentation", href: "/documentation" },
+  { name: "Foomatic", href: "/foomatic" },
 ]
 
 const hamburgerItems = [
