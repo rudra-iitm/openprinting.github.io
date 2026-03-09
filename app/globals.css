@@ -83,6 +83,18 @@
   pointer-events: none;
 }
 
+/* Subtle hero banner image */
+.hero-banner-image {
+  position: absolute;
+  inset: 0;
+  background-image: url("/rotation_pantone.jpg");
+  background-size: cover;
+  background-position: 80% 0;
+  opacity: 0.15;
+  mix-blend-mode: screen;
+  pointer-events: none;
+}
+
 /* Subtle grid pattern */
 .grid-pattern {
   background-image: linear-gradient(rgba(255, 255, 255, 0.03) 1px, transparent 1px),

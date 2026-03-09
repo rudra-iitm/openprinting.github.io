@@ -7,9 +7,10 @@ import { ArrowRight, ChevronDown } from "lucide-react"
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[90vh] flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative min-h-[65vh] flex flex-col items-center justify-center overflow-hidden">
       {/* Background layers */}
       <div className="absolute inset-0 bg-black" />
+      <div className="hero-banner-image" />
       <div className="hero-glow" />
       <div className="hero-glow-blue" />
       <div className="grid-pattern absolute inset-0" />
