@@ -66,8 +66,10 @@ export function GsocOrgBanner({ year }: { year: string }) {
           <span className="font-medium text-foreground/80">Admins:</span> Till
           Kamppeter &amp; Aveek Basu
           <span className="mx-2 text-muted-foreground/50">·</span>
-          <span className="font-medium text-foreground/80">Technologies:</span> C,
-          C++, CUPS, IPP, Python
+          <span className="font-medium text-foreground/80">
+            Technologies:
+          </span>{" "}
+          C, C++, CUPS, IPP, Python
           <span className="mx-2 text-muted-foreground/50">·</span>
           <span className="font-medium text-foreground/80">Topics:</span>{" "}
           Printing, Scanning, Desktop Integration
