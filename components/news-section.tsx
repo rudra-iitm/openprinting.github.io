@@ -6,9 +6,6 @@ import { useRef } from "react"
 import Link from "next/link"
 import { ArrowRight, Calendar, User } from "lucide-react"
 
-const basePath =
-  process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
-
 function formatDate(dateString: string) {
   const date = new Date(dateString)
   return date.toLocaleDateString("en-US", {
