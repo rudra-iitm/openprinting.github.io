@@ -7,7 +7,7 @@ import {
   getGsocYears,
 } from "@/lib/gsoc";
 import { getContributorsBySlug } from "@/data/gsoc-contributors";
-import { ArrowLeft, User, Code2, BookOpen, Shield, Wrench } from "lucide-react";
+import { ArrowLeft, User } from "lucide-react";
 
 export async function generateStaticParams() {
   const years = await getGsocYears();
@@ -72,79 +72,54 @@ export default async function GsocProjectPage({
         <div className="grid grid-cols-1 gap-10 lg:grid-cols-[minmax(0,1fr)_300px]">
           {/* Main content */}
           <div className="min-w-0 space-y-10">
-            {/* Contributor profile cards */}
+            {/* Contributor & mentor info */}
             {contributors.length > 0 && (
-              <section className="space-y-4">
-                <h2 className="text-sm font-medium text-blue-400 tracking-wide uppercase">
-                  {contributors.length === 1 ? "Contributor" : "Contributors"}
-                </h2>
-                {contributors.map((contributor, idx) => (
-                  <div
-                    key={idx}
-                    className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5"
-                  >
-                    <div className="flex items-start gap-4">
-                      <div className="flex h-12 w-12 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-blue-500/20 to-purple-500/20 border border-white/[0.08]">
-                        <User className="w-5 h-5 text-blue-400" />
-                      </div>
-                      <div className="min-w-0 flex-1">
-                        <h3 className="text-lg font-semibold text-white">
-                          {contributor.name}
-                        </h3>
-
-                        {contributor.mentors.length > 0 && (
-                          <p className="mt-1 text-sm text-neutral-400">
-                            <span className="text-neutral-500">
-                              Mentored by
-                            </span>{" "}
-                            {contributor.mentors.join(", ")}
-                          </p>
-                        )}
-
-                        <div className="mt-3 flex flex-wrap gap-2">
-                          {contributor.projectUrl && (
-                            <Link
-                              href={contributor.projectUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-neutral-300 hover:bg-white/[0.06] hover:text-white transition-colors"
-                            >
-                              <BookOpen className="w-3 h-3" />
-                              GSoC Project Page
-                            </Link>
-                          )}
-                          {contributor.codeUrl && (
-                            <Link
-                              href={contributor.codeUrl}
-                              target="_blank"
-                              rel="noopener noreferrer"
-                              className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-neutral-300 hover:bg-white/[0.06] hover:text-white transition-colors"
-                            >
-                              <Code2 className="w-3 h-3" />
-                              Final Report / Code
-                            </Link>
-                          )}
-                        </div>
-
-                        {/* Skills & License row */}
-                        <div className="mt-3 flex flex-wrap items-center gap-x-4 gap-y-1 text-xs text-neutral-500">
-                          {contributor.desiredKnowledge.length > 0 && (
-                            <span className="flex items-center gap-1">
-                              <Wrench className="w-3 h-3" />
-                              {contributor.desiredKnowledge.join(", ")}
+              <section className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-5">
+                {/* Mentors (shown once) */}
+                {(() => {
+                  const mentors = [
+                    ...new Set(contributors.flatMap((c) => c.mentors)),
+                  ];
+                  if (mentors.length === 0) return null;
+                  return (
+                    <div className="mb-4">
+                      <p className="text-[10px] text-neutral-500 uppercase tracking-wider mb-2">
+                        {mentors.length === 1 ? "Mentor" : "Mentors"}
+                      </p>
+                      <div className="flex flex-wrap gap-2">
+                        {mentors.map((mentor) => (
+                          <span
+                            key={mentor}
+                            className="inline-flex items-center gap-1.5 rounded-full border border-purple-400/20 bg-purple-500/10 pl-1 pr-2.5 py-1 text-xs font-medium text-purple-300"
+                          >
+                            <span className="flex h-5 w-5 items-center justify-center rounded-full bg-purple-500/20">
+                              <User className="w-3 h-3" />
                             </span>
-                          )}
-                          {contributor.codeLicense && (
-                            <span className="flex items-center gap-1">
-                              <Shield className="w-3 h-3" />
-                              {contributor.codeLicense}
-                            </span>
-                          )}
-                        </div>
+                            {mentor}
+                          </span>
+                        ))}
                       </div>
                     </div>
-                  </div>
-                ))}
+                  );
+                })()}
+
+                {/* Contributors */}
+                <p className="text-[10px] text-neutral-500 uppercase tracking-wider mb-2">
+                  {contributors.length === 1 ? "Contributor" : "Contributors"}
+                </p>
+                <div className="flex flex-wrap gap-2">
+                  {contributors.map((contributor, idx) => (
+                    <span
+                      key={idx}
+                      className="inline-flex items-center gap-1.5 rounded-full border border-blue-400/20 bg-blue-500/10 pl-1 pr-2.5 py-1 text-xs font-medium text-blue-300"
+                    >
+                      <span className="flex h-5 w-5 items-center justify-center rounded-full bg-blue-500/20">
+                        <User className="w-3 h-3 text-blue-400" />
+                      </span>
+                      {contributor.name}
+                    </span>
+                  ))}
+                </div>
               </section>
             )}
 
