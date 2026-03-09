@@ -14,7 +14,6 @@ import {
   ChevronRight,
 } from "lucide-react";
 import { calculateAccurateStatus } from "@/lib/foomatic/utils";
-import Footer from "@/components/footer";
 
 const basePath =
   process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
