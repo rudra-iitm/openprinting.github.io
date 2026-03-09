@@ -52,7 +52,7 @@ function PaginationControls({
   return (
     <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
       <div className="flex items-center gap-2">
-        <span className="text-sm text-neutral-500">Items per page:</span>
+        <span className="text-sm text-muted-foreground">Items per page:</span>
         <select
           value={itemsPerPage}
           onChange={(e) => {
@@ -60,7 +60,7 @@ function PaginationControls({
             setItemsPerPage(value);
             setCurrentPage(1);
           }}
-          className="px-3 py-1.5 rounded-lg border border-white/[0.08] bg-white/[0.03] text-neutral-300 text-sm focus:outline-none focus:ring-1 focus:ring-blue-400/50"
+          className="px-3 py-1.5 rounded-lg border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-1 focus:ring-blue-400/50"
         >
           {ITEMS_PER_PAGE_OPTIONS.map((option) => (
             <option key={option} value={option}>
@@ -69,7 +69,7 @@ function PaginationControls({
           ))}
         </select>
       </div>
-      <div className="text-sm text-neutral-500">
+      <div className="text-sm text-muted-foreground">
         Showing {displayStart}-{displayEnd} of {filteredLength} printers
       </div>
     </div>
@@ -407,7 +407,7 @@ export default function FoomaticPage() {
   }, [totalPages, currentPage]);
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-background text-foreground">
       {/* Hero Section */}
       <section className="relative overflow-hidden pt-28 pb-16">
         <div className="absolute inset-0 bg-gradient-to-b from-blue-500/[0.08] via-transparent to-transparent" />
@@ -418,37 +418,37 @@ export default function FoomaticPage() {
 
         <div className="relative max-w-6xl mx-auto px-6 text-center">
           <div className="mb-6">
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] text-xs text-neutral-400 font-medium backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-border bg-card/50 text-xs text-muted-foreground font-medium backdrop-blur-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-400" />
               OpenPrinting Database
             </span>
           </div>
 
           <h1 className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-6">
-            <span className="text-gradient">Foomatic</span>
+            <span className="text-gradient-blue">Foomatic</span>
           </h1>
-          <p className="text-base md:text-lg text-neutral-400 max-w-2xl mx-auto mb-10 leading-relaxed">
+          <p className="text-base md:text-lg text-muted-foreground max-w-2xl mx-auto mb-10 leading-relaxed">
             Search across 6,600+ printers from the comprehensive Foomatic
             database. Find drivers, specifications, and compatibility
             information for Linux printing.
           </p>
 
           <div className="flex flex-wrap justify-center gap-4 text-sm">
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm">
               <Database className="h-3.5 w-3.5 text-blue-400" />
-              <span className="text-neutral-300 font-medium">
+              <span className="text-foreground/80 font-medium">
                 Open Source Drivers
               </span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm">
               <Zap className="h-3.5 w-3.5 text-blue-400" />
-              <span className="text-neutral-300 font-medium">
+              <span className="text-foreground/80 font-medium">
                 Linux Compatible
               </span>
             </div>
-            <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm">
+            <div className="flex items-center gap-2 px-4 py-2 rounded-full border border-border bg-card/50 backdrop-blur-sm">
               <Shield className="h-3.5 w-3.5 text-blue-400" />
-              <span className="text-neutral-300 font-medium">
+              <span className="text-foreground/80 font-medium">
                 Community Maintained
               </span>
             </div>
@@ -488,10 +488,10 @@ export default function FoomaticPage() {
             <div className="p-8 rounded-2xl border border-red-500/20 bg-red-500/5 w-32 h-32 mx-auto mb-8 flex items-center justify-center">
               <PrinterIcon className="h-16 w-16 text-red-400" />
             </div>
-            <h2 className="text-3xl font-bold mb-4 text-white">
+            <h2 className="text-3xl font-bold mb-4 text-foreground">
               Failed to load printer data
             </h2>
-            <p className="text-neutral-400 text-lg max-w-md mx-auto leading-relaxed">
+            <p className="text-muted-foreground text-lg max-w-md mx-auto leading-relaxed">
               {error}
             </p>
           </div>
@@ -500,22 +500,22 @@ export default function FoomaticPage() {
             {[...Array(8)].map((_, i) => (
               <div
                 key={i}
-                className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6"
+                className="rounded-xl border border-border bg-card p-6"
               >
                 <div className="flex items-center gap-4 mb-6">
-                  <Skeleton className="h-12 w-12 rounded-xl bg-white/[0.06]" />
+                  <Skeleton className="h-12 w-12 rounded-xl bg-muted" />
                   <div className="space-y-3 flex-1">
-                    <Skeleton className="h-5 w-3/4 bg-white/[0.06]" />
-                    <Skeleton className="h-4 w-1/2 bg-white/[0.06]" />
+                    <Skeleton className="h-5 w-3/4 bg-muted" />
+                    <Skeleton className="h-4 w-1/2 bg-muted" />
                   </div>
                 </div>
                 <div className="space-y-4">
                   <div className="flex gap-2">
-                    <Skeleton className="h-6 w-20 rounded-md bg-white/[0.06]" />
-                    <Skeleton className="h-6 w-24 rounded-md bg-white/[0.06]" />
+                    <Skeleton className="h-6 w-20 rounded-md bg-muted" />
+                    <Skeleton className="h-6 w-24 rounded-md bg-muted" />
                   </div>
-                  <Skeleton className="h-4 w-full bg-white/[0.06]" />
-                  <Skeleton className="h-4 w-2/3 bg-white/[0.06]" />
+                  <Skeleton className="h-4 w-full bg-muted" />
+                  <Skeleton className="h-4 w-2/3 bg-muted" />
                 </div>
               </div>
             ))}
@@ -535,7 +535,7 @@ export default function FoomaticPage() {
 
             {totalPages > 1 && (
               <div className="mt-12">
-                <div className="text-center mb-6 text-sm text-neutral-500">
+                <div className="text-center mb-6 text-sm text-muted-foreground">
                   {searchQuery && ` matching "${searchQuery}"`}
                   {selectedManufacturer !== "all" &&
                     ` from ${selectedManufacturer}`}
@@ -545,7 +545,7 @@ export default function FoomaticPage() {
                   <button
                     onClick={goToPreviousPage}
                     disabled={currentPage === 1}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg border border-white/[0.08] bg-white/[0.03] text-neutral-300 hover:bg-white/[0.06] hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border bg-card text-muted-foreground hover:bg-accent hover:text-foreground transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
                   >
                     <ChevronLeft className="w-4 h-4" />
                     Previous
@@ -561,10 +561,10 @@ export default function FoomaticPage() {
                         disabled={page === "..."}
                         className={`px-3 py-2 rounded-lg text-sm font-medium transition-all ${
                           page === currentPage
-                            ? "bg-white text-black shadow-[0_0_15px_rgba(255,255,255,0.1)] cursor-pointer"
+                            ? "bg-foreground text-background shadow-sm cursor-pointer"
                             : page === "..."
-                              ? "text-neutral-600 cursor-default"
-                              : "text-neutral-400 hover:text-white hover:bg-white/[0.06] border border-white/[0.06] cursor-pointer"
+                              ? "text-muted-foreground cursor-default"
+                              : "text-muted-foreground hover:text-foreground hover:bg-accent border border-border cursor-pointer"
                         }`}
                       >
                         {page}
@@ -575,14 +575,14 @@ export default function FoomaticPage() {
                   <button
                     onClick={goToNextPage}
                     disabled={currentPage === totalPages}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg border border-white/[0.08] bg-white/[0.03] text-neutral-300 hover:bg-white/[0.06] hover:text-white transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
+                    className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border bg-card text-muted-foreground hover:bg-accent hover:text-foreground transition-all disabled:opacity-30 disabled:cursor-not-allowed cursor-pointer"
                   >
                     Next
                     <ChevronRight className="w-4 h-4" />
                   </button>
                 </div>
 
-                <div className="text-center mt-4 text-xs text-neutral-600">
+                <div className="text-center mt-4 text-xs text-muted-foreground">
                   Page {currentPage} of {totalPages}
                 </div>
               </div>
@@ -590,13 +590,13 @@ export default function FoomaticPage() {
           </div>
         ) : (
           <div className="text-center py-24">
-            <div className="p-8 rounded-2xl border border-white/[0.06] bg-white/[0.02] w-32 h-32 mx-auto mb-8 flex items-center justify-center">
-              <PrinterIcon className="h-16 w-16 text-neutral-600" />
+            <div className="p-8 rounded-2xl border border-border bg-card w-32 h-32 mx-auto mb-8 flex items-center justify-center">
+              <PrinterIcon className="h-16 w-16 text-muted-foreground" />
             </div>
-            <h2 className="text-3xl font-bold mb-4 text-white">
+            <h2 className="text-3xl font-bold mb-4 text-foreground">
               No Printers Found
             </h2>
-            <p className="text-neutral-400 text-lg max-w-md mx-auto leading-relaxed">
+            <p className="text-muted-foreground text-lg max-w-md mx-auto leading-relaxed">
               Try adjusting your search terms or filter criteria to find the
               printer you&apos;re looking for.
             </p>

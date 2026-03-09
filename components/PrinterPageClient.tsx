@@ -43,7 +43,7 @@ export default function PrinterPageClient({
         return "bg-red-500/15 text-red-400 border-red-500/25";
       case "unknown":
       default:
-        return "bg-white/[0.04] text-neutral-400 border-white/[0.08]";
+        return "bg-muted text-muted-foreground border-border";
     }
   };
 
@@ -76,57 +76,57 @@ export default function PrinterPageClient({
 
   if (loading) {
     return (
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-background text-foreground">
         <div className="max-w-6xl mx-auto px-6 pt-24">
           <div className="flex items-center mb-8">
             <Link href="/foomatic">
               <Button
                 variant="ghost"
                 size="sm"
-                className="gap-2 text-neutral-400 hover:text-white hover:bg-white/[0.04] h-8"
+                className="gap-2 text-muted-foreground hover:text-foreground hover:bg-accent h-8"
               >
                 <ArrowLeft className="h-4 w-4" />
                 Back
               </Button>
             </Link>
-            <div className="ml-3 flex items-center gap-2 text-xs text-neutral-600">
+            <div className="ml-3 flex items-center gap-2 text-xs text-muted-foreground">
               <PrinterIcon className="h-3.5 w-3.5" />
               <span>OpenPrinting Database</span>
             </div>
           </div>
 
           <div className="flex items-start gap-4 mb-8">
-            <Skeleton className="h-14 w-14 rounded-xl bg-white/[0.06]" />
+            <Skeleton className="h-14 w-14 rounded-xl bg-muted" />
             <div className="flex-1">
-              <Skeleton className="h-9 w-64 mb-2 bg-white/[0.06]" />
-              <Skeleton className="h-5 w-32 mb-3 bg-white/[0.06]" />
+              <Skeleton className="h-9 w-64 mb-2 bg-muted" />
+              <Skeleton className="h-5 w-32 mb-3 bg-muted" />
               <div className="flex gap-2">
-                <Skeleton className="h-5 w-20 bg-white/[0.06]" />
-                <Skeleton className="h-5 w-16 bg-white/[0.06]" />
+                <Skeleton className="h-5 w-20 bg-muted" />
+                <Skeleton className="h-5 w-16 bg-muted" />
               </div>
             </div>
           </div>
 
           <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
-              <Skeleton className="h-6 w-48 mb-4 bg-white/[0.06]" />
-              <Skeleton className="h-4 w-24 mb-6 bg-white/[0.06]" />
-              <Skeleton className="h-4 w-12 mb-1 bg-white/[0.06]" />
-              <Skeleton className="h-5 w-20 bg-white/[0.06]" />
+            <div className="rounded-xl border border-border bg-card p-6">
+              <Skeleton className="h-6 w-48 mb-4 bg-muted" />
+              <Skeleton className="h-4 w-24 mb-6 bg-muted" />
+              <Skeleton className="h-4 w-12 mb-1 bg-muted" />
+              <Skeleton className="h-5 w-20 bg-muted" />
             </div>
 
             <div className="lg:col-span-2">
               <div className="flex items-center gap-3 mb-6">
                 <Loader2 className="h-5 w-5 text-blue-400 animate-spin" />
-                <Skeleton className="h-7 w-48 bg-white/[0.06]" />
+                <Skeleton className="h-7 w-48 bg-muted" />
               </div>
               {[...Array(2)].map((_, i) => (
                 <div
                   key={i}
-                  className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 mb-5"
+                  className="rounded-xl border border-border bg-card p-6 mb-5"
                 >
-                  <Skeleton className="h-6 w-32 mb-4 bg-white/[0.06]" />
-                  <Skeleton className="h-16 w-full bg-white/[0.06]" />
+                  <Skeleton className="h-6 w-32 mb-4 bg-muted" />
+                  <Skeleton className="h-16 w-full bg-muted" />
                 </div>
               ))}
             </div>
@@ -138,21 +138,21 @@ export default function PrinterPageClient({
 
   if (error || !printer) {
     return (
-      <div className="min-h-screen bg-black text-white">
+      <div className="min-h-screen bg-background text-foreground">
         <div className="max-w-6xl mx-auto px-6 text-center pt-24">
           <div className="py-20">
             <div className="p-6 rounded-2xl border border-red-500/20 bg-red-500/5 w-24 h-24 mx-auto mb-8 flex items-center justify-center">
               <PrinterIcon className="h-12 w-12 text-red-400" />
             </div>
-            <h1 className="text-3xl font-bold text-white mb-4">
+            <h1 className="text-3xl font-bold text-foreground mb-4">
               Printer not found
             </h1>
-            <p className="text-neutral-400 text-lg mb-8">
+            <p className="text-muted-foreground text-lg mb-8">
               {error ||
                 "This printer may have been removed or doesn't exist in the OpenPrinting database."}
             </p>
             <Link href="/foomatic">
-              <Button className="gap-2 bg-white text-black hover:bg-neutral-200 rounded-full h-10 px-6 text-sm font-medium">
+              <Button className="gap-2 bg-foreground text-background hover:bg-foreground/90 rounded-full h-10 px-6 text-sm font-medium">
                 <ArrowLeft className="h-4 w-4" />
                 Back to all printers
               </Button>
@@ -164,7 +164,7 @@ export default function PrinterPageClient({
   }
 
   return (
-    <div className="min-h-screen bg-black text-white">
+    <div className="min-h-screen bg-background text-foreground">
       <div className="max-w-6xl mx-auto px-6 pt-24 pb-16">
         {/* Breadcrumb */}
         <div className="flex items-center mb-8">
@@ -172,13 +172,13 @@ export default function PrinterPageClient({
             <Button
               variant="ghost"
               size="sm"
-              className="gap-2 text-neutral-400 hover:text-white hover:bg-white/[0.04] h-8"
+              className="gap-2 text-muted-foreground hover:text-foreground hover:bg-accent h-8"
             >
               <ArrowLeft className="h-4 w-4" />
               Back
             </Button>
           </Link>
-          <div className="ml-3 flex items-center gap-2 text-xs text-neutral-600">
+          <div className="ml-3 flex items-center gap-2 text-xs text-muted-foreground">
             <PrinterIcon className="h-3.5 w-3.5" />
             <span>OpenPrinting Database</span>
           </div>
@@ -186,15 +186,15 @@ export default function PrinterPageClient({
 
         {/* Header */}
         <div className="flex items-start gap-5 mb-10">
-          <div className="p-4 rounded-xl bg-white/[0.04] border border-white/[0.08]">
+          <div className="p-4 rounded-xl bg-muted border border-border">
             <PrinterIcon className="h-8 w-8 text-blue-400" />
           </div>
 
           <div>
-            <h1 className="text-3xl md:text-4xl font-bold text-white mb-1 tracking-tight">
+            <h1 className="text-3xl md:text-4xl font-bold text-foreground mb-1 tracking-tight">
               {printer.model}
             </h1>
-            <p className="text-lg text-neutral-400 mb-3">
+            <p className="text-lg text-muted-foreground mb-3">
               {printer.manufacturer}
             </p>
 
@@ -212,7 +212,7 @@ export default function PrinterPageClient({
               })()}
               <Badge
                 variant="outline"
-                className="text-xs border-white/[0.08] bg-white/[0.03] text-neutral-500"
+                className="text-xs border-border bg-muted text-muted-foreground"
               >
                 {printer.type}
               </Badge>
@@ -223,37 +223,37 @@ export default function PrinterPageClient({
         <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
           {/* Left - Info Card */}
           <div>
-            <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+            <div className="rounded-xl border border-border bg-card p-6">
               <div className="flex items-center gap-2 mb-5">
                 <Info className="h-4 w-4 text-blue-400" />
-                <h2 className="text-base font-semibold text-white tracking-tight">
+                <h2 className="text-base font-semibold text-foreground tracking-tight">
                   Printer Information
                 </h2>
               </div>
 
               <div className="space-y-4">
                 <div>
-                  <p className="text-xs font-medium text-neutral-500 mb-1 uppercase tracking-wider">
+                  <p className="text-xs font-medium text-muted-foreground mb-1 uppercase tracking-wider">
                     Manufacturer
                   </p>
-                  <p className="text-sm text-neutral-300">
+                  <p className="text-sm text-foreground">
                     {printer.manufacturer}
                   </p>
                 </div>
 
-                <div className="h-px bg-white/[0.06]" />
+                <div className="h-px bg-border" />
 
                 <div>
-                  <p className="text-xs font-medium text-neutral-500 mb-1 uppercase tracking-wider">
+                  <p className="text-xs font-medium text-muted-foreground mb-1 uppercase tracking-wider">
                     Type
                   </p>
-                  <p className="text-sm text-neutral-300">{printer.type}</p>
+                  <p className="text-sm text-foreground">{printer.type}</p>
                 </div>
 
-                <div className="h-px bg-white/[0.06]" />
+                <div className="h-px bg-border" />
 
                 <div>
-                  <p className="text-xs font-medium text-neutral-500 mb-1 uppercase tracking-wider">
+                  <p className="text-xs font-medium text-muted-foreground mb-1 uppercase tracking-wider">
                     Status
                   </p>
                   {(() => {
@@ -271,13 +271,13 @@ export default function PrinterPageClient({
 
                 {printer.notes && (
                   <>
-                    <div className="h-px bg-white/[0.06]" />
+                    <div className="h-px bg-border" />
                     <div>
-                      <p className="text-xs font-medium text-neutral-500 mb-2 uppercase tracking-wider">
+                      <p className="text-xs font-medium text-muted-foreground mb-2 uppercase tracking-wider">
                         Notes
                       </p>
                       <div
-                        className="prose prose-sm prose-invert max-w-none text-neutral-400 [&_a]:text-blue-400 [&_a:hover]:text-blue-300"
+                        className="prose prose-sm dark:prose-invert max-w-none text-muted-foreground [&_a]:text-blue-400 [&_a:hover]:text-blue-300"
                         dangerouslySetInnerHTML={{ __html: printer.notes }}
                       />
                     </div>
@@ -291,10 +291,10 @@ export default function PrinterPageClient({
           <div className="lg:col-span-2">
             <div className="flex items-center gap-2 mb-6">
               <Code className="h-4 w-4 text-blue-400" />
-              <h2 className="text-lg font-semibold text-white tracking-tight">
+              <h2 className="text-lg font-semibold text-foreground tracking-tight">
                 Available Drivers
               </h2>
-              <span className="text-xs text-neutral-600 ml-1">
+              <span className="text-xs text-muted-foreground ml-1">
                 ({(printer.drivers ?? []).length})
               </span>
             </div>
@@ -312,12 +312,12 @@ export default function PrinterPageClient({
                     className={`rounded-xl border p-6 transition-colors ${
                       driver.id === printer.recommended_driver
                         ? "border-green-500/20 bg-green-500/[0.03]"
-                        : "border-white/[0.06] bg-white/[0.02]"
+                        : "border-border bg-card"
                     }`}
                   >
                     <div className="flex items-start justify-between mb-4">
                       <div className="flex-1 min-w-0">
-                        <h3 className="text-base font-semibold text-white tracking-tight">
+                        <h3 className="text-base font-semibold text-foreground tracking-tight">
                           {driver.name}
                         </h3>
                         {driver.url && (
@@ -344,11 +344,11 @@ export default function PrinterPageClient({
 
                     <div className="space-y-4">
                       <div>
-                        <p className="text-xs font-medium text-neutral-500 mb-1.5 uppercase tracking-wider">
+                        <p className="text-xs font-medium text-muted-foreground mb-1.5 uppercase tracking-wider">
                           Comments
                         </p>
                         <div
-                          className="prose prose-sm prose-invert max-w-none text-neutral-400 text-sm leading-relaxed [&_a]:text-blue-400 [&_a:hover]:text-blue-300"
+                          className="prose prose-sm dark:prose-invert max-w-none text-muted-foreground text-sm leading-relaxed [&_a]:text-blue-400 [&_a:hover]:text-blue-300"
                           dangerouslySetInnerHTML={{
                             __html: driver.comments || "No comments available.",
                           }}
@@ -357,15 +357,15 @@ export default function PrinterPageClient({
 
                       {driver.execution && (
                         <details className="group">
-                          <summary className="cursor-pointer text-sm font-medium text-neutral-400 hover:text-white list-none flex items-center gap-2 transition-colors">
+                          <summary className="cursor-pointer text-sm font-medium text-muted-foreground hover:text-foreground list-none flex items-center gap-2 transition-colors">
                             <Code className="h-3.5 w-3.5 text-blue-400" />
                             PPD Generation Command
-                            <span className="text-xs text-neutral-600 group-open:hidden">
+                            <span className="text-xs text-muted-foreground group-open:hidden">
                               (click to expand)
                             </span>
                           </summary>
 
-                          <div className="mt-3 rounded-lg overflow-hidden border border-white/[0.06]">
+                          <div className="mt-3 rounded-lg overflow-hidden border border-border">
                             <SyntaxHighlighter
                               language="bash"
                               style={vscDarkPlus}

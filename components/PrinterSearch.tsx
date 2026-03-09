@@ -61,11 +61,11 @@ export default function PrinterSearch({
     searchQuery !== "";
 
   return (
-    <div className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6">
+    <div className="rounded-xl border border-border bg-card p-6">
       <div className="flex items-center justify-between mb-5">
         <div className="flex items-center gap-2">
           <SlidersHorizontal className="h-4 w-4 text-blue-400" />
-          <h2 className="text-lg font-semibold text-white tracking-tight">
+          <h2 className="text-lg font-semibold text-foreground tracking-tight">
             Search & Filter
           </h2>
         </div>
@@ -77,7 +77,7 @@ export default function PrinterSearch({
             }}
             variant="ghost"
             size="sm"
-            className="gap-1.5 text-neutral-400 hover:text-white hover:bg-white/[0.06] h-8 text-xs"
+            className="gap-1.5 text-muted-foreground hover:text-foreground hover:bg-accent h-8 text-xs"
           >
             <X className="h-3.5 w-3.5" />
             Reset
@@ -87,13 +87,13 @@ export default function PrinterSearch({
 
       <div className="space-y-4">
         <div className="relative">
-          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-neutral-500 h-4 w-4" />
+          <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
           <input
             type="search"
             placeholder="Search by model or make..."
             value={searchQuery}
             onChange={(e) => setSearchQuery(e.target.value)}
-            className="w-full pl-10 h-11 rounded-lg border border-white/[0.08] bg-white/[0.03] text-white placeholder:text-neutral-500 text-sm focus:outline-none focus:ring-1 focus:ring-blue-400/50 focus:border-blue-400/30 transition-colors"
+            className="w-full pl-10 h-11 rounded-lg border border-border bg-background text-foreground placeholder:text-muted-foreground text-sm focus:outline-none focus:ring-1 focus:ring-blue-400/50 focus:border-blue-400/30 transition-colors"
           />
         </div>
 
@@ -102,7 +102,7 @@ export default function PrinterSearch({
             value={selectedManufacturer}
             onValueChange={onFilterManufacturer}
             placeholder="All Manufacturers"
-            triggerClassName="h-11 bg-white/[0.03] border-white/[0.08] text-neutral-300 hover:border-white/[0.16] hover:bg-white/[0.05] transition-colors"
+            triggerClassName="h-11 bg-background border-border text-foreground hover:border-border/80 hover:bg-accent transition-colors"
           >
             <SimpleSelectItem value="all">All Manufacturers</SimpleSelectItem>
             {manufacturers.map((manufacturer) => (
@@ -116,7 +116,7 @@ export default function PrinterSearch({
             value={selectedDriverType}
             onValueChange={onFilterDriverType}
             placeholder="Driver Type"
-            triggerClassName="h-11 bg-white/[0.03] border-white/[0.08] text-neutral-300 hover:border-white/[0.16] hover:bg-white/[0.05] transition-colors"
+            triggerClassName="h-11 bg-background border-border text-foreground hover:border-border/80 hover:bg-accent transition-colors"
           >
             <SimpleSelectItem value="all">All Driver Types</SimpleSelectItem>
             {driverTypes.map((type) => (
@@ -130,7 +130,7 @@ export default function PrinterSearch({
             value={selectedMechanismType}
             onValueChange={onFilterMechanismType}
             placeholder="Mechanism Type"
-            triggerClassName="h-11 bg-white/[0.03] border-white/[0.08] text-neutral-300 hover:border-white/[0.16] hover:bg-white/[0.05] transition-colors"
+            triggerClassName="h-11 bg-background border-border text-foreground hover:border-border/80 hover:bg-accent transition-colors"
           >
             <SimpleSelectItem value="all">All Mechanism Types</SimpleSelectItem>
             {mechanismTypes.map((type) => (
@@ -144,7 +144,7 @@ export default function PrinterSearch({
             value={selectedSupportLevel}
             onValueChange={onFilterSupportLevel}
             placeholder="Support Level"
-            triggerClassName="h-11 bg-white/[0.03] border-white/[0.08] text-neutral-300 hover:border-white/[0.16] hover:bg-white/[0.05] transition-colors"
+            triggerClassName="h-11 bg-background border-border text-foreground hover:border-border/80 hover:bg-accent transition-colors"
           >
             <SimpleSelectItem value="all">All Support Levels</SimpleSelectItem>
             {supportLevels.map((level) => (
@@ -158,7 +158,7 @@ export default function PrinterSearch({
             value={selectedColorCapability}
             onValueChange={onFilterColorCapability}
             placeholder="Color Capability"
-            triggerClassName="h-11 bg-white/[0.03] border-white/[0.08] text-neutral-300 hover:border-white/[0.16] hover:bg-white/[0.05] transition-colors"
+            triggerClassName="h-11 bg-background border-border text-foreground hover:border-border/80 hover:bg-accent transition-colors"
           >
             <SimpleSelectItem value="all">
               All Color Capabilities
