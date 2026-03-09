@@ -10,17 +10,17 @@ export function GsocOrgBanner({ year }: { year: string }) {
       initial={{ opacity: 0, y: 20 }}
       animate={{ opacity: 1, y: 0 }}
       transition={{ duration: 0.5 }}
-      className="rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 md:p-8 card-glow"
+      className="rounded-xl border border-border bg-card p-6 md:p-8 card-glow"
     >
       <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
         <div className="max-w-2xl">
-          <p className="text-sm font-medium text-blue-400 tracking-wide uppercase mb-2">
+          <p className="text-sm font-medium text-blue-600 dark:text-blue-400 tracking-wide uppercase mb-2">
             About Us
           </p>
-          <h2 className="text-xl md:text-2xl font-bold text-white tracking-tight">
+          <h2 className="text-xl md:text-2xl font-bold text-foreground tracking-tight">
             OpenPrinting — The Linux Foundation
           </h2>
-          <p className="mt-3 text-sm text-neutral-400 leading-relaxed">
+          <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
             We develop the printing infrastructure for Linux and similar
             operating systems under The Linux Foundation. Every year we
             participate in Google Summer of Code, mentoring contributors on
@@ -33,7 +33,7 @@ export function GsocOrgBanner({ year }: { year: string }) {
             href={`https://wiki.linuxfoundation.org/gsoc/google-summer-code-${year}`}
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-neutral-300 hover:bg-white/[0.06] hover:text-white transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-3 py-1.5 text-xs text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
           >
             <ExternalLink className="w-3 h-3" />
             LF GSoC {year} Wiki
@@ -42,34 +42,34 @@ export function GsocOrgBanner({ year }: { year: string }) {
             href="https://github.com/OpenPrinting"
             target="_blank"
             rel="noopener noreferrer"
-            className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-neutral-300 hover:bg-white/[0.06] hover:text-white transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-3 py-1.5 text-xs text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
           >
             <Github className="w-3 h-3" />
             GitHub
           </Link>
           <Link
             href="mailto:printing-architecture@lists.linux-foundation.org"
-            className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-neutral-300 hover:bg-white/[0.06] hover:text-white transition-colors"
+            className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-3 py-1.5 text-xs text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
           >
             <Mail className="w-3 h-3" />
             Mailing List
           </Link>
-          <span className="inline-flex items-center gap-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] px-3 py-1.5 text-xs text-neutral-400">
+          <span className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-3 py-1.5 text-xs text-muted-foreground">
             <MessageCircle className="w-3 h-3" />
             #openprinting on IRC
           </span>
         </div>
       </div>
 
-      <div className="mt-6 pt-5 border-t border-white/[0.06]">
-        <p className="text-xs text-neutral-500">
-          <span className="font-medium text-neutral-400">Admins:</span> Till
+      <div className="mt-6 pt-5 border-t border-border">
+        <p className="text-xs text-muted-foreground">
+          <span className="font-medium text-foreground/80">Admins:</span> Till
           Kamppeter &amp; Aveek Basu
-          <span className="mx-2 text-neutral-600">·</span>
-          <span className="font-medium text-neutral-400">Technologies:</span> C,
+          <span className="mx-2 text-muted-foreground/50">·</span>
+          <span className="font-medium text-foreground/80">Technologies:</span> C,
           C++, CUPS, IPP, Python
-          <span className="mx-2 text-neutral-600">·</span>
-          <span className="font-medium text-neutral-400">Topics:</span>{" "}
+          <span className="mx-2 text-muted-foreground/50">·</span>
+          <span className="font-medium text-foreground/80">Topics:</span>{" "}
           Printing, Scanning, Desktop Integration
         </p>
       </div>
