@@ -9,6 +9,8 @@ export interface NormalizedMarkdown {
   snippet: string;
 }
 
+const MAX_CONTENT_LENGTH = 1000;
+
 function generateSnippet(text: string, maxLength = 180): string {
   if (!text) return "";
 
@@ -51,11 +53,19 @@ export function normalizeMarkdown(markdown: string): NormalizedMarkdown {
     .replace(/\s+/g, " ")
     .trim();
 
+  let truncatedText = normalizedText;
+  if (truncatedText.length > MAX_CONTENT_LENGTH) {
+    const trimmed = truncatedText.slice(0, MAX_CONTENT_LENGTH);
+    const lastSpace = trimmed.lastIndexOf(" ");
+    truncatedText =
+      trimmed.slice(0, lastSpace > 0 ? lastSpace : MAX_CONTENT_LENGTH) + "...";
+  }
+
   const snippet = generateSnippet(normalizedText);
 
   return {
     headings,
-    text: normalizedText,
+    text: truncatedText,
     snippet,
   };
 }
