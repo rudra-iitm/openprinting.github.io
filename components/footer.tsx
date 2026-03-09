@@ -35,13 +35,13 @@ const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.i
 
 export default function Footer() {
   return (
-    <footer className="bg-black border-t border-white/[0.06]">
+    <footer className="bg-neutral-100 dark:bg-black border-t border-border">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-8">
           {/* Brand */}
           <div className="md:col-span-2">
-            <h3 className="text-lg font-semibold text-white mb-3 tracking-tight">OpenPrinting</h3>
-            <p className="text-sm text-neutral-500 leading-relaxed max-w-xs mb-6">
+            <h3 className="text-lg font-semibold text-foreground mb-3 tracking-tight">OpenPrinting</h3>
+            <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mb-6">
               Making printing just work on Linux, Unix, and other operating systems through open-source technology.
             </p>
             <div className="flex items-center gap-3">
@@ -51,7 +51,7 @@ export default function Footer() {
                   href={social.label === "RSS Feed" ? `${basePath}${social.href}` : social.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="w-9 h-9 rounded-full border border-white/[0.08] bg-white/[0.02] flex items-center justify-center text-neutral-500 hover:text-white hover:border-white/[0.16] transition-all duration-200"
+                  className="w-9 h-9 rounded-full border border-border bg-background flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-all duration-200"
                   aria-label={social.label}
                 >
                   <social.icon className="w-4 h-4" />
@@ -63,7 +63,7 @@ export default function Footer() {
           {/* Link Columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
-              <h4 className="text-xs font-semibold text-neutral-400 uppercase tracking-wider mb-4">
+              <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">
                 {category}
               </h4>
               <ul className="space-y-2.5">
@@ -74,7 +74,7 @@ export default function Footer() {
                         href={link.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="text-sm text-neutral-500 hover:text-white transition-colors duration-200"
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
                       >
                         {link.name}
                       </a>
@@ -82,7 +82,7 @@ export default function Footer() {
                       <Link
                         href={link.href}
                         prefetch={false}
-                        className="text-sm text-neutral-500 hover:text-white transition-colors duration-200"
+                        className="text-sm text-muted-foreground hover:text-foreground transition-colors duration-200"
                       >
                         {link.name}
                       </Link>
@@ -96,12 +96,12 @@ export default function Footer() {
       </div>
 
       {/* Bottom bar */}
-      <div className="border-t border-white/[0.04]">
+      <div className="border-t border-border">
         <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
-          <p className="text-xs text-neutral-600">
+          <p className="text-xs text-muted-foreground">
             © {new Date().getFullYear()} OpenPrinting. All rights reserved.
           </p>
-          <p className="text-xs text-neutral-600">
+          <p className="text-xs text-muted-foreground">
             Built with Next.js
           </p>
         </div>
