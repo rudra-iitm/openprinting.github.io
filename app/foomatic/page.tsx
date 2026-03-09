@@ -2,8 +2,8 @@
 
 import { useEffect, useState, useMemo, useCallback } from "react";
 import type { PrinterSummary } from "@/lib/foomatic/types";
-import PrinterSearch from "@/components/foomatic/PrinterSearch";
-import Printers from "@/components/foomatic/Printers";
+import PrinterSearch from "@/components/PrinterSearch";
+import Printers from "@/components/Printers";
 import { Skeleton } from "@/components/ui/skeleton";
 import {
   PrinterIcon,

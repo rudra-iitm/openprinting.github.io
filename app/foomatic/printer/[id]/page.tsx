@@ -1,7 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import type { PrinterSummary } from "@/lib/foomatic/types";
-import PrinterPageClient from "@/components/foomatic/PrinterPageClient";
+import PrinterPageClient from "@/components/PrinterPageClient";
 
 export const dynamicParams = false;
 
