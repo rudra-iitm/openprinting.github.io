@@ -1,7 +1,11 @@
 import Link from "next/link";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
 import { TableOfContents } from "@/components/table-of-contents";
-import { getGsocProject, getGsocProjectsByYear, getGsocYears } from "@/lib/gsoc";
+import {
+  getGsocProject,
+  getGsocProjectsByYear,
+  getGsocYears,
+} from "@/lib/gsoc";
 
 export async function generateStaticParams() {
   const years = await getGsocYears();
@@ -31,10 +35,15 @@ export default async function GsocProjectPage({
     <main className="min-h-screen bg-background px-6 pb-16 pt-24 text-foreground">
       <div className="mx-auto max-w-6xl">
         <header className="mb-8 border-b border-border pb-4">
-          <Link href={`/gsoc/${year}`} className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300">
+          <Link
+            href={`/gsoc/${year}`}
+            className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300"
+          >
             ← Back to GSoC {year}
           </Link>
-          <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{post.title}</h1>
+          <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">
+            {post.title}
+          </h1>
         </header>
 
         <div className="grid grid-cols-1 gap-8 lg:grid-cols-[minmax(0,1fr)_300px]">
@@ -67,7 +76,9 @@ export default async function GsocProjectPage({
               <TableOfContents content={post.content} />
 
               <div className="rounded-lg bg-muted p-4">
-                <h2 className="mb-3 text-lg font-semibold text-foreground">More in GSoC {year}</h2>
+                <h2 className="mb-3 text-lg font-semibold text-foreground">
+                  More in GSoC {year}
+                </h2>
                 <ul className="space-y-2">
                   {yearProjects.map((item) => {
                     const href = `/gsoc/${year}/${encodeURIComponent(item.slug)}`;

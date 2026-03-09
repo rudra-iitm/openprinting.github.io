@@ -1,5 +1,9 @@
 import Link from "next/link";
-import { getGsocProjectsByYear, getGsocYearOverview, getGsocYears } from "@/lib/gsoc";
+import {
+  getGsocProjectsByYear,
+  getGsocYearOverview,
+  getGsocYears,
+} from "@/lib/gsoc";
 import ReactMarkdown from "react-markdown";
 import remarkGfm from "remark-gfm";
 import rehypeRaw from "rehype-raw";
@@ -14,7 +18,8 @@ function escapeHtml(value: string): string {
 }
 
 function renderStudentsAsCards(markdown: string): string {
-  const sectionPattern = /(##\s+[^\n]*students[^\n]*\n)([\s\S]*?)(?=\n##\s+|$)/gi;
+  const sectionPattern =
+    /(##\s+[^\n]*students[^\n]*\n)([\s\S]*?)(?=\n##\s+|$)/gi;
 
   return markdown.replace(sectionPattern, (_match, heading, body) => {
     const entryPattern =
@@ -59,7 +64,11 @@ export async function generateStaticParams() {
   return years.map((year) => ({ year }));
 }
 
-export default async function GsocYearPage({ params }: { params: Promise<{ year: string }> }) {
+export default async function GsocYearPage({
+  params,
+}: {
+  params: Promise<{ year: string }>;
+}) {
   const { year } = await params;
   const projects = await getGsocProjectsByYear(year);
   const overview = await getGsocYearOverview(year);
@@ -70,15 +79,23 @@ export default async function GsocYearPage({ params }: { params: Promise<{ year:
     <main className="min-h-screen bg-background px-6 pb-16 pt-24 text-foreground">
       <div className="mx-auto max-w-5xl">
         <header className="mb-8 border-b border-border pb-4">
-          <Link href="/gsoc" className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300">
+          <Link
+            href="/gsoc"
+            className="text-sm text-blue-600 dark:text-blue-400 hover:text-blue-500 dark:hover:text-blue-300"
+          >
             ← Back to all years
           </Link>
-          <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">{yearTitle}</h1>
+          <h1 className="mt-3 text-3xl md:text-4xl font-bold tracking-tight">
+            {yearTitle}
+          </h1>
         </header>
 
         <section className="mb-10 rounded-xl border border-border bg-card p-5 md:p-6">
           <div className="prose dark:prose-invert max-w-none prose-headings:text-foreground prose-p:text-muted-foreground prose-a:text-blue-600 dark:prose-a:text-blue-400">
-            <ReactMarkdown remarkPlugins={[remarkGfm]} rehypePlugins={[rehypeRaw]}>
+            <ReactMarkdown
+              remarkPlugins={[remarkGfm]}
+              rehypePlugins={[rehypeRaw]}
+            >
               {yearContent}
             </ReactMarkdown>
           </div>
@@ -86,24 +103,32 @@ export default async function GsocYearPage({ params }: { params: Promise<{ year:
 
         <section>
           <div className="mb-5 flex items-end justify-between gap-3 border-b border-border pb-3">
-            <h2 className="text-2xl font-semibold tracking-tight">Project Ideas</h2>
-            <span className="text-sm text-muted-foreground">{projects.length} entries</span>
+            <h2 className="text-2xl font-semibold tracking-tight">
+              Project Ideas
+            </h2>
+            <span className="text-sm text-muted-foreground">
+              {projects.length} entries
+            </span>
           </div>
 
           <div className="space-y-4">
-          {projects.map((project) => (
-            <Link
-              key={project.slug}
-              href={`/gsoc/${year}/${encodeURIComponent(project.slug)}`}
-              className="block rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:border-border hover:shadow-md card-glow"
-            >
-              <h2 className="text-lg font-semibold text-foreground">{project.title}</h2>
-              <p className="mt-2 text-sm text-muted-foreground line-clamp-2">{project.excerpt}</p>
-            </Link>
-          ))}
+            {projects.map((project) => (
+              <Link
+                key={project.slug}
+                href={`/gsoc/${year}/${encodeURIComponent(project.slug)}`}
+                className="block rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:border-border hover:shadow-md card-glow"
+              >
+                <h2 className="text-lg font-semibold text-foreground">
+                  {project.title}
+                </h2>
+                <p className="mt-2 text-sm text-muted-foreground line-clamp-2">
+                  {project.excerpt}
+                </p>
+              </Link>
+            ))}
           </div>
         </section>
-        </div>
+      </div>
     </main>
   );
 }

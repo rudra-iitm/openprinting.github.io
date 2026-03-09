@@ -55,7 +55,9 @@ export function GsocRelatedPosts({
     <section className="mt-10 border-t border-border pt-6">
       <div className="flex flex-wrap items-end justify-between gap-4">
         <div>
-          <h2 className="text-xl font-semibold text-foreground">Related Posts</h2>
+          <h2 className="text-xl font-semibold text-foreground">
+            Related Posts
+          </h2>
           <p className="mt-1 text-xs text-muted-foreground">
             Showing posts for {selectedYear}
           </p>
