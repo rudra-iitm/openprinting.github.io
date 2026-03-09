@@ -49,9 +49,8 @@ export default function InfoSection() {
   ]
 
   return (
-    <section ref={ref} className="relative py-24 bg-background" id="about">
+    <section ref={ref} className="relative bg-background" id="about">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Section Header */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -73,7 +72,11 @@ export default function InfoSection() {
               transition={{ duration: 0.5, delay: item.delay }}
               className="group"
             >
-              <div className="h-full rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-border/80 hover:bg-accent/50 card-glow">
+              <Link
+                href={item.href}
+                prefetch={false}
+                className="block h-full rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-border/80 hover:bg-accent/50 card-glow"
+              >
                 <div className="mb-5 rounded-lg bg-muted border border-border flex items-center justify-center overflow-hidden p-4 h-40">
                   <Image
                     src={item.icon || `${basePath}/placeholder.svg`}
@@ -89,15 +92,11 @@ export default function InfoSection() {
                 <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                   {item.description}
                 </p>
-                <Link
-                  href={item.href}
-                  prefetch={false}
-                  className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-400 group-hover:text-blue-300 transition-colors duration-200"
-                >
+                <div className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-400 group-hover:text-blue-300 transition-colors duration-200">
                   Read More
                   <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
-                </Link>
-              </div>
+                </div>
+              </Link>
             </motion.div>
           ))}
 

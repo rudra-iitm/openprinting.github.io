@@ -9,7 +9,7 @@ const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.i
 
 export default function HeroSection() {
   return (
-    <section className="relative min-h-[60vh] flex flex-col items-center justify-center overflow-hidden">
+    <section className="relative min-h-[70vh] md:min-h-[60vh] flex flex-col items-center justify-center overflow-hidden">
       <div className="absolute inset-0 bg-black" />
       <div
         className="hero-banner-image"
