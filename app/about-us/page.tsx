@@ -10,6 +10,8 @@ const FILE_PATH = path.join(
   "about-us.md"
 )
 
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+
 export default async function AboutUsPage() {
   const raw = await fs.readFile(FILE_PATH, "utf8")
   const { data, content } = matter(raw)
@@ -22,7 +24,7 @@ export default async function AboutUsPage() {
       <div className="relative bg-zinc-900 text-white py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-right bg-no-repeat opacity-40"
-          style={{ backgroundImage: "url('/rotation_pantone.jpg')" }}
+          style={{ backgroundImage: `url(${basePath}/rotation_pantone.jpg)`}}
           aria-hidden
         />
         <div className="absolute inset-0 bg-zinc-900/90" aria-hidden />

@@ -5,26 +5,25 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, ChevronDown } from "lucide-react"
 
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+
 export default function HeroSection() {
   return (
     <section className="relative min-h-[65vh] flex flex-col items-center justify-center overflow-hidden">
-      {/* Background layers */}
       <div className="absolute inset-0 bg-black" />
       <div
         className="hero-banner-image"
         style={{
-          backgroundImage: `url(${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/rotation_pantone.jpg)`,
+          backgroundImage: `url(${basePath}/rotation_pantone.jpg)`,
         }}
       />
       <div className="hero-glow" />
       <div className="hero-glow-blue" />
       <div className="grid-pattern absolute inset-0" />
 
-      {/* Radial gradient spot */}
       <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-to-b from-blue-500/[0.07] via-transparent to-transparent rounded-full blur-3xl" />
 
       <div className="relative z-10 max-w-4xl mx-auto px-6 text-center">
-        {/* Badge */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -37,7 +36,6 @@ export default function HeroSection() {
           </span>
         </motion.div>
 
-        {/* Headline */}
         <motion.h1
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -48,7 +46,6 @@ export default function HeroSection() {
           <span className="text-gradient-blue">Printing</span>
         </motion.h1>
 
-        {/* Subtitle */}
         <motion.p
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -58,7 +55,6 @@ export default function HeroSection() {
           We make printing just work.
         </motion.p>
 
-        {/* CTA Buttons */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
@@ -86,7 +82,6 @@ export default function HeroSection() {
         </motion.div>
       </div>
 
-      {/* Scroll indicator */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
