@@ -192,3 +192,9 @@
 .prose a {
   word-break: break-all;
 }
+
+.prose iframe {
+  max-width: 100%;
+  aspect-ratio: 16 / 9;
+  height: auto;
+}
