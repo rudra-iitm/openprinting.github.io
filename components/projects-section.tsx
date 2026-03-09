@@ -88,7 +88,7 @@ export default function ProjectsSection() {
   ]
 
   return (
-    <section ref={ref} className="relative py-24 bg-black" id="projects">
+    <section ref={ref} className="relative py-24 bg-background" id="projects">
       <div className="max-w-6xl mx-auto px-6">
         {/* Find Your Printer */}
         <motion.div
@@ -98,7 +98,7 @@ export default function ProjectsSection() {
           className="mb-6"
         >
           <p className="text-sm font-medium text-blue-400 mb-3 tracking-wide uppercase">Find Your Printer</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
             Printer Compatibility
           </h2>
         </motion.div>
@@ -107,7 +107,7 @@ export default function ProjectsSection() {
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
           transition={{ duration: 0.6, delay: 0.1 }}
-          className="text-neutral-400 text-sm md:text-base max-w-2xl mb-12 leading-relaxed"
+          className="text-muted-foreground text-sm md:text-base max-w-2xl mb-12 leading-relaxed"
         >
           Most modern printers work using OpenPrinting software without additional drivers. We also host a compatibility database for legacy printers supported by free software drivers.
         </motion.p>
@@ -124,9 +124,9 @@ export default function ProjectsSection() {
               <Link
                 href={software.href}
                 prefetch={false}
-                className="block h-full rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] card-glow"
+                className="block h-full rounded-xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-border/80 hover:bg-accent/50 card-glow"
               >
-                <div className="p-4 bg-white/[0.03] border-b border-white/[0.04] flex items-center justify-center">
+                <div className="p-4 bg-muted border-b border-border flex items-center justify-center">
                   <Image
                     src={software.image || `${basePath}/placeholder.svg`}
                     alt={software.title}
@@ -136,10 +136,10 @@ export default function ProjectsSection() {
                   />
                 </div>
                 <div className="p-6">
-                  <h3 className="text-base font-semibold text-white mb-2 tracking-tight">
+                  <h3 className="text-base font-semibold text-foreground mb-2 tracking-tight">
                     {software.title}
                   </h3>
-                  <p className="text-sm text-neutral-400 leading-relaxed mb-4">
+                  <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                     {software.description}
                   </p>
                   <span className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-400 group-hover:text-blue-300 transition-colors duration-200">
@@ -162,10 +162,10 @@ export default function ProjectsSection() {
           className="mb-12"
         >
           <p className="text-sm font-medium text-blue-400 mb-3 tracking-wide uppercase">Community</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
             Collaborations & Programs
           </h2>
-          <p className="text-neutral-400 text-sm md:text-base max-w-2xl mt-4 leading-relaxed">
+          <p className="text-muted-foreground text-sm md:text-base max-w-2xl mt-4 leading-relaxed">
             OpenPrinting collaborates with standards groups and participates in coding and documentation programs.
           </p>
         </motion.div>
@@ -184,9 +184,9 @@ export default function ProjectsSection() {
                   href={project.href}
                   target="_blank"
                   rel="noopener noreferrer"
-                  className="block h-full rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] card-glow"
+                  className="block h-full rounded-xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-border/80 hover:bg-accent/50 card-glow"
                 >
-                  <div className="p-4 bg-white/[0.03] border-b border-white/[0.04] flex items-center justify-center">
+                  <div className="p-4 bg-muted border-b border-border flex items-center justify-center">
                     <Image
                       src={project.image || `${basePath}/placeholder.svg`}
                       alt={project.title}
@@ -196,10 +196,10 @@ export default function ProjectsSection() {
                     />
                   </div>
                   <div className="p-6">
-                    <h3 className="text-base font-semibold text-white mb-2 tracking-tight">
+                    <h3 className="text-base font-semibold text-foreground mb-2 tracking-tight">
                       {project.title}
                     </h3>
-                    <p className="text-sm text-neutral-400 leading-relaxed mb-4">
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
                       {project.description}
                     </p>
                     <span className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-400 group-hover:text-blue-300 transition-colors duration-200">
@@ -212,29 +212,29 @@ export default function ProjectsSection() {
                 <Link
                   href={project.href}
                   prefetch={false}
-                  className="block h-full rounded-xl border border-white/[0.06] bg-white/[0.02] overflow-hidden transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] card-glow"
+                  className="block h-full rounded-xl border border-border bg-card overflow-hidden transition-all duration-300 hover:border-border/80 hover:bg-accent/50 card-glow"
                 >
-                <div className="p-4 bg-white/[0.03] border-b border-white/[0.04] flex items-center justify-center">
-                  <Image
-                    src={project.image || `${basePath}/placeholder.svg`}
-                    alt={project.title}
-                    width={200}
-                    height={120}
-                    className="h-24 w-auto object-contain"
-                  />
-                </div>
-                <div className="p-6">
-                  <h3 className="text-base font-semibold text-white mb-2 tracking-tight">
-                    {project.title}
-                  </h3>
-                  <p className="text-sm text-neutral-400 leading-relaxed mb-4">
-                    {project.description}
-                  </p>
-                  <span className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-400 group-hover:text-blue-300 transition-colors duration-200">
-                    Read More
-                    <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
-                  </span>
-                </div>
+                  <div className="p-4 bg-muted border-b border-border flex items-center justify-center">
+                    <Image
+                      src={project.image || `${basePath}/placeholder.svg`}
+                      alt={project.title}
+                      width={200}
+                      height={120}
+                      className="h-24 w-auto object-contain"
+                    />
+                  </div>
+                  <div className="p-6">
+                    <h3 className="text-base font-semibold text-foreground mb-2 tracking-tight">
+                      {project.title}
+                    </h3>
+                    <p className="text-sm text-muted-foreground leading-relaxed mb-4">
+                      {project.description}
+                    </p>
+                    <span className="inline-flex items-center gap-1.5 text-sm font-medium text-blue-400 group-hover:text-blue-300 transition-colors duration-200">
+                      Read More
+                      <ArrowRight className="w-3.5 h-3.5 transition-transform duration-200 group-hover:translate-x-0.5" />
+                    </span>
+                  </div>
                 </Link>
               )}
             </motion.div>

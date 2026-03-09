@@ -28,7 +28,7 @@ export default function NewsSection({ posts }: { posts: NewsPost[] }) {
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
   return (
-    <section ref={ref} className="relative py-24 bg-black" id="news">
+    <section ref={ref} className="relative py-24 bg-background" id="news">
       <div className="hero-glow-blue opacity-30" />
       <div className="max-w-6xl mx-auto px-6 relative z-10">
         <motion.div
@@ -38,7 +38,7 @@ export default function NewsSection({ posts }: { posts: NewsPost[] }) {
           className="mb-16"
         >
           <p className="text-sm font-medium text-blue-400 mb-3 tracking-wide uppercase">What&apos;s New</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
             Latest News
           </h2>
         </motion.div>
@@ -54,13 +54,13 @@ export default function NewsSection({ posts }: { posts: NewsPost[] }) {
               <Link
                 href={item.slug}
                 prefetch={false}
-                className="group block h-full rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] card-glow"
+                className="group block h-full rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-border/80 hover:bg-accent/50 card-glow"
               >
-                <h3 className="text-base font-semibold text-white mb-3 leading-snug group-hover:text-blue-400 transition-colors duration-200 line-clamp-2">
+                <h3 className="text-base font-semibold text-foreground mb-3 leading-snug group-hover:text-blue-400 transition-colors duration-200 line-clamp-2">
                   {item.title}
                 </h3>
 
-                <div className="flex items-center gap-4 text-xs text-neutral-500 mb-4">
+                <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
                   <span className="flex items-center gap-1.5">
                     <User className="w-3 h-3" />
                     {item.author}
@@ -71,7 +71,7 @@ export default function NewsSection({ posts }: { posts: NewsPost[] }) {
                   </span>
                 </div>
 
-                <p className="text-sm text-neutral-400 leading-relaxed line-clamp-3">
+                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
                   {item.excerpt}
                 </p>
 

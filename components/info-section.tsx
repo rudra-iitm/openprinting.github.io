@@ -49,7 +49,7 @@ export default function InfoSection() {
   ]
 
   return (
-    <section ref={ref} className="relative py-24 bg-black" id="about">
+    <section ref={ref} className="relative py-24 bg-background" id="about">
       <div className="max-w-6xl mx-auto px-6">
         {/* Section Header */}
         <motion.div
@@ -59,7 +59,7 @@ export default function InfoSection() {
           className="mb-16"
         >
           <p className="text-sm font-medium text-blue-400 mb-3 tracking-wide uppercase">Who We Are</p>
-          <h2 className="text-3xl md:text-4xl font-bold text-white tracking-tight">
+          <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
             About OpenPrinting
           </h2>
         </motion.div>
@@ -73,8 +73,8 @@ export default function InfoSection() {
               transition={{ duration: 0.5, delay: item.delay }}
               className="group"
             >
-              <div className="h-full rounded-xl border border-white/[0.06] bg-white/[0.02] p-6 transition-all duration-300 hover:border-white/[0.12] hover:bg-white/[0.04] card-glow">
-                <div className="mb-5 rounded-lg bg-white/[0.04] border border-white/[0.06] flex items-center justify-center overflow-hidden p-4 h-40">
+              <div className="h-full rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-border/80 hover:bg-accent/50 card-glow">
+                <div className="mb-5 rounded-lg bg-muted border border-border flex items-center justify-center overflow-hidden p-4 h-40">
                   <Image
                     src={item.icon || `${basePath}/placeholder.svg`}
                     alt={item.title}
@@ -83,10 +83,10 @@ export default function InfoSection() {
                     className="object-contain max-h-full"
                   />
                 </div>
-                <h3 className="text-lg font-semibold text-white mb-2 tracking-tight">
+                <h3 className="text-lg font-semibold text-foreground mb-2 tracking-tight">
                   {item.title}
                 </h3>
-                <p className="text-sm text-neutral-400 leading-relaxed mb-5">
+                <p className="text-sm text-muted-foreground leading-relaxed mb-5">
                   {item.description}
                 </p>
                 <Link
