@@ -18,6 +18,8 @@ const FILE_PATH = path.join(
   "downloads.md"
 )
 
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+
 export default async function DownloadsPage() {
   const raw = await fs.readFile(FILE_PATH, "utf8")
   const { data } = matter(raw)
@@ -41,7 +43,7 @@ export default async function DownloadsPage() {
             <div key={idx}>
               <div className="bg-muted rounded-xl w-full h-[260px] flex items-center justify-center mb-6">
                 <Image
-                  src={`${process.env.NEXT_PUBLIC_BASE_PATH ?? ""}/${item.image_path}`}
+                  src={`${basePath}/${item.image_path}`}
                   alt={item.alt}
                   width={250}
                   height={250}
