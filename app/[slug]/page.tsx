@@ -4,7 +4,7 @@ import matter from "gray-matter";
 import { redirect, notFound } from "next/navigation";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
 import { TableOfContents } from "@/components/table-of-contents";
-import DisqusComments from "@/components/disqus-comment";
+import GiscusComments from "@/components/giscus-comment";
 import AuthorCard from "@/components/AuthorCard";
 
 const POSTS_DIR = path.join(process.cwd(), "contents", "post");
@@ -170,7 +170,7 @@ export default async function PostPage({
                             </div>
 
                             <div className="mt-12">
-                                <DisqusComments post={{ id: slug, title }} />
+                                <GiscusComments />
                             </div>
                         </div>
                     </section>
