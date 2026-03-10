@@ -1,37 +1,14 @@
 "use client"
 
 import { useState, useEffect, useMemo } from "react"
-import { Search, ChevronLeft, ChevronRight } from "lucide-react"
+import { Search, ChevronLeft, ChevronRight, Check, X } from "lucide-react"
 
 const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : ""
 
 interface PrinterEntry {
-  id: string
-  manufacturer: string
   model: string
-  type: string
-  functionality: string
-  driverCount: number
-}
-
-const FUNCTIONALITY_LABELS: Record<string, string> = {
-  A: "Works Perfectly",
-  B: "Works Mostly",
-  C: "Works Somewhat",
-  D: "Unknown",
-  E: "Paper Feed Issues",
-  F: "Broken",
-  G: "No Longer Supported",
-}
-
-const FUNCTIONALITY_COLORS: Record<string, string> = {
-  A: "text-green-600 dark:text-green-400",
-  B: "text-blue-600 dark:text-blue-400",
-  C: "text-yellow-600 dark:text-yellow-400",
-  D: "text-muted-foreground",
-  E: "text-orange-600 dark:text-orange-400",
-  F: "text-red-600 dark:text-red-400",
-  G: "text-muted-foreground",
+  airprt: string
+  ippeve: string
 }
 
 const PAGE_SIZE = 25
@@ -43,10 +20,11 @@ export default function PrintersPage() {
   const [page, setPage] = useState(1)
 
   useEffect(() => {
-    fetch(`${basePath}/foomatic-db/printersMap.json`)
+    fetch(`${basePath}/assets/json/driverless.json`)
       .then((r) => r.json())
-      .then((data) => {
-        setPrinters(data.printers)
+      .then((data: PrinterEntry[]) => {
+        // First entry is a dummy placeholder, skip it
+        setPrinters(data.filter((p) => p.model !== "_dummy_"))
         setLoading(false)
       })
       .catch(() => setLoading(false))
@@ -55,11 +33,7 @@ export default function PrintersPage() {
   const filtered = useMemo(() => {
     if (!query.trim()) return printers
     const q = query.toLowerCase()
-    return printers.filter(
-      (p) =>
-        p.manufacturer.toLowerCase().includes(q) ||
-        p.model.toLowerCase().includes(q)
-    )
+    return printers.filter((p) => p.model.toLowerCase().includes(q))
   }, [printers, query])
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE))
@@ -94,15 +68,35 @@ export default function PrintersPage() {
         />
         <div className="absolute inset-0 bg-zinc-900/90" aria-hidden />
         <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-          <h1 className="text-4xl md:text-5xl font-bold mb-4">Printer Database</h1>
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">Find a Driverless Printer</h1>
           <p className="text-xl text-white/80">
-            Search the Foomatic printer database — {printers.length.toLocaleString()} printers indexed.
+            Browse printers that work out of the box with AirPrint™ and IPP Everywhere™.
           </p>
         </div>
       </div>
 
       <main className="min-h-screen bg-background text-foreground pt-10 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <p className="text-muted-foreground mb-8 max-w-3xl">
+            This page shows printers that will work without any additional software because they
+            support the{" "}
+            <a href="https://support.apple.com/en-us/HT201311" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              AirPrint™
+            </a>{" "}
+            and/or{" "}
+            <a href="https://www.pwg.org/ipp/everywhere.html" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              IPP Everywhere™
+            </a>{" "}
+            standards for driverless printing. These printers also often support{" "}
+            <a href="https://mopria.org/certified-products" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              Mopria®
+            </a>{" "}
+            as used on Android OS and Microsoft Windows®, and{" "}
+            <a href="https://www.wi-fi.org/" target="_blank" rel="noopener noreferrer" className="text-primary hover:underline">
+              Wi-Fi Direct Print Services
+            </a>{" "}
+            for printing directly via Wi-Fi.
+          </p>
 
           {/* Search row */}
           <div className="flex items-center gap-3 mb-6 max-w-xl">
@@ -112,7 +106,7 @@ export default function PrintersPage() {
                 type="search"
                 value={query}
                 onChange={handleSearch}
-                placeholder="Search by manufacturer or model…"
+                placeholder="Search by model name…"
                 className="w-full pl-9 pr-4 py-2 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
               />
             </div>
@@ -126,47 +120,38 @@ export default function PrintersPage() {
             <table className="w-full text-sm">
               <thead className="bg-muted/60 text-left">
                 <tr>
-                  <th className="px-4 py-3 font-medium text-muted-foreground">Manufacturer</th>
                   <th className="px-4 py-3 font-medium text-muted-foreground">Model</th>
-                  <th className="px-4 py-3 font-medium text-muted-foreground">Type</th>
-                  <th className="px-4 py-3 font-medium text-muted-foreground">Functionality</th>
-                  <th className="px-4 py-3 font-medium text-muted-foreground text-right">Drivers</th>
+                  <th className="px-4 py-3 font-medium text-muted-foreground text-center">AirPrint</th>
+                  <th className="px-4 py-3 font-medium text-muted-foreground text-center">IPP Everywhere</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
                 {loading ? (
                   <tr>
-                    <td colSpan={5} className="px-4 py-10 text-center text-muted-foreground">
-                      Loading printer database…
+                    <td colSpan={3} className="px-4 py-10 text-center text-muted-foreground">
+                      Loading printer list…
                     </td>
                   </tr>
                 ) : pageItems.length === 0 ? (
                   <tr>
-                    <td colSpan={5} className="px-4 py-10 text-center text-muted-foreground">
+                    <td colSpan={3} className="px-4 py-10 text-center text-muted-foreground">
                       No printers found matching &ldquo;{query}&rdquo;.
                     </td>
                   </tr>
                 ) : (
-                  pageItems.map((printer) => (
-                    <tr key={printer.id} className="hover:bg-muted/40 transition-colors">
-                      <td className="px-4 py-3 font-medium">{printer.manufacturer}</td>
-                      <td className="px-4 py-3">
-                        <a
-                          href={`https://openprinting.org/printer/${printer.id}`}
-                          target="_blank"
-                          rel="noopener noreferrer"
-                          className="text-primary hover:underline"
-                        >
-                          {printer.model}
-                        </a>
+                  pageItems.map((printer, i) => (
+                    <tr key={i} className="hover:bg-muted/40 transition-colors">
+                      <td className="px-4 py-3">{printer.model}</td>
+                      <td className="px-4 py-3 text-center">
+                        {printer.airprt === "1"
+                          ? <Check className="w-4 h-4 text-green-600 dark:text-green-400 mx-auto" />
+                          : <X className="w-4 h-4 text-muted-foreground mx-auto" />}
                       </td>
-                      <td className="px-4 py-3 capitalize text-muted-foreground">{printer.type}</td>
-                      <td className="px-4 py-3">
-                        <span className={FUNCTIONALITY_COLORS[printer.functionality] ?? "text-muted-foreground"}>
-                          {printer.functionality} — {FUNCTIONALITY_LABELS[printer.functionality] ?? "Unknown"}
-                        </span>
+                      <td className="px-4 py-3 text-center">
+                        {printer.ippeve === "1"
+                          ? <Check className="w-4 h-4 text-green-600 dark:text-green-400 mx-auto" />
+                          : <X className="w-4 h-4 text-muted-foreground mx-auto" />}
                       </td>
-                      <td className="px-4 py-3 text-right text-muted-foreground">{printer.driverCount}</td>
                     </tr>
                   ))
                 )}
