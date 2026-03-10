@@ -7,7 +7,6 @@ excerpt: >-
   interface, CUPS in Docker, PPD-independent libcupsfilters 2.x, IPP-over-USB,
   HPLIP 3.22.4
 date: '2022-05-10'
-tags: [gsoc]
 ---
 ## OpenPrinting Summit/PWG Meeting
 On May 17-19 we will have our annual meeting together with the [PWG](https://www.pwg.org/) (Printer Working Group) again, the [OpenPrinting Summit/PWG Meeting](https://www.pwg.org/chair/meeting-info/may-2022-virtual.html).

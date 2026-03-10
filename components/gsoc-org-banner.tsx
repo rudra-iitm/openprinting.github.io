@@ -4,7 +4,7 @@ import { motion } from "framer-motion";
 import Link from "next/link";
 import { Mail, Github, MessageCircle, ExternalLink } from "lucide-react";
 
-export function GsocOrgBanner({ year }: { year: string }) {
+export function GsocOrgBanner() {
   return (
     <motion.section
       initial={{ opacity: 0, y: 20 }}
@@ -30,13 +30,13 @@ export function GsocOrgBanner({ year }: { year: string }) {
 
         <div className="flex flex-wrap gap-2 md:flex-col md:items-end shrink-0">
           <Link
-            href={`https://wiki.linuxfoundation.org/gsoc/google-summer-code-${year}`}
+            href="https://wiki.linuxfoundation.org/gsoc/"
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-3 py-1.5 text-xs text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
           >
             <ExternalLink className="w-3 h-3" />
-            LF GSoC {year} Wiki
+            LF GSoC Wiki
           </Link>
           <Link
             href="https://github.com/OpenPrinting"

@@ -7,7 +7,6 @@ excerpt: >-
   2020 and OpenPrinting as one of its sub-organizations will offer a wide
   variety of student projects again
 date: '2020-02-20'
-tags: [gsoc]
 ---
 The Linux Foundation got accepted as a mentoring organization for the GSoC 2020 and OpenPrinting as one of its sub-organizations will offer a wide variety of student projects again.
 

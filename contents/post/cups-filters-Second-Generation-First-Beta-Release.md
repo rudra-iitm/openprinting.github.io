@@ -6,7 +6,6 @@ excerpt: >-
   cups-filters is now split into 5 sub-repositories and we have released the
   first beta of the 2.x series
 date: '2022-11-18'
-tags: [gsoc]
 ---
 We now finally completed the first beta of the second generation of cups-filters!
 

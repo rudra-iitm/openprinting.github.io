@@ -158,7 +158,7 @@
   -webkit-text-fill-color: transparent;
 }
 
-.text-gradient.blk {
+.text-gradient-foreground {
   background: linear-gradient(
     to bottom right,
     hsl(var(--foreground)) 30%,

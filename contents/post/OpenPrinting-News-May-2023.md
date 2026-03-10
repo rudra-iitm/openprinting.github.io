@@ -9,7 +9,6 @@ excerpt: >-
   Ubuntu Summit 2023 in Riga, GSoC 2023, CUPS 3.x only end-2024, Print GUI
   testing, CPDB in print dialogs, security bugs
 date: '2023-05-24'
-tags: [gsoc]
 ---
 **Update: [Michael Sweet wins Google Open Source Peer Bonus for his CUPS project](/OpenPrinting-News-Flash-Michael-Sweet-is-Google-Open-Source-Peer-Bonus-winner-for-CUPS/)! Congratulations to him!!**
 

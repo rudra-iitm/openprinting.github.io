@@ -8,7 +8,6 @@ excerpt: >-
   Application, Avahi local service support continued, OpenPrinting web site
   switched over to the new design, cups-filters 1.25.7
 date: '2019-10-08'
-tags: [gsoc]
 ---
 
 ## Linux Plumber's Conference 2019

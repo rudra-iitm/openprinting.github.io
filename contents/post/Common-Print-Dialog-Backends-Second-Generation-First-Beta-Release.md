@@ -6,7 +6,6 @@ excerpt: >-
   The CPDB got vastly enhanced in the course of their integration in the GTK and
   Qt print dialogs, leading to the 2.x series
 date: '2022-12-13'
-tags: [gsoc]
 ---
 We are now releasing the first beta of the second generation of the Common Print Dialog Backends (CPDB).
 

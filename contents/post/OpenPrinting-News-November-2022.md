@@ -9,7 +9,6 @@ excerpt: >-
   announced, GSoC 2022 results, cups-filters 2nd gen. 1st beta release, Qt print
   dialog, CUPS, PAPPL
 date: '2022-11-20'
-tags: [gsoc]
 ---
 You all probably know that OpenPrinting is all about reproducing graphical content from a computer on paper or similar flat surfaces. The hardware to do this contains more or less sophisticated mechanics to precisely position pixels on the surface of the output media. And this hardware is usually only affordable because it is produced in an industrial mass-production process and because its ink or toner refills are expensive ...
 

@@ -4,7 +4,6 @@ import { extractPosts } from "./extract-posts";
 import { extractContent, type RawStaticContent } from "./extract-content";
 import { normalizeMarkdown } from "./normalize-markdown";
 import { type SearchDocument, type StaticSearchIndex } from "@/lib/search/types";
-import { parseTagsFromUnknown, uniqueTags } from "@/lib/tags";
 
 const OUTPUT_DIR = path.join(process.cwd(), "public", "search");
 const OUTPUT_FILE = path.join(OUTPUT_DIR, "static-index.json");
@@ -24,7 +23,6 @@ async function buildIndex() {
       safeString(post.frontmatter.title) || "Untitled Article";
 
     const excerpt = safeString(post.frontmatter.excerpt);
-    const frontmatterTags = parseTagsFromUnknown(post.frontmatter.tags);
 
     const { headings, text, snippet } = normalizeMarkdown(post.content);
 
@@ -37,7 +35,7 @@ async function buildIndex() {
       url: `/${post.slug}`,
 
       headings,
-      tags: uniqueTags(frontmatterTags),
+      tags: [],
 
       snippet: excerpt || snippet,
       content: text,

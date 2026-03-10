@@ -9,7 +9,6 @@ excerpt: >-
   Flatpaking daemons, GUADEC 2024, Opportunity Open Source in IIT Kanpur, UbuCon
   Asia 2024, GSoC 2024, Pull Requests
 date: '2024-08-03'
-tags: [gsoc]
 ---
 This month I will start with a very important warning:
 

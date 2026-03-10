@@ -9,7 +9,6 @@ excerpt: >-
   Ubuntu Summit 2024, 4 times in Podcast Ubuntu Portugal, GSoC 2024 completed,
   new releases
 date: '2024-11-25'
-tags: [gsoc]
 ---
 **This month we have the 5th anniversary of the OpenPrinting News!**
 

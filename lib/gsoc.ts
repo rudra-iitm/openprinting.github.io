@@ -2,7 +2,6 @@ import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
 import type { StaticSearchIndex } from "@/lib/search/types";
-import { extractHashtags, parseTagsFromUnknown, uniqueTags } from "@/lib/tags";
 
 const GSOC_DIR = path.join(process.cwd(), "contents", "gsoc");
 const SEARCH_INDEX_FILE = path.join(
@@ -22,7 +21,6 @@ export interface GsocProjectSummary {
   slug: string;
   title: string;
   excerpt: string;
-  tags: string[];
 }
 
 export interface GsocProject extends GsocProjectSummary {
@@ -39,11 +37,6 @@ export interface GsocRelatedPost {
   title: string;
   url: string;
   snippet: string;
-  tags: string[];
-}
-
-function isYearDirectory(name: string) {
-  return /^\d{4}$/.test(name);
 }
 
 function normalizeText(value: string): string {
@@ -65,8 +58,6 @@ function isHtmlFragmentLine(value: string): boolean {
   const line = value.trim();
   if (!line) return false;
 
-  // Legacy migrated GSoC files may contain raw HTML/comment fragments like
-  // "<p", "<div>", "<!-- ... -->", or closing tags as standalone lines.
   return (
     line.startsWith("<") ||
     line.endsWith(">") ||
@@ -114,115 +105,37 @@ function getTitle(frontmatter: Record<string, unknown>, slug: string): string {
   return readable.length > 0 ? readable : slug;
 }
 
-function getGsocProjectTags(
-  frontmatter: Record<string, unknown>,
-  content: string,
-  title: string,
-  year: string,
-): string[] {
-  const frontmatterTags = parseTagsFromUnknown(frontmatter.tags);
-  const inferred: string[] = ["gsoc", year, `gsoc-${year}`];
-  const normalizedContent = content.toLowerCase();
-  const normalizedTitle = title.toLowerCase();
 
-  if (
-    normalizedContent.includes("ai/ml-related project") ||
-    normalizedContent.includes("ai- and security-related project") ||
-    normalizedContent.includes("security- and ai-related project")
-  ) {
-    inferred.push("ai-ml");
-  }
 
-  if (
-    normalizedContent.includes("security-related project") ||
-    normalizedContent.includes("ai- and security-related project") ||
-    normalizedContent.includes("security- and ai-related project")
-  ) {
-    inferred.push("security");
-  }
-
-  if (normalizedTitle.includes("fuzz")) inferred.push("fuzzing");
-  if (normalizedTitle.includes("print")) inferred.push("printing");
-  if (normalizedTitle.includes("scan")) inferred.push("scanning");
-  if (normalizedTitle.includes("cups")) inferred.push("cups");
-  if (normalizedTitle.includes("cpdb")) inferred.push("cpdb");
-  if (normalizedTitle.includes("pdf")) inferred.push("pdf");
-  if (normalizedTitle.includes("desktop")) inferred.push("desktop");
-  if (normalizedTitle.includes("zephyr")) inferred.push("zephyr");
-
-  return uniqueTags([...frontmatterTags, ...inferred, ...extractHashtags(content)]);
-}
-
-function getGsocRelatedPostTags(
-  indexTags: string[],
-  title: string,
-  snippet: string,
-  content: string,
-  year: string,
-): string[] {
-  return uniqueTags([
-    ...indexTags,
-    "gsoc",
-    year,
-    `gsoc-${year}`,
-    ...extractHashtags(`${title}\n${snippet}\n${content}`),
-  ]);
-}
-
+/**
+ * Derive available GSoC years from gsocXXXX.md overview files.
+ */
 export async function getGsocYears(): Promise<string[]> {
-  const entries = await fs.readdir(GSOC_DIR, { withFileTypes: true });
+  const entries = await fs.readdir(GSOC_DIR);
 
   return entries
-    .filter((entry) => entry.isDirectory() && isYearDirectory(entry.name))
-    .map((entry) => entry.name)
+    .filter((name) => /^gsoc\d{4}\.md$/.test(name))
+    .map((name) => name.replace(/^gsoc/, "").replace(/\.md$/, ""))
     .sort((a, b) => Number(b) - Number(a));
 }
 
 export async function getGsocYearSummaries(): Promise<GsocYearSummary[]> {
   const years = await getGsocYears();
+  const { getContributorsByYear } = await import("@/data/gsoc-contributors");
 
   const summaries = await Promise.all(
     years.map(async (year) => {
-      const yearDir = path.join(GSOC_DIR, year);
-      const files = await fs.readdir(yearDir);
-      const projectCount = files.filter((file) => file.endsWith(".md")).length;
-
-      return { year, projectCount };
+      const contributors = getContributorsByYear(Number(year));
+      if (contributors.length > 0) {
+        return { year, projectCount: contributors.length };
+      }
+      // Year not yet completed — count project idea md files instead
+      const projects = await getGsocProjectsByYear(year);
+      return { year, projectCount: projects.length };
     }),
   );
 
   return summaries;
-}
-
-export async function getGsocProjectsByYear(year: string): Promise<GsocProjectSummary[]> {
-  const yearDir = path.join(GSOC_DIR, year);
-  const files = await fs.readdir(yearDir);
-
-  const projects = await Promise.all(
-    files
-      .filter((file) => file.endsWith(".md"))
-      .map(async (fileName) => {
-        const slug = fileName.replace(/\.md$/, "");
-        const filePath = path.join(yearDir, fileName);
-        const raw = await fs.readFile(filePath, "utf8");
-        const { data, content } = matter(raw);
-
-        return {
-          year,
-          slug,
-          title: getTitle(data as Record<string, unknown>, slug),
-          excerpt: getExcerpt(content, getTitle(data as Record<string, unknown>, slug)),
-          tags: getGsocProjectTags(
-            data as Record<string, unknown>,
-            content,
-            getTitle(data as Record<string, unknown>, slug),
-            year,
-          ),
-        };
-      }),
-  );
-
-  return projects.sort((a, b) => a.slug.localeCompare(b.slug, undefined, { numeric: true }));
 }
 
 export async function getGsocYearOverview(year: string): Promise<GsocYearOverview> {
@@ -246,6 +159,37 @@ export async function getGsocYearOverview(year: string): Promise<GsocYearOvervie
   }
 }
 
+export async function getGsocProjectsByYear(year: string): Promise<GsocProjectSummary[]> {
+  const yearDir = path.join(GSOC_DIR, year);
+
+  let files: string[];
+  try {
+    files = await fs.readdir(yearDir);
+  } catch {
+    return [];
+  }
+
+  const projects = await Promise.all(
+    files
+      .filter((file) => file.endsWith(".md"))
+      .map(async (fileName) => {
+        const slug = fileName.replace(/\.md$/, "");
+        const filePath = path.join(yearDir, fileName);
+        const raw = await fs.readFile(filePath, "utf8");
+        const { data, content } = matter(raw);
+
+        return {
+          year,
+          slug,
+          title: getTitle(data as Record<string, unknown>, slug),
+          excerpt: getExcerpt(content, getTitle(data as Record<string, unknown>, slug)),
+        };
+      }),
+  );
+
+  return projects.sort((a, b) => a.slug.localeCompare(b.slug, undefined, { numeric: true }));
+}
+
 export async function getGsocProject(year: string, slug: string): Promise<GsocProject> {
   const filePath = path.join(GSOC_DIR, year, `${slug}.md`);
   const raw = await fs.readFile(filePath, "utf8");
@@ -257,12 +201,6 @@ export async function getGsocProject(year: string, slug: string): Promise<GsocPr
     title: getTitle(data as Record<string, unknown>, slug),
     excerpt: getExcerpt(content, getTitle(data as Record<string, unknown>, slug)),
     content,
-    tags: getGsocProjectTags(
-      data as Record<string, unknown>,
-      content,
-      getTitle(data as Record<string, unknown>, slug),
-      year,
-    ),
   };
 }
 
@@ -303,13 +241,6 @@ export async function getGsocPostsByYear(): Promise<Record<string, GsocRelatedPo
       title: document.title.trim(),
       url: document.url.trim(),
       snippet: document.snippet.trim(),
-      tags: getGsocRelatedPostTags(
-        document.tags ?? [],
-        document.title,
-        document.snippet,
-        document.content,
-        year,
-      ),
     });
   }
 

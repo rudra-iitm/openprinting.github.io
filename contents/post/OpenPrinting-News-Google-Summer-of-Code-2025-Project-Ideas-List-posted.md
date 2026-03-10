@@ -8,7 +8,6 @@ excerpt: >-
   15 amazing project ideas - Desktop, KDE, GNOME, Security, OSS-Fuzz, image
   content recognition ...
 date: '2025-01-26'
-tags: [gsoc]
 ---
 At OpenPrinting we are full steam in the preparations for the Google Summer of Code 2025! Everybody in our team was looking for what we will do next and what can make up an exciting GSoC project ...
 

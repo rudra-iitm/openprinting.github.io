@@ -6,7 +6,6 @@ excerpt: >-
   GSoC final results, Linux Plumbers recording, GSoD, LFMP, CUPS temporary fork,
   cups-filters 1.x fork
 date: '2020-09-11'
-tags: [gsoc]
 ---
 ## OpenPrinting Microconference on Linux Plumbers Conference 2020
 

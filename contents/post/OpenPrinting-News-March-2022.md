@@ -7,7 +7,6 @@ excerpt: >-
   applications ready, Snap vs. Flatpak for printing, approaching cups-filters
   2.x, Ghostscript and driverless IPP
 date: '2022-03-18'
-tags: [gsoc]
 ---
 ## Google Summer of Code 2022
 

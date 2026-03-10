@@ -6,7 +6,6 @@ excerpt: >-
   Coverity scans and appropriate fixes, QPDF 11+ compatibility, cupstestppd
   successor, lots of bug fixes
 date: '2023-02-23'
-tags: [gsoc]
 ---
 Continuing the packaging for Debian, Ubuntu, and Red Hat distributions more bugs got found and fixed.
 

@@ -6,7 +6,6 @@ excerpt: >-
   GSoC mid-term, PostScript Printer Application, Retro-fitting CUPS printer
   drivers, CUPS, cups-filters
 date: '2021-07-16'
-tags: [gsoc]
 ---
 ## Google Summer of Code 2021
 The mid-term evaluations are done now and all our 5 students have passed. Thanks a lot to them for the great work they did during the first half of the coding period.

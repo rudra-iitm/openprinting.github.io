@@ -7,7 +7,6 @@ excerpt: >-
   for cups-browsed and the "driverless" utility, OpenPrinting meeting in Mandi,
   India, GSoC 2020 org application period announced.
 date: '2019-12-13'
-tags: [gsoc]
 ---
 ## OpenPrinting Mini Summit at IIT Mandi, India
 On November 9 we had a meeting in India presenting the work of OpenPrinting at one of the universities where our Google Summer of Code students came from.

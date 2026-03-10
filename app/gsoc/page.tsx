@@ -2,6 +2,7 @@ import Link from "next/link";
 import { getGsocYearSummaries } from "@/lib/gsoc";
 import { getContributorsByYear } from "@/data/gsoc-contributors";
 import { ArrowRight, Users, FolderOpen } from "lucide-react";
+import { GsocOrgBanner } from "@/components/gsoc-org-banner";
 
 export default async function GsocIndexPage() {
   const years = await getGsocYearSummaries();
@@ -17,7 +18,7 @@ export default async function GsocIndexPage() {
             Open Source Contributions
           </p>
           <h1 className="text-4xl md:text-5xl lg:text-6xl font-bold tracking-tight leading-[1.1]">
-            <span className="text-gradient blk">Google Summer</span>{" "}
+            <span className="text-gradient-foreground">Google Summer</span>{" "}
             <span className="text-gradient-blue">of Code</span>
           </h1>
           <p className="mt-4 text-base md:text-lg text-muted-foreground max-w-2xl leading-relaxed">
@@ -25,6 +26,15 @@ export default async function GsocIndexPage() {
             mentoring contributors on printing infrastructure, desktop
             integration, and open-source development.
           </p>
+        </div>
+      </section>
+
+      <div className="section-divider mx-auto max-w-6xl" />
+
+      {/* Org info banner */}
+      <section className="py-10">
+        <div className="max-w-6xl mx-auto px-6">
+          <GsocOrgBanner />
         </div>
       </section>
 

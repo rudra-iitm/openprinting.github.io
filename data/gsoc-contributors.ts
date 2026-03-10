@@ -27,6 +27,8 @@ export interface GsocContributor {
     desiredKnowledge: string[];
     /** Code license from the project idea md */
     codeLicense: string;
+    /** Optional avatar image path (relative to /public) */
+    image?: string;
 }
 
 export interface GsocYearContributors {
@@ -57,6 +59,7 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C", "DNS-SD", "IPP"],
                 codeLicense: "Apache 2.0",
+                image: "/authors/dheeraj135.jpg",
             },
             {
                 name: "Tanmay Anand",
@@ -728,5 +731,16 @@ export function getAllContributors(): GsocYearContributors[] {
 export function getContributorYears(): number[] {
     return gsocContributors.map((y) => y.year).sort((a, b) => b - a);
 }
+
+/**
+ * Static image map for mentors whose photos are available.
+ * Key = mentor name (as it appears in contributor.mentors), value = image path.
+ */
+export const mentorImages: Record<string, string> = {
+    "Till Kamppeter": "/authors/till-kamppeter.jpg",
+    "Michael Sweet": "/authors/michael-sweet.jpg",
+    "Michael R Sweet": "/authors/michael-sweet.jpg",
+    "Aveek Basu": "/authors/aveek-basu.jpg",
+};
 
 export default gsocContributors;
