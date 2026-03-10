@@ -78,7 +78,7 @@ export default function HeroSection() {
               size="lg"
               className="border-white/[0.12] text-neutral-300 hover:bg-white/[0.04] hover:text-white font-medium h-11 px-8 rounded-full text-sm bg-transparent transition-all duration-200"
             >
-              <Link href="/printers" prefetch={false}>Find a Printer</Link>
+              <Link href="/foomatic" prefetch={false}>Find a Printer</Link>
             </Button>
           </motion.div>
         </div>

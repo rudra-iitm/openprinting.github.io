@@ -6,18 +6,18 @@ import { MarkdownRenderer } from "@/components/markdown-renderer"
 const FILE_PATH = path.join(
   process.cwd(),
   "contents",
-  "projects",
-  "00-cups.md"
+  "pages",
+  "current.md"
 )
 
 const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
-export default async function CupsPage() {
+export default async function CurrentPage() {
   const raw = await fs.readFile(FILE_PATH, "utf8")
   const { data, content } = matter(raw)
 
   const title =
-    typeof data.title === "string" ? data.title : "CUPS"
+    typeof data.title === "string" ? data.title : "Current Work"
 
   return (
     <>
@@ -33,7 +33,7 @@ export default async function CupsPage() {
             {title}
           </h1>
           <p className="text-xl text-white/80">
-            The standards-based, open source printing system
+            What we are working on right now
           </p>
         </div>
       </div>

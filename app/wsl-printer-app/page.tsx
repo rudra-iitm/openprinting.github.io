@@ -4,6 +4,8 @@ import matter from "gray-matter"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
 import AuthorCard from "@/components/AuthorCard"
 
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : ""
+
 const FILE_PATH = path.join(
   process.cwd(),
   "contents",
@@ -25,7 +27,7 @@ export default async function WSLPrinterAppPage() {
       <div className="relative bg-zinc-900 text-white py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-right bg-no-repeat opacity-40"
-          style={{ backgroundImage: "url('/rotation_pantone.jpg')" }}
+          style={{ backgroundImage: `url('${basePath}/rotation_pantone.jpg')` }}
           aria-hidden
         />
         <div className="absolute inset-0 bg-zinc-900/90" aria-hidden />

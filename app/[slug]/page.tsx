@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
 import { redirect, notFound } from "next/navigation";
+import Link from "next/link";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
 import { TableOfContents } from "@/components/table-of-contents";
 import GiscusComments from "@/components/giscus-comment";
@@ -33,12 +34,21 @@ async function getAllPostsMetadata() {
 
                 return {
                     slug: name.replace(/\.md$/, ""),
+                    title: typeof data.title === "string" ? data.title.trim() : name.replace(/\.md$/, ""),
+                    date: typeof data.date === "string" ? data.date : "",
                     previousSlugs: Array.isArray(data.previousSlugs)
                         ? data.previousSlugs
                         : [],
                 };
             })
     );
+
+    // Sort by date descending (newest first)
+    posts.sort((a, b) => {
+        const da = a.date ? new Date(a.date).getTime() : 0;
+        const db = b.date ? new Date(b.date).getTime() : 0;
+        return db - da;
+    });
 
     return posts;
 }
@@ -91,6 +101,13 @@ export default async function PostPage({
 
         notFound();
     }
+
+    const currentIndex = allPosts.findIndex((post) => post.slug === decodedSlug);
+    const newerPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+    const olderPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+    const relatedPosts = allPosts
+        .filter((post) => post.slug !== decodedSlug)
+        .slice(0, 3);
 
     const { frontmatter, content: markdownContent } = await getPost(decodedSlug);
 
@@ -172,6 +189,53 @@ export default async function PostPage({
                             <div className="mt-12">
                                 <GiscusComments />
                             </div>
+
+                            {/* Prev / Next navigation */}
+                            <nav className="mt-12 flex flex-col sm:flex-row justify-between gap-4" aria-label="Post navigation">
+                                {olderPost ? (
+                                    <Link
+                                        href={`/${olderPost.slug}`}
+                                        className="group flex-1 rounded-lg border border-border p-4 hover:border-foreground/30 transition-colors duration-200"
+                                    >
+                                        <div className="text-xs text-muted-foreground mb-1">&larr; Older post</div>
+                                        <div className="text-sm font-medium text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2">{olderPost.title}</div>
+                                    </Link>
+                                ) : <div className="flex-1" />}
+                                {newerPost ? (
+                                    <Link
+                                        href={`/${newerPost.slug}`}
+                                        className="group flex-1 rounded-lg border border-border p-4 text-right hover:border-foreground/30 transition-colors duration-200"
+                                    >
+                                        <div className="text-xs text-muted-foreground mb-1">Newer post &rarr;</div>
+                                        <div className="text-sm font-medium text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2">{newerPost.title}</div>
+                                    </Link>
+                                ) : <div className="flex-1" />}
+                            </nav>
+
+                            {/* You may also enjoy */}
+                            {relatedPosts.length > 0 && (
+                                <div className="mt-16">
+                                    <h3 className="text-lg font-semibold mb-4">You may also enjoy</h3>
+                                    <div className="flex flex-col gap-3">
+                                        {relatedPosts.map((post) => (
+                                            <Link
+                                                key={post.slug}
+                                                href={`/${post.slug}`}
+                                                className="group flex items-start gap-3 rounded-lg border border-border p-4 hover:border-foreground/30 transition-colors duration-200"
+                                            >
+                                                <div>
+                                                    <div className="text-sm font-medium text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2">{post.title}</div>
+                                                    {post.date && (
+                                                        <div className="text-xs text-muted-foreground mt-1">
+                                                            {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+                                                        </div>
+                                                    )}
+                                                </div>
+                                            </Link>
+                                        ))}
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </section>
 
