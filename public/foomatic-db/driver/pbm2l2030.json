@@ -1,9 +1,0 @@
-{
-  "id": "pbm2l2030",
-  "name": "pbm2l2030",
-  "functionality": "?",
-  "comments": "Alternative download address: <a\n    href=\"www.ultra5.de\">www.ultra5.de</a>.<p>\n\n    Note: The \"make install\" of this driver renames the filter into\n    \"pbm2ppa\" so that one can make use of SuSEs apsfilter for the HP\n    DeskJet 720. For Foomatic this is not necessary and for\n    distributions this is even a problem. Therefore the Foomatic\n    files, which you can generate here, use the original name. So\n    simply copy the executable file \"pbm2l230\" into /usr/bin instead\n    of calling \"make install\".",
-  "ppd": null,
-  "supportLevel": null,
-  "color": null
-}

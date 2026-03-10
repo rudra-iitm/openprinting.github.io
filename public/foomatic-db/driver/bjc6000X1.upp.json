@@ -1,9 +1,0 @@
-{
-  "id": "bjc6000X1.upp",
-  "name": "bjc6000X1.upp",
-  "functionality": "?",
-  "comments": "The printing system/execution information for this driver serves\n      also for the bjc6000b1.upp driver.<p>\n\n      UPP files of this driver: bjc6000a1.upp, bjc6000b1.upp<p>",
-  "ppd": null,
-  "supportLevel": null,
-  "color": null
-}

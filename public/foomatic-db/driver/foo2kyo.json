@@ -1,9 +1,0 @@
-{
-  "id": "foo2kyo",
-  "name": "foo2kyo",
-  "functionality": "?",
-  "comments": "This is a driver developed for the Kyocera Mita FS-1016MFP\n        laser printer.\n\n        <p>\n        \n        It is possible that this driver will also work for other\n        Kyocera Mita printers, but the author cannot test this.\n\n        <p>\n\n        Foomatic data to generate the PPD files is included with the\n        driver, therefore we do not provide this data and PPDs here on\n        the OpenPrinting site,",
-  "ppd": null,
-  "supportLevel": null,
-  "color": null
-}

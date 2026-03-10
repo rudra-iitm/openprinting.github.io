@@ -1,9 +1,0 @@
-{
-  "id": "Star-WinType_4000",
-  "manufacturer": "Star",
-  "model": "WinType 4000",
-  "type": "laser",
-  "functionality": "F",
-  "notes": "WinPrinter - Uses GDI interface, supports PCL and DOS in software mode only<p>\n\n      Consumables/Refills: Cartridge<p>",
-  "drivers": []
-}

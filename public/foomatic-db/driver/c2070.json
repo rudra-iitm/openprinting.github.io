@@ -1,9 +1,0 @@
-{
-  "id": "c2070",
-  "name": "c2070",
-  "functionality": "?",
-  "comments": "Simple driver for the Lexmark 2070, does only 300 dpi in colour.",
-  "ppd": null,
-  "supportLevel": null,
-  "color": null
-}

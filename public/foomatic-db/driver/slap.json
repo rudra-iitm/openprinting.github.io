@@ -1,9 +1,0 @@
-{
-  "id": "slap",
-  "name": "slap",
-  "functionality": "?",
-  "comments": "For this driver foomatic configuration files cannot be generated because the\ndriver only supports text printing, no bitmap graphics, and so it is not\npossible to print PostScript files.",
-  "ppd": null,
-  "supportLevel": null,
-  "color": null
-}

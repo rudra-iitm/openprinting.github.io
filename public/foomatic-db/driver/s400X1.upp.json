@@ -1,9 +1,0 @@
-{
-  "id": "s400X1.upp",
-  "name": "s400X1.upp",
-  "functionality": "?",
-  "comments": "The S400 and the BJC-3000 (nearly identical printers) are also\n      supported by Gimp-Print, but with this driver the author did\n      more fine-tuning on the colour curves. He has even written some\n      small program for that (downloadable from the driver's web\n      page). He claims that the quality is much better than the\n      quality of Gimp-Print or even Windows. The driver is only tested\n      on plain paper, reports about its quality on other papers and\n      additional optimizations for other papers are welcome.<p>\n\n      UPP files of this driver: s400a1.upp, s400b1.upp<p>",
-  "ppd": null,
-  "supportLevel": null,
-  "color": null
-}

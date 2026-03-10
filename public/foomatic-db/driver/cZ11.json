@@ -1,9 +1,0 @@
-{
-  "id": "cZ11",
-  "name": "cZ11",
-  "functionality": "?",
-  "comments": "Provides 600dpi color printing on a Lexmark Z11, using Ghostscript\n    internal dithering.  Doesn't support black-only printing, use the\n    \"cZ11somsom\" driver instead.<p>\n\n    Warning: This driver is known not to work with the Z31 and Z51.\n    In fact, it is known to hose those printers' flash in some\n    circumstances, making your nearly useless Lexmark inkjet 100%\n    useless!",
-  "ppd": null,
-  "supportLevel": null,
-  "color": null
-}

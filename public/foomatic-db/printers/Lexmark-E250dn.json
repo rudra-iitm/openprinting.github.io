@@ -1,9 +1,0 @@
-{
-  "id": "Lexmark-E250dn",
-  "manufacturer": "Lexmark",
-  "model": "E250dn",
-  "type": "unknown",
-  "functionality": "B",
-  "notes": "Throughput = 30\n\n      Foomatic entry made by PPDtoXML T/G 0.05",
-  "drivers": []
-}

@@ -1,9 +1,0 @@
-{
-  "id": "pbm2ppa",
-  "name": "pbm2ppa",
-  "functionality": "?",
-  "comments": "Old grayscale driver for HP DeskJet PPA printers\n<p>\nPlease use the \"pnm2ppa\" driver, it supports both grayscale and colour printing.",
-  "ppd": null,
-  "supportLevel": null,
-  "color": null
-}

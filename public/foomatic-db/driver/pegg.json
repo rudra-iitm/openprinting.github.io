@@ -1,9 +1,0 @@
-{
-  "id": "pegg",
-  "name": "pegg",
-  "functionality": "?",
-  "comments": "Experimental driver kit for some Casio label printers by Daniel\n    Amkreutz.  See the documentation coming with the driver source\n    code for the full list of supported devices.\n\n    <p>\n\n    Evidently these printers are not USB printer-class devices, so\n    this driver includes a libusb-based userspace USB driver program.\n    Ultimately it accepts a 512x64 bitmap in xbm format.\n\n    <p>\n\n    Alternatively there is a CUPS backend and companion ppd with\n    converter script.\n\n    <p>\n\n    There are no Foomatic, LPR, PDQ, PPR, ... integrations for\n    this driver.",
-  "ppd": null,
-  "supportLevel": null,
-  "color": null
-}

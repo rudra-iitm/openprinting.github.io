@@ -1,9 +1,0 @@
-{
-  "id": "lxm3200X",
-  "name": "lxm3200X",
-  "functionality": "?",
-  "comments": "Please use the new <a\n      href=\"show_driver.cgi?driver=lxm3200\">version\n      0.4.1</a> of this driver, version 0.3 is obsolete. This\n      driver entry is only for old Ghostscript binaries which still\n      contain the\n      \"lxm3200c\"/\"lxm3200m\"/\"lxm3200p\"\n      output devices and not the single \"lxm3200\"\n      device.<p>\n\n      This driver supports the Lexmark 3200 ink jet \"GDI\"\n      printers. It prints in monochrome, 4 ink colour and 6 ink colour\n      (photo quality) mode. To do this, the Ghostscript output devices\n      \"lxm3200m\", \"lxm3200c\", and\n      \"lxm3200p\" are used. The user chooses by an option\n      which output device is really used.<p>",
-  "ppd": null,
-  "supportLevel": null,
-  "color": null
-}

@@ -1,9 +1,0 @@
-{
-  "id": "cZ11somsom",
-  "name": "cZ11somsom",
-  "functionality": "?",
-  "comments": "Provides 600dpi color and bw printing on a Lexmark Z11, using Ghostscript internal dithering. This is an improvement of Christian Kornblum's original \"cZ11\" driver.<p>\n Warning : This driver is known not to work with the Z31 and Z51.  In fact, it is known to hose those printers' flash in some circumstances, making your nearly useless Lexmark inkjet 100% useless!",
-  "ppd": null,
-  "supportLevel": null,
-  "color": null
-}

@@ -1,9 +1,0 @@
-{
-  "id": "cdj970",
-  "name": "cdj970",
-  "functionality": "?",
-  "comments": "This is an adaptation of the hp850 driver done by Rene' Harsch.\n    It supports the 970's duplexer, although when duplex is on there\n    is a minor quality issue. <p>\n\n    This driver, like all modern HP drivers, was written by\n    reverse-engineering part of the command set for the printer.  HP\n    refused to help; Rene' sensibly suggests that people not buy HP\n    products because of this uncoperative policy.<P>\n\n    Rene's web page, with the instructions, is in German.\n    German-impaired readers can probably follow them anyway; they're\n    step-by-step and show all the commands to build the driver.\n    <p>\n\n    The driver takes the same arguments as the <a\n    href=\"show_driver.cgi?driver=cdj850\" \n >cdj850</a>\n    driver, plus the three described on Rene's website.",
-  "ppd": null,
-  "supportLevel": null,
-  "color": null
-}

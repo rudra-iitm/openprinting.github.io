@@ -1,9 +1,0 @@
-{
-  "id": "Xerox-FaxCentre_2218",
-  "manufacturer": "Xerox",
-  "model": "FaxCentre 2218",
-  "type": "unknown",
-  "functionality": "B",
-  "notes": "Throughput = 17\n      \n      Foomatic entry made by PPDtoXML T/G 0.18 on 2008-05-21\n      \n      <p>\n\n      Maximum paper width: 8.5 inches / 21.6 cm\n      (Standard format printer)<p>\n\n      Printing engine speed: 17 pages/min<p>",
-  "drivers": []
-}
