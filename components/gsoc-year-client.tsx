@@ -12,10 +12,11 @@ import {
   FileText,
 } from "lucide-react";
 import type { GsocContributor } from "@/data/gsoc-contributors";
-import { mentorImages } from "@/data/gsoc-contributors";
+import { getContributorImageSrc, mentorImages } from "@/data/gsoc-contributors";
 import type { GsocWorkSummary } from "@/data/gsoc-work-summaries";
 import type { GsocProjectSummary } from "@/lib/gsoc";
 import { getMentorsByYear } from "@/data/gsoc-mentors";
+import { GsocContributorHoverChip } from "@/components/gsoc-contributor-socials";
 
 type RelatedPost = {
   title: string;
@@ -131,6 +132,7 @@ export function GsocYearClient({
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-5">
               {contributors.map((contributor, index) => {
                 const contribSummary = getSummary(contributor.name);
+                const contributorImage = getContributorImageSrc(contributor);
                 return (
                   <motion.div
                     key={`contrib-${contributor.name}-${index}`}
@@ -154,22 +156,24 @@ export function GsocYearClient({
                       </p>
 
                       <div className="mt-3 flex flex-wrap gap-1.5">
-                        <span className="inline-flex items-center gap-1 rounded-full border border-blue-500/20 dark:border-blue-400/20 bg-blue-500/10 pl-0.5 pr-2 py-0.5 text-[10px] font-medium text-blue-700 dark:text-blue-300">
-                          {contributor.image ? (
-                            <Image
-                              src={contributor.image}
-                              alt={contributor.name}
-                              width={16}
-                              height={16}
-                              className="rounded-full object-cover"
-                            />
-                          ) : (
-                            <span className="flex h-4 w-4 items-center justify-center rounded-full bg-blue-500/20">
-                              <User className="w-2.5 h-2.5" />
-                            </span>
-                          )}
-                          {contributor.name}
-                        </span>
+                        <GsocContributorHoverChip
+                          contributor={contributor}
+                          avatar={
+                            contributorImage ? (
+                              <Image
+                                src={contributorImage}
+                                alt={contributor.name}
+                                width={16}
+                                height={16}
+                                className="rounded-full object-cover"
+                              />
+                            ) : (
+                              <span className="flex h-4 w-4 items-center justify-center rounded-full bg-blue-500/20">
+                                <User className="w-2.5 h-2.5" />
+                              </span>
+                            )
+                          }
+                        />
                       </div>
 
                       {contributor.mentors.length > 0 && (

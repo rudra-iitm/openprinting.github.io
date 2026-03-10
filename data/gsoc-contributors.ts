@@ -1,3 +1,16 @@
+export interface GsocContributorSocials {
+    github?: string;
+    website?: string;
+    githubPages?: string;
+    linkedin?: string;
+    x?: string;
+    mastodon?: string;
+    medium?: string;
+    devto?: string;
+    twitter?: string;
+    facebook?: string;
+}
+
 export interface GsocContributor {
     name: string;
     project: string;
@@ -8,6 +21,7 @@ export interface GsocContributor {
     desiredKnowledge: string[];
     codeLicense: string;
     image?: string;
+    socials?: GsocContributorSocials;
 }
 
 export interface GsocYearContributors {
@@ -34,6 +48,9 @@ const gsocContributors: GsocYearContributors[] = [
                 desiredKnowledge: ["C", "DNS-SD", "IPP"],
                 codeLicense: "Apache 2.0",
                 image: "/authors/dheeraj135.jpg",
+                socials: {
+                    github: "dheeraj135",
+                },
             },
             {
                 name: "Tanmay Anand",
@@ -46,6 +63,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C", "C++"],
                 codeLicense: "MIT",
+                socials: {
+                    github: "tanmayanand44",
+                },
             },
             {
                 name: "Sharad Shukla",
@@ -57,6 +77,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C", "IPP"],
                 codeLicense: "Apache 2.0",
+                socials: {
+                    github: "Sharadd15",
+                },
             },
             {
                 name: "Aakash Lahoti",
@@ -68,6 +91,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C", "IPP"],
                 codeLicense: "Apache 2.0",
+                socials: {
+                    github: "aakashlahoti",
+                },
             },
         ],
     },
@@ -93,6 +119,10 @@ const gsocContributors: GsocYearContributors[] = [
                     "https://vikrantmalik051.blogspot.com/2020/08/blog-post.html",
                 desiredKnowledge: ["C", "CUPS"],
                 codeLicense: "(L)GPL 2+, Apache 2.0, MIT",
+                socials: {
+                    github: "vikrantmalik051",
+                    website: "https://vikrantmalik051.blogspot.com/",
+                },
             },
             {
                 name: "Jai Luthra",
@@ -111,6 +141,12 @@ const gsocContributors: GsocYearContributors[] = [
                     "https://jailuthra1.github.io/google-summer-of-code-2020/",
                 desiredKnowledge: ["C", "DNS-SD", "IPP"],
                 codeLicense: "Apache 2.0, MIT",
+                socials: {
+                    github: "jailuthra",
+                    githubPages: "https://jailuthra1.github.io/google-summer-of-code-2020/",
+                    twitter: "https://twitter.com/jailuthra",
+                    facebook: "https://www.facebook.com/jailuthra",
+                },
             },
             {
                 name: "Mohit Mohan",
@@ -123,6 +159,9 @@ const gsocContributors: GsocYearContributors[] = [
                     "https://github.com/mohitmo/GSoC-2020-Documentation",
                 desiredKnowledge: ["C", "IPP", "CUPS"],
                 codeLicense: "LGPL-2.1+",
+                socials: {
+                    github: "mohitmo",
+                },
             },
             {
                 name: "Lakshay Bandlish",
@@ -143,6 +182,9 @@ const gsocContributors: GsocYearContributors[] = [
                     "https://github.com/lbandlish/Administrate-MF-Devices-GUI",
                 desiredKnowledge: ["C", "Python", "GTK"],
                 codeLicense: "GPL 2+ or LGPL 2+",
+                socials: {
+                    github: "lbandlish",
+                },
             },
             {
                 name: "Sambhav Dusad",
@@ -160,6 +202,10 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "https://dsam82.github.io/gsoc20",
                 desiredKnowledge: ["C", "DNS-SD", "IPP"],
                 codeLicense: "Apache 2.0, MIT",
+                socials: {
+                    github: "lonerapier",
+                    githubPages: "https://dsam82.github.io/gsoc20",
+                },
             },
         ],
     },
@@ -181,6 +227,11 @@ const gsocContributors: GsocYearContributors[] = [
                     "https://surajkulriya.medium.com/gsoc-2021-final-work-product-the-linux-foundation-make-printing-work-through-cups-without-bf06dbfa1789",
                 desiredKnowledge: ["C", "Python", "GTK"],
                 codeLicense: "GPL 2+ or LGPL 2+",
+                socials: {
+                    github: "surajkulriya",
+                    githubPages: "https://surajkulriya.github.io/",
+                    medium: "https://surajkulriya.medium.com/",
+                },
             },
             {
                 name: "Divyasheel",
@@ -192,6 +243,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "https://github.com/divyashk/GSOC21_summary",
                 desiredKnowledge: ["C", "Python", "GTK"],
                 codeLicense: "GPL 2+ or LGPL 2+",
+                socials: {
+                    github: "divyashk",
+                },
             },
             {
                 name: "Pranshu Kharkwal",
@@ -205,6 +259,9 @@ const gsocContributors: GsocYearContributors[] = [
                     "https://gist.github.com/pranshukharkwal/9413499a6744049ef549159948392023",
                 desiredKnowledge: ["C", "Python", "GTK"],
                 codeLicense: "GPL 2+ or LGPL 2+",
+                socials: {
+                    github: "pranshukharkwal",
+                },
             },
             {
                 name: "Bhavna Kosta",
@@ -221,6 +278,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "https://github.com/Bhavna2020/GSoC-2021",
                 desiredKnowledge: ["C", "Python", "GTK"],
                 codeLicense: "GPL 2+ or LGPL 2+",
+                socials: {
+                    github: "Bhavna2020",
+                },
             },
             {
                 name: "Pratyush Ranjan",
@@ -232,6 +292,10 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "https://pranjanpr.github.io/pratyush/#/gsoc",
                 desiredKnowledge: ["C", "Python", "GTK"],
                 codeLicense: "GPL 2+ or LGPL 2+",
+                socials: {
+                    github: "pranjanpr",
+                    githubPages: "https://pranjanpr.github.io/pratyush/#/gsoc",
+                },
             },
         ],
     },
@@ -252,6 +316,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "GTK", "DNS-SD/Avahi", "CUPS/IPP"],
                 codeLicense: "GPL-2+ and LGPL-2+",
+                socials: {
+                    github: "pushinl",
+                },
             },
             {
                 name: "Rishabh Maheshwari",
@@ -269,6 +336,10 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "CUPS"],
                 codeLicense: "Apache 2.0",
+                socials: {
+                    github: "Rishabh-792",
+                    githubPages: "https://rishabh-792.github.io/",
+                },
             },
             {
                 name: "Gaurav Guleria",
@@ -281,6 +352,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "GTK or Qt", "DNS-SD/Avahi", "CUPS/IPP"],
                 codeLicense: "GPL-2+ and LGPL-2+, Apache 2.0",
+                socials: {
+                    github: "TinyTrebuchet",
+                },
             },
             {
                 name: "Chandresh Soni",
@@ -293,6 +367,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "Shell", "CUPS"],
                 codeLicense: "Apache 2.0",
+                socials: {
+                    github: "chandresh-soni",
+                },
             },
             {
                 name: "Sachin Thakan",
@@ -305,6 +382,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "CUPS"],
                 codeLicense: "Apache 2.0",
+                socials: {
+                    github: "thakan25",
+                },
             },
             {
                 name: "Mohit Verma",
@@ -317,6 +397,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "CUPS"],
                 codeLicense: "Apache 2.0",
+                socials: {
+                    github: "vermamohit13",
+                },
             },
         ],
     },
@@ -337,6 +420,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "GTK", "DNS-SD/Avahi", "CUPS/IPP"],
                 codeLicense: "GPL-2+ and LGPL-2+",
+                socials: {
+                    github: "vermamohit13",
+                },
             },
             {
                 name: "Akarshan Kapoor",
@@ -353,6 +439,10 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "CUPS"],
                 codeLicense: "Apache 2.0",
+                socials: {
+                    github: "Kappuccino111",
+                    devto: "https://dev.to/kappuccino111",
+                },
             },
             {
                 name: "Pratyush Ranjan",
@@ -365,6 +455,10 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C", "Shell", "PAPPL", "CUPS", "CI"],
                 codeLicense: "Apache 2.0, MIT",
+                socials: {
+                    github: "pranjanpr",
+                    githubPages: "https://pranjanpr.github.io/pratyush/#/gsoc",
+                },
             },
             {
                 name: "Kushagra Sharma",
@@ -377,6 +471,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "GTK or Qt", "DNS-SD/Avahi", "CUPS/IPP"],
                 codeLicense: "MIT, GPL-2+ and LGPL-2+",
+                socials: {
+                    github: "kushagra20251",
+                },
             },
         ],
     },
@@ -397,6 +494,10 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "CUPS"],
                 codeLicense: "Apache 2.0",
+                socials: {
+                    github: "uddhavphatak",
+                    medium: "https://medium.com/@uddhavphatak",
+                },
             },
             {
                 name: "Kushagra Sharma",
@@ -409,6 +510,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "GTK or Qt", "DNS-SD/Avahi", "CUPS/IPP"],
                 codeLicense: "MIT, GPL-2+ and LGPL-2+",
+                socials: {
+                    github: "kushagra20251",
+                },
             },
             {
                 name: "Shivam Jaiswal",
@@ -421,6 +525,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["Python", "C", "CUPS"],
                 codeLicense: "GPL-2+",
+                socials: {
+                    github: "TheJayas",
+                },
             },
             {
                 name: "Arun Patwa",
@@ -433,6 +540,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "Shell", "CUPS"],
                 codeLicense: "Apache 2.0",
+                socials: {
+                    github: "arunpatwa",
+                },
             },
             {
                 name: "Biswadeep Purkayastha",
@@ -445,6 +555,10 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "GTK or Qt", "DNS-SD/Avahi", "CUPS/IPP"],
                 codeLicense: "MIT, GPL-2+ and LGPL-2+",
+                socials: {
+                    github: "metabiswadeep",
+                    medium: "https://medium.com/@bpdps95",
+                },
             },
             {
                 name: "Ankit Pal Singh",
@@ -456,6 +570,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C", "PAPPL", "CUPS"],
                 codeLicense: "Apache 2.0",
+                socials: {
+                    github: "Ankit3002",
+                },
             },
             {
                 name: "Rudra Pratap Singh",
@@ -468,6 +585,11 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["Shell", "Python", "packaging", "GIT"],
                 codeLicense: "Apache 2.0, MIT",
+                socials: {
+                    github: "rudra-iitm",
+                    website: "https://rudraworks.github.io/",
+                    medium: "https://medium.com/@rudransh.iitm",
+                },
             },
             {
                 name: "Kaushik Veeraraghavan",
@@ -480,6 +602,10 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "GTK or Qt", "DNS-SD/Avahi", "CUPS/IPP"],
                 codeLicense: "Apache 2.0, MIT, GPL-2+ and LGPL-2+",
+                socials: {
+                    github: "Kaushik1216",
+                    medium: "https://medium.com/@kaushik.vishwakarma2003",
+                },
             },
             {
                 name: "ttfish",
@@ -492,6 +618,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C", "fuzzing"],
                 codeLicense: "Apache 2.0, MIT",
+                socials: {
+                    github: "fish98",
+                },
             },
             {
                 name: "Akarshan Kapoor",
@@ -503,6 +632,10 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C", "Shell", "PAPPL", "CUPS", "CI"],
                 codeLicense: "Apache 2.0",
+                socials: {
+                    github: "Kappuccino111",
+                    devto: "https://dev.to/kappuccino111",
+                },
             },
         ],
     },
@@ -528,6 +661,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C", "Python", "fuzz-testing"],
                 codeLicense: "Apache 2.0, MIT",
+                socials: {
+                    github: "pushinl",
+                },
             },
             {
                 name: "Rudra Pratap Singh",
@@ -544,6 +680,11 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["TypeScript", "Next.js", "React"],
                 codeLicense: "MIT",
+                socials: {
+                    github: "rudra-iitm",
+                    website: "https://rudraworks.github.io/",
+                    medium: "https://medium.com/@rudransh.iitm",
+                },
             },
             {
                 name: "Tarun Srivastava",
@@ -555,6 +696,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "KDE/Qt", "UI Design"],
                 codeLicense: "GPL 2.0 or later and LGPL 2.0 or later",
+                socials: {
+                    github: "Lord-Morpheus",
+                },
             },
             {
                 name: "Soumyadeep Ghosh",
@@ -567,6 +711,15 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["Python", "C", "CUPS"],
                 codeLicense: "GPL-2+",
+                socials: {
+                    github: "soumyaDghosh",
+                    website: "https://soumyadghosh.github.io/website/",
+                    githubPages:
+                        "https://soumyadghosh.github.io/website/interns/gsoc-2025/gsoc-final-submission",
+                    linkedin: "https://www.linkedin.com/in/soumyadghosh/",
+                    x: "https://x.com/s0umyad",
+                    mastodon: "https://mastodon.social/@soumyadghosh",
+                },
             },
             {
                 name: "Sanskar",
@@ -584,6 +737,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C", "Go", "image processing", "computer vision", "OCR"],
                 codeLicense: "Apache 2.0, MIT",
+                socials: {
+                    github: "Sanskary2303",
+                },
             },
             {
                 name: "Titiksha Bansal",
@@ -595,6 +751,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["Python", "C", "CUPS"],
                 codeLicense: "GPL-2+",
+                socials: {
+                    github: "TitikshaBansal",
+                },
             },
             {
                 name: "Yash Raj Singh",
@@ -607,6 +766,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C", "GTK/GNOME", "UI Design"],
                 codeLicense: "LGPL-2 or later and LGPL-2.1 or later",
+                socials: {
+                    github: "vididvidid",
+                },
             },
             {
                 name: "Kaushik Veeraraghavan",
@@ -619,6 +781,10 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C/C++", "GTK", "DNS-SD/Avahi", "CUPS/IPP"],
                 codeLicense: "GPL-2+ and LGPL-2+",
+                socials: {
+                    github: "Kaushik1216",
+                    medium: "https://medium.com/@kaushik.vishwakarma2003",
+                },
             },
             {
                 name: "Mohammed Imaduddin",
@@ -636,6 +802,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["Python", "Go", "fuzz-testing"],
                 codeLicense: "Apache 2.0, MIT",
+                socials: {
+                    github: "mdimado",
+                },
             },
             {
                 name: "Mintu Gogoi",
@@ -647,6 +816,9 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["Python", "C", "CUPS"],
                 codeLicense: "GPL-2+",
+                socials: {
+                    github: "Gmin2",
+                },
             },
             {
                 name: "Hubert Guan",
@@ -658,6 +830,10 @@ const gsocContributors: GsocYearContributors[] = [
                 codeUrl: "",
                 desiredKnowledge: ["C", "Zephyr", "USB", "network"],
                 codeLicense: "Apache 2.0, MIT",
+                socials: {
+                    github: "HubertYGuan",
+                    githubPages: "https://hubertyguan.github.io/GSoC-2025/posts/final/",
+                },
             },
         ],
     },
@@ -689,6 +865,20 @@ export function getAllContributors(): GsocYearContributors[] {
 
 export function getContributorYears(): number[] {
     return gsocContributors.map((y) => y.year).sort((a, b) => b - a);
+}
+
+export function getContributorImageSrc(
+    contributor: GsocContributor,
+): string | undefined {
+    if (contributor.image) {
+        return contributor.image;
+    }
+
+    if (contributor.socials?.github) {
+        return `https://github.com/${contributor.socials.github}.png`;
+    }
+
+    return undefined;
 }
 
 export const mentorImages: Record<string, string> = {

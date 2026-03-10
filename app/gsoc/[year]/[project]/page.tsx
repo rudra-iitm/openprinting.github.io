@@ -7,9 +7,14 @@ import {
   getGsocProjectsByYear,
   getGsocYears,
 } from "@/lib/gsoc";
-import { getContributorsBySlug, mentorImages } from "@/data/gsoc-contributors";
+import {
+  getContributorImageSrc,
+  getContributorsBySlug,
+  mentorImages,
+} from "@/data/gsoc-contributors";
 import { getWorkSummary } from "@/data/gsoc-work-summaries";
 import { getMentorsBySlug } from "@/data/gsoc-mentors";
+import { GsocContributorInlineSocials } from "@/components/gsoc-contributor-socials";
 import {
   ArrowLeft,
   User,
@@ -127,36 +132,44 @@ export default async function GsocProjectPage({
                 {/* Contributor header — only for completed projects */}
                 {isCompleted && (
                   <>
-                    <div className="p-5 space-y-4">
-                      {contributors.map((contributor, idx) => (
-                        <div key={idx} className="flex items-center gap-3">
-                          {contributor.image ? (
-                            <Image
-                              src={contributor.image}
-                              alt={contributor.name}
-                              width={40}
-                              height={40}
-                              className="rounded-full object-cover border border-blue-500/20"
-                            />
-                          ) : (
-                            <span className="flex h-10 w-10 items-center justify-center rounded-full bg-blue-500/10 border border-blue-500/20">
-                              <User className="w-5 h-5 text-blue-600 dark:text-blue-400" />
-                            </span>
-                          )}
-                          <div className="min-w-0">
-                            <p className="text-sm font-semibold text-foreground truncate">
-                              {contributor.name}
-                            </p>
-                            <p className="text-[11px] text-muted-foreground">
-                              Contributor
-                            </p>
+                    <div className="p-5 space-y-3">
+                      {contributors.map((contributor, idx) => {
+                        const contributorImage = getContributorImageSrc(contributor);
+                        return (
+                          <div
+                            key={idx}
+                            className="rounded-xl border border-border/70 bg-accent/30 p-3"
+                          >
+                            <div className="flex items-center gap-3">
+                              {contributorImage ? (
+                                <Image
+                                  src={contributorImage}
+                                  alt={contributor.name}
+                                  width={44}
+                                  height={44}
+                                  className="rounded-full object-cover border border-blue-500/20"
+                                />
+                              ) : (
+                                <span className="flex h-11 w-11 items-center justify-center rounded-full bg-blue-500/10 border border-blue-500/20">
+                                  <User className="w-5 h-5 text-blue-600 dark:text-blue-400" />
+                                </span>
+                              )}
+                              <div className="min-w-0">
+                                <p className="text-sm font-semibold text-foreground truncate">
+                                  {contributor.name}
+                                </p>
+                                <p className="text-[11px] text-muted-foreground">
+                                  Contributor
+                                </p>
+                              </div>
+                            </div>
+                            <GsocContributorInlineSocials contributor={contributor} />
                           </div>
-                        </div>
-                      ))}
+                        );
+                      })}
 
-                      {/* Status */}
                       {workSummaries.length > 0 && (
-                        <div className="flex flex-wrap gap-1.5">
+                        <div className="flex flex-wrap gap-1.5 pt-1">
                           {workSummaries.map((ws, idx) => (
                             <StatusBadge key={idx} status={ws.summary.status} />
                           ))}
@@ -299,30 +312,41 @@ export default async function GsocProjectPage({
             <div className="lg:hidden w-full rounded-xl border border-border bg-card p-4 space-y-3">
               {/* Contributors (completed only) */}
               {isCompleted && (
-                <div className="flex flex-wrap items-center gap-3">
-                  {contributors.map((contributor, idx) => (
-                    <div key={idx} className="flex items-center gap-2">
-                      {contributor.image ? (
-                        <Image
-                          src={contributor.image}
-                          alt={contributor.name}
-                          width={32}
-                          height={32}
-                          className="rounded-full object-cover border border-blue-500/20"
-                        />
-                      ) : (
-                        <span className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500/10 border border-blue-500/20">
-                          <User className="w-4 h-4 text-blue-600 dark:text-blue-400" />
-                        </span>
-                      )}
-                      <span className="text-sm font-medium text-foreground">
-                        {contributor.name}
-                      </span>
-                    </div>
-                  ))}
-                  {workSummaries.map((ws, idx) => (
-                    <StatusBadge key={idx} status={ws.summary.status} />
-                  ))}
+                <div className="space-y-3">
+                  {contributors.map((contributor, idx) => {
+                    const contributorImage = getContributorImageSrc(contributor);
+                    return (
+                      <div
+                        key={idx}
+                        className="rounded-xl border border-border/70 bg-accent/30 p-3"
+                      >
+                        <div className="flex items-center gap-2.5">
+                          {contributorImage ? (
+                            <Image
+                              src={contributorImage}
+                              alt={contributor.name}
+                              width={34}
+                              height={34}
+                              className="rounded-full object-cover border border-blue-500/20"
+                            />
+                          ) : (
+                            <span className="flex h-8 w-8 items-center justify-center rounded-full bg-blue-500/10 border border-blue-500/20">
+                              <User className="w-4 h-4 text-blue-600 dark:text-blue-400" />
+                            </span>
+                          )}
+                          <span className="text-sm font-medium text-foreground">
+                            {contributor.name}
+                          </span>
+                        </div>
+                        <GsocContributorInlineSocials contributor={contributor} />
+                      </div>
+                    );
+                  })}
+                  <div className="flex flex-wrap gap-1.5">
+                    {workSummaries.map((ws, idx) => (
+                      <StatusBadge key={idx} status={ws.summary.status} />
+                    ))}
+                  </div>
                 </div>
               )}
 
