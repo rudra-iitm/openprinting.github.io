@@ -3,6 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import { redirect, notFound } from "next/navigation";
 import Link from "next/link";
+import { ArrowRight } from "lucide-react";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
 import { TableOfContents } from "@/components/table-of-contents";
 import GiscusComments from "@/components/giscus-comment";
@@ -215,21 +216,26 @@ export default async function PostPage({
                             {/* You may also enjoy */}
                             {relatedPosts.length > 0 && (
                                 <div className="mt-16">
-                                    <h3 className="text-lg font-semibold mb-4">You may also enjoy</h3>
-                                    <div className="flex flex-col gap-3">
+                                    <h3 className="text-lg font-semibold mb-6">You may also enjoy</h3>
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         {relatedPosts.map((post) => (
                                             <Link
                                                 key={post.slug}
                                                 href={`/${post.slug}`}
-                                                className="group flex items-start gap-3 rounded-lg border border-border p-4 hover:border-foreground/30 transition-colors duration-200"
+                                                className="group block h-full rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:border-border/80 hover:bg-accent/50 card-glow"
                                             >
                                                 <div>
-                                                    <div className="text-sm font-medium text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2">{post.title}</div>
+                                                    <div className="text-sm font-semibold text-foreground group-hover:text-blue-400 transition-colors duration-200 line-clamp-3 leading-snug mb-3">{post.title}</div>
                                                     {post.date && (
-                                                        <div className="text-xs text-muted-foreground mt-1">
+                                                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground">
+                                                            <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
                                                             {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
                                                         </div>
                                                     )}
+                                                    <div className="mt-4 flex items-center gap-1.5 text-xs font-medium text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                        Read more
+                                                        <ArrowRight className="w-3 h-3" />
+                                                    </div>
                                                 </div>
                                             </Link>
                                         ))}

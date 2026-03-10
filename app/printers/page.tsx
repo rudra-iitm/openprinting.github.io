@@ -1,11 +1,50 @@
-"use client"
+import fs from "fs/promises"
+import path from "path"
+import matter from "gray-matter"
+import { MarkdownRenderer } from "@/components/markdown-renderer"
 
-import { useEffect } from "react"
+const FILE_PATH = path.join(
+  process.cwd(),
+  "contents",
+  "pages",
+  "printers.md"
+)
 
-export default function PrintersPage() {
-  useEffect(() => {
-    window.location.href = "/foomatic"
-  }, [])
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
-  return null
+export default async function PrintersPage() {
+  const raw = await fs.readFile(FILE_PATH, "utf8")
+  const { data } = matter(raw)
+
+  const title =
+    typeof data.title === "string" ? data.title : "Find a Driverless Printer"
+
+  return (
+    <>
+      <div className="relative bg-zinc-900 text-white py-24 overflow-hidden">
+        <div
+          className="absolute inset-0 bg-cover bg-right bg-no-repeat opacity-40"
+          style={{ backgroundImage: `url('${basePath}/ipp-everywhere.png')` }}
+          aria-hidden
+        />
+        <div className="absolute inset-0 bg-zinc-900/90" aria-hidden />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+          <h1 className="text-4xl md:text-5xl font-bold mb-4">
+            {title}
+          </h1>
+          <p className="text-xl text-white/80">
+            Browse printers that work out of the box with AirPrint™ and IPP Everywhere™.
+          </p>
+        </div>
+      </div>
+
+      <main className="min-h-screen bg-background text-foreground pt-24 pb-16">
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <MarkdownRenderer content={raw} showMeta={false} noCard={true} />
+          </div>
+        </div>
+      </main>
+    </>
+  )
 }

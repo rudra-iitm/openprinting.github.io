@@ -6,25 +6,25 @@ import { MarkdownRenderer } from "@/components/markdown-renderer"
 const FILE_PATH = path.join(
   process.cwd(),
   "contents",
-  "projects",
-  "00-cups.md"
+  "pages",
+  "cups.md"
 )
 
 const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 export default async function CupsPage() {
   const raw = await fs.readFile(FILE_PATH, "utf8")
-  const { data, content } = matter(raw)
+  const { data } = matter(raw)
 
   const title =
-    typeof data.title === "string" ? data.title : "CUPS"
+    typeof data.title === "string" ? data.title : "OpenPrinting CUPS"
 
   return (
     <>
       <div className="relative bg-zinc-900 text-white py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-right bg-no-repeat opacity-40"
-          style={{ backgroundImage: `url(${basePath}/rotation_pantone.jpg)` }}
+          style={{ backgroundImage: `url('${basePath}/rotation_pantone.jpg')` }}
           aria-hidden
         />
         <div className="absolute inset-0 bg-zinc-900/90" aria-hidden />
@@ -33,14 +33,16 @@ export default async function CupsPage() {
             {title}
           </h1>
           <p className="text-xl text-white/80">
-            The standards-based, open source printing system
+            The standards-based, open source printing system for Linux® and other Unix®-like operating systems.
           </p>
         </div>
       </div>
 
       <main className="min-h-screen bg-background text-foreground pt-24 pb-16">
-        <div className="max-w-4xl mx-auto px-4 about-us-content">
-          <MarkdownRenderer content={content} showMeta={false} noCard />
+        <div className="container mx-auto px-4 sm:px-6 lg:px-8">
+          <div className="max-w-4xl mx-auto">
+            <MarkdownRenderer content={raw} showMeta={false} noCard={true} />
+          </div>
         </div>
       </main>
     </>
