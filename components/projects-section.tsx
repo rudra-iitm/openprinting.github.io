@@ -1,36 +1,36 @@
-"use client";
+"use client"
 
-import { motion } from "framer-motion";
-import { useInView } from "framer-motion";
-import { useRef } from "react";
-import Image from "next/image";
-import Link from "next/link";
-import { ArrowRight } from "lucide-react";
+import { motion } from "framer-motion"
+import { useInView } from "framer-motion"
+import { useRef } from "react"
+import Image from "next/image"
+import Link from "next/link"
+import { ArrowRight } from "lucide-react"
 
 const basePath =
   process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 type SoftwareItem = {
-  title: string;
-  description: string;
-  image: string;
-  href: string;
-  delay: number;
-  isExternal?: boolean;
-};
+  title: string
+  description: string
+  image: string
+  href: string
+  delay: number
+  isExternal?: boolean
+}
 
 type ProjectItem = {
-  title: string;
-  description: string;
-  image: string;
-  href: string;
-  delay: number;
-  isExternal?: boolean;
-};
+  title: string
+  description: string
+  image: string
+  href: string
+  delay: number
+  isExternal?: boolean
+}
 
 export default function ProjectsSection() {
-  const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, amount: 0.1 });
+  const ref = useRef(null)
+  const isInView = useInView(ref, { once: true, amount: 0.1 })
 
   const softwares: SoftwareItem[] = [
     {
@@ -57,7 +57,7 @@ export default function ProjectsSection() {
       delay: 0.3,
       href: "/wsl-printer-app",
     },
-  ];
+  ]
 
   const projects: ProjectItem[] = [
     {
@@ -85,7 +85,7 @@ export default function ProjectsSection() {
       delay: 0.3,
       href: "/gsod",
     },
-  ];
+  ]
 
   return (
     <section ref={ref} className="relative py-24 bg-background" id="projects">
@@ -97,9 +97,7 @@ export default function ProjectsSection() {
           transition={{ duration: 0.6 }}
           className="mb-6"
         >
-          <p className="text-sm font-medium text-blue-400 mb-3 tracking-wide uppercase">
-            Find Your Printer
-          </p>
+          <p className="text-sm font-medium text-blue-400 mb-3 tracking-wide uppercase">Find Your Printer</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
             Printer Compatibility
           </h2>
@@ -111,9 +109,7 @@ export default function ProjectsSection() {
           transition={{ duration: 0.6, delay: 0.1 }}
           className="text-muted-foreground text-sm md:text-base max-w-2xl mb-12 leading-relaxed"
         >
-          Most modern printers work using OpenPrinting software without
-          additional drivers. We also host a compatibility database for legacy
-          printers supported by free software drivers.
+          Most modern printers work using OpenPrinting software without additional drivers. We also host a compatibility database for legacy printers supported by free software drivers.
         </motion.p>
 
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6 mb-24">
@@ -165,15 +161,12 @@ export default function ProjectsSection() {
           transition={{ duration: 0.6, delay: 0.2 }}
           className="mb-12"
         >
-          <p className="text-sm font-medium text-blue-400 mb-3 tracking-wide uppercase">
-            Community
-          </p>
+          <p className="text-sm font-medium text-blue-400 mb-3 tracking-wide uppercase">Community</p>
           <h2 className="text-3xl md:text-4xl font-bold text-foreground tracking-tight">
             Collaborations & Programs
           </h2>
           <p className="text-muted-foreground text-sm md:text-base max-w-2xl mt-4 leading-relaxed">
-            OpenPrinting collaborates with standards groups and participates in
-            coding and documentation programs.
+            OpenPrinting collaborates with standards groups and participates in coding and documentation programs.
           </p>
         </motion.div>
 
@@ -251,5 +244,5 @@ export default function ProjectsSection() {
 
       <div className="section-divider mt-24 mx-auto max-w-6xl" />
     </section>
-  );
+  )
 }
