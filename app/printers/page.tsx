@@ -1,7 +1,7 @@
 "use client"
 
 import { useState, useEffect, useMemo } from "react"
-import { Search, ChevronLeft, ChevronRight, Check, X } from "lucide-react"
+import { Search, ChevronLeft, ChevronRight } from "lucide-react"
 
 const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : ""
 
@@ -121,39 +121,35 @@ export default function PrintersPage() {
               <thead className="bg-muted/60 text-left">
                 <tr>
                   <th className="px-4 py-3 font-medium text-muted-foreground">Model</th>
-                  <th className="px-4 py-3 font-medium text-muted-foreground text-center">AirPrint</th>
-                  <th className="px-4 py-3 font-medium text-muted-foreground text-center">IPP Everywhere</th>
+                  <th className="px-4 py-3 font-medium text-muted-foreground">Standards</th>
                 </tr>
               </thead>
               <tbody className="divide-y divide-border">
                 {loading ? (
                   <tr>
-                    <td colSpan={3} className="px-4 py-10 text-center text-muted-foreground">
+                    <td colSpan={2} className="px-4 py-10 text-center text-muted-foreground">
                       Loading printer list…
                     </td>
                   </tr>
                 ) : pageItems.length === 0 ? (
                   <tr>
-                    <td colSpan={3} className="px-4 py-10 text-center text-muted-foreground">
+                    <td colSpan={2} className="px-4 py-10 text-center text-muted-foreground">
                       No printers found matching &ldquo;{query}&rdquo;.
                     </td>
                   </tr>
                 ) : (
-                  pageItems.map((printer, i) => (
-                    <tr key={i} className="hover:bg-muted/40 transition-colors">
-                      <td className="px-4 py-3">{printer.model}</td>
-                      <td className="px-4 py-3 text-center">
-                        {printer.airprt === "1"
-                          ? <Check className="w-4 h-4 text-green-600 dark:text-green-400 mx-auto" />
-                          : <X className="w-4 h-4 text-muted-foreground mx-auto" />}
-                      </td>
-                      <td className="px-4 py-3 text-center">
-                        {printer.ippeve === "1"
-                          ? <Check className="w-4 h-4 text-green-600 dark:text-green-400 mx-auto" />
-                          : <X className="w-4 h-4 text-muted-foreground mx-auto" />}
-                      </td>
-                    </tr>
-                  ))
+                  pageItems.map((printer, i) => {
+                    const standards = [
+                      printer.airprt === "1" && "AirPrint",
+                      printer.ippeve === "1" && "IPP Everywhere",
+                    ].filter(Boolean).join(", ")
+                    return (
+                      <tr key={i} className="hover:bg-muted/40 transition-colors">
+                        <td className="px-4 py-3">{printer.model}</td>
+                        <td className="px-4 py-3 text-muted-foreground">{standards || "—"}</td>
+                      </tr>
+                    )
+                  })
                 )}
               </tbody>
             </table>
