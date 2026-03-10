@@ -50,12 +50,6 @@ export function GsocYearClient({
     contributorBySlug.set(c.slug, c);
   }
 
-  const projectSlugs = new Set(projects.map((p) => p.slug));
-  const orphanContributors = contributors.filter(
-    (c) => !projectSlugs.has(c.slug),
-  );
-
-  const totalCount = projects.length + orphanContributors.length;
   const hasContributors = contributors.length > 0;
 
   const projectMentors = new Map<string, string[]>();
