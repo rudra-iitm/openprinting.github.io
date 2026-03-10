@@ -1,0 +1,13 @@
+{
+  "id": "Oki-OL810ex",
+  "manufacturer": "Oki",
+  "model": "OL810ex",
+  "type": "led",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "hpijs-pcl5e"
+    }
+  ]
+}

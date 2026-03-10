@@ -1,0 +1,13 @@
+{
+  "id": "HP-LaserJet_P4015",
+  "manufacturer": "HP",
+  "model": "LaserJet P4015",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "Throughput = 52\n      \n      Foomatic entry made by PPDtoXML T/G 0.21 on 2009-10-27",
+  "drivers": [
+    {
+      "id": "hplip"
+    }
+  ]
+}

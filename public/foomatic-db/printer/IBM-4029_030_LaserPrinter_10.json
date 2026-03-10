@@ -1,0 +1,13 @@
+{
+  "id": "IBM-4029_030_LaserPrinter_10",
+  "manufacturer": "IBM",
+  "model": "4029 030 LaserPrinter 10",
+  "type": "laser",
+  "functionality": "D",
+  "notes": "Supports PCL4, IBM PPDS, Plotter GL, and Hex Trace emulation. May work in 300 \ndpi mode with Ghostscript.\n<p>\nThere is apparently also a Postscript version or module or something.<p>\n\n      Consumables/Refills: IBM #1380200 / 1380520<p>",
+  "drivers": [
+    {
+      "id": "ljet3"
+    }
+  ]
+}

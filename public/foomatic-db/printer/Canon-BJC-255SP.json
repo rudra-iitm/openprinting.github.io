@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJC-255SP",
+  "manufacturer": "Canon",
+  "model": "BJC-255SP",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Seems to be more or less the same as the Canon BJC-250.<p>\n\n      Consumables/Refills: black cartridge and color cartridge<p>",
+  "drivers": [
+    {
+      "id": "bjc250gs"
+    }
+  ]
+}

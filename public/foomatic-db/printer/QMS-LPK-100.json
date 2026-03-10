@@ -1,0 +1,13 @@
+{
+  "id": "QMS-LPK-100",
+  "manufacturer": "QMS",
+  "model": "LPK-100",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Very old (c. 1985) laser printer. \nEmulates an Epson FX-80.<p>\n\n      Consumables/Refills: Laserjet I cartridge (~$50 at OfficeDepot around here)<p>",
+  "drivers": [
+    {
+      "id": "eps9mid"
+    }
+  ]
+}

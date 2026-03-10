@@ -1,0 +1,13 @@
+{
+  "id": "Oki-Okipage_14ex",
+  "manufacturer": "Oki",
+  "model": "Okipage 14ex",
+  "type": "led",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

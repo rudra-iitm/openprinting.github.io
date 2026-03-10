@@ -1,0 +1,13 @@
+{
+  "id": "Xerox-Phaser_3040",
+  "manufacturer": "Xerox",
+  "model": "Phaser 3040",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "The Xerox Phaser 3040\n\tis a monochrome printer with a 2016 street price of $90.\n\n\tThese printers are supported by the foo2hbpl2 open software printer\n\tdriver.",
+  "drivers": [
+    {
+      "id": "foo2hbpl2"
+    }
+  ]
+}

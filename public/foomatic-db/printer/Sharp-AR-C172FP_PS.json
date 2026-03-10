@@ -1,0 +1,13 @@
+{
+  "id": "Sharp-AR-C172FP_PS",
+  "manufacturer": "Sharp",
+  "model": "AR-C172FP PS",
+  "type": "led",
+  "functionality": "B",
+  "notes": "Throughput = 17\n\n      Foomatic entry made by PPDtoXML T/G 0.06",
+  "drivers": [
+    {
+      "id": "Postscript-Sharp"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Epson-L800",
+  "manufacturer": "Epson",
+  "model": "L800",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Epson color inkjet printer.<p>\n      Maximum paper width: 21.0 cm / 8.3 inches<p>",
+  "drivers": [
+    {
+      "id": "epson_l800"
+    }
+  ]
+}

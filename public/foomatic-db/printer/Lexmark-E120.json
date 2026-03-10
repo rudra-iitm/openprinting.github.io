@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-E120",
+  "manufacturer": "Lexmark",
+  "model": "E120",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "Foomatic entry made by PPDtoXML T/G 0.19 on 2008-09-03<p>\n\n      You can use this printer using the PCL 5e language. Pressing the\n      \"Print\" button on the printer (when the printer is idle) you\n      will get a technical sheet regarding the printer's internal\n      settings.<p>",
+  "drivers": [
+    {
+      "id": "hpijs-pcl5e"
+    }
+  ]
+}

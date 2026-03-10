@@ -1,0 +1,13 @@
+{
+  "id": "Fujitsu-3400",
+  "manufacturer": "Fujitsu",
+  "model": "3400",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "epsonc"
+    }
+  ]
+}

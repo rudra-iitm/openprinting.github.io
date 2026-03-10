@@ -1,0 +1,13 @@
+{
+  "id": "Apple-12_640ps",
+  "manufacturer": "Apple",
+  "model": "12/640ps",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "No specific Linux driver available.\nWorks fine with Generic Postscript\nDriver from parallel port; I'm not sure\nif it works from the ethernet.<p>\n\n      Consumables/Refills: plain paper, same toner as HP<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

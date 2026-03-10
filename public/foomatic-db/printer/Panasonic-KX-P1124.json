@@ -1,0 +1,13 @@
+{
+  "id": "Panasonic-KX-P1124",
+  "manufacturer": "Panasonic",
+  "model": "KX-P1124",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "epson"
+    }
+  ]
+}

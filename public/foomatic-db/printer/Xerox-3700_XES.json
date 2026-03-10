@@ -1,0 +1,13 @@
+{
+  "id": "Xerox-3700_XES",
+  "manufacturer": "Xerox",
+  "model": "3700 XES",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "xes"
+    }
+  ]
+}

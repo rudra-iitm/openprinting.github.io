@@ -1,0 +1,13 @@
+{
+  "id": "NEC-Silentwriter2_model_290",
+  "manufacturer": "NEC",
+  "model": "Silentwriter2 model 290",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Comes with two megs of memory, fully functional but slow.<p>\n\n      Consumables/Refills: EPS cartridge<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

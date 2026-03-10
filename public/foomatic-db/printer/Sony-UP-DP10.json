@@ -1,0 +1,13 @@
+{
+  "id": "Sony-UP-DP10",
+  "manufacturer": "Sony",
+  "model": "UP-DP10",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Dye-sublimation printer, 300dpi, 24bit color depth, max. paper\n    size 4x6in/10x15cm, laminate overcoating, full-bleed\n    (border-less). Does not print on normal paper, so it is not\n    suitable for documents, it is only for photos.<p>\n\n    USB and parallel connection.<p><p>\n\n      Consumables/Refills: Packs with special paper and three-color ribbon<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

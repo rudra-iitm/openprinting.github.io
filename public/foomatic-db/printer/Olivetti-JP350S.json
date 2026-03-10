@@ -1,0 +1,13 @@
+{
+  "id": "Olivetti-JP350S",
+  "manufacturer": "Olivetti",
+  "model": "JP350S",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "The manual says it's a deskjet plus compatible, but selecting that in ghostscript doesn't work use laserjet instead\n\nThere is a color cartridge available for this printer, but I don't have it so I don't know if it works. According to olivetti it's hp deskjet 500c compatible<p>\n\n      Consumables/Refills: cartridge<p>",
+  "drivers": [
+    {
+      "id": "laserjet"
+    }
+  ]
+}

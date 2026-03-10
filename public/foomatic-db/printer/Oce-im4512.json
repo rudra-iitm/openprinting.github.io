@@ -1,0 +1,13 @@
+{
+  "id": "Oce-im4512",
+  "manufacturer": "Oce",
+  "model": "im4512",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 45\n\n      Foomatic entry made by PPDtoXML T/G 0.06",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

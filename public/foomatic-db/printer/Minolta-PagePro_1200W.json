@@ -1,0 +1,13 @@
+{
+  "id": "Minolta-PagePro_1200W",
+  "manufacturer": "Minolta",
+  "model": "PagePro 1200W",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Low cost laser. Does not understand PCL or PostScript.",
+  "drivers": [
+    {
+      "id": "min12xxw"
+    }
+  ]
+}

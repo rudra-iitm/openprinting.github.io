@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-E450dn",
+  "manufacturer": "Lexmark",
+  "model": "E450dn",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "Throughput = 35\n\n      Foomatic entry made by PPDtoXML T/G 0.14 on 2008-05-16<p>\n\n      Consumables/Refills: E450 High Yield cartrage ~11,000 pages $155<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

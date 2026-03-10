@@ -1,0 +1,13 @@
+{
+  "id": "Toshiba-e-Studio_351c",
+  "manufacturer": "Toshiba",
+  "model": "e-Studio 351c",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "Postscript-Toshiba"
+    }
+  ]
+}

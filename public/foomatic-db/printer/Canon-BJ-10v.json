@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJ-10v",
+  "manufacturer": "Canon",
+  "model": "BJ-10v",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Imported from old Red Hat japanese printer database",
+  "drivers": [
+    {
+      "id": "bj10vh"
+    }
+  ]
+}

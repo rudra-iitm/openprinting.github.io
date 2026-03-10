@@ -1,0 +1,13 @@
+{
+  "id": "Canon-LBP-310",
+  "manufacturer": "Canon",
+  "model": "LBP-310",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Imported from old Red Hat japanese printer database",
+  "drivers": [
+    {
+      "id": "lbp310"
+    }
+  ]
+}

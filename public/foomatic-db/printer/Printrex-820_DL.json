@@ -1,0 +1,9 @@
+{
+  "id": "Printrex-820_DL",
+  "manufacturer": "Printrex",
+  "model": "820 DL",
+  "type": "unknown",
+  "functionality": "D",
+  "notes": "Data logging printer; prints on continuous roll thermal paper.<p>\n\n    Prints text just fine, and the command set is fully documented.<p>\n\n    It should be straightforward to write a Ghostscript driver for the\n    two bitmap modes (100 and 200dpi).<p>\n\n      Consumables/Refills: Just thermal paper<p>",
+  "drivers": []
+}

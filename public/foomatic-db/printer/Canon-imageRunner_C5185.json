@@ -1,0 +1,13 @@
+{
+  "id": "Canon-imageRunner_C5185",
+  "manufacturer": "Canon",
+  "model": "imageRunner C5185",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Postscript 3 is optional\n      \n      Foomatic entry made by PPDtoXML T/G 0.19 on 2008-09-03",
+  "drivers": [
+    {
+      "id": "pxlcolor"
+    }
+  ]
+}

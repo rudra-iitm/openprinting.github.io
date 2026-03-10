@@ -1,0 +1,13 @@
+{
+  "id": "Fujitsu-FMPR",
+  "manufacturer": "Fujitsu",
+  "model": "FMPR",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "Imported from old Red Hat japanese printer database",
+  "drivers": [
+    {
+      "id": "fmpr"
+    }
+  ]
+}

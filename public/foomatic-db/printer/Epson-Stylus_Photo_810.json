@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Photo_810",
+  "manufacturer": "Epson",
+  "model": "Stylus Photo 810",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "6-color CMYKcm printing.<p>\n\n    Successor of the Stylus Photo 780/790 printers.<p>\n\n    USB or Parallel connection.<p>\n\n    Printing works perfectly, but head alignment needs an external\n    head alignment page from the computer, therefore it does not work\n    with \"<tt>escputil</tt>\" yet. Print in\n    unidirectional mode to get the highest quality, then head\n    alignment is not necessary.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_D68",
+  "manufacturer": "Epson",
+  "model": "Stylus D68",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

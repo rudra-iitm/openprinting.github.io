@@ -1,0 +1,13 @@
+{
+  "id": "KONICA_MINOLTA-bizhub_750",
+  "manufacturer": "KONICA MINOLTA",
+  "model": "bizhub 750",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "Postscript-KONICA_MINOLTA"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "HP-DeskJet_340C",
+  "manufacturer": "HP",
+  "model": "DeskJet 340C",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "For basic printing functionality use the <a \n    href=\"http://hplipopensource.com/\">HPIJS \n    driver </a>. For advanced functionality such\n    as printer status and maintenance features, use the\n    <a href=\"http://hplipopensource.com/\">\n    HPLIP driver</a> (which includes HPIJS). <p>\n    \n    Note: The maximum resolution in color is 300x300.\n    <p>\n\n    Use the \"gimp-print\"/\"stp\" or\n    \"pcl3\"/\"hpdj\" driver.<p>\n\n    The best output quality you will get with the\n    \"gimp-print\" driver, it also handles the ink more\n    economically.<p>\n\n    If you have Gimp-Print 4.1.6 or older installed, you should\n    upgrade to a newer version, because the old versions\n    \"print\" blank lines instead of simply advancing the\n    paper fastly.<p><p>\n\n      Consumables/Refills: cartridge, about $25 USD<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

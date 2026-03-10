@@ -1,0 +1,13 @@
+{
+  "id": "Xerox-Phaser_7700DN",
+  "manufacturer": "Xerox",
+  "model": "Phaser 7700DN",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 22\n      \n      Foomatic entry made by PPDtoXML T/G 0.18 on 2008-05-25\n      \n      <p>\n\n      Maximum paper width: 12.6 inches / 32.0 cm\n      (Wide format printer)<p>\n\n      Printing engine speed: 22 pages/min<p>",
+  "drivers": [
+    {
+      "id": "Postscript-Xerox"
+    }
+  ]
+}

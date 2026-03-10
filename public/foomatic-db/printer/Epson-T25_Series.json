@@ -1,0 +1,13 @@
+{
+  "id": "Epson-T25_Series",
+  "manufacturer": "Epson",
+  "model": "T25 Series",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "All-in-One color inkjet printer.<p>\n      Maximum paper width: 21.0 cm / 8.3 inches<p>",
+  "drivers": [
+    {
+      "id": "epson-n10-nx127"
+    }
+  ]
+}

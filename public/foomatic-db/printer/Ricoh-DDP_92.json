@@ -1,0 +1,13 @@
+{
+  "id": "Ricoh-DDP_92",
+  "manufacturer": "Ricoh",
+  "model": "DDP 92",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Optional Postscript support. <p>\n\nVisit <a href=\"http://www.linux-foundation.org/en/OpenPrinting/Database/RicohFAQ#Ricoh_FAQ\"> Ricoh FAQ </a> for commonly asked questions. <p>\n\nThroughput 92.",
+  "drivers": [
+    {
+      "id": "Postscript-Ricoh"
+    }
+  ]
+}

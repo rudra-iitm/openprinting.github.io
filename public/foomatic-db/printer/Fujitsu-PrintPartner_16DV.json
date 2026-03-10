@@ -1,0 +1,13 @@
+{
+  "id": "Fujitsu-PrintPartner_16DV",
+  "manufacturer": "Fujitsu",
+  "model": "PrintPartner 16DV",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Postscript, Duplex, IrDA, Ethernet options available.<p>\n\n      Consumables/Refills: Toner Cartridge to 5k pages, drum at 40k<p>",
+  "drivers": [
+    {
+      "id": "hpijs-pcl5e"
+    }
+  ]
+}

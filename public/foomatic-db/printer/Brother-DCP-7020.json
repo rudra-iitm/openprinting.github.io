@@ -1,0 +1,13 @@
+{
+  "id": "Brother-DCP-7020",
+  "manufacturer": "Brother",
+  "model": "DCP-7020",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "hl1250"
+    }
+  ]
+}

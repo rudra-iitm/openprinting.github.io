@@ -1,0 +1,9 @@
+{
+  "id": "Brother-MP-21C",
+  "manufacturer": "Brother",
+  "model": "MP-21C",
+  "type": "inkjet",
+  "functionality": "F",
+  "notes": "A PCMCIA-interface inkjet; not known to work.",
+  "drivers": []
+}

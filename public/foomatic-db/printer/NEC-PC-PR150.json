@@ -1,0 +1,13 @@
+{
+  "id": "NEC-PC-PR150",
+  "manufacturer": "NEC",
+  "model": "PC-PR150",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "Imported from old Red Hat japanese printer database",
+  "drivers": [
+    {
+      "id": "pr150"
+    }
+  ]
+}

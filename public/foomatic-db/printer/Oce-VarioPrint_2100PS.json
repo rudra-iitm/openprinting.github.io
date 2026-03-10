@@ -1,0 +1,13 @@
+{
+  "id": "Oce-VarioPrint_2100PS",
+  "manufacturer": "Oce",
+  "model": "VarioPrint 2100",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "<b>Flexible mid production system</b><br/>\nThe Oce VarioPrint 2100 is a scalable production solution that can meet your current needs and grow with you into the future.\n<UL>\n<LI>Tab printing </LI>\n<LI>Interposing of post-processed colour prints </LI>\n<LI>91 prints per minute </LI>\n<LI>Inline finishing </LI>\n<LI>Speed upgrade to 105 prints per minute (optional) </LI>\n<LI>Custom and oversized printing (optional) </LI>\n<LI>Streaming PS/PCL (optional) </LI>\n</UL><p>\n\n      Consumables/Refills: Toner\n      <p>",
+  "drivers": [
+    {
+      "id": "Postscript-Oce"
+    }
+  ]
+}

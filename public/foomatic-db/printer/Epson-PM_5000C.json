@@ -1,0 +1,13 @@
+{
+  "id": "Epson-PM_5000C",
+  "manufacturer": "Epson",
+  "model": "PM 5000C",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "Japanese version of the Epson Stylus Pro 5000.<p>\n\n    Working in gimp-print 4.1.8.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

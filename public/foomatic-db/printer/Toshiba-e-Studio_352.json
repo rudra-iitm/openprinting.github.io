@@ -1,0 +1,13 @@
+{
+  "id": "Toshiba-e-Studio_352",
+  "manufacturer": "Toshiba",
+  "model": "e-Studio 352",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "Postscript-Toshiba"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Brother-DCP-9040CN",
+  "manufacturer": "Brother",
+  "model": "DCP-9040CN",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "This database entry was automatically generated\n      from the PPD file for this printer.<p>\n\n      Maximum paper width: 8.7 inches / 22.0 cm\n      (Standard format printer)<p>\n\n      Printing engine speed: 20 pages/min<p>",
+  "drivers": [
+    {
+      "id": "Postscript-Brother"
+    }
+  ]
+}

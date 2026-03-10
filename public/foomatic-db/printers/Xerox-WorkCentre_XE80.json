@@ -1,0 +1,9 @@
+{
+  "id": "Xerox-WorkCentre_XE80",
+  "manufacturer": "Xerox",
+  "model": "WorkCentre XE80",
+  "type": "laser",
+  "functionality": "F",
+  "notes": "Multifunction device: printer/copier.  Not a scanner?\n<br>Host-based printer; no specs available, so no free driver.<p>\n\n      Consumables/Refills: separate drum and cartridge<p>",
+  "drivers": []
+}

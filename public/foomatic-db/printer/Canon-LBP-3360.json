@@ -1,0 +1,13 @@
+{
+  "id": "Canon-LBP-3360",
+  "manufacturer": "Canon",
+  "model": "LBP-3360",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "This is a PCL-XL printer but using it with \"pxlmono\" does not\n      work reliably, probably due to firmware incompatibility. See\n      <a href=\"https://bugs.launchpad.net/bugs/504841\">this bug\n      report</a>. So best choice is the HPLIP driver\n      \"hpijs-pcl5e\".<p>\n      \n      Foomatic entry made by PPDtoXML T/G 0.20 on 2008-09-06",
+  "drivers": [
+    {
+      "id": "hpijs-pcl5e"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "QMS-ps-810",
+  "manufacturer": "QMS",
+  "model": "ps-810",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Very old (circa '89), reliable printer.\nLaserwriter clone.\nNative postscript level 1.\napsfilter handles ascii etc.\nprint from netscape works.\nprint from acrobat reader does not,\neven w/level 1 set.<p>\n\n      Consumables/Refills: Canon EP-S<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

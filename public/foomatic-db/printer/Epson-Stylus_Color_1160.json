@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Color_1160",
+  "manufacturer": "Epson",
+  "model": "Stylus Color 1160",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "I have no information on this printer other than that the stp driver author \nreports that it should work perfectly.",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

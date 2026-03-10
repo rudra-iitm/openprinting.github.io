@@ -1,0 +1,13 @@
+{
+  "id": "Epson-PM_A900",
+  "manufacturer": "Epson",
+  "model": "PM A900",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "Japanese equivalent of RX700.<p>\n\n    Multi-function device: Printer, Scanner, Copier.<p>\n\n    6-color (CcMmYK), 1.5 pl all-in-one with 8.5-inch\n    carriage. Maximum resolution 5760x2880. Drop size is unusually\n    small for a 6-color printer. Not yet tested by Gutenprint\n    authors.<p>\n\n    Scanning should work with <a\n    href=\"http://www.sane-project.org/\">SANE</a> using\n    Epson's <a\n    href=\"http://www.avasys.jp/english/linux_e/dl_scan.html\">IScan</a>\n    or perhaps also with SANE's \"<tt>epson</tt>\"\n    backend.<p>\n\n    Copying should just work with the front panel of the\n    device.<p><p>\n\n      Consumables/Refills: <p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Pro_XL",
+  "manufacturer": "Epson",
+  "model": "Stylus Pro XL",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "(Referring to stcolor:)Not as good as native NT4 driver on images, but\nquite useable; don't forget to enable weaving; Uniprint works also.\n<br>\nstp quality should be quite good.<p>\n\n      Consumables/Refills: Cartridge<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

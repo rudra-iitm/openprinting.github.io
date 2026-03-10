@@ -1,0 +1,13 @@
+{
+  "id": "Ricoh-EMP_156",
+  "manufacturer": "Ricoh",
+  "model": "EMP 156",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Optional Postscript support. <p>\n\nVisit <a href=\"http://www.linux-foundation.org/en/OpenPrinting/Database/RicohFAQ#Ricoh_FAQ\"> Ricoh FAQ </a> for commonly asked questions. <p>\n\nThroughput 156.",
+  "drivers": [
+    {
+      "id": "Postscript-Ricoh"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJC-7004",
+  "manufacturer": "Canon",
+  "model": "BJC-7004",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "Works at 600x600.<p>\n\nTry also to the\n\"<a href=\"http://www.openprinting.org/show_driver.cgi?driver=stp\">stp</a>\"\ndriver choosing the Canon BJC 7000 or 7100 as printer model.",
+  "drivers": [
+    {
+      "id": "bjc800"
+    }
+  ]
+}

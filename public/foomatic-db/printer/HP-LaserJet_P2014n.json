@@ -1,0 +1,13 @@
+{
+  "id": "HP-LaserJet_P2014n",
+  "manufacturer": "HP",
+  "model": "LaserJet P2014n",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "This printer is supported by the foo2xqx free software printer driver.\n    <p>\n\n    Consumables: Cartridge containing toner and imaging drum",
+  "drivers": [
+    {
+      "id": "foo2xqx"
+    }
+  ]
+}

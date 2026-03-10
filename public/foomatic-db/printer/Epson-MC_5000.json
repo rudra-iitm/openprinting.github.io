@@ -1,0 +1,13 @@
+{
+  "id": "Epson-MC_5000",
+  "manufacturer": "Epson",
+  "model": "MC 5000",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "Japanese version of the Epson Stylus Pro 5500.<p>\n\n      Working in gimp-print 4.1.8 or newer.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

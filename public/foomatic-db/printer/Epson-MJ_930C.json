@@ -1,0 +1,13 @@
+{
+  "id": "Epson-MJ_930C",
+  "manufacturer": "Epson",
+  "model": "MJ 930C",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Japanese version of the Epson Stylus Color 800.<p><p>\n\n      Consumables/Refills: <p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

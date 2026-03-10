@@ -1,0 +1,13 @@
+{
+  "id": "Ricoh-6000",
+  "manufacturer": "Ricoh",
+  "model": "6000",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "r4081"
+    }
+  ]
+}

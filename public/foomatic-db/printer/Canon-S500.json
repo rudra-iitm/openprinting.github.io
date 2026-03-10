@@ -1,0 +1,13 @@
+{
+  "id": "Canon-S500",
+  "manufacturer": "Canon",
+  "model": "S500",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "Does up to 600x600 dpi when one configures it as a Canon\n    BJC-8200 with Gimp-Print\n    (\"<tt>-sModel=bjc-8200</tt>\") or when one\n    uses the 600-dpi Uniprint drivers for the BJC-8200.<p>\n\n      Consumables/Refills: 4 independent ink tanks<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

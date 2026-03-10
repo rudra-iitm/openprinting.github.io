@@ -1,0 +1,13 @@
+{
+  "id": "Fujitsu-2400",
+  "manufacturer": "Fujitsu",
+  "model": "2400",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "epsonc"
+    }
+  ]
+}

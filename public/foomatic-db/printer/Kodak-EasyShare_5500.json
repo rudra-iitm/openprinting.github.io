@@ -1,0 +1,13 @@
+{
+  "id": "Kodak-EasyShare_5500",
+  "manufacturer": "Kodak",
+  "model": "EasyShare 5500",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "c2esp"
+    }
+  ]
+}

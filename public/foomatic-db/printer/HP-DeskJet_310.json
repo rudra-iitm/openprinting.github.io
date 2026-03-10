@@ -1,0 +1,13 @@
+{
+  "id": "HP-DeskJet_310",
+  "manufacturer": "HP",
+  "model": "DeskJet 310",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "For basic printing functionality use the <a \n    href=\"http://hplipopensource.com/\">HPIJS \n    driver </a>. For advanced functionality such\n    as printer status and maintenance features, use the\n    <a href=\"http://hplipopensource.com/\">\n    HPLIP driver</a> (which includes HPIJS). <p>\n    \n    Should work perfectly, the protocol of these old models is\n    well-known.",
+  "drivers": [
+    {
+      "id": "pcl3"
+    }
+  ]
+}

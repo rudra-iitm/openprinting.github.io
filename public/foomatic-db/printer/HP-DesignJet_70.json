@@ -1,0 +1,13 @@
+{
+  "id": "HP-DesignJet_70",
+  "manufacturer": "HP",
+  "model": "DesignJet 70",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "Large-format printer.<p><p>\n\n      Consumables/Refills: <p>",
+  "drivers": [
+    {
+      "id": "cdnj500"
+    }
+  ]
+}

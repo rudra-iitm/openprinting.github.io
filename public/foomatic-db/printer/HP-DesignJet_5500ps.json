@@ -1,0 +1,13 @@
+{
+  "id": "HP-DesignJet_5500ps",
+  "manufacturer": "HP",
+  "model": "DesignJet 5500ps",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Large-format 6-ink printer, 42 inches or 60 inches wide.<p>\n\n    PostScript printer, so it should be no problem to use this model\n    under free operating systems.<p>\n\n    Drivers for HP's RTL language are under developement in both\n    the CUPS-1.2 and Gimp-Print projects.<p>\n\n    You can also send HP-GL/2 drawings and JPEG images directly to the\n    printer.<p><p>\n\n      Consumables/Refills: 6 cartridges (CMYcmK)<p>",
+  "drivers": [
+    {
+      "id": "Postscript-HP"
+    }
+  ]
+}

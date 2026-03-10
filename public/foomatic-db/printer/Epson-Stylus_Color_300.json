@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Color_300",
+  "manufacturer": "Epson",
+  "model": "Stylus Color 300",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "Works partially with the ghostscript 5.10 stcany.upp and stc2.upp\n    drivers and -sDEVICE=stcolor -dMicroweave. The printout is\n    readable but not good.<p>\n\n    Glenn Ramsey wrote a set of stc300 uniprint drivers, they are\n    available in GNU/AFPL/ESP Ghostscript 7.05 and newer.<p>\n\n    It probably does not work with Gimp-Print.<p><p>\n\n      Consumables/Refills: Ink cartridge (Epson P/N SO20138)<p>",
+  "drivers": [
+    {
+      "id": "stcolor"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Pro_9500",
+  "manufacturer": "Epson",
+  "model": "Stylus Pro 9500",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "Needs testing, I (Till) did a short test in the Epson office in Paris,\n    but didn't get correct results.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

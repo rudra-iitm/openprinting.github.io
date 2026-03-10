@@ -1,0 +1,13 @@
+{
+  "id": "Ricoh-Aficio_5206",
+  "manufacturer": "Ricoh",
+  "model": "Aficio 5206",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "This printer is driven by a Fiery XJ80e print server. It's a network printer, and it supports most protocols (IP, AppleTalk, Novell, etc.). The machine has a local parallel port and built in 10Base-T. I can't get it to work through 10Base-T, and it's too big to move for trying the parallel port.",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

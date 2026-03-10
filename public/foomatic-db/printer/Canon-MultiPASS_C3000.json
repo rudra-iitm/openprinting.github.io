@@ -1,0 +1,13 @@
+{
+  "id": "Canon-MultiPASS_C3000",
+  "manufacturer": "Canon",
+  "model": "MultiPASS C3000",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "Actually, I used the bjc610 uniprint driver\nsetting from RedHat's printtool.\n<br>This multifunction machine ignored me until\nI gave it this magic invocation from \nthe front panel:\n\"Function\" \"0\" five-greater-than-signs \"Start\" \"Start\"\n(Which corresponds to DOS Printing ON)<p>\n\n      Consumables/Refills: cartridge<p>",
+  "drivers": [
+    {
+      "id": "bjc600"
+    }
+  ]
+}

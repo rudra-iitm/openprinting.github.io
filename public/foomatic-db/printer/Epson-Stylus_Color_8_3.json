@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Color_8_3",
+  "manufacturer": "Epson",
+  "model": "Stylus Color 8 3",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Works perfectly with Gimp-Print 4.2.x.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

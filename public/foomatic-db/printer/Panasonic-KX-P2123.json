@@ -1,0 +1,13 @@
+{
+  "id": "Panasonic-KX-P2123",
+  "manufacturer": "Panasonic",
+  "model": "KX-P2123",
+  "type": "dotmatrix",
+  "functionality": "B",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "epson"
+    }
+  ]
+}

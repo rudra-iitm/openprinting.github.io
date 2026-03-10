@@ -1,0 +1,13 @@
+{
+  "id": "HP-DesignJet_130",
+  "manufacturer": "HP",
+  "model": "DesignJet 130",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "Large-format printer.<p>\n\n    Tested and works with the \"chp2200\" and \"cdnj500\" drivers.<p><p>\n\n      Consumables/Refills: <p>",
+  "drivers": [
+    {
+      "id": "cdnj500"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Oki-Okipage_6ex",
+  "manufacturer": "Oki",
+  "model": "Okipage 6ex",
+  "type": "led",
+  "functionality": "A",
+  "notes": "600x600 dpi does not work out-of-the-box, if you have a lot of graphics and the memory not upgraded.\nUse 300x300 dpi instead.<p>\n\n      Consumables/Refills: toner and drum unit<p>",
+  "drivers": [
+    {
+      "id": "hpijs-pcl5e"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Photo_935",
+  "manufacturer": "Epson",
+  "model": "Stylus Photo 935",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "6-color 4-pl CMYKcm printing.<br>\n\n    Roll paper feeder, USB or Parallel.",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

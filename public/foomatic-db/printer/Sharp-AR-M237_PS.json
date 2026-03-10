@@ -1,0 +1,13 @@
+{
+  "id": "Sharp-AR-M237_PS",
+  "manufacturer": "Sharp",
+  "model": "AR-M237 PS",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 23\n\n      Foomatic entry made by PPDtoXML T/G 0.06",
+  "drivers": [
+    {
+      "id": "Postscript-Sharp"
+    }
+  ]
+}

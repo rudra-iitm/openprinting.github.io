@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-Optra_C710",
+  "manufacturer": "Lexmark",
+  "model": "Optra C710",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "CMYK color printing.<p>\n\n      Consumables/Refills: 4 separate toner cartridges<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

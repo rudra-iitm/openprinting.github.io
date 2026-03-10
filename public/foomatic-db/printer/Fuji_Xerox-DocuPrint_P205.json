@@ -1,0 +1,13 @@
+{
+  "id": "Fuji_Xerox-DocuPrint_P205",
+  "manufacturer": "Fuji Xerox",
+  "model": "DocuPrint P205",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "The Fuji Xerox DocuPrint P205b (USB)\n\tis a monochrome printer with a 2013 street price of $100.\n\n\tThese printers are supported by the foo2hbpl2 open software printer\n\tdriver.",
+  "drivers": [
+    {
+      "id": "foo2hbpl2"
+    }
+  ]
+}

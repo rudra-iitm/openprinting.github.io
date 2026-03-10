@@ -1,0 +1,13 @@
+{
+  "id": "Dell-C1765",
+  "manufacturer": "Dell",
+  "model": "C1765",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "The Dell C1765nf/nfw is color multifunction printer with a 2014 street\n\tprice of $170.\n\n\tThese printers are supported by the foo2hbpl2 open software printer\n\tdriver.",
+  "drivers": [
+    {
+      "id": "foo2hbpl2"
+    }
+  ]
+}

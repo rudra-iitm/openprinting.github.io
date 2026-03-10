@@ -1,0 +1,13 @@
+{
+  "id": "DEC-LA70",
+  "manufacturer": "DEC",
+  "model": "LA70",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "la70"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Canon-i450",
+  "manufacturer": "Canon",
+  "model": "i450",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "Consumables/Refills: Refill: BCI-24 ink tank $7 black, $18.50 color<p>",
+  "drivers": [
+    {
+      "id": "bjc800"
+    }
+  ]
+}

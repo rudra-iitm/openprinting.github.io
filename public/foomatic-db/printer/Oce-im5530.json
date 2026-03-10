@@ -1,0 +1,13 @@
+{
+  "id": "Oce-im5530",
+  "manufacturer": "Oce",
+  "model": "im5530",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 55\n      \n      Foomatic entry made by PPDtoXML T/G 0.18 on 2008-05-20",
+  "drivers": [
+    {
+      "id": "Postscript-Oce"
+    }
+  ]
+}

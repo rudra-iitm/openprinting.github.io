@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Photo_R380",
+  "manufacturer": "Epson",
+  "model": "Stylus Photo R380",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "All-in-One color inkjet printer.<p>\n      Epson provides a free (GPL) driver for this printer.<p>\n\n      Maximum paper width: 21.0 cm / 8.3 inches<p>",
+  "drivers": [
+    {
+      "id": "epson-escpr"
+    }
+  ]
+}

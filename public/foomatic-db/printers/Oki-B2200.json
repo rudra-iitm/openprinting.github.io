@@ -1,0 +1,9 @@
+{
+  "id": "Oki-B2200",
+  "manufacturer": "Oki",
+  "model": "B2200",
+  "type": "unknown",
+  "functionality": "F",
+  "notes": "Throughput = 21\n\n      Foomatic entry made by PPDtoXML T/G 0.05",
+  "drivers": []
+}

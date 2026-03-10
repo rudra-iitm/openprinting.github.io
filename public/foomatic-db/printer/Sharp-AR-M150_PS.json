@@ -1,0 +1,13 @@
+{
+  "id": "Sharp-AR-M150_PS",
+  "manufacturer": "Sharp",
+  "model": "AR-M150 PS",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 15\n\n      Foomatic entry made by PPDtoXML T/G 0.06",
+  "drivers": [
+    {
+      "id": "Postscript-Sharp"
+    }
+  ]
+}

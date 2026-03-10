@@ -1,0 +1,13 @@
+{
+  "id": "Brother-HL-2170W",
+  "manufacturer": "Brother",
+  "model": "HL-2170W",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Monochrome laser printer, 23 pages/min.<p>\n\n      Printer supports PCL-XL, but with the \"pxlmono\" Ghostscript driver\n      it prints only error messages. With PCL-5e drivers it works just\n      fine.<p>",
+  "drivers": [
+    {
+      "id": "hpijs-pcl5e"
+    }
+  ]
+}

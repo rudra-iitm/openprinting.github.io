@@ -1,0 +1,13 @@
+{
+  "id": "Brother-HL-4050CDN",
+  "manufacturer": "Brother",
+  "model": "HL-4050CDN",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Maximum paper width: 8.7 inches / 22.0 cm\n      (Standard format printer)<p>\n\n      Printing engine speed: 20 pages/min<p>",
+  "drivers": [
+    {
+      "id": "Postscript-Brother"
+    }
+  ]
+}

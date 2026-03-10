@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJC-600",
+  "manufacturer": "Canon",
+  "model": "BJC-600",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Specific GS driver written for this printer.<p>\n\n      Consumables/Refills: separate cmyk cartidges, ~$15-$20<p>",
+  "drivers": [
+    {
+      "id": "bjc600"
+    }
+  ]
+}

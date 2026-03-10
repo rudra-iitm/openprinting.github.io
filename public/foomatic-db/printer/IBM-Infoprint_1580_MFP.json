@@ -1,0 +1,13 @@
+{
+  "id": "IBM-Infoprint_1580_MFP",
+  "manufacturer": "IBM",
+  "model": "Infoprint 1580 MFP",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 55\n\n      Foomatic entry made by PPDtoXML T/G 0.05",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

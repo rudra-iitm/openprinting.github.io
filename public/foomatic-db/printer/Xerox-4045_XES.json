@@ -1,0 +1,13 @@
+{
+  "id": "Xerox-4045_XES",
+  "manufacturer": "Xerox",
+  "model": "4045 XES",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "xes"
+    }
+  ]
+}

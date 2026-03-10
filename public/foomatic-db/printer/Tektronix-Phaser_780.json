@@ -1,0 +1,13 @@
+{
+  "id": "Tektronix-Phaser_780",
+  "manufacturer": "Tektronix",
+  "model": "Phaser 780",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "used RedHat's \"printtool\"; set to \"postscript,\" color test page printed perfectly (in fact, stunningly).<p>\n\n      Consumables/Refills: CMYK Toner<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

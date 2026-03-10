@@ -1,0 +1,13 @@
+{
+  "id": "Samsung-CLP-365",
+  "manufacturer": "Samsung",
+  "model": "CLP-365",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "The Samsung CLP-360 (USB) and Samsung CLP-365W (Net) are\n      color laser printers with a 2012 street price of $230 USD.<p>\n\n      This printer is supported by the foo2qpdl open software printer\n      driver.<p>\n\n      Consumables: Separate toner cartridges black (1500 prints,\n      ~$54), yellow/magenta/cyan (1000 prints, ~$45 each), waste toner\n      (5000 prints, ~$10), drum kit (24000 prints, ~$96)",
+  "drivers": [
+    {
+      "id": "foo2qpdl"
+    }
+  ]
+}

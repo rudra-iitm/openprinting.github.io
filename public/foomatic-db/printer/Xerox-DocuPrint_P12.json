@@ -1,0 +1,13 @@
+{
+  "id": "Xerox-DocuPrint_P12",
+  "manufacturer": "Xerox",
+  "model": "DocuPrint P12",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Another \"PrintGear\" printer; PCL support with Ghostscript driver only goes up to 300x300 dpi.",
+  "drivers": [
+    {
+      "id": "ljet2p"
+    }
+  ]
+}

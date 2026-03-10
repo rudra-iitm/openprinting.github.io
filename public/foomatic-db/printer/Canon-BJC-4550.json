@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJC-4550",
+  "manufacturer": "Canon",
+  "model": "BJC-4550",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "In gs 5.03, colour only works for 24 and 32\nbit/pixel. \n<br>Monochrome reported not working, but try bj200 driver or -dBitsPerPixel=1.\n<br>The \"bjc600\" driver does not print the large formats (A3, 11x17).",
+  "drivers": [
+    {
+      "id": "bjc800"
+    }
+  ]
+}

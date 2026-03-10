@@ -1,0 +1,13 @@
+{
+  "id": "Oki-Microline_182",
+  "manufacturer": "Oki",
+  "model": "Microline 182",
+  "type": "dotmatrix",
+  "functionality": "B",
+  "notes": "I have no idea what's missing.",
+  "drivers": [
+    {
+      "id": "oki182"
+    }
+  ]
+}

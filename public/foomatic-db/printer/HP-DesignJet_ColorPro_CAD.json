@@ -1,0 +1,13 @@
+{
+  "id": "HP-DesignJet_ColorPro_CAD",
+  "manufacturer": "HP",
+  "model": "DesignJet ColorPro CAD",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Repackaged <a\n    href=\"show_printer.cgi?recnum=HP-2500C\">2500C</a>.\n\n    Best output quality reachable with the HPLIP\n    driver.<p>\n\n    When used with HP's HPLIP driver, this printer\n    does the dithering and color adjustment internally. As input it\n    takes simple RGB data as used for screen display.<p>\n\n    Note that in contrary to most other current HP inkjet printers\n    there is no paper type sensor in the printer. You have to choose\n    one of the photo modes manually when using photo paper. There are\n    photo modes with 300 and 600 dpi.<p><p>\n\n      Consumables/Refills: CMYK, four cartridges<p>",
+  "drivers": [
+    {
+      "id": "hplip"
+    }
+  ]
+}

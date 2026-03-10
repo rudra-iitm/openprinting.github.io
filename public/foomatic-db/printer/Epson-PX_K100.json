@@ -1,0 +1,13 @@
+{
+  "id": "Epson-PX_K100",
+  "manufacturer": "Epson",
+  "model": "PX-K100",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "All-in-One color inkjet printer.<p>\n      Maximum paper width: 21.0 cm / 8.3 inches<p>",
+  "drivers": [
+    {
+      "id": "epson-px-k100"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Apple-ImageWriter",
+  "manufacturer": "Apple",
+  "model": "ImageWriter",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "Two gs drivers, iwhi for high resolution and iwlo for low.",
+  "drivers": [
+    {
+      "id": "iwhi"
+    }
+  ]
+}

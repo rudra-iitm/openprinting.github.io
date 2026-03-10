@@ -1,0 +1,13 @@
+{
+  "id": "Epson-AL-C2000_PS3",
+  "manufacturer": "Epson",
+  "model": "AL-C2000 PS3",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "PostScript version of the AL-C2000<p>\n      Epson provides a free (LGPL) driver for this printer. With this the\n      printer should work to its full extent.<p>",
+  "drivers": [
+    {
+      "id": "Postscript-Epson"
+    }
+  ]
+}

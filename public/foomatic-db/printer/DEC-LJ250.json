@@ -1,0 +1,13 @@
+{
+  "id": "DEC-LJ250",
+  "manufacturer": "DEC",
+  "model": "LJ250",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "declj250"
+    }
+  ]
+}

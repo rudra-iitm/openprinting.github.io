@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Photo_1280",
+  "manufacturer": "Epson",
+  "model": "Stylus Photo 1280",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "48 nozzles per color; 6 color CMYKcm process.<br>\n      USB and Parallel.<br>\n      13 inch wide paper path.<br>\n      4 picoliter dots.",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

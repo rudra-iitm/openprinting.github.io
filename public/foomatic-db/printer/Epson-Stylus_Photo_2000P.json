@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Photo_2000P",
+  "manufacturer": "Epson",
+  "model": "Stylus Photo 2000P",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "Not well tuned yet in the stp driver.  It can be expected to work well in the future.",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

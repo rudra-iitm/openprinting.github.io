@@ -1,0 +1,13 @@
+{
+  "id": "Canon-imageRunner_2020i",
+  "manufacturer": "Canon",
+  "model": "imageRunner 2020i",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Foomatic entry made by PPDtoXML T/G 0.19 on 2008-09-03\n      Additional PDL: UFRII LT<p>\n\n      Consumables/Refills: toner<p>",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

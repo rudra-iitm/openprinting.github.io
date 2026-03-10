@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-C720n",
+  "manufacturer": "Lexmark",
+  "model": "C720n",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Foomatic entry made by PPDtoXML T/G 0.19 on 2008-07-30",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

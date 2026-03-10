@@ -1,0 +1,13 @@
+{
+  "id": "Kodak-ESP_6150",
+  "manufacturer": "Kodak",
+  "model": "ESP 6150",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "c2esp"
+    }
+  ]
+}

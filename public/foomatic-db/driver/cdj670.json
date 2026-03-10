@@ -1,0 +1,9 @@
+{
+  "id": "cdj670",
+  "name": "cdj670",
+  "functionality": "?",
+  "comments": "A printer driver for the HP670, HP690, HP850, HP855 HP870, HP890,\n    HP1100 and HP1600 color printers.  To be used with the ghostscript\n    printing system.  These drivers are in the official Ghostscript\n    distribution since GNU Ghostscript 6.51.  Please report all\n    problems to uliw@erdw.ethz.ch",
+  "ppd": null,
+  "supportLevel": null,
+  "color": null
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Oce-VarioPrint_2090PS",
+  "manufacturer": "Oce",
+  "model": "VarioPrint 2090",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "<b>Versatile light production system</b><br/>\nThe Oce VarioPrint 2090 is a light production system that can handle diverse complex printing requirements. It provides convenient, cost-effective production to optimise your asset investment.\n<UL>\n<LI>Simultaneous scanning, printing and finishing </LI>\n<LI>85 A4 prints per minute </LI>\n<LI>Full productivity independent of job characteristics </LI>\n<LI>Digital mailbox function for controlled printing </LI>\n</UL>\n    \n      <p>\n\n      Maximum paper width: 11.7 inches / 29.7 cm\n      (Wide format printer)<p>\n\n      Printing engine speed: 85 pages/min<p><p>\n\n      Consumables/Refills: Toner\n      <p>",
+  "drivers": [
+    {
+      "id": "Postscript-Oce"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Epson-EPL-N2750PS",
+  "manufacturer": "Epson",
+  "model": "EPL-N2750PS",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "PostScript version of the EPL-N2750<p>\n      A3/11x17 large format laser<p>\n\n      Consumables/Refills: toner cartridge, drum cartridge<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

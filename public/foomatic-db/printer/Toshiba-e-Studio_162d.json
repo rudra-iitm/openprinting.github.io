@@ -1,0 +1,13 @@
+{
+  "id": "Toshiba-e-Studio_162d",
+  "manufacturer": "Toshiba",
+  "model": "e-Studio 162d",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "PostScript 3 is optional\n      \n      Foomatic entry made by PPDtoXML T/G 0.19 on 2008-08-07",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Epson-AcuLaser_CX17NF",
+  "manufacturer": "Epson",
+  "model": "AcuLaser CX17NF",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "The Epson AcuLaser CX17NF is a color multifunction printer with\n\ta 2013 street price of $505.\n\n\tThese printers are supported by the foo2hbpl2 open software printer\n\tdriver.",
+  "drivers": [
+    {
+      "id": "foo2hbpl2"
+    }
+  ]
+}

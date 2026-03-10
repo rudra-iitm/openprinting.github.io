@@ -1,0 +1,13 @@
+{
+  "id": "IBM-Infoprint_1226tn",
+  "manufacturer": "IBM",
+  "model": "Infoprint 1226tn",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 26\n\n      Foomatic entry made by PPDtoXML T/G 0.05",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

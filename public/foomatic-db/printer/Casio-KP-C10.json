@@ -1,0 +1,13 @@
+{
+  "id": "Casio-KP-C10",
+  "manufacturer": "Casio",
+  "model": "KP-C10",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Thermal label printer.  Prints a 512x64 bitmap on roll labels.<p>\n\n      Consumables/Refills: Special thermal labels<p>",
+  "drivers": [
+    {
+      "id": "pegg"
+    }
+  ]
+}

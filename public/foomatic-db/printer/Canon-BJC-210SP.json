@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJC-210SP",
+  "manufacturer": "Canon",
+  "model": "BJC-210SP",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "I use this printer for ascii and Postscript black only.  It needs a MS-Windows driver to do colour.  It will probably do 360x720 if you want to send it a prolog to switch into that mode, but I haven't tried very hard to do that,\njust 360x360.<p>\n\n      Consumables/Refills: Ink cartridge<p>",
+  "drivers": [
+    {
+      "id": "bj200"
+    }
+  ]
+}

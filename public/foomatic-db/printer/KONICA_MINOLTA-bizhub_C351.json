@@ -1,0 +1,13 @@
+{
+  "id": "KONICA_MINOLTA-bizhub_C351",
+  "manufacturer": "KONICA MINOLTA",
+  "model": "bizhub C351",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "Postscript-KONICA_MINOLTA"
+    }
+  ]
+}

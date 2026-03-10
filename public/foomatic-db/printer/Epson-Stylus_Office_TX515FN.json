@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Office_TX515FN",
+  "manufacturer": "Epson",
+  "model": "Stylus Office TX515FN",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "All-in-One color inkjet printer.<p>\n      Maximum paper width: 21.0 cm / 8.3 inches<p>",
+  "drivers": [
+    {
+      "id": "epson-stylus-office-tx510fn-series"
+    }
+  ]
+}

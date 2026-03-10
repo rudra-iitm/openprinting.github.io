@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Color_200",
+  "manufacturer": "Epson",
+  "model": "Stylus Color 200",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "Imported from old Red Hat japanese printer database",
+  "drivers": [
+    {
+      "id": "stcolor"
+    }
+  ]
+}

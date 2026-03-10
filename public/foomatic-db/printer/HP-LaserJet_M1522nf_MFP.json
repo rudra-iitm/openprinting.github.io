@@ -1,0 +1,13 @@
+{
+  "id": "HP-LaserJet_M1522nf_MFP",
+  "manufacturer": "HP",
+  "model": "LaserJet M1522nf MFP",
+  "type": "unknown",
+  "functionality": "D",
+  "notes": "Throughput = 24\n      \n      Foomatic entry made by PPDtoXML T/G 0.19 on 2008-09-06",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

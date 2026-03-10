@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-4039_10plus",
+  "manufacturer": "Lexmark",
+  "model": "4039 10plus",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Also does PCL 5e.<p>\n\n      Consumables/Refills: cartridge<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

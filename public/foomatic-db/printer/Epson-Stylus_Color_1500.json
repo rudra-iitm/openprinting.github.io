@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Color_1500",
+  "manufacturer": "Epson",
+  "model": "Stylus Color 1500",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "I cannot find specs or anything for this printer, but I assume that it is similar to the 1520, a 4 color 17x22 printer.\n<br>The stp driver can be expected to drive this printer perfectly.",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

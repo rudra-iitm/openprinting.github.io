@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-Optra_Se_3455",
+  "manufacturer": "Lexmark",
+  "model": "Optra Se 3455",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "HP-LaserJet_3200",
+  "manufacturer": "HP",
+  "model": "LaserJet 3200",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Multi-function printer-scanner-fax-copier.<p>\n    \n    For basic printing functionality use the pxlmono or the PostScript\n    PPD, note that this printer does not support PostScript by\n    default, so the PostScript PPD will only work if the optional\n    PostScript module is installed.<p>\n\n    For advanced functionality such as printer status, maintenance \n    features, scanning and photo card unload use the <a href=\"\n    http://hplipopensource.com/\">HPLIP driver</a> (which includes \n    HPIJS).<p>\n\n    Stand-alone copying should just work, it does not need the PC.<p><p>\n\n      Consumables/Refills: UltraPrecise Print Cartridge C4092A, ~$60<p>",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

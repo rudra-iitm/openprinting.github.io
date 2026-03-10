@@ -1,0 +1,13 @@
+{
+  "id": "IBM-ProPrinterII",
+  "manufacturer": "IBM",
+  "model": "ProPrinterII",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "Easy to get working on serial - just dump straight ASCII.\n\nIf you have the parallel module installed, you need to use\nmagicfilter which has a ProPrinter / ProPrinterII specific\nfilter which fixes some minor oddities.\n\nFair warning; the serial interface drops characters frequently.\nDon't use it on the network if you can avoid it. ;)<p>\n\n      Consumables/Refills: Ribbon Cartridge, Optional Serial/Network/Parallel/Additional in<p>",
+  "drivers": [
+    {
+      "id": "ibmpro"
+    }
+  ]
+}

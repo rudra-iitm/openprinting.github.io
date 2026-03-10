@@ -1,0 +1,13 @@
+{
+  "id": "Epson-LP-8300CPD",
+  "manufacturer": "Epson",
+  "model": "LP-8300CPD",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "This database entry was automatically generated\n      from the PPD file for this printer.<p>\n\n      Maximum paper width: 12.9 inches / 32.8 cm\n      (Wide format printer)<p>\n\n      Printing engine speed: 6 pages/min<p>",
+  "drivers": [
+    {
+      "id": "Postscript-Epson"
+    }
+  ]
+}

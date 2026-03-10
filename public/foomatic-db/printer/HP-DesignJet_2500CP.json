@@ -1,0 +1,13 @@
+{
+  "id": "HP-DesignJet_2500CP",
+  "manufacturer": "HP",
+  "model": "DesignJet 2500CP",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Large-format printer.<p>\n\n    PostScript seems to be an optional feature. Reported to work with\n    Gimp-Print.<p><p>\n\n      Consumables/Refills: 4 Cartridges: Black, Cyan, Magenta, Yellow<p>",
+  "drivers": [
+    {
+      "id": "Postscript-HP"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Epson-AL-C4000",
+  "manufacturer": "Epson",
+  "model": "AL-C4000",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Epson provides a free (LGPL) driver for this printer. With this\n    the printer works to its full extent.<p>\n\n    This printer has one imaging drum and one laser for each colour\n    and therefore has the same speed in colour as in bw (16 pages/min\n    max.).<p>\n\n    There is also an AL-C4000T model with two additional\n    500-sheets trays. The standard model has one main tray for 500 and\n    multi-purpose tray for 100 sheets.<p><p>\n\n      Consumables/Refills: <p>",
+  "drivers": [
+    {
+      "id": "eplaser"
+    }
+  ]
+}

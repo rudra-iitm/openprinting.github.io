@@ -1,0 +1,13 @@
+{
+  "id": "Brother-MFC-P2500",
+  "manufacturer": "Brother",
+  "model": "MFC-P2500",
+  "type": "laser",
+  "functionality": "D",
+  "notes": "Multifunction device, scanning does probably not work with free software.\n<br>12 ppm.\n<br>Parallel and USB interface included. \n<br>Printer not tested, assumed to be compatible to the other Brother models.<p>\n\n    Brother publishes proprietary Linux drivers for CUPS and LPD for\n    most of their laser printers and multi-function devices, including\n    SANE drivers for the scanners. They can be downloaded free of\n    charge on their <a\n    href=\"http://solutions.brother.com/linux/en_us/\">Linux driver\n    page</a>.<p><p>\n\n      Consumables/Refills: <p>",
+  "drivers": [
+    {
+      "id": "hl1250"
+    }
+  ]
+}

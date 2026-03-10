@@ -1,0 +1,13 @@
+{
+  "id": "Xerox-DocuPrint_C6",
+  "manufacturer": "Xerox",
+  "model": "DocuPrint C6",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "Select the HP Deskjet 550 tool and it will work perfectly! On my windows machine the paper was wet because it likes to float the ink around, on Linux this problem is solved! (I was not able to solve this under Windows).<p>\n\n      Consumables/Refills: Cartridge & Printhead (Cartridge = $30 in NL)<p>",
+  "drivers": [
+    {
+      "id": "cdj550"
+    }
+  ]
+}

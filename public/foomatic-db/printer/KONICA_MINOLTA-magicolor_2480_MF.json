@@ -1,0 +1,13 @@
+{
+  "id": "KONICA_MINOLTA-magicolor_2480_MF",
+  "manufacturer": "KONICA MINOLTA",
+  "model": "magicolor 2480 MF",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "The magicolor 2480 MF is a network color all-in-one printer/scanner.\n\tOnly the printer is supported by the foo2lava open software printer\n\tdriver.<p>\n\n      Consumables/Refills: Toner Black (4500 prints) - $79\n\t\tToner Yellow (4500 prints) - $119\n\t\tToner Magenta (4500 prints) - $119\n\t\tToner Cyan (4500 prints) - $119\n\t\tDrum Catridge (45000 prints) - $149 Part numbers: 1710587-004, \n\t    1710587-005, \n\t    1710587-006, \n\t    1710587-007, \n\t    1710591-001<p>",
+  "drivers": [
+    {
+      "id": "foo2lava"
+    }
+  ]
+}

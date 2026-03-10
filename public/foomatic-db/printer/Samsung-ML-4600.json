@@ -1,0 +1,13 @@
+{
+  "id": "Samsung-ML-4600",
+  "manufacturer": "Samsung",
+  "model": "ML-4600",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "The printer has an emulation for PCL6.\nNot try to check that ... runs perfectly\nwith PCL5 drivers like ljet4.",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "HP-DeskJet_610CL",
+  "manufacturer": "HP",
+  "model": "DeskJet 610CL",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "For basic printing functionality use the <a \n    href=\"http://hplipopensource.com/\">HPIJS \n    driver </a>. For advanced functionality such\n    as printer status and maintenance features, use the\n    <a href=\"http://hplipopensource.com/\">\n    HPLIP driver</a> (which includes HPIJS). <p>\n\n600 dpi in colour is not supported by the hardware.<p><p>\n\n      Consumables/Refills: Black HP C6614A, Tri-Color HP 51649G, Photo HP C1816A<p>",
+  "drivers": [
+    {
+      "id": "hplip"
+    }
+  ]
+}

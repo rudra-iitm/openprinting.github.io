@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-Winwriter_400",
+  "manufacturer": "Lexmark",
+  "model": "Winwriter 400",
+  "type": "laser",
+  "functionality": "D",
+  "notes": "Emulates HP Laserjet II under any OS, but needs Windows driver to get 600x300 dpi.<p>\n\n      Consumables/Refills: cartridge<p>",
+  "drivers": [
+    {
+      "id": "ljetplus"
+    }
+  ]
+}

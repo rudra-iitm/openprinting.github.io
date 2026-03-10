@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Color_PRO",
+  "manufacturer": "Epson",
+  "model": "Stylus Color PRO",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Work best with driver `stp'.",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

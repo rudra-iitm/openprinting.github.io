@@ -1,0 +1,9 @@
+{
+  "id": "Canon-S200",
+  "manufacturer": "Canon",
+  "model": "S200",
+  "type": "inkjet",
+  "functionality": "F",
+  "notes": "Nothing known about its compatibility to free software. The information on Canon's web pages does not show any similarity to a supported model. Perhaps it works with the commercial TurboPrint driver.<p>\n\n      Consumables/Refills: BCI-24 Black (130 pages w/ 5% coverage), BCI-24 Colour (120 pages w/ 5% coverage per colour)<p>",
+  "drivers": []
+}

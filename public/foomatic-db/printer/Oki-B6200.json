@@ -1,0 +1,13 @@
+{
+  "id": "Oki-B6200",
+  "manufacturer": "Oki",
+  "model": "B6200",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "Throughput = 25\n      \n      Foomatic entry made by PPDtoXML T/G 0.19 on 2008-06-26<p>\n\n      Consumables/Refills: A monolithic print cartridge is $160. Refill is possible.<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

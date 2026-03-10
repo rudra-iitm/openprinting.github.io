@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-X73",
+  "manufacturer": "Lexmark",
+  "model": "X73",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "This is a multifunction device with integrated scanner/copier.<p>\n\n    Scanning with SANE works mostly (ie sane's \"good\") with the gt68xx\n    driver.<p>\n\n    The printing engine is compatible with the Z42, so you can use\n    drivers/PPD files for this model.<p><p>\n\n      Consumables/Refills: color + black cartridge<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Oce-VarioPrint_2110PS",
+  "manufacturer": "Oce",
+  "model": "VarioPrint 2110",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "<b>Versatile mid production system</b><br/>\nThe Oce VarioPrint 2110 was specifically designed for your professional production environment with leading-edge technology that ensures high-speed productivity and exceptional document quality.\n<UL>\n<LI>105 prints per minute </LI>\n<LI>Tab printing </LI>\n<LI>Oversized printing </LI>\n<LI>Interposing of post-processed colour prints </LI>\n<LI>Inline finishing</LI>\n</UL><p>\n\n      Consumables/Refills: Toner\n      <p>",
+  "drivers": [
+    {
+      "id": "Postscript-Oce"
+    }
+  ]
+}

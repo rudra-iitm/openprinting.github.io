@@ -1,0 +1,13 @@
+{
+  "id": "Kyocera-F-1200",
+  "manufacturer": "Kyocera",
+  "model": "F-1200",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "ljetplus"
+    }
+  ]
+}

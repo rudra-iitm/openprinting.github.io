@@ -1,0 +1,13 @@
+{
+  "id": "Tektronix-Phaser_850",
+  "manufacturer": "Tektronix",
+  "model": "Phaser 850",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "Built-in Ethernet.  Print to it as if it were a *nix box, spool name ps.<p>\n\n      Consumables/Refills: Wax Blocks<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Oki-Okipage_8c",
+  "manufacturer": "Oki",
+  "model": "Okipage 8c",
+  "type": "led",
+  "functionality": "A",
+  "notes": "Also speaks PCL 5c.\n<br>32MB standard; uses regular SIMMS.<p>\n\n      Consumables/Refills: single toner cartridge, drum<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

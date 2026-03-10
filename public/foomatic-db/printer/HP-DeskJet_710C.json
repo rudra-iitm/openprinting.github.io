@@ -1,0 +1,13 @@
+{
+  "id": "HP-DeskJet_710C",
+  "manufacturer": "HP",
+  "model": "DeskJet 710C",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "PPA printer, does not work with PCL drivers (as HPLIP,\n    \"gimp-print\", \"cdjXXX\", \"pcl3\", ...)\n    <p>\n\n    The \"Cse\" and \"Cxi\" are probably the same\n    hardware but shipped with different Windows toys.<p>\n\n      Consumables/Refills: Black 51645A, 51645G, C6615A - Colour C1823A<p>",
+  "drivers": [
+    {
+      "id": "pnm2ppa"
+    }
+  ]
+}

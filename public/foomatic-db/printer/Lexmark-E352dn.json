@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-E352dn",
+  "manufacturer": "Lexmark",
+  "model": "E352dn",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 35\n\n      Foomatic entry made by PPDtoXML T/G 0.05\n      \n      <p>\n\n      Maximum paper width: 8.5 inches / 21.6 cm\n      (Standard format printer)<p>\n\n      Printing engine speed: 35 pages/min<p>",
+  "drivers": [
+    {
+      "id": "Postscript-Lexmark"
+    }
+  ]
+}

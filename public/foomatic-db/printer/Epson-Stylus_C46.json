@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_C46",
+  "manufacturer": "Epson",
+  "model": "Stylus C46",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "The Epson Stylus C45 is a similar printer, marketed in the\n    Asia, Africa, Australia, and New Zealand; however, it uses\n    different ink cartridges.",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

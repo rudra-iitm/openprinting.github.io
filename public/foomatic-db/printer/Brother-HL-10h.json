@@ -1,0 +1,13 @@
+{
+  "id": "Brother-HL-10h",
+  "manufacturer": "Brother",
+  "model": "HL-10h",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "hpijs-pcl5e"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Canon-LIPS-IV",
+  "manufacturer": "Canon",
+  "model": "LIPS-IV",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Imported from old Red Hat japanese printer database",
+  "drivers": [
+    {
+      "id": "lips4"
+    }
+  ]
+}

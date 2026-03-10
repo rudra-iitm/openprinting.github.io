@@ -1,0 +1,13 @@
+{
+  "id": "Sharp-AR-266S",
+  "manufacturer": "Sharp",
+  "model": "AR-266S",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 26\n\n      Foomatic entry made by PPDtoXML T/G 0.06",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

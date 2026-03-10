@@ -1,0 +1,9 @@
+{
+  "id": "Xerox-DocuPrint_P8",
+  "manufacturer": "Xerox",
+  "model": "DocuPrint P8",
+  "type": "laser",
+  "functionality": "F",
+  "notes": "This is an entirely different printer from the P8 e .\n<br>This printer is a \"winprinter\"; the P8 e  is a supported PCL printer.",
+  "drivers": []
+}

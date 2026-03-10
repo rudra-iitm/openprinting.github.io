@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJC-680J",
+  "manufacturer": "Canon",
+  "model": "BJC-680J",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Imported from old Red Hat japanese printer database",
+  "drivers": [
+    {
+      "id": "bjc800j"
+    }
+  ]
+}

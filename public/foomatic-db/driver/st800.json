@@ -1,0 +1,9 @@
+{
+  "id": "st800",
+  "name": "st800",
+  "functionality": "?",
+  "comments": "Driver for black-and-white inkjets using the ESC/P-2 protocol, as the Epson\nStylus 800.",
+  "ppd": null,
+  "supportLevel": null,
+  "color": null
+}

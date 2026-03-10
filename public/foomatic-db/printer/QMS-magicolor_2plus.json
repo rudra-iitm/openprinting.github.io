@@ -1,0 +1,13 @@
+{
+  "id": "QMS-magicolor_2plus",
+  "manufacturer": "QMS",
+  "model": "magicolor 2+",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

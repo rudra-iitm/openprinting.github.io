@@ -1,0 +1,13 @@
+{
+  "id": "Brother-HL-4Ve",
+  "manufacturer": "Brother",
+  "model": "HL-4Ve",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "laserjet"
+    }
+  ]
+}

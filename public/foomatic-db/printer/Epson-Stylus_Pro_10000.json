@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Pro_10000",
+  "manufacturer": "Epson",
+  "model": "Stylus Pro 10000",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "Large format A0/44 inch photo-capable (6-ink) inkjet\n    printer/plotter.<p>\n\n    Needs testing, I (Till) did a short test in the Epson office in\n    Paris, but didn't get correct results.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "HP-Business_Inkjet_3000",
+  "manufacturer": "HP",
+  "model": "Business Inkjet 3000",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "For basic printing functionality use the Postscript PPD. For advanced functionality such as printer status and maintenance features, use the <a href=\"http://hplipopensource.com/\">HPLIP driver</a> (which includes HPIJS). <p>\n\t    \n    Fast CMYK 4-ink printer.<p>\n\n    PostScript/PCL6 printer based on the Color LaserJet 4600.<p><p>\n\n      Consumables/Refills: 4 separate ink cartridges and 4 separate printheads, one for each color (CMYK)<p>",
+  "drivers": [
+    {
+      "id": "hplip"
+    }
+  ]
+}

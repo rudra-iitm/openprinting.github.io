@@ -1,0 +1,13 @@
+{
+  "id": "Fujitsu-1200",
+  "manufacturer": "Fujitsu",
+  "model": "1200",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "epsonc"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Epson-TX320_WorkForce320_Series",
+  "manufacturer": "Epson",
+  "model": "TX320 WorkForce320 Series",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "All-in-One color inkjet printer.<p>\n      Maximum paper width: 21.0 cm / 8.3 inches<p>",
+  "drivers": [
+    {
+      "id": "epson-workforce-320-sx218"
+    }
+  ]
+}

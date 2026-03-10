@@ -1,0 +1,13 @@
+{
+  "id": "Epson-LP-2000",
+  "manufacturer": "Epson",
+  "model": "LP-2000",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Imported from old Red Hat japanese printer database",
+  "drivers": [
+    {
+      "id": "lp2000"
+    }
+  ]
+}

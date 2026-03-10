@@ -1,0 +1,13 @@
+{
+  "id": "HP-Photosmart_D5460",
+  "manufacturer": "HP",
+  "model": "Photosmart D5460",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "hplip"
+    }
+  ]
+}

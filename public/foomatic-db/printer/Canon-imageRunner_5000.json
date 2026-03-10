@@ -1,0 +1,13 @@
+{
+  "id": "Canon-imageRunner_5000",
+  "manufacturer": "Canon",
+  "model": "imageRunner 5000",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "PostScript is optional\n      \n      Foomatic entry made by PPDtoXML T/G 0.20 on 2008-09-06",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

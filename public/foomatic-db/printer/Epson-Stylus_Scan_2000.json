@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Scan_2000",
+  "manufacturer": "Epson",
+  "model": "Stylus Scan 2000",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Printing works with Gimp-Print 4.1.99b3 or newer, for scanning see\n    the entry for the <a\n    href=\"show_printer.cgi?recnum=Epson-Stylus_Scan_2500\">Epson Stylus\n    Scan 2500</a>.",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

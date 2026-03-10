@@ -1,0 +1,13 @@
+{
+  "id": "Samsung-ML-5080",
+  "manufacturer": "Samsung",
+  "model": "ML-5080",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "One of Samsung's line of host-based lasers.  They generally work\n    well and cost little.\n\n    Samsung sort of supports Linux use, with installable Linux/x86\n    cups drivers often in the box, a penguin often on the box, etc.<p>\n\n      Consumables/Refills: toner<p>",
+  "drivers": [
+    {
+      "id": "gdi"
+    }
+  ]
+}

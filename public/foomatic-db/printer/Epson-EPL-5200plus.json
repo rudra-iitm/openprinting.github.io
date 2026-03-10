@@ -1,0 +1,13 @@
+{
+  "id": "Epson-EPL-5200plus",
+  "manufacturer": "Epson",
+  "model": "EPL-5200+",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "I don't know what is the difference between the EPL-5200 and the EPL-5200+",
+  "drivers": [
+    {
+      "id": "ljet3"
+    }
+  ]
+}

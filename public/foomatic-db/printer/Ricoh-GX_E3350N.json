@@ -1,0 +1,13 @@
+{
+  "id": "Ricoh-GX_E3350N",
+  "manufacturer": "Ricoh",
+  "model": "GX E3350N",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Visit <a href=\"http://www.freestandards.org/en/OpenPrinting/Database/RicohFAQ#Ricoh_FAQ\"> FAQ section </a> for commonly asked questions. <p>\n\nThroughput 29.",
+  "drivers": [
+    {
+      "id": "pxlcolor-Ricoh"
+    }
+  ]
+}

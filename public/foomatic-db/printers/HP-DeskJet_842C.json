@@ -1,0 +1,20 @@
+{
+  "id": "HP-DeskJet_842C",
+  "manufacturer": "HP",
+  "model": "DeskJet 842C",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "For basic printing functionality use the <a \n    href=\"http://hplipopensource.com/\">HPIJS \n    driver </a>. For advanced functionality such\n    as printer status and maintenance features, use the\n    <a href=\"http://hplipopensource.com/\">\n    HPLIP driver</a> (which includes HPIJS). <p>\n    \n    Ed: HP provides the <a\n    href=\"show_driver.cgi?driver=hpijs\">HPLIP\n    driver</a>, which drives this printer perfectly for\n    colour/photo jobs. See that driver entry for more information. For\n    grayscale probably Gimp-Print is the best choice.<p>\n\n    As for use with other drivers: <p>\n\n    This is the same printer as the DeskJet 840C; see <a\n    href=\"show_printer.cgi?recnum=HP-DeskJet_840C\">that\n    entry</a> for more info.  HP's web site lists the same\n    software documentation for the 810, 830, and 840 series printers,\n    so any drivers that work with one will probably work with the\n    others as well.<p>\n\n    The black print resolutions are 300x300, 600x300, and 600x600.\n    The color print resolution is 300x300 normally, but can\n    theoretically go up to 600x1200 via \"PhotoREt II\" (C-REt\n    II).<p>\n\n    This printer does not work with the \"cdj850\" driver, but\n    it works with the \"cdj880\" driver.<p>\n\n      Consumables/Refills: HP #15 black, HP #17 color, ~$25 each<p>",
+  "drivers": [
+    {
+      "id": "hplip",
+      "name": "hplip",
+      "type": "hplip",
+      "functionality": "?",
+      "comments": "<B>This driver is available in the <A href=\"https://github.com/OpenPrinting/hplip-printer-app\">HPLIP Printer Application</A></B><P>\n<iframe src=\"https://snapcraft.io/hplip-printer-app/embedded?button=black&summary=true\" frameborder=\"0\" width=\"100%\" height=\"300px\" style=\"border: 1px solid #CCC; border-radius: 2px;\"></iframe>\n\n   HP Linux Imaging and Printing (HPLIP) is an HP-developed\n   solution for printing, scanning, and faxing with HP inkjet and\n   laser based printers in Linux. The HPLIP project provides printing\n   support for over 3000 printer models, including Deskjet,\n   Officejet, Photosmart, PSC (Print, Scan, Copy), Business Inkjet, Envy,\n   NeverStop, Smart Tank, Tango, DesignJet,\n   (Color) LaserJet, Mopier, Edgeline MFP, and LaserJet MFP.<P>\n\n   Note that most HP models are supported, but a few are not. See\n   <a\n   href=\"https://developers.hp.com/hp-linux-imaging-and-printing/supported_devices/index\">Supported\n   Devices</a> at the HPLIP website for more\n   information.<P>\n\n   HPLIP is free, open source software distributed under the MIT, BSD,\n   and GPL licenses. HP does not provide formal consumer or commercial\n   support for this software.<P>\n\n   HPLIP contains two flavors of the printer driver. The default\n   driver is the CUPS Raster driver \"hpcups\" and as alternative the\n   older IJS-based HPIJS driver is still available, but its development and\n   support has been discontinued. In addition there\n   are ready-made PPD files for all supported PostScript printers, so\n   that they get used in PostScript mode. HPLIP ships updated PPD\n   files for all HP printers and both driver flavors. Therefore we do\n   not provide PPD files here. For non-HP printers which work with\n   HPIJS we provide PPDs via the driver entries \"<a\n   href=\"show_driver.cgi?driver=hpijs-pcl3\">hpijs-pcl3</a>\",\n   \"<a\n   href=\"show_driver.cgi?driver=hpijs-pcl5e\">hpijs-pcl5e</a>\",\n   \"<a\n   href=\"show_driver.cgi?driver=hpijs-pcl5c\">hpijs-pcl5c</a>\".<P>",
+      "ppd": null,
+      "supportLevel": null,
+      "color": null
+    }
+  ]
+}

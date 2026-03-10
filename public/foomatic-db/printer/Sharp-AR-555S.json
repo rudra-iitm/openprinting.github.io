@@ -1,0 +1,13 @@
+{
+  "id": "Sharp-AR-555S",
+  "manufacturer": "Sharp",
+  "model": "AR-555S",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 55\n      \n      Foomatic entry made by PPDtoXML T/G 0.18 on 2008-05-20",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

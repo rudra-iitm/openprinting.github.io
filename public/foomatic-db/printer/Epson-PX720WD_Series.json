@@ -1,0 +1,13 @@
+{
+  "id": "Epson-PX720WD_Series",
+  "manufacturer": "Epson",
+  "model": "PX720WD Series",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "All-in-One color inkjet printer.<p>\n      Maximum paper width: 21.0 cm / 8.3 inches<p>",
+  "drivers": [
+    {
+      "id": "epson-artisan-725-835-series"
+    }
+  ]
+}

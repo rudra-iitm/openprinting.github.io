@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_S21",
+  "manufacturer": "Epson",
+  "model": "Stylus S21",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Epson color inkjet printer.<p>\n      Maximum paper width: 21.0 cm / 8.3 inches<p>",
+  "drivers": [
+    {
+      "id": "epson-stylus-s21-series"
+    }
+  ]
+}

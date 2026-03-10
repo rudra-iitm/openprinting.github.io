@@ -1,0 +1,13 @@
+{
+  "id": "Brother-HL-1470N",
+  "manufacturer": "Brother",
+  "model": "HL-1470N",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "15 ppm, 10/100 MBit ethernet connection, 8 MB, expandable to 36MB\n    (72-pin SIMM).\n\n    Best results are probably obtained when the printer is used in\n    PostScript mode with a PPD file from the printer's driver\n    CD.<p>\n\n    You can also get an <a\n    href=\"http://solutions.brother.com/Library/sol/printer/7050/rpmfiles/brhl14_2-1.0.0-0-noarch.rpm\">RPM\n    with the PPD file</a> from <a\n    href=\"http://solutions.brother.com/linux/\">Brother</a>.<p><p>\n\n      Consumables/Refills: Separate Toner and Drum<p>",
+  "drivers": [
+    {
+      "id": "Postscript-Brother"
+    }
+  ]
+}

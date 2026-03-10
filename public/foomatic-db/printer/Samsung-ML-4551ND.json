@@ -1,0 +1,13 @@
+{
+  "id": "Samsung-ML-4551ND",
+  "manufacturer": "Samsung",
+  "model": "ML-4551ND",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Foomatic entry made by PPDtoXML T/G 0.20 on 2008-09-07",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

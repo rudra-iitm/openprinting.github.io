@@ -1,0 +1,13 @@
+{
+  "id": "HP-DeskJet_505J_Plus",
+  "manufacturer": "HP",
+  "model": "DeskJet 505J Plus",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "For basic printing functionality use the <a \n    href=\"http://hplipopensource.com/\">HPIJS \n    driver </a>. For advanced functionality such\n    as printer status and maintenance features, use the\n    <a href=\"http://hplipopensource.com/\">\n    HPLIP driver</a> (which includes HPIJS). <p>\n    \n    Imported from old Red Hat japanese printer database",
+  "drivers": [
+    {
+      "id": "dj505j"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "HP-DesignJet_3500CP",
+  "manufacturer": "HP",
+  "model": "DesignJet 3500CP",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Large-format printer.<p>\n\n    User comment:<p>\n\n    I got successful and fast Postscript printing using\n    lprng+ifhp<p><p>\n\n      Consumables/Refills: 4 Cartridges: Black, Cyan, Magenta, Yellow<p>",
+  "drivers": [
+    {
+      "id": "Postscript-HP"
+    }
+  ]
+}

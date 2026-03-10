@@ -1,0 +1,13 @@
+{
+  "id": "Oki-B4300",
+  "manufacturer": "Oki",
+  "model": "B4300",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 19\n      \n      Foomatic entry made by PPDtoXML T/G 0.19 on 2008-06-26\n      \n      <p>\n\n      Maximum paper width: 8.5 inches / 21.6 cm\n      (Standard format printer)<p>\n\n      Printing engine speed: 18 pages/min<p>",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

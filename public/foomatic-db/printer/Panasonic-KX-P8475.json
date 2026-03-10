@@ -1,0 +1,13 @@
+{
+  "id": "Panasonic-KX-P8475",
+  "manufacturer": "Panasonic",
+  "model": "KX-P8475",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Also PCL5.\n<br>8M RAM std, full resolution requires 24M.\n<br>SCSI interface\n<br>various network options<p>\n\n      Consumables/Refills: CMYK toners, fuser, imager, transfer kit<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

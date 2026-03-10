@@ -1,0 +1,20 @@
+{
+  "id": "HP-PSC_500",
+  "manufacturer": "HP",
+  "model": "PSC 500",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Multifunction device: printer/scanner/copier.<p>\n\n\n    Uniprint driver \"cdj550.upp\" works very well, too.  Max\n    resolution is 300x300.  The PCL modifications to allow\n    \"cdj550.upp\" to print in 600x600 resolution don't\n    work.  600dpi works in B&W, but not color.  (If you get color\n    to work, please post!)  Other drivers that mostly work are\n    \"cdj670\", \"cdj1600\", and\n    \"pcl3\"/\"hpdj\" (Model=unspec, ColorMode=CMYK).\n    Other PCL3 drivers may work.<p>\n\n    To get all functionality of this printer working under Linux,\n    especially also the non-printing features, like scamnning, printer\n    status, maintenance, and photo download from memory cards, use the\n    <a href=\"show_driver.cgi?driver=hplip\">HPLIP\n    driver package from HP</a>.<p>\n\n    Copying should just work, it does not need the PC.<p>\n\n      Consumables/Refills: 2 cartridges - $30.00 each<p>",
+  "drivers": [
+    {
+      "id": "hplip",
+      "name": "hplip",
+      "type": "hplip",
+      "functionality": "?",
+      "comments": "<B>This driver is available in the <A href=\"https://github.com/OpenPrinting/hplip-printer-app\">HPLIP Printer Application</A></B><P>\n<iframe src=\"https://snapcraft.io/hplip-printer-app/embedded?button=black&summary=true\" frameborder=\"0\" width=\"100%\" height=\"300px\" style=\"border: 1px solid #CCC; border-radius: 2px;\"></iframe>\n\n   HP Linux Imaging and Printing (HPLIP) is an HP-developed\n   solution for printing, scanning, and faxing with HP inkjet and\n   laser based printers in Linux. The HPLIP project provides printing\n   support for over 3000 printer models, including Deskjet,\n   Officejet, Photosmart, PSC (Print, Scan, Copy), Business Inkjet, Envy,\n   NeverStop, Smart Tank, Tango, DesignJet,\n   (Color) LaserJet, Mopier, Edgeline MFP, and LaserJet MFP.<P>\n\n   Note that most HP models are supported, but a few are not. See\n   <a\n   href=\"https://developers.hp.com/hp-linux-imaging-and-printing/supported_devices/index\">Supported\n   Devices</a> at the HPLIP website for more\n   information.<P>\n\n   HPLIP is free, open source software distributed under the MIT, BSD,\n   and GPL licenses. HP does not provide formal consumer or commercial\n   support for this software.<P>\n\n   HPLIP contains two flavors of the printer driver. The default\n   driver is the CUPS Raster driver \"hpcups\" and as alternative the\n   older IJS-based HPIJS driver is still available, but its development and\n   support has been discontinued. In addition there\n   are ready-made PPD files for all supported PostScript printers, so\n   that they get used in PostScript mode. HPLIP ships updated PPD\n   files for all HP printers and both driver flavors. Therefore we do\n   not provide PPD files here. For non-HP printers which work with\n   HPIJS we provide PPDs via the driver entries \"<a\n   href=\"show_driver.cgi?driver=hpijs-pcl3\">hpijs-pcl3</a>\",\n   \"<a\n   href=\"show_driver.cgi?driver=hpijs-pcl5e\">hpijs-pcl5e</a>\",\n   \"<a\n   href=\"show_driver.cgi?driver=hpijs-pcl5c\">hpijs-pcl5c</a>\".<P>",
+      "ppd": null,
+      "supportLevel": null,
+      "color": null
+    }
+  ]
+}

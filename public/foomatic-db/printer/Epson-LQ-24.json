@@ -1,0 +1,13 @@
+{
+  "id": "Epson-LQ-24",
+  "manufacturer": "Epson",
+  "model": "LQ-24",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "epsonc"
+    }
+  ]
+}

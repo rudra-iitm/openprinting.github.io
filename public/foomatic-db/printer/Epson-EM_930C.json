@@ -1,0 +1,13 @@
+{
+  "id": "Epson-EM_930C",
+  "manufacturer": "Epson",
+  "model": "EM 930C",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Japanese version of the Epson Stylus Color 980.<p>\n\n    Works perfectly with Gimp-Print.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

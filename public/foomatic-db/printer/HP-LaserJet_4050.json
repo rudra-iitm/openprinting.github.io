@@ -1,0 +1,13 @@
+{
+  "id": "HP-LaserJet_4050",
+  "manufacturer": "HP",
+  "model": "LaserJet 4050",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Great printer for heavy printing needs.  Fast, reliable, jam\n    proof.  Handles duplex/simplex great with linux (duplex is a\n    rather expensive option).<p>\n\n    Basically a great workhorse of a printer.<p>\n\n    For basic printing functionality use the Postscript PPD. \n    For advanced functionality such as printer status, maintenance \n    features, scanning and photo card unload use the <a href=\"\n    http://hplipopensource.com/\">HPLIP driver</a> (which includes \n    HPIJS). <p>\n    \n    Various flavours are available, as is the HP way.  The 4050N\n    includes Ethernet.<p>\n\n    This printer is a native PostScript printer, so the best is to use\n    it with the PPD file delivered with the printer. So the printer\n    gets exactly the possibilties which one has under Windows or\n    MacOS.<p><p>\n\n      Consumables/Refills: Toner and drum in one cartridge<p>",
+  "drivers": [
+    {
+      "id": "hplip"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Toshiba-e-Studio_720",
+  "manufacturer": "Toshiba",
+  "model": "e-Studio 720",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "All printer settings can be changed via a web browser, and it seems to work fine with Firefox.<p><p>\n\n      Consumables/Refills: Toner<p>",
+  "drivers": [
+    {
+      "id": "Postscript-Toshiba"
+    }
+  ]
+}

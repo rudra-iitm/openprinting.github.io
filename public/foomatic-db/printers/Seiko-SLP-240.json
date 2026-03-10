@@ -1,0 +1,20 @@
+{
+  "id": "Seiko-SLP-240",
+  "manufacturer": "Seiko",
+  "model": "SLP-240",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Not a postscript or pcl driver; slap only prints text in various fonts.<p>\n\n      Consumables/Refills: None; uses Seiko Instruments thermal labels<p>",
+  "drivers": [
+    {
+      "id": "slap",
+      "name": "slap",
+      "type": "other",
+      "functionality": "?",
+      "comments": "For this driver foomatic configuration files cannot be generated because the\ndriver only supports text printing, no bitmap graphics, and so it is not\npossible to print PostScript files.",
+      "ppd": null,
+      "supportLevel": null,
+      "color": null
+    }
+  ]
+}

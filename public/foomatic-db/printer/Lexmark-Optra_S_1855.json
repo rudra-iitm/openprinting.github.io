@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-Optra_S_1855",
+  "manufacturer": "Lexmark",
+  "model": "Optra S 1855",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Also does PCL 5 without problems; don't try PCL 6.\n<p> Note Lexmark sends a Winduhs driver, but you can set it up as plain Postscript without problems.",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

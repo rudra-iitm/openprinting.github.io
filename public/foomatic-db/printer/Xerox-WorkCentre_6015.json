@@ -1,0 +1,13 @@
+{
+  "id": "Xerox-WorkCentre_6015",
+  "manufacturer": "Xerox",
+  "model": "WorkCentre 6015",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "The Xerox WorkCentre 6015/B (USB) and Xerox WorkCentre 6015/N (Net)\n      are color multifunction printer with a 2013 street price of\n      $250.<p>\n\n      These printers are supported by the foo2hbpl2 open software printer\n      driver.",
+  "drivers": [
+    {
+      "id": "foo2hbpl2"
+    }
+  ]
+}

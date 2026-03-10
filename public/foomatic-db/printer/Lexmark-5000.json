@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-5000",
+  "manufacturer": "Lexmark",
+  "model": "5000",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "Works in color and bw at 600  \nBidirectional/1200dpi printing is not yet supported.\n<br>Alignment and head cleaning supported by sending data files to the\nraw device.  These files available at the driver site.\n<br>DryingTime an black-only run time parameters.\n<br>The photo cartridge in not supported.\n<br>A description of the protocol is at http://www.powerup.com.au/~pbwest/lexmark/protocol.html\n<br>Also works about as well with the Lexmark 7000 driver kit; see that printer for more information.<p>\n\n      Consumables/Refills: Cartridges: Black, Colour, Photo<p>",
+  "drivers": [
+    {
+      "id": "pbm2l7k"
+    }
+  ]
+}

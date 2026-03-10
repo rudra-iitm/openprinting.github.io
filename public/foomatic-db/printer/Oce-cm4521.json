@@ -1,0 +1,13 @@
+{
+  "id": "Oce-cm4521",
+  "manufacturer": "Oce",
+  "model": "cm4521",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Throughput = 45\n\n      Foomatic entry made by PPDtoXML T/G 0.06",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

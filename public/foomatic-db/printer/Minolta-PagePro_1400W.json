@@ -1,0 +1,13 @@
+{
+  "id": "Minolta-PagePro_1400W",
+  "manufacturer": "Minolta",
+  "model": "PagePro 1400W",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Low cost laser.",
+  "drivers": [
+    {
+      "id": "min12xxw"
+    }
+  ]
+}

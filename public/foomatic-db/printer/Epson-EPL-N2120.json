@@ -1,0 +1,13 @@
+{
+  "id": "Epson-EPL-N2120",
+  "manufacturer": "Epson",
+  "model": "EPL-N2120",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Large format (A3/11x17) laser printer<p>\n       Epson provides a free (LGPL) driver for this printer. With this the\n       printer should work to its full extent.<p>\n\n      Consumables/Refills: toner cartridge, drum cartridge<p>",
+  "drivers": [
+    {
+      "id": "eplaser"
+    }
+  ]
+}

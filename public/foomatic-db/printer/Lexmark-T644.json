@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-T644",
+  "manufacturer": "Lexmark",
+  "model": "T644",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 50\n\n      Foomatic entry made by PPDtoXML T/G 0.05",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

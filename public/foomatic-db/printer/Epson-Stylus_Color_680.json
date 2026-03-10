@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Color_680",
+  "manufacturer": "Epson",
+  "model": "Stylus Color 680",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "This is the European model number for what we Yanks buy as the\n    <a href=\"show_printer.cgi?recnum=Epson-Stylus_Color_777\">Stylus\n    Color 777</a>.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

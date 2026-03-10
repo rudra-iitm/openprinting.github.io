@@ -1,0 +1,13 @@
+{
+  "id": "Seiko-SLP_Plus",
+  "manufacturer": "Seiko",
+  "model": "SLP Plus",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Not a postscript or pcl driver; slap only prints text in various fonts.<p>\n\n      Consumables/Refills: None; uses Seiko Instruments thermal labels<p>",
+  "drivers": [
+    {
+      "id": "slap"
+    }
+  ]
+}

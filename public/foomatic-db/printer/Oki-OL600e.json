@@ -1,0 +1,13 @@
+{
+  "id": "Oki-OL600e",
+  "manufacturer": "Oki",
+  "model": "OL600e",
+  "type": "led",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "ljet2p"
+    }
+  ]
+}

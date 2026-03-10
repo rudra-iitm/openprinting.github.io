@@ -1,0 +1,13 @@
+{
+  "id": "HP-DeskJet_3822",
+  "manufacturer": "HP",
+  "model": "DeskJet 3822",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "For basic printing functionality use the <a \n    href=\"http://hplipopensource.com/\">HPIJS \n    driver </a>. For advanced functionality such\n    as printer status and maintenance features, use the\n    <a href=\"http://hplipopensource.com/\">\n    HPLIP driver</a> (which includes HPIJS). <p>\n\n    The Gimp-Print driver also\n    works (Model setting: \"pcl-900\"), but only up to 600\n    dpi.<p><p>\n\n      Consumables/Refills: Separate black+color cartridge, used simultaniously<p>",
+  "drivers": [
+    {
+      "id": "hplip"
+    }
+  ]
+}

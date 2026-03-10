@@ -1,0 +1,13 @@
+{
+  "id": "Minolta-PagePro_1250E",
+  "manufacturer": "Minolta",
+  "model": "PagePro 1250E",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "PostScript/PCL laser.  Not to be confused wiht the\n     1250<b>W</b>, a host-based device.",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Epson-EP_703A",
+  "manufacturer": "Epson",
+  "model": "EP-703A",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "All-in-One color inkjet printer.<p>\n      Maximum paper width: 21.0 cm / 8.3 inches<p>",
+  "drivers": [
+    {
+      "id": "epson-ep-703a"
+    }
+  ]
+}

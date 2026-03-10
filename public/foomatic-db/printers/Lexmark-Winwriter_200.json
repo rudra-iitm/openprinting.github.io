@@ -1,0 +1,9 @@
+{
+  "id": "Lexmark-Winwriter_200",
+  "manufacturer": "Lexmark",
+  "model": "Winwriter 200",
+  "type": "laser",
+  "functionality": "F",
+  "notes": "From the Lexmark support database:\n \nThe WinWriter 200 requires that Windows has been invoked. The PCL4 emulation is host-based and runs under Windows.",
+  "drivers": []
+}

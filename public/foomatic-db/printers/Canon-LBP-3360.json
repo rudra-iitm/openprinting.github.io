@@ -1,0 +1,20 @@
+{
+  "id": "Canon-LBP-3360",
+  "manufacturer": "Canon",
+  "model": "LBP-3360",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "This is a PCL-XL printer but using it with \"pxlmono\" does not\n      work reliably, probably due to firmware incompatibility. See\n      <a href=\"https://bugs.launchpad.net/bugs/504841\">this bug\n      report</a>. So best choice is the HPLIP driver\n      \"hpijs-pcl5e\".<p>\n      \n      Foomatic entry made by PPDtoXML T/G 0.20 on 2008-09-06",
+  "drivers": [
+    {
+      "id": "hpijs-pcl5e",
+      "name": "hpijs-pcl5e",
+      "type": "hplip",
+      "functionality": "?",
+      "comments": "<B>This driver is available in the <A href=\"https://github.com/OpenPrinting/ghostscript-printer-app\">Ghostscript Printer Application</A></B><P>\n<iframe src=\"https://snapcraft.io/ghostscript-printer-app/embedded?button=black&summary=true\" frameborder=\"0\" width=\"100%\" height=\"300px\" style=\"border: 1px solid #CCC; border-radius: 2px;\"></iframe>\n\n   HPIJS is HP's universal printer driver for most of their\n   non-PostScript printers. It comes as a part of HPLIP, HP Linux\n   Imaging and Printing. HPLIP is a complete driver suite which also\n   includes scanning, copying, and fax drivers for multi-function\n   devices and also the printer maintenance and management utility\n   hp-toolbox.<P>\n\n   The HPIJS driver is only one of the two flavors of HP's printer\n   driver. HP has recently added the CUPS Raster driver hpcups and\n   uses this driver by default currently. HPIJS is still included in\n   HPLIP, but more for backward compatibility.<P>\n\n   HP provides PPD files for all their supported printers and both\n   driver flavors.<P>\n\n   Many non-HP printers are compatible to HP printers as they use the\n   same page description language, PCL 5e. This language was\n   introduced with the HP LaserJet 4 and it is probably the most used\n   standard page description language after PostScript. Even most of\n   the PostScript printers understand PCL 5e which can be used as\n   alternative language if the printer has not enough memory to render\n   PostScript. This driver entry generates PPD files to use HPIJS with\n   PCL 5e laser printers which are not from HP, and so allows the use\n   of this high-quality printer driver with a wide range of\n   printers.<P>\n\n   Double-sided printing and tray selection is supported, but tray numbers\n   may be different.<P>",
+      "ppd": null,
+      "supportLevel": null,
+      "color": null
+    }
+  ]
+}

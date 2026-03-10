@@ -1,0 +1,13 @@
+{
+  "id": "Mitsubishi-CP50_Color_Printer",
+  "manufacturer": "Mitsubishi",
+  "model": "CP50 Color Printer",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "Special gs driver; should work fine.",
+  "drivers": [
+    {
+      "id": "cp50"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJC-800",
+  "manufacturer": "Canon",
+  "model": "BJC-800",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "This printer works well.",
+  "drivers": [
+    {
+      "id": "bjc800"
+    }
+  ]
+}

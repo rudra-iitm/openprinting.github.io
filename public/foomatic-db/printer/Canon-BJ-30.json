@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJ-30",
+  "manufacturer": "Canon",
+  "model": "BJ-30",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "BJ-30 is BJC-70 minus the color capability. Following the advice for the\n      latter should get you there.<p>\n\n      Consumables/Refills: Ink cartridge (Canon BC-10)<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

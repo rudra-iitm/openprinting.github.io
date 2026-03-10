@@ -1,0 +1,13 @@
+{
+  "id": "HP-2563",
+  "manufacturer": "HP",
+  "model": "2563",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "An old line printer.\n    \n    For basic printing functionality use the <a href=\"http://hplipopensource.com/\">HPIJS driver </a>. For advanced functionality such as printer status and maintenance features, use the <a href=\"http://hplip.sf.net/\">HPLIP driver</a> (which includes HPIJS). <p>",
+  "drivers": [
+    {
+      "id": "lp2563"
+    }
+  ]
+}

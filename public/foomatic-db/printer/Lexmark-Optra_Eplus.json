@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-Optra_Eplus",
+  "manufacturer": "Lexmark",
+  "model": "Optra E+",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "ljet4"
+    }
+  ]
+}

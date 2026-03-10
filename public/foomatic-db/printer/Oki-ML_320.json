@@ -1,0 +1,13 @@
+{
+  "id": "Oki-ML_320",
+  "manufacturer": "Oki",
+  "model": "ML 320",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "Works without problems in the IBM emulation mode.<p>\n\n      Consumables/Refills: ribbon<p>",
+  "drivers": [
+    {
+      "id": "okiibm"
+    }
+  ]
+}

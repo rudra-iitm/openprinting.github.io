@@ -1,0 +1,13 @@
+{
+  "id": "Epson-PM_2200C",
+  "manufacturer": "Epson",
+  "model": "PM 2200C",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Japanese version of the Epson Stylus Photo EX3.<p>\n\n    Wide-format version of the Epson Stylus Photo 720<p>\n\n    6 color CMYKcm printer.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

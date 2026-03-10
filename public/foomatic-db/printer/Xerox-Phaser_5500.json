@@ -1,0 +1,13 @@
+{
+  "id": "Xerox-Phaser_5500",
+  "manufacturer": "Xerox",
+  "model": "Phaser 5500",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 50\n\n      Foomatic entry made by PPDtoXML T/G 0.05",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

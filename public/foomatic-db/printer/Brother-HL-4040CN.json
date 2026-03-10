@@ -1,0 +1,13 @@
+{
+  "id": "Brother-HL-4040CN",
+  "manufacturer": "Brother",
+  "model": "HL-4040CN",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Throughput = 21\n\n      Foomatic entry made by PPDtoXML T/G 0.06",
+  "drivers": [
+    {
+      "id": "pxlcolor"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Samsung-ML-7050",
+  "manufacturer": "Samsung",
+  "model": "ML-7050",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "This is a Network version of the ML-7000 printer by samsung, and will work with HP5 drivers.<p>\n\n      Consumables/Refills: ML+7000D8/XAR @ tigerdirec.com<p>",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

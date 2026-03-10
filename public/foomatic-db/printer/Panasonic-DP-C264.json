@@ -1,0 +1,13 @@
+{
+  "id": "Panasonic-DP-C264",
+  "manufacturer": "Panasonic",
+  "model": "DP-C264",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "PostScript 3 is optional\n      \n      Foomatic entry made by PPDtoXML T/G 0.18 on 2008-05-25",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

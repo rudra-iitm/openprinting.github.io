@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_TX550W",
+  "manufacturer": "Epson",
+  "model": "Stylus TX550W",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "All-in-One color inkjet printer.<p>\n      Maximum paper width: 21.0 cm / 8.3 inches<p>",
+  "drivers": [
+    {
+      "id": "epson-stylus-tx550w-series"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Apple-StyleWriter_1200",
+  "manufacturer": "Apple",
+  "model": "StyleWriter 1200",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "lpstyl"
+    }
+  ]
+}

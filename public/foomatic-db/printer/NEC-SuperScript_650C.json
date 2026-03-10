@@ -1,0 +1,13 @@
+{
+  "id": "NEC-SuperScript_650C",
+  "manufacturer": "NEC",
+  "model": "SuperScript 650C",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "Should(tm) work perfectly; change this entry if so!\n<br>CMYK four-color printing; separate black for text.<p>\n\n      Consumables/Refills: color and black cartridges<p>",
+  "drivers": [
+    {
+      "id": "pcl3"
+    }
+  ]
+}

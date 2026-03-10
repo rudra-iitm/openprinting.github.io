@@ -1,0 +1,13 @@
+{
+  "id": "Samsung-ML-6060",
+  "manufacturer": "Samsung",
+  "model": "ML-6060",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Postscript requires PS SIMM and 12MB of RAM (standard model comes with 4 MB)\n      \n      Foomatic entry made by PPDtoXML T/G 0.20 on 2008-09-07<p>\n\n      Consumables/Refills: toner<p>",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

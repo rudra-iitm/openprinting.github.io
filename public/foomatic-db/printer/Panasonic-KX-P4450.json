@@ -1,0 +1,13 @@
+{
+  "id": "Panasonic-KX-P4450",
+  "manufacturer": "Panasonic",
+  "model": "KX-P4450",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "1M RAM std, 5M max.",
+  "drivers": [
+    {
+      "id": "ljetplus"
+    }
+  ]
+}

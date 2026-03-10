@@ -1,0 +1,13 @@
+{
+  "id": "Sharp-AR-311FP_PS",
+  "manufacturer": "Sharp",
+  "model": "AR-311FP PS",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 31\n\n      Foomatic entry made by PPDtoXML T/G 0.06",
+  "drivers": [
+    {
+      "id": "Postscript-Sharp"
+    }
+  ]
+}

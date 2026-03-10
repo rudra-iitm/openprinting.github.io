@@ -1,0 +1,9 @@
+{
+  "id": "Genicom-microLaser_210",
+  "manufacturer": "Genicom",
+  "model": "microLaser 210",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Throughput = 21\n      \n      Foomatic entry made by PPDtoXML T/G 0.20 on 2009-03-17",
+  "drivers": []
+}

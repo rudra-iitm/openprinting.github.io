@@ -1,0 +1,13 @@
+{
+  "id": "KONICA_MINOLTA-bizhub_C252P",
+  "manufacturer": "KONICA MINOLTA",
+  "model": "bizhub C252P",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "Postscript-KONICA_MINOLTA"
+    }
+  ]
+}

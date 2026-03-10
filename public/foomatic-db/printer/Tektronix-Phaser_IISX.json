@@ -1,0 +1,13 @@
+{
+  "id": "Tektronix-Phaser_IISX",
+  "manufacturer": "Tektronix",
+  "model": "Phaser IISX",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "20 meg of ram, scsi disk.\nmuch faster than PX<p>\n\n      Consumables/Refills: Dye Sublimation, Special Paper<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

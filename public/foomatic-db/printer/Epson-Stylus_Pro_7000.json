@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Pro_7000",
+  "manufacturer": "Epson",
+  "model": "Stylus Pro 7000",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Working perfectly in gimp-print 4.2 and newer.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

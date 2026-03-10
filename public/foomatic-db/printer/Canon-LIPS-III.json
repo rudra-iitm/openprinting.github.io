@@ -1,0 +1,13 @@
+{
+  "id": "Canon-LIPS-III",
+  "manufacturer": "Canon",
+  "model": "LIPS-III",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "I have old LIPS III printer (Laser Shot A404 GII) which came with all LIPS-III command instructions documented.  Good old days.  If someone is interesed about command info to improve GS, contact me.  debian@aokiconsulting.com",
+  "drivers": [
+    {
+      "id": "lips3"
+    }
+  ]
+}

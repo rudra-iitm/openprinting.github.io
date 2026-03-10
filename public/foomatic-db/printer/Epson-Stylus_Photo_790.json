@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Photo_790",
+  "manufacturer": "Epson",
+  "model": "Stylus Photo 790",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Probably the smae printer as the Stylus Photo 780.<p>\n    6-color CMYKcm printing.<br>\n    USB or Parallel.",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

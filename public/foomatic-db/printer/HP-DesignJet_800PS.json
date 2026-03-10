@@ -1,0 +1,13 @@
+{
+  "id": "HP-DesignJet_800PS",
+  "manufacturer": "HP",
+  "model": "DesignJet 800PS",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "This database entry was automatically generated\n      from the PPD file for this printer.<p>\n\n      Maximum paper width: 42.0 inches / 106.7 cm\n      (Large format printer)<p>",
+  "drivers": [
+    {
+      "id": "Postscript-HP"
+    }
+  ]
+}

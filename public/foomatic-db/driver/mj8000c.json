@@ -1,0 +1,9 @@
+{
+  "id": "mj8000c",
+  "name": "mj8000c",
+  "functionality": "?",
+  "comments": "Special japanese printer driver.<p>\n\n      This driver was not maintained any more for longer time and is\n      <a\n      href=\"http://bugs.ghostscript.com/show_bug.cgi?id=689595\">broken\n      in current Ghostscript</a>. Please use Gutenprint for\n      these printers.<p>",
+  "ppd": null,
+  "supportLevel": null,
+  "color": null
+}

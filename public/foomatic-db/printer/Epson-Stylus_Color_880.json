@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Color_880",
+  "manufacturer": "Epson",
+  "model": "Stylus Color 880",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Works perfectly with Gimp-Print.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

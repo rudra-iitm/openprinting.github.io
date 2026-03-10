@@ -1,0 +1,13 @@
+{
+  "id": "Minolta-Color_PageWorks_Pro_L",
+  "manufacturer": "Minolta",
+  "model": "Color PageWorks/Pro L",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "The Minolta Color PageWorks/Pro L is a color laser printer which\n\tuses the Zenographics ZjStream printer language.\n\n\tThis printer is supported by the foo2zjs free software printer\n\tdriver.",
+  "drivers": [
+    {
+      "id": "foo2zjs"
+    }
+  ]
+}

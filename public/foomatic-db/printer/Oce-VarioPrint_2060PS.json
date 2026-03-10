@@ -1,0 +1,13 @@
+{
+  "id": "Oce-VarioPrint_2060PS",
+  "manufacturer": "Oce",
+  "model": "VarioPrint 2060",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "<b>Productive, versatile document system </b><br/>\nEffectively handle document processes.\n<UL>\n<LI>Multifunctional digital network printer/scanner/copier </LI>\n<LI>52 A4 prints per min </LI>\n<LI>Optional Digital Mailbox for controlled printing </LI>\n<LI>Page programming and accounting via driver</LI>\n</UL>\n    \n      <p>\n\n      Maximum paper width: 11.7 inches / 29.7 cm\n      (Wide format printer)<p>\n\n      Printing engine speed: 55 pages/min<p><p>\n\n      Consumables/Refills: Toner\n      <p>",
+  "drivers": [
+    {
+      "id": "Postscript-Oce"
+    }
+  ]
+}

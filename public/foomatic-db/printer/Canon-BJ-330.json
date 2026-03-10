@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJ-330",
+  "manufacturer": "Canon",
+  "model": "BJ-330",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Drives Canon at 360dpi in Epson emulation mode.<p>\n\n      Consumables/Refills: Canon Ink Cartridge BJI-642 ($25 +/-)<p>",
+  "drivers": [
+    {
+      "id": "bj200"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "HP-LaserJet_P2015",
+  "manufacturer": "HP",
+  "model": "LaserJet P2015",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "For basic printing functionality use the Postscript PPD. For advanced functionality such\n    as printer status and maintenance features, use the\n    <a href=\"http://hplipopensource.com/\">\n    HPLIP driver</a> (which includes HPIJS). <p>\n\n  PCL 5e and 6 with Postscript 2 emulation, out of the box, parallel and\nUSB connection,  250-sheet tray built-in, extra 250-sheet tray available.<p>",
+  "drivers": [
+    {
+      "id": "hplip"
+    }
+  ]
+}

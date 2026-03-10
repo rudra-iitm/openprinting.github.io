@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-C532n",
+  "manufacturer": "Lexmark",
+  "model": "C532n",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Throughput = 24\n\n      Foomatic entry made by PPDtoXML T/G 0.05",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

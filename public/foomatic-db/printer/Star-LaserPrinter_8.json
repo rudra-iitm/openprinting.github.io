@@ -1,0 +1,13 @@
+{
+  "id": "Star-LaserPrinter_8",
+  "manufacturer": "Star",
+  "model": "LaserPrinter 8",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Appears to have assorted older emulations, including laserjet.\n<br>I don't know if it has enough memory to print a full page bitmap as the laserjet driver will tend to do.",
+  "drivers": [
+    {
+      "id": "laserjet"
+    }
+  ]
+}

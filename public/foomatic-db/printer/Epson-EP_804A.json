@@ -1,0 +1,13 @@
+{
+  "id": "Epson-EP_804A",
+  "manufacturer": "Epson",
+  "model": "EP-804A",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "All-in-One color inkjet printer.<p>\n      Maximum paper width: 21.0 cm / 8.3 inches<p>",
+  "drivers": [
+    {
+      "id": "epson-201112j"
+    }
+  ]
+}

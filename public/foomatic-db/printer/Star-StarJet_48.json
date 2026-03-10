@@ -1,0 +1,13 @@
+{
+  "id": "Star-StarJet_48",
+  "manufacturer": "Star",
+  "model": "StarJet 48",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "sj48"
+    }
+  ]
+}

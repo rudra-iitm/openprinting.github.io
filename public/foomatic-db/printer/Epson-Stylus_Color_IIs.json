@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Color_IIs",
+  "manufacturer": "Epson",
+  "model": "Stylus Color IIs",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "Uniprint parameter files stc2.upp, stc2s_h.upp.<p>\n\n    3 color CMY printing, or black with separate cartridge.<p>\n\n      Consumables/Refills: color or black cartridge<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

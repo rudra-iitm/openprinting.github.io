@@ -1,0 +1,13 @@
+{
+  "id": "Fuji_Xerox-DocuPrint_M215",
+  "manufacturer": "Fuji Xerox",
+  "model": "DocuPrint M215",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "The Fuji Xerox DocuPrint M215b (USB) or M215fw (network)\n\tis a monochrome MFP printer with a 2014 street price of $130.\n\n\tThese printers are supported by the foo2hbpl2 open software printer\n\tdriver.",
+  "drivers": [
+    {
+      "id": "foo2hbpl2"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "NEC-SuperScript_750C",
+  "manufacturer": "NEC",
+  "model": "SuperScript 750C",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "CMYK four-color printing or black-only; two heads.\n<br>Should(tm) work perfectly; if you have one and it does, change this entry!<p>\n\n      Consumables/Refills: ink cartridges, one per head.<p>",
+  "drivers": [
+    {
+      "id": "pcl3"
+    }
+  ]
+}

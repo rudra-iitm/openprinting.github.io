@@ -1,0 +1,13 @@
+{
+  "id": "Epson-PM_880C",
+  "manufacturer": "Epson",
+  "model": "PM 880C",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Japanese version of the Epson Stylus Photo 890.<p>\n\n    6-color CMYKcm printing.<p>\n\n    Roll paper feeder, USB or Parallel.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

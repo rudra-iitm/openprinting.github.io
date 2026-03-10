@@ -1,0 +1,13 @@
+{
+  "id": "Oce-VarioPrint_2055PS",
+  "manufacturer": "Oce",
+  "model": "VarioPrint 2055",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "<b>The multifunctional system for office use </b><br/>\nGet connected without compromise.\n<UL>\n<LI>High-quality, versatile digital copier </LI>\n<LI>52 A4 pages per minute </LI>\n<LI>Optional multifunctional network printer/scanner/ copier </LI>\n<LI>Optional digital mailbox for controlled/secured printing </LI>\n<LI>Remote device administration/configuration</LI>\n</UL><p>\n\n      Consumables/Refills: Toner\n      <p>",
+  "drivers": [
+    {
+      "id": "Postscript-Oce"
+    }
+  ]
+}

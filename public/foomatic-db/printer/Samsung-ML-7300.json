@@ -1,0 +1,13 @@
+{
+  "id": "Samsung-ML-7300",
+  "manufacturer": "Samsung",
+  "model": "ML-7300",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "With built-in duplex unit.\n\n    Currently Samsung supports this printer with proprietary drivers\n    which come with the printer on its driver CD or can be downloaded\n    on the web sites of Samsung. Unfortunately, these drivers do not\n    work necessarily with all Linux distributions. You will therefore\n    probably get it more easily working by simply using it as a standard\n    PostScript printer with the PPD file from its driver CD.<p><p>\n\n      Consumables/Refills: <p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

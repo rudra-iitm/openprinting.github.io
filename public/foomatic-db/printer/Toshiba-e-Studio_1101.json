@@ -1,0 +1,13 @@
+{
+  "id": "Toshiba-e-Studio_1101",
+  "manufacturer": "Toshiba",
+  "model": "e-Studio 1101",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "PostScript 3 is optional\n      \n      Throughput = 110\n      \n      Foomatic entry made by PPDtoXML T/G 0.19 on 2008-08-07",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

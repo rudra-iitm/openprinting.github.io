@@ -1,0 +1,13 @@
+{
+  "id": "Oce-im9220",
+  "manufacturer": "Oce",
+  "model": "im9220",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 92\n\n      Foomatic entry made by PPDtoXML T/G 0.06",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

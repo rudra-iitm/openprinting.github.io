@@ -1,0 +1,13 @@
+{
+  "id": "Epson-CL_760",
+  "manufacturer": "Epson",
+  "model": "CL 760",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "Probably japanese equivalent of the Epson Stylus C50.<p>\n\n    Cheap 4-ink home printer with a medium resolution (1440x720 dpi),\n    but faster than the Stylus C42 printers and with 4 pl ink \n    drops.<p>\n\n    Should work with the Gimp-Print driver for the Epson Stylus C42\n    printers, but probably with limited quality in the highest\n    resolution.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

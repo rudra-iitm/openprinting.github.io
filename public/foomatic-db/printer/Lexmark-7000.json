@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-7000",
+  "manufacturer": "Lexmark",
+  "model": "7000",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "600 dpi printing seems to work with \nHenryk's new driver<p>\n\n      Consumables/Refills: dual cartridges<p>",
+  "drivers": [
+    {
+      "id": "lex7000"
+    }
+  ]
+}

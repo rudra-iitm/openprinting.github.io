@@ -1,0 +1,13 @@
+{
+  "id": "Oki-OL400w",
+  "manufacturer": "Oki",
+  "model": "OL400w",
+  "type": "led",
+  "functionality": "B",
+  "notes": "The OL400w works fine with all Foomatic-supported spoolers with\n    the oki4w driver.<br>\n\n    This printer, while it works, is not recommended for non-Windows\n    users.",
+  "drivers": [
+    {
+      "id": "oki4w"
+    }
+  ]
+}

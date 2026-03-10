@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-W812",
+  "manufacturer": "Lexmark",
+  "model": "W812",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 26\n\n      Foomatic entry made by PPDtoXML T/G 0.05",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

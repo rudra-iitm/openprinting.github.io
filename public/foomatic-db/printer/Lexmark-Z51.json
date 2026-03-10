@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-Z51",
+  "manufacturer": "Lexmark",
+  "model": "Z51",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "Known to work with Henryk's l7k driver and the lx5000 driver.",
+  "drivers": [
+    {
+      "id": "pbm2l7k"
+    }
+  ]
+}

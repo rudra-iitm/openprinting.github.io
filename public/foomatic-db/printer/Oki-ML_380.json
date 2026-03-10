@@ -1,0 +1,13 @@
+{
+  "id": "Oki-ML_380",
+  "manufacturer": "Oki",
+  "model": "ML 380",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "I'm sorry for the uncomplete information, but I'm a newbie<p>\n\n      Consumables/Refills: ribbon<p>",
+  "drivers": [
+    {
+      "id": "epson"
+    }
+  ]
+}

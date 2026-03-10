@@ -1,0 +1,13 @@
+{
+  "id": "Toshiba-e-Studio_4520c",
+  "manufacturer": "Toshiba",
+  "model": "e-Studio 4520c",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Throughput = 45\n      \n      Foomatic entry made by PPDtoXML T/G 0.19 on 2008-08-07",
+  "drivers": [
+    {
+      "id": "pxlcolor"
+    }
+  ]
+}

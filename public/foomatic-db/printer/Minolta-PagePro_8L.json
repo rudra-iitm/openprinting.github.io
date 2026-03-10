@@ -1,0 +1,13 @@
+{
+  "id": "Minolta-PagePro_8L",
+  "manufacturer": "Minolta",
+  "model": "PagePro 8L",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "PCL 4.5 printing works with 600 dpi only when activated via the\n    \"<tt>ENTER LANGUAGE=PCL600</tt>\" PJL command\n    (Thanks to Daniel Schlachta, daniel at schlachta dot net, for\n    figuring that out). As driver \"ljet2p\" has to be used\n    for this.<p>\n\n      Consumables/Refills: cartridge and/or toner<p>",
+  "drivers": [
+    {
+      "id": "ljet2p"
+    }
+  ]
+}

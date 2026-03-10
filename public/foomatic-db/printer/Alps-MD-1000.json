@@ -1,0 +1,13 @@
+{
+  "id": "Alps-MD-1000",
+  "manufacturer": "Alps",
+  "model": "MD-1000",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "J.C. Bradfield (jcb@dcs.ed.ac.uk) has written a fully functional\n    driver which converts PPM files (\"ppmtomd\"). He started\n    hacking ghostscript, but abandoned it.<p>\n\n    The \"md2k\" driver is documented only in\n    Japanese.<p>\n\n    \"md2k\" is reported to work, but suffers from some banding and\n    dithering problems. The driver supports all features but\n    metallic, white, or multicolour cartridges.<p>",
+  "drivers": [
+    {
+      "id": "ppmtomd"
+    }
+  ]
+}

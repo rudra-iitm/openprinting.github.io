@@ -1,0 +1,13 @@
+{
+  "id": "Apollo-P-2650",
+  "manufacturer": "Apollo",
+  "model": "P-2650",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Apollo is a brand of HP, the printers use HP cartridges and papers, the\n    main difference is the special design of the printers.<p>\n\n    Same as the Apollo P-2500, but comes with both a colour and a black\n    cartridge.<p>\n\n    There is a P-2600U with USB and a P-2600P with parallel\n    connection.<p>\n\n    To get its maximum quality, use the HPIJS (\"hpijs-pcl3\")\n    driver. 600 dpi in colour is not supported by the\n    hardware.<p>\n\n    The printer is equipped with a small photo frame in its\n    lid.<p>\n\n    Same as the Apollo P-2600, but with additional Windows software\n    toys.<p>",
+  "drivers": [
+    {
+      "id": "hpijs-pcl3"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Photo_PX810FW",
+  "manufacturer": "Epson",
+  "model": "Stylus Photo PX810FW",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "All-in-One color inkjet printer.<p>\n      Maximum paper width: 21.0 cm / 8.3 inches<p>",
+  "drivers": [
+    {
+      "id": "epson-stylus-photo-px810fw-series"
+    }
+  ]
+}

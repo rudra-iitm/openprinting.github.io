@@ -1,0 +1,9 @@
+{
+  "id": "Panasonic-KX-P1180i",
+  "manufacturer": "Panasonic",
+  "model": "KX-P1180i",
+  "type": "dotmatrix",
+  "functionality": "D",
+  "notes": "As a dot matrix printer it must be possible to print graphics with it.",
+  "drivers": []
+}

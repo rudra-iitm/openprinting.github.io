@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Office_TX300F",
+  "manufacturer": "Epson",
+  "model": "Stylus Office TX300F",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "All-in-One color inkjet printer.<p>\n      Epson provides a free (GPL) driver for this printer.<p>\n\n      Maximum paper width: 21.0 cm / 8.3 inches<p>",
+  "drivers": [
+    {
+      "id": "epson-escpr"
+    }
+  ]
+}

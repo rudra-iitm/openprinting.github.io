@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_C66",
+  "manufacturer": "Epson",
+  "model": "Stylus C66",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "DEC-LA75_Plus",
+  "manufacturer": "DEC",
+  "model": "LA75 Plus",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "la75plus"
+    }
+  ]
+}

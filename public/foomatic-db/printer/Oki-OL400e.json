@@ -1,0 +1,13 @@
+{
+  "id": "Oki-OL400e",
+  "manufacturer": "Oki",
+  "model": "OL400e",
+  "type": "led",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

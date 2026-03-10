@@ -1,0 +1,13 @@
+{
+  "id": "Oki-OL400",
+  "manufacturer": "Oki",
+  "model": "OL400",
+  "type": "led",
+  "functionality": "A",
+  "notes": "Compatible to the HP LaserJet II",
+  "drivers": [
+    {
+      "id": "laserjet"
+    }
+  ]
+}

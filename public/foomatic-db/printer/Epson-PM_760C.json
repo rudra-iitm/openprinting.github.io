@@ -1,0 +1,13 @@
+{
+  "id": "Epson-PM_760C",
+  "manufacturer": "Epson",
+  "model": "PM 760C",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Japanese version of the Epson Stylus Photo 720.<p>\n\n    Reported to work perfectly in the latest \"gimp-print\"\n    driver's documentation.<p>\n\n    Is 6 color CMYKcm printer.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

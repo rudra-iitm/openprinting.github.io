@@ -1,0 +1,9 @@
+{
+  "id": "Xerox-DocuPrint_N32",
+  "manufacturer": "Xerox",
+  "model": "DocuPrint N32",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Printer also supports PCL5e. \nGeneric PS filters do not support full printer functionality of stapling,\nmedia type support, or output destinations.<br>\nA wonderful workhorse of a printer.<br>\nAll the features should work via PJL commands.<p>\n\n      Consumables/Refills: Toner Cartridge, Fuser<p>",
+  "drivers": []
+}

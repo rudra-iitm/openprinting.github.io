@@ -1,0 +1,13 @@
+{
+  "id": "Oki-B4250",
+  "manufacturer": "Oki",
+  "model": "B4250",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 23\n      \n      Foomatic entry made by PPDtoXML T/G 0.19 on 2008-06-26",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Apple-StyleWriter_II",
+  "manufacturer": "Apple",
+  "model": "StyleWriter II",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "lpstyl"
+    }
+  ]
+}

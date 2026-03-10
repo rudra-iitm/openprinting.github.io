@@ -1,0 +1,20 @@
+{
+  "id": "Canon-S600",
+  "manufacturer": "Canon",
+  "model": "S600",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "This printer is similar to the Canon BJC-8200 (but only 4-ink)\n    and is reported to work with the same drivers (bj8*06n.upp in\n    Ghostscript 6.50 and newer) in the 600 dpi mode. If you want to use\n    Gimp-Print install this printer as the Canon BJC-8200 and choose 600\n    dpi resolution.<p>\n\n      Consumables/Refills: 4 independent ink tanks<p>",
+  "drivers": [
+    {
+      "id": "bj8XXYYZ.upp",
+      "name": "bj8XXYYZ.upp",
+      "type": "other",
+      "functionality": "?",
+      "comments": "<B>This driver is available in the <A href=\"https://github.com/OpenPrinting/ghostscript-printer-app\">Ghostscript Printer Application</A></B><P>\n<iframe src=\"https://snapcraft.io/ghostscript-printer-app/embedded?button=black&summary=true\" frameborder=\"0\" width=\"100%\" height=\"300px\" style=\"border: 1px solid #CCC; border-radius: 2px;\"></iframe>\n\n      This is a set of UPP files for the Canon BJC-8200 which comes\n      with Ghostscript 6.50 or newer. It supports several modes up to\n      the highest resolution on photo papers. Gimp-Print also supports\n      this model, but it is not known which driver gives the better\n      results.  <p>\n\n      The documentation to this driver (see driver's web page) tells\n      that with this driver the maximum printout quality is reached,\n      even it supports only 4-ink printing, but the Windows driver\n      also uses only four inks in its highest quality modes.<p>\n\n      UPP files of this driver: bj8gc12f.upp, bj8hg12f.upp,\n      bj8oh06n.upp, bj8pa06n.upp, bj8pp12f.upp, bj8ts06n.upp<p>",
+      "ppd": null,
+      "supportLevel": null,
+      "color": null
+    }
+  ]
+}

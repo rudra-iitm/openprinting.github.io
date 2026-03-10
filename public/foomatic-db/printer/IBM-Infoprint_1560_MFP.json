@@ -1,0 +1,13 @@
+{
+  "id": "IBM-Infoprint_1560_MFP",
+  "manufacturer": "IBM",
+  "model": "Infoprint 1560 MFP",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 45\n\n      Foomatic entry made by PPDtoXML T/G 0.05",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

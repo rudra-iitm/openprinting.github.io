@@ -1,0 +1,13 @@
+{
+  "id": "PCPI-1030",
+  "manufacturer": "PCPI",
+  "model": "1030",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Works fine, although a little slow.\n<br>A Postscript option is available.<p>\n\n      Consumables/Refills: toner cart; hard to find?<p>",
+  "drivers": [
+    {
+      "id": "laserjet"
+    }
+  ]
+}

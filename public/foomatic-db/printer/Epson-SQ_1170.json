@@ -1,0 +1,13 @@
+{
+  "id": "Epson-SQ_1170",
+  "manufacturer": "Epson",
+  "model": "SQ 1170",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Is there even any such thing as an SQ 1170?",
+  "drivers": [
+    {
+      "id": "stcolor"
+    }
+  ]
+}

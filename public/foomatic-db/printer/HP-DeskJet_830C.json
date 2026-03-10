@@ -1,0 +1,13 @@
+{
+  "id": "HP-DeskJet_830C",
+  "manufacturer": "HP",
+  "model": "DeskJet 830C",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "For basic printing functionality use the <a \n    href=\"http://hplipopensource.com/\">HPIJS \n    driver </a>. For advanced functionality such\n    as printer status and maintenance features, use the\n    <a href=\"http://hplipopensource.com/\">\n    HPLIP driver</a> (which includes HPIJS). <p>\n\n    Probably the same as the HP DeskJet 832C and similar to the HP\n    DeskJet 810C or 840C<P><p>\n\n      Consumables/Refills: HP 51645A (black), HP C1823D (color)<p>",
+  "drivers": [
+    {
+      "id": "hplip"
+    }
+  ]
+}

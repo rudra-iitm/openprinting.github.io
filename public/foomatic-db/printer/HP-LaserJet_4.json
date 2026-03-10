@@ -1,0 +1,13 @@
+{
+  "id": "HP-LaserJet_4",
+  "manufacturer": "HP",
+  "model": "LaserJet 4",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "For basic printing functionality use the Postscript PPD. For advanced functionality such\n    as printer status and maintenance features, use the\n    <a href=\"http://hplipopensource.com/\">\n    HPLIP driver</a> (which includes HPIJS). <p><p>\n\n      Consumables/Refills: toner ($70)<p>",
+  "drivers": [
+    {
+      "id": "hplip"
+    }
+  ]
+}

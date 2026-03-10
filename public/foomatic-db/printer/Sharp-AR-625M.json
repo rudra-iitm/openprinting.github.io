@@ -1,0 +1,13 @@
+{
+  "id": "Sharp-AR-625M",
+  "manufacturer": "Sharp",
+  "model": "AR-625M",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 62\n      \n      Foomatic entry made by PPDtoXML T/G 0.18 on 2008-05-20",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

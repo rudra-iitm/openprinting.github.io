@@ -1,0 +1,20 @@
+{
+  "id": "Oki-ML_321",
+  "manufacturer": "Oki",
+  "model": "ML 321",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "Works without problems in the IBM emulation mode.<p>\n    As the ML 320 but a large format (A3/11x17) printer.<p>\n\n      Consumables/Refills: ribbon<p>",
+  "drivers": [
+    {
+      "id": "okiibm",
+      "name": "okiibm",
+      "type": "other",
+      "functionality": "?",
+      "comments": "<B>This driver is available in the <A href=\"https://github.com/OpenPrinting/ghostscript-printer-app\">Ghostscript Printer Application</A></B><P>\n<iframe src=\"https://snapcraft.io/ghostscript-printer-app/embedded?button=black&summary=true\" frameborder=\"0\" width=\"100%\" height=\"300px\" style=\"border: 1px solid #CCC; border-radius: 2px;\"></iframe>",
+      "ppd": null,
+      "supportLevel": null,
+      "color": null
+    }
+  ]
+}

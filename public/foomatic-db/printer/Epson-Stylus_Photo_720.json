@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Photo_720",
+  "manufacturer": "Epson",
+  "model": "Stylus Photo 720",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Reported to work perfectly in the latest stp driver's documentation.\nIs 6 color CMYKcm printer.",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

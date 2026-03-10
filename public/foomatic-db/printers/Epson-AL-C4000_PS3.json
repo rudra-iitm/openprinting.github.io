@@ -1,0 +1,20 @@
+{
+  "id": "Epson-AL-C4000_PS3",
+  "manufacturer": "Epson",
+  "model": "AL-C4000 PS3",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "PostScript version of the AL-C4000<p>\n\n    Epson provides a free (LGPL) driver for this printer. With this the\n    printer should work to its full extent.<p>\n\n    This printer has one imaging drum and one laser for each colour\n    and therefore has the same speed in colour as in bw (16 pages/min\n    max.).<p><p>\n\n      Consumables/Refills: <p>",
+  "drivers": [
+    {
+      "id": "Postscript-Epson",
+      "name": "Postscript-Epson",
+      "type": "other",
+      "functionality": "?",
+      "comments": "<B>All PPD files of this driver entry are available in the <A href=\"https://github.com/OpenPrinting/ps-printer-app\">PostScript Printer Application</A></B><P>\n<iframe src=\"https://snapcraft.io/ps-printer-app/embedded?button=black&summary=true\" frameborder=\"0\" width=\"100%\" height=\"300px\" style=\"border: 1px solid #CCC; border-radius: 2px;\"></iframe>\n\n      Under this entry Epson's PPD files for their PostScript printers\n      are hosted. PostScript printers are supported natively in Linux\n      and Unix environments, so you only need the PPD file for your\n      printer, no driver executables, to get access to all printing\n      functionality. The PPD contains all information about properties\n      and user-settable options which are specific to the printer and\n      makes printing dialogs show these options and allow the user to\n      control all the printer's functionality.<p>\n\n      The PPDs only support the printing functionality of the\n      printers. To use extra functionality, like scanning, faxing, ... you\n      will perhaps need additional software.<p>\n\n      See also <a\n      href=\"http://www.avasys.jp/english/linux_e/lpd_e.html\">for\n      updated driver information for Epson printers and multi-function\n      devices</a>.\n\n      Note that these printers work, like all other PostScript\n      printers, with <a\n      href=\"show_driver.cgi?driver=Postscript\">generic PostScript\n      PPD files</a>, but then you will not get access to all the\n      printer specific functionality.<p>",
+      "ppd": null,
+      "supportLevel": null,
+      "color": null
+    }
+  ]
+}

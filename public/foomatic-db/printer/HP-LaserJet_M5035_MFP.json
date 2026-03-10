@@ -1,0 +1,13 @@
+{
+  "id": "HP-LaserJet_M5035_MFP",
+  "manufacturer": "HP",
+  "model": "LaserJet M5035 MFP",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "For basic printing functionality use the Postscript PPD.\n    For advanced functionality such as printer status, maintenance \n    features, scanning and photo card unload use the <a href=\"\n    http://hplipopensource.com/\">HPLIP driver</a> (which includes \n    HPIJS). <p><p>\n\n      Consumables/Refills: Toner and drum in one cartridge (18000 pages)<p>",
+  "drivers": [
+    {
+      "id": "hplip"
+    }
+  ]
+}

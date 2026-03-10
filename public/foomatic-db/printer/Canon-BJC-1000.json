@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJC-1000",
+  "manufacturer": "Canon",
+  "model": "BJC-1000",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "This printer works fine with the Ghostscript driver for the BJC-600/BJC-4000.\n<br>64-nozzle black, 24-per-color color heads.<p>\n\n      Consumables/Refills: Black BC-02 cartridge $25 Color BC-05 cartridge $45<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

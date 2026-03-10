@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-Optra_Color_1275",
+  "manufacturer": "Lexmark",
+  "model": "Optra Color 1275",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Also speaks PCL 5c and 6.\n<br>Model 1275n includes network port.\n<br>CMYK color printing.<p>\n\n      Consumables/Refills: 4 separate toner cartridges, one photoconductor/fuser roll<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

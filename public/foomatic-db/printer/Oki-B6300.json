@@ -1,0 +1,13 @@
+{
+  "id": "Oki-B6300",
+  "manufacturer": "Oki",
+  "model": "B6300",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "Throughput = 34\n      \n      Foomatic entry made by PPDtoXML T/G 0.19 on 2008-06-26",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

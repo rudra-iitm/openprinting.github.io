@@ -1,0 +1,13 @@
+{
+  "id": "Epson-MachJet",
+  "manufacturer": "Epson",
+  "model": "MachJet",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Imported from old Red Hat japanese printer database",
+  "drivers": [
+    {
+      "id": "mj700v2c"
+    }
+  ]
+}

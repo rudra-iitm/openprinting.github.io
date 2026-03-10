@@ -1,0 +1,13 @@
+{
+  "id": "Epson-EPL-6100",
+  "manufacturer": "Epson",
+  "model": "EPL-6100",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Epson provides a free (LGPL) driver for this printer. With this\n    the printer should work to its full extent.<p>\n\n    \"N\" version with network adapter and \"PS\" version with PostScript\n    interpreter available.<p><p>\n\n      Consumables/Refills: toner cartridge, drum cartridge<p>",
+  "drivers": [
+    {
+      "id": "eplaser"
+    }
+  ]
+}

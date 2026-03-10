@@ -1,0 +1,13 @@
+{
+  "id": "Canon-iP4000",
+  "manufacturer": "Canon",
+  "model": "iP4000",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "<p>\n\n      Consumables/Refills: <p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

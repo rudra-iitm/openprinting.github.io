@@ -1,0 +1,9 @@
+{
+  "id": "Xerox-DocuPrint_N17",
+  "manufacturer": "Xerox",
+  "model": "DocuPrint N17",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Also supports PCL5e.<br>\nWill print well with generic PS drivers. \nFull printer functionality is not supported through the generic filters.\n<br>The bells and whistles should all be usable via PJL commands from PDQ.<p>\n\n      Consumables/Refills: Toner Cartridge, Fuser<p>",
+  "drivers": []
+}

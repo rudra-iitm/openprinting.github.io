@@ -1,0 +1,13 @@
+{
+  "id": "Panasonic-KX-P2023",
+  "manufacturer": "Panasonic",
+  "model": "KX-P2023",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "It will only print the left 2/3 of a page if you have\nthe text printing mode set to 16cpi. Best results\nif you leave the poweron modes to default and make\nsure it is using the epson codeset.",
+  "drivers": [
+    {
+      "id": "epson"
+    }
+  ]
+}

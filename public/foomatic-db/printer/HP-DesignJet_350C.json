@@ -1,0 +1,13 @@
+{
+  "id": "HP-DesignJet_350C",
+  "manufacturer": "HP",
+  "model": "DesignJet 350C",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "Works with dnj650c driver.  I have had no problems. <p>",
+  "drivers": [
+    {
+      "id": "dnj650c"
+    }
+  ]
+}

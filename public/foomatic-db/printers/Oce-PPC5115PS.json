@@ -1,0 +1,20 @@
+{
+  "id": "Oce-PPC5115PS",
+  "manufacturer": "Oce",
+  "model": "PPC5115",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "<b>Networks bring together formerly distinct print environments, like central IT, printroom andthe office. But how can your enterprise capitalise on network printing in theseenvironments? The Power Print Controller can help. Its unique design handles multiple printstreams from a variety of environments totally independently of host, network andapplication. All that, in one intelligent controller.</b><br/>\n<UL>\n<LI>Supports the Oce VarioPrint 3070, 70 ppm, Oce VarioPrint 3090, 85 ppm, Oce VarioPrint 3110, 105 ppm, Oce Varioprint 5115, 115 ppm and Oce 5160, 160 ppm cutsheet printers</LI>\n<LI>Allows intelligent processing at job and page levels with Job Automation Control (JAC)</LI>\n<LI>Supports multiple PDLs and datastreams: PostScript, PCL, TIFF and ASCII</LI>\n<LI>Prints productively from multiple sources withsimultaneous acceptance and spooling of datafrom host and network environments</LI>\n<LI>Automatically merges print job data with electronic forms</LI>\n<LI>Integrates easily into existing networks, applications or platforms</LI>\n</UL><p>\n\n      Consumables/Refills: Toner\n      <p>",
+  "drivers": [
+    {
+      "id": "Postscript-Oce",
+      "name": "Postscript-Oce",
+      "type": "other",
+      "functionality": "?",
+      "comments": "<B>All PPD files of this driver entry are available in the <A href=\"https://github.com/OpenPrinting/ps-printer-app\">PostScript Printer Application</A></B><P>\n<iframe src=\"https://snapcraft.io/ps-printer-app/embedded?button=black&summary=true\" frameborder=\"0\" width=\"100%\" height=\"300px\" style=\"border: 1px solid #CCC; border-radius: 2px;\"></iframe>\n\n      Under this entry Oce's PPD files for their PostScript level 3 printers\n      are hosted. PostScript printers are supported natively in Linux\n      and Unix environments, so you only need the PPD file for your\n      printer, no driver executables, to get access to all printing\n      functionality. The PPD contains all information about properties\n      and user-settable options which are specific to the printer and\n      makes printing dialogs show these options and allow the user to\n      control all the printer's functionality.<p>\n\n      The PPDs only support the printing functionality of the\n      printers. To use extra functionality, like scanning, faxing, ... you\n      will perhaps need additional software.<p>\n\n      Note that these printers work, like all other PostScript\n      printers, with <a\n      href=\"show_driver.cgi?driver=Postscript\">generic PostScript\n      PPD files</a>, but then you will not get access to all the\n      printer specific functionality.<p>",
+      "ppd": null,
+      "supportLevel": null,
+      "color": null
+    }
+  ]
+}

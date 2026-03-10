@@ -1,0 +1,13 @@
+{
+  "id": "Ricoh-GX_3050SFN",
+  "manufacturer": "Ricoh",
+  "model": "GX 3050SFN",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Visit <a href=\"http://www.freestandards.org/en/OpenPrinting/Database/RicohFAQ#Ricoh_FAQ\"> FAQ section </a> for commonly asked questions. <p>\n\nThroughput 29.",
+  "drivers": [
+    {
+      "id": "pxlcolor-Ricoh"
+    }
+  ]
+}

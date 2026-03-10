@@ -1,0 +1,13 @@
+{
+  "id": "Dell-3000cn",
+  "manufacturer": "Dell",
+  "model": "3000cn",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "pxlcolor"
+    }
+  ]
+}

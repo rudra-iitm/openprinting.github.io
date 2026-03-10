@@ -1,0 +1,9 @@
+{
+  "id": "lj5gray",
+  "name": "lj5gray",
+  "functionality": "?",
+  "comments": "<B>This driver is available in the <A href=\"https://github.com/OpenPrinting/ghostscript-printer-app\">Ghostscript Printer Application</A></B><P>\n<iframe src=\"https://snapcraft.io/ghostscript-printer-app/embedded?button=black&summary=true\" frameborder=\"0\" width=\"100%\" height=\"300px\" style=\"border: 1px solid #CCC; border-radius: 2px;\"></iframe>\n\n      This driver entry is for Ghostscript's PCL XL raster driver,\n      accessible through the output devices \"lj5gray\" and\n      \"lj5mono\". By choosing the output device the halftoning mode\n      (grayscale or monochrome) is chosen. PPD files from this driver\n      entry allow to set the halftoning mode by an option.<p>\n\n      PCL-XL driver for the LaserJet 5, 6 (not 5L and 5P) and\n      compatible models up to 1200 dpi resolution. Note that the\n      \"pxlmono\"/\"pxlcolor\" drivers are much faster\n      than this driver, but due to a bug they do not work in\n      Ghostscript 5.50, in Ghostscript 6.51 they work\n      excellently. \"ljet4\" is also much faster, but has a\n      much worse output quality and on most printers it only does 600\n      dpi.<p>\n\n      The resolution must be given with the \"-r\" option on\n      the command line of Ghostscript. Preceeding the PostScript file\n      by a PostScript command for setting the resolution does not work\n      (at least not for 1200 dpi).<p>",
+  "ppd": null,
+  "supportLevel": null,
+  "color": null
+}

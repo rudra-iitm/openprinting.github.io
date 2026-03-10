@@ -1,0 +1,13 @@
+{
+  "id": "Epson-EPL-5900",
+  "manufacturer": "Epson",
+  "model": "EPL-5900",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Epson provides a free (LGPL) driver for this printer. With this\n     the printer should work to its full extent.<p>\n\n      Consumables/Refills: toner cartridge, drum cartridge<p>",
+  "drivers": [
+    {
+      "id": "eplaser"
+    }
+  ]
+}

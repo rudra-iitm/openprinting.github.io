@@ -1,0 +1,13 @@
+{
+  "id": "HP-LaserJet_Pro_P1566",
+  "manufacturer": "HP",
+  "model": "LaserJet Pro P1566",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "This printer is supported by the foo2zjs free software printer driver.\n      <p>\n\n      The printer is faster than the LaserJet 1000 and has a USB\n      connection.<p>\n\n      Consumables: Print cartridge (2000 prints), ~$65 (part no. Q2612A)",
+  "drivers": [
+    {
+      "id": "foo2zjs-z2"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-Optra_T610",
+  "manufacturer": "Lexmark",
+  "model": "Optra T610",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "15ppm, 350-sheet feeder, 4/8MB memory std.",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

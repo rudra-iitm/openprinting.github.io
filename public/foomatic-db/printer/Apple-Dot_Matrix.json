@@ -1,0 +1,13 @@
+{
+  "id": "Apple-Dot_Matrix",
+  "manufacturer": "Apple",
+  "model": "Dot Matrix",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "appledmp"
+    }
+  ]
+}

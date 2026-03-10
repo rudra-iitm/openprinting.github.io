@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-E210",
+  "manufacturer": "Lexmark",
+  "model": "E210",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Seems to be a relabeled Samsung ML-4500.<p>\n\n      Consumables/Refills: 2000 sheets per cartridge<p>",
+  "drivers": [
+    {
+      "id": "gdi"
+    }
+  ]
+}

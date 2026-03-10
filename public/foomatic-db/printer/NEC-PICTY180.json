@@ -1,0 +1,13 @@
+{
+  "id": "NEC-PICTY180",
+  "manufacturer": "NEC",
+  "model": "PICTY180",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "Imported from old Red Hat japanese printer database",
+  "drivers": [
+    {
+      "id": "picty180"
+    }
+  ]
+}

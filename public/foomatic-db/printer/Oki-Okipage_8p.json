@@ -1,0 +1,13 @@
+{
+  "id": "Oki-Okipage_8p",
+  "manufacturer": "Oki",
+  "model": "Okipage 8p",
+  "type": "led",
+  "functionality": "A",
+  "notes": "This printer is mostly HP 6L compatible.\nSo, no big problems. \n<br>This printer uses PJL for various per-job and permanent settings; use PDQ to gain control over these.",
+  "drivers": [
+    {
+      "id": "hpijs-pcl5e"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Minolta-PagePro_6ex",
+  "manufacturer": "Minolta",
+  "model": "PagePro 6ex",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "<b>Important</b>: The <a\n    href=\"show_printer.cgi?recnum=Minolta-PagePro_6L\">Minolta PagePro\n    6L</a> is a different printer. This rating does not apply to\n    the 6L<p>\n\n    Graphics comes out too dark.<p>",
+  "drivers": [
+    {
+      "id": "hpijs-pcl5e"
+    }
+  ]
+}

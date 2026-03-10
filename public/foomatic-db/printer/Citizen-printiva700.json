@@ -1,0 +1,13 @@
+{
+  "id": "Citizen-printiva700",
+  "manufacturer": "Citizen",
+  "model": "printiva700",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "J.C. Bradfield (jcb@dcs.ed.ac.uk) has written a fully functional\n    driver which converts PPM files. He started hacking ghostscript, but\n    abandoned it.<p>\n\n      Consumables/Refills: Ribbon cartridges, also in special spot and metallic colours<p>",
+  "drivers": [
+    {
+      "id": "ppmtomd"
+    }
+  ]
+}

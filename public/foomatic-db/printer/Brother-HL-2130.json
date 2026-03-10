@@ -1,0 +1,13 @@
+{
+  "id": "Brother-HL-2130",
+  "manufacturer": "Brother",
+  "model": "HL-2130",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "hl1250"
+    }
+  ]
+}

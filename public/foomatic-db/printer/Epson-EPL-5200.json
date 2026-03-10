@@ -1,0 +1,13 @@
+{
+  "id": "Epson-EPL-5200",
+  "manufacturer": "Epson",
+  "model": "EPL-5200",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "ljet3"
+    }
+  ]
+}

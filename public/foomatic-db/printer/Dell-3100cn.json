@@ -1,0 +1,13 @@
+{
+  "id": "Dell-3100cn",
+  "manufacturer": "Dell",
+  "model": "3100cn",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Foomatic entry made by PPDtoXML T/G 0.19 on 2008-09-03",
+  "drivers": [
+    {
+      "id": "pxlcolor"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "HP-DeskJet_841C",
+  "manufacturer": "HP",
+  "model": "DeskJet 841C",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "For basic printing functionality use the <a \n    href=\"http://hplipopensource.com/\">HPIJS \n    driver </a>. For advanced functionality such\n    as printer status and maintenance features, use the\n    <a href=\"http://hplipopensource.com/\">\n    HPLIP driver</a> (which includes HPIJS). <p>\n\n\n    Same printer as 840C.<p>\n\n    Older comments for the DeskJet 840C:<p>\n\n    Works out of the box with various PCL3 drivers.<p>\n\n    Under Linux this printer does up to 600x600dpi in colour with\n    CRET. To obtain this use the Gimp-Print driver (4.1.99) in 600x600\n    dpi, or the cdj880 or cdj970 drivers with RET turned on and\n    presentation quality.<p><p>\n\n      Consumables/Refills: One cartridge for black, another for CMY<p>",
+  "drivers": [
+    {
+      "id": "hplip"
+    }
+  ]
+}

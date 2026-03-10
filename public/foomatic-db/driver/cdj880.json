@@ -1,0 +1,9 @@
+{
+  "id": "cdj880",
+  "name": "cdj880",
+  "functionality": "?",
+  "comments": "One version is good for black text, and the new version 1.4 is\n    good for photos (not suitable for text).<p>\n\n    The \"Normal\" printing quality only works on the HP DeskJet 840C,\n    842C, 880C, and 882C when one uses at least GNU Ghostscript\n    6.51.<p>",
+  "ppd": null,
+  "supportLevel": null,
+  "color": null
+}

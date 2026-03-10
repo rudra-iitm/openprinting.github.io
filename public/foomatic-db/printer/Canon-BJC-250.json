@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJC-250",
+  "manufacturer": "Canon",
+  "model": "BJC-250",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

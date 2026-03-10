@@ -1,0 +1,13 @@
+{
+  "id": "Epson-AL-C4100",
+  "manufacturer": "Epson",
+  "model": "AL-C4100",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Epson provides free (LGPL) drivers for this printer. With this\n      the printer works to its full extent.<p>\n\n      This printer has one imaging drum and one laser for each colour\n      and therefore has the same speed in colour as in bw (16\n      pages/min max.).<p><p>",
+  "drivers": [
+    {
+      "id": "eplaser"
+    }
+  ]
+}

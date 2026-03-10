@@ -1,0 +1,13 @@
+{
+  "id": "Canon-imageRunner_2200",
+  "manufacturer": "Canon",
+  "model": "imageRunner 2200",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Printer Kit-C1 (PostScript3 Emulation/PCL5e, XL) and Network Printer Kit-C2 (PCL5e, XL). Additional PDL: UFRII LT\n      \n      Foomatic entry made by PPDtoXML T/G 0.20 on 2008-09-06<p>\n\n      Consumables/Refills: toner<p>",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

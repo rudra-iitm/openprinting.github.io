@@ -1,0 +1,20 @@
+{
+  "id": "Avery-Personal_Label_Printerplus",
+  "manufacturer": "Avery",
+  "model": "Personal Label Printer+",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "OEM LabelWriter?<br>2.25 inch label printer; driver by Mark Whitis<br>Should work; untested<p>\n\n      Consumables/Refills: thermal; special labels<p>",
+  "drivers": [
+    {
+      "id": "pbm2lwxl",
+      "name": "pbm2lwxl",
+      "type": "other",
+      "functionality": "?",
+      "comments": "",
+      "ppd": null,
+      "supportLevel": null,
+      "color": null
+    }
+  ]
+}

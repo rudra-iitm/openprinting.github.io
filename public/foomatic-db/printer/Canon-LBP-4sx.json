@@ -1,0 +1,13 @@
+{
+  "id": "Canon-LBP-4sx",
+  "manufacturer": "Canon",
+  "model": "LBP-4sx",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Reported to work fine as a PCL laser by Alan Dickie.<p>\n\n      Consumables/Refills: cartridge<p>",
+  "drivers": [
+    {
+      "id": "ljet3"
+    }
+  ]
+}

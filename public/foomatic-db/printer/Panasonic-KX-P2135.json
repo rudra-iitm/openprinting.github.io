@@ -1,0 +1,13 @@
+{
+  "id": "Panasonic-KX-P2135",
+  "manufacturer": "Panasonic",
+  "model": "KX-P2135",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "Works fine in color and b&amp;w with \nghostscript, magicfilter epsonlqc \nsetting. Capable of 360x180.\nVery quiet<p>\n\n      Consumables/Refills: ribbon blk KX-160 clr KX-165<p>",
+  "drivers": [
+    {
+      "id": "epsonc"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Xerox-WorkCentre_470cx",
+  "manufacturer": "Xerox",
+  "model": "WorkCentre 470cx",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "Works Black and White only with the\nGhostscript 5.50 Lexmark 5700 driver.\nNote: only prints using Ghostscript\nfrom Postscript input.\nUse a2ps to convert print plain text\nto Postscript.<p>\n\n      Consumables/Refills: black (like XJ8C) and color<p>",
+  "drivers": [
+    {
+      "id": "lxm5700m"
+    }
+  ]
+}

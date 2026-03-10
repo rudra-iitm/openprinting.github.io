@@ -1,0 +1,20 @@
+{
+  "id": "Lanier-SP_C232SF",
+  "manufacturer": "Lanier",
+  "model": "SP C232SF",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Visit <a href=\"http://www.linuxfoundation.org/collaborate/workgroups/openprinting/database/ricohfaq\"> FAQ section </a> questions regarding PPDs for Ricoh, Lanier, Savin, NRG, Infotec, and Gestetner printers.<p>\n\nDownloading the PPD directly is easier and faster since it has no dependency requirement and the file size is much smaller.\n\nVisit <a href=\"http://www.linuxfoundation.org/collaborate/workgroups/openprinting/database/ricohfaq#How_do_I_install_a_PPD_file.3F\"> FAQ section </a> for installing a PPD file.\n\nDownload the driver package if you want to install all drivers (100+).<p>\n\nThroughput 20.",
+  "drivers": [
+    {
+      "id": "Postscript-Lanier",
+      "name": "Postscript-Lanier",
+      "type": "other",
+      "functionality": "?",
+      "comments": "<B>All PPD files of this driver entry are available in the <A href=\"https://github.com/OpenPrinting/ps-printer-app\">PostScript Printer Application</A></B><P>\n<iframe src=\"https://snapcraft.io/ps-printer-app/embedded?button=black&summary=true\" frameborder=\"0\" width=\"100%\" height=\"300px\" style=\"border: 1px solid #CCC; border-radius: 2px;\"></iframe>\n\n      This PPD file based on Postscript is made for Linux/UNIX environment.\n      PostScript printers are natively supported in Linux and UNIX environments (including Chrome OS),\n      so you only need this PPD file for your printer, no driver executables,\n      to get access to all printing functionality.\n      Especially this PPD file supports some advanced printer features like Locked Print, Document Server,\n      User Code… Note that although the printers are PostScript printers this PPD file needs foomatic-rip.\n      Please see the <a\n      href=\"http://www.linuxfoundation.org/en/OpenPrinting/Database/RicohFAQ\">Ricoh\n      FAQs</a> for more details.<p>\n\n      Note that these printers work, like all other PostScript\n      printers, with <a\n      href=\"show_driver.cgi?driver=Postscript\">generic PostScript\n      PPD files</a>, but then you will not get access to all the\n      printer-specific functionality.<p>",
+      "ppd": null,
+      "supportLevel": null,
+      "color": null
+    }
+  ]
+}

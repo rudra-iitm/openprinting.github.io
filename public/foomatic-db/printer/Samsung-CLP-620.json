@@ -1,0 +1,13 @@
+{
+  "id": "Samsung-CLP-620",
+  "manufacturer": "Samsung",
+  "model": "CLP-620",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "This database entry was automatically generated\n      from the PPD file for this printer.<p>\n\n      Maximum paper width: 8.5 inches / 21.6 cm\n      (Standard format printer)<p>\n\n      Printing engine speed: 55 pages/min<p>",
+  "drivers": [
+    {
+      "id": "pxlcolor-Samsung"
+    }
+  ]
+}

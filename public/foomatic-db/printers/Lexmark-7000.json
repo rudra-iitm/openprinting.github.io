@@ -1,0 +1,20 @@
+{
+  "id": "Lexmark-7000",
+  "manufacturer": "Lexmark",
+  "model": "7000",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "600 dpi printing seems to work with \nHenryk's new driver<p>\n\n      Consumables/Refills: dual cartridges<p>",
+  "drivers": [
+    {
+      "id": "lex7000",
+      "name": "lex7000",
+      "type": "other",
+      "functionality": "?",
+      "comments": "<B>This driver is available in the <A href=\"https://github.com/OpenPrinting/ghostscript-printer-app\">Ghostscript Printer Application</A></B><P>\n<iframe src=\"https://snapcraft.io/ghostscript-printer-app/embedded?button=black&summary=true\" frameborder=\"0\" width=\"100%\" height=\"300px\" style=\"border: 1px solid #CCC; border-radius: 2px;\"></iframe>\n\n   Henryk's Ghostscript driver for the 7000 and related Lexmark Color\n   Jetprinters.<p>\n\n   Fast and less memory consuming alternative to the \"pbm2l7k\" colour\n   driver. You should have it installed when you do not only use your\n   printer for images but also for letters and listings.<p>\n\n   This driver is not maintained any more, but it is part of ESP\n   Ghostscript. So install ESP Ghostscript to get the driver.<p>",
+      "ppd": null,
+      "supportLevel": null,
+      "color": null
+    }
+  ]
+}

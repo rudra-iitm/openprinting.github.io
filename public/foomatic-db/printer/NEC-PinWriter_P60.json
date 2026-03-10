@@ -1,0 +1,13 @@
+{
+  "id": "NEC-PinWriter_P60",
+  "manufacturer": "NEC",
+  "model": "PinWriter P60",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "Color is an optional feature for this printer.\nBasically you could by a replacement part to enable color printing.",
+  "drivers": [
+    {
+      "id": "necp6"
+    }
+  ]
+}

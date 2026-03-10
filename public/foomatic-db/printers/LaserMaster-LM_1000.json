@@ -1,0 +1,9 @@
+{
+  "id": "LaserMaster-LM_1000",
+  "manufacturer": "LaserMaster",
+  "model": "LM 1000",
+  "type": "laser",
+  "functionality": "F",
+  "notes": "A 1000dpi laser from 1989.  Uses  a proprietary  video  interface to support DDPI (whatever that is) protocol.\n<br>\nContact: Tommi Rintala",
+  "drivers": []
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Epson-PX_7000",
+  "manufacturer": "Epson",
+  "model": "PX 7000",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "Japanese version of the Epson Stylus Pro 7600.<p>\n\n      Large format photo printer (24 inches wide, A1 format).<p>\n\n      UltraChrome model with 7 inks (CcMmYKk) or dye ink model with\n      the usual 6 inks (CcMmYK).<p>\n      \n      Supported in Gimp-Print 4.2.2rc2, 4.3.4, or newer.  Biggest\n      problem for the Gimp-Print team is not having a test\n      device.<p><p>\n\n      Consumables/Refills: 7 separate ink cartridges: Cyan, light cyan, magenta, light magenta, yellow, black, light black (UltraChrome inks), second black cartridge (dye ink)<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

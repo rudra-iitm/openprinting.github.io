@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Photo_1270",
+  "manufacturer": "Epson",
+  "model": "Stylus Photo 1270",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "48 nozzles per color; 6 color CMYKcm process.\n<br>USB and Parallel.\n<br>12.75 inch wide paper path.\n<br>4 picoliter dots.  One of the best Epsons for color and quality.",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

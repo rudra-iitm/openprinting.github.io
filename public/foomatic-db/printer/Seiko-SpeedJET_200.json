@@ -1,0 +1,13 @@
+{
+  "id": "Seiko-SpeedJET_200",
+  "manufacturer": "Seiko",
+  "model": "SpeedJET 200",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Another Olivetti JP350 clone.<p>\n\n      Consumables/Refills: Cartridge GBP5, GBP25 with printhead<p>",
+  "drivers": [
+    {
+      "id": "laserjet"
+    }
+  ]
+}

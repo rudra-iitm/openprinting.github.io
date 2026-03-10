@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_800",
+  "manufacturer": "Epson",
+  "model": "Stylus 800",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "stcolor"
+    }
+  ]
+}

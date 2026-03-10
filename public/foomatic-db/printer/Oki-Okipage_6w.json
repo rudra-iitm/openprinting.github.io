@@ -1,0 +1,13 @@
+{
+  "id": "Oki-Okipage_6w",
+  "manufacturer": "Oki",
+  "model": "Okipage 6w",
+  "type": "led",
+  "functionality": "B",
+  "notes": "It seems to have the same firmware as Okipage 4w.<p>\n\n    Only seems to generate 300x300dpi class output.<p>\n\n    Fl&aacute;vio Coelho (fccoelho at uerj dot br) reports that\n    this printer only works with the old 2.0 version of the\n    \"oki4drv\" driver.<p>\n\n    Please report whether it works with the \"oki4w\"\n    Ghostscript driver.<p>",
+  "drivers": [
+    {
+      "id": "oki4w"
+    }
+  ]
+}

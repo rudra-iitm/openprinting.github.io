@@ -1,0 +1,13 @@
+{
+  "id": "Toshiba-e-Studio_230",
+  "manufacturer": "Toshiba",
+  "model": "e-Studio 230",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "Postscript-Toshiba"
+    }
+  ]
+}

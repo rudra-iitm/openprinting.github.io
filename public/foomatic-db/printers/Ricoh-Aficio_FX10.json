@@ -1,0 +1,9 @@
+{
+  "id": "Ricoh-Aficio_FX10",
+  "manufacturer": "Ricoh",
+  "model": "Afico FX10",
+  "type": "laser",
+  "functionality": "F",
+  "notes": "Scanner/fax/copier/printer.\n<br>Web site says PCL 4.5 in Windows DOS box; I assume this means no onboard PCL.\n<br>Scanner also not known to work.",
+  "drivers": []
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Samsung-QL-5100A",
+  "manufacturer": "Samsung",
+  "model": "QL-5100A",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "The ljet4 driver works perfectly\nwithout modification. Unlike the \noriginal HP LaserJet 4, the\nSamsung QL5100A supports the HP\nPJL.<p>\n\n      Consumables/Refills: Combined toner/drum cartrige<p>",
+  "drivers": [
+    {
+      "id": "hpijs-pcl5e"
+    }
+  ]
+}

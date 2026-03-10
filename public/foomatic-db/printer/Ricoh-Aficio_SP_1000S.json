@@ -1,0 +1,13 @@
+{
+  "id": "Ricoh-Aficio_SP_1000S",
+  "manufacturer": "Ricoh",
+  "model": "Aficio SP 1000S",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "This is one of the few Ricoh laser printers which neither\n      understands PostScript nor PCL. It uses the proprietary <a\n      href=\"http://www.undocprint.org/formats/page_description_languages/sagem-gdi\">SAG-GDI</a>\n      raster format from Sagem Communication.<p>\n\n      The \"rastertosag-gdi\" driver for this format is a simple CUPS filter\n      written in Python, which you can download from this site.<p>",
+  "drivers": [
+    {
+      "id": "rastertosag-gdi"
+    }
+  ]
+}

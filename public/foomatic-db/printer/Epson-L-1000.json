@@ -1,0 +1,13 @@
+{
+  "id": "Epson-L-1000",
+  "manufacturer": "Epson",
+  "model": "L-1000",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "Used Redhat 6.1 Printtool.  Told it I had an Epson 24-pin.\nWorks like a charm with \"Type A\" resolutions.<p>\n\n      Consumables/Refills: fabric ribbon; can be reinked with third party tool<p>",
+  "drivers": [
+    {
+      "id": "epson"
+    }
+  ]
+}

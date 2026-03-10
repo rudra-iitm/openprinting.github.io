@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJC-620",
+  "manufacturer": "Canon",
+  "model": "BJC-620",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Different uniprint drivers for 360/720dpi printing and different paper types.<p>\n\n      Consumables/Refills: JR Inkjet Cartridge Refill--about $3.00per fill<p>",
+  "drivers": [
+    {
+      "id": "bjc600"
+    }
+  ]
+}

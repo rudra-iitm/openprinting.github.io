@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJC-240",
+  "manufacturer": "Canon",
+  "model": "BJC-240",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

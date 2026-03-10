@@ -1,0 +1,13 @@
+{
+  "id": "IBM-Infoprint_1422",
+  "manufacturer": "IBM",
+  "model": "Infoprint 1422",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 32\n\n      Foomatic entry made by PPDtoXML T/G 0.05",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

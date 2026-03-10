@@ -1,0 +1,13 @@
+{
+  "id": "Anitech-M24",
+  "manufacturer": "Anitech",
+  "model": "M24",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "A4 24-pin dot-matrix printer, Epson compatible",
+  "drivers": [
+    {
+      "id": "epson"
+    }
+  ]
+}

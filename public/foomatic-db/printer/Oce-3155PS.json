@@ -1,0 +1,13 @@
+{
+  "id": "Oce-3155PS",
+  "manufacturer": "Oce",
+  "model": "3155",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "<b>Cost-effective digital reproduction</b><br/>\nFast copying, printing and scanning for all offices.\n<UL>\n<LI>52 A4 prints per min </LI>\n<LI>Network connectivity for productive printing </LI>\n<LI>Optional network scan connectivity </LI> \n<LI>Digital mailbox for controlled printing </LI>\n<LI>Scan once, print many</LI>\n</UL><p>\n\n      Consumables/Refills: Toner\n      <p>",
+  "drivers": [
+    {
+      "id": "Postscript-Oce"
+    }
+  ]
+}

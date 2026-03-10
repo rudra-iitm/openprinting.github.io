@@ -1,0 +1,13 @@
+{
+  "id": "Oce-8465PS",
+  "manufacturer": "Oce",
+  "model": "8465",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "<p>\n\n      Maximum paper width: 11.7 inches / 29.7 cm\n      (Wide format printer)<p>\n\n      Printing engine speed: 65 pages/min<p><p>\n\n      Consumables/Refills: Toner\n      <p>",
+  "drivers": [
+    {
+      "id": "Postscript-Oce"
+    }
+  ]
+}

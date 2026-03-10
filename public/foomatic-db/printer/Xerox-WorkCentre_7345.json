@@ -1,0 +1,13 @@
+{
+  "id": "Xerox-WorkCentre_7345",
+  "manufacturer": "Xerox",
+  "model": "WorkCentre 7345",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "\"pxlcolor\" and HPIJS are the only drivers that currently print in colour.\n\n      Throughput = 26\n      \n      Foomatic entry made by PPDtoXML T/G 0.18 on 2008-05-25",
+  "drivers": [
+    {
+      "id": "pxlcolor"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Epson-EPL-N2050PS",
+  "manufacturer": "Epson",
+  "model": "EPL-N2050PS",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "PostScript version of the EPL-N2050+<p>\n      Epson provides a free (LGPL) driver for this printer. With this the\n      printer should work to its full extent.<p>\n\n      Consumables/Refills: toner cartridge, drum cartridge<p>",
+  "drivers": [
+    {
+      "id": "eplaser"
+    }
+  ]
+}

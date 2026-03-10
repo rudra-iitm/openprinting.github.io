@@ -1,0 +1,13 @@
+{
+  "id": "Canon-imageRunner_3570",
+  "manufacturer": "Canon",
+  "model": "imageRunner 3570",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Multi-PDL Printer Kit E-1 required for PostScript and PCL 5e, 6\n      \n      Foomatic entry made by PPDtoXML T/G 0.20 on 2008-09-06",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

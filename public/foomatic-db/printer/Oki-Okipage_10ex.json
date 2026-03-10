@@ -1,0 +1,13 @@
+{
+  "id": "Oki-Okipage_10ex",
+  "manufacturer": "Oki",
+  "model": "Okipage 10ex",
+  "type": "led",
+  "functionality": "A",
+  "notes": "Reported by a SCO (!) VAR I bumped into to be a more robust\n    alternative to the <a\n    href=\"show_printer.cgi?recnum=Oki-Okipage_10e\">Okipage\n    10e</a> for low volume applications.  It features a display\n    and better PCL support vs that printer.",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

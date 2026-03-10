@@ -1,0 +1,13 @@
+{
+  "id": "Oki-Microline_620CL",
+  "manufacturer": "Oki",
+  "model": "Microline 620CL",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "Imported from old Red Hat japanese printer database",
+  "drivers": [
+    {
+      "id": "ml600"
+    }
+  ]
+}

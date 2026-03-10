@@ -1,0 +1,13 @@
+{
+  "id": "Oki-Okipage_8w_Lite",
+  "manufacturer": "Oki",
+  "model": "Okipage 8w Lite",
+  "type": "led",
+  "functionality": "B",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "oki4w"
+    }
+  ]
+}

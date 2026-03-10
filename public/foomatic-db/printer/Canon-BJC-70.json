@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJC-70",
+  "manufacturer": "Canon",
+  "model": "BJC-70",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Use the \"bj200\" Ghostscript driver for fast\n    black-and-white printing, the \"bjc600\" driver for\n    colour.<p>\n\n    There are many options; see the Ghostscript documentation and the\n    \"Execution Details\" page on this site.<p>\n\n    Note that if this has a scanner cartridge option, it isn't\n    supported.",
+  "drivers": [
+    {
+      "id": "bjc600"
+    }
+  ]
+}

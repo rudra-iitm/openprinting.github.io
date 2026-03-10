@@ -1,0 +1,13 @@
+{
+  "id": "Oki-OL400ex",
+  "manufacturer": "Oki",
+  "model": "OL400ex",
+  "type": "led",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "ljet2p"
+    }
+  ]
+}

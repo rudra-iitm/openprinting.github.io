@@ -1,0 +1,13 @@
+{
+  "id": "Xerox-Able_1406",
+  "manufacturer": "Xerox",
+  "model": "Able 1406",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Compatible to the HP LaserJet 4<p>\n\n      Consumables/Refills: <p>",
+  "drivers": [
+    {
+      "id": "hpijs-pcl5e"
+    }
+  ]
+}

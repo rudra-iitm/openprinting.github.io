@@ -1,0 +1,13 @@
+{
+  "id": "Kodak-ESP_5500",
+  "manufacturer": "Kodak",
+  "model": "ESP 5500",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "c2esp"
+    }
+  ]
+}

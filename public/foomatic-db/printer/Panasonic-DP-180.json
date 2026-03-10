@@ -1,0 +1,13 @@
+{
+  "id": "Panasonic-DP-180",
+  "manufacturer": "Panasonic",
+  "model": "DP-180",
+  "type": "unknown",
+  "functionality": "D",
+  "notes": "Panasonic Printing System for Windows is standard, but PCL 6 and PostScript 3 are optional\n      \n      Foomatic entry made by PPDtoXML T/G 0.18 on 2008-05-25",
+  "drivers": [
+    {
+      "id": "pxlcolor"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Texas_Instruments-microLaser_PowerPro_12",
+  "manufacturer": "Texas Instruments",
+  "model": "microLaser PowerPro 12",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 12\n      \n      Foomatic entry made by PPDtoXML T/G 0.20 on 2009-03-17",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

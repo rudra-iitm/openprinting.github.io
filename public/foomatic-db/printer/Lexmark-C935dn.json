@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-C935dn",
+  "manufacturer": "Lexmark",
+  "model": "C935dn",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Throughput = 45\n\n      Foomatic entry made by PPDtoXML T/G 0.05",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

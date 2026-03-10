@@ -1,0 +1,13 @@
+{
+  "id": "Xerox-DocuPrint_XJ6C",
+  "manufacturer": "Xerox",
+  "model": "DocuPrint XJ6C",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "Preseumably works reasonably at 300dpi.<p>\n\n      Consumables/Refills: Separate Carts for each color ~$10US<p>",
+  "drivers": [
+    {
+      "id": "cdj550"
+    }
+  ]
+}

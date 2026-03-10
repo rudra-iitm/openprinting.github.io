@@ -1,0 +1,13 @@
+{
+  "id": "Panasonic-KX-P4410",
+  "manufacturer": "Panasonic",
+  "model": "KX-P4410",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "ljet2p"
+    }
+  ]
+}

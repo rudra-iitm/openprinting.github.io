@@ -1,0 +1,13 @@
+{
+  "id": "Panasonic-KX-P1150",
+  "manufacturer": "Panasonic",
+  "model": "KX-P1150",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "9 pin printer; try various eps9* drivers.<p>\n\n      Consumables/Refills: ribbon<p>",
+  "drivers": [
+    {
+      "id": "eps9high"
+    }
+  ]
+}

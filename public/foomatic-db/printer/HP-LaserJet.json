@@ -1,0 +1,13 @@
+{
+  "id": "HP-LaserJet",
+  "manufacturer": "HP",
+  "model": "LaserJet",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "laserjet"
+    }
+  ]
+}

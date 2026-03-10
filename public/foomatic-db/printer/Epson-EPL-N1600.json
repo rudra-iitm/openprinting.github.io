@@ -1,0 +1,13 @@
+{
+  "id": "Epson-EPL-N1600",
+  "manufacturer": "Epson",
+  "model": "EPL-N1600",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "<p>\n\n      Consumables/Refills: toner cartridge, drum cartridge<p>",
+  "drivers": [
+    {
+      "id": "hpijs-pcl5e"
+    }
+  ]
+}

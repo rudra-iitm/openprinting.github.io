@@ -1,0 +1,13 @@
+{
+  "id": "Oki-C5300",
+  "manufacturer": "Oki",
+  "model": "C5300",
+  "type": "led",
+  "functionality": "A",
+  "notes": "Throughput = 12\n      \n      Foomatic entry made by PPDtoXML T/G 0.19 on 2008-06-29\n      \n      <p>\n\n      Maximum paper width: 8.5 inches / 21.6 cm\n      (Standard format printer)<p>\n\n      Printing engine speed: 12 pages/min<p>",
+  "drivers": [
+    {
+      "id": "Postscript-Oki"
+    }
+  ]
+}

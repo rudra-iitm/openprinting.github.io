@@ -1,0 +1,13 @@
+{
+  "id": "Epson-PM_980C",
+  "manufacturer": "Epson",
+  "model": "PM 980C",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "Only available in Japan.<p>\n\n      7-ink (CcMmYyK) high-end photo printer with 1.8 pl minimum drop\n      size, 360 black nozzles, 180 nozzles per color, high-speed 4-ink\n      360-dpi mode. Maximum paper size is A4/Letter/Legal.<p>\n    \n      Successor of PM 970C.<p>\n\n      Consumables/Refills: 7 separate ink tanks: Cyan, light cyan, magenta, light magenta,\n\tyellow, dark yellow, black<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

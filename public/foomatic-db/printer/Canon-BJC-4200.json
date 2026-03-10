@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJC-4200",
+  "manufacturer": "Canon",
+  "model": "BJC-4200",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "bjc600"
+    }
+  ]
+}

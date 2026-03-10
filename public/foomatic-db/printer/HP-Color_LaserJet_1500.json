@@ -1,0 +1,13 @@
+{
+  "id": "HP-Color_LaserJet_1500",
+  "manufacturer": "HP",
+  "model": "Color LaserJet 1500",
+  "type": "laser",
+  "functionality": "D",
+  "notes": "The Color LaserJet 1500 is a USB laser printer with a 2003 street\n\tprice of $600-$800 USD.<p>\n\n\tThe Color LaserJet 1500L comes with a multi-purpose tray only,\n\tthe Color LaserJet 1500 comes with an additional 250-sheet tray.<p>\n\n      Consumables/Refills: Toner Black (5000 prints) - $70\n\t\tToner Cyan (4000 prints) - $90\n\t\tToner Magenta (4000 prints) - $90\n\t\tToner Yellow (4000 prints) - $90\n\t\tImaging Drum (20000 prints) - $160 Part numbers: C9700A, \n\t    C9701A, \n\t    C9703A, \n\t    C9702A, \n\t    C9704A<p>",
+  "drivers": [
+    {
+      "id": "foo2oak"
+    }
+  ]
+}

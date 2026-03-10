@@ -1,0 +1,13 @@
+{
+  "id": "Brother-MFC-9100c",
+  "manufacturer": "Brother",
+  "model": "MFC-9100c",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "Specified as emulating Epson ESC/P; it's unclear if they refer to the classic dot-matrix language, or if this is merely a Stylus engine in disguise.\n<br>\nI have no reports of this, working or not.\n<br>\nThis is a multifunction device: scanner/copier/fax/etc; none of that is supported by Linux AFAIK.<p>\n\n      Consumables/Refills: Cyan, Yellow, Magenta, and Black ink cartridges<p>",
+  "drivers": [
+    {
+      "id": "epsonc"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Star-LS-04",
+  "manufacturer": "Star",
+  "model": "LS-04",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Aka Laserprinter 4\n<br>Should work fine with the ljet2p driver.\n<br><a href=\"http://www.starmicronics.com/star-download/pcprinter/Ls04um.pdf\">Manual</a>\n<br><a href=\"http://www.starmicronics.com/star-download/pcprinter/Ls04am.pdf\">Technical Reference</a>",
+  "drivers": [
+    {
+      "id": "ljet2p"
+    }
+  ]
+}

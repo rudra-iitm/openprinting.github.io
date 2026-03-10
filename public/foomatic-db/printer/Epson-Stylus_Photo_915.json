@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Photo_915",
+  "manufacturer": "Epson",
+  "model": "Stylus Photo 915",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "This printer has a PCMCIA Type II slot to read memory cards of\n    digital cameras via an appropriate PCMCIA adapter, so one can\n    print photos without PC, photo download with free\n    software does only work with kernel 2.4.21 or later. The memory card can be simply mounted as a\n    USB-mass-storage device then.<p>\n\n    6-color CMYKcm printing.<p>\n\n    Roll paper feeder, USB only.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

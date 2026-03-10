@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-X642e",
+  "manufacturer": "Lexmark",
+  "model": "X642e",
+  "type": "unknown",
+  "functionality": "D",
+  "notes": "Foomatic entry made by PPDtoXML T/G 0.19 on 2008-08-07",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

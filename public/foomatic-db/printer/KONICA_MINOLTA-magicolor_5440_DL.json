@@ -1,0 +1,13 @@
+{
+  "id": "KONICA_MINOLTA-magicolor_5440_DL",
+  "manufacturer": "KONICA MINOLTA",
+  "model": "magicolor 5440 DL",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "The magicolor 5440 DL is a cheap network color laser printer,\n\tsupported by a free software CUPS driver supplied by Konica\n\tMinolta.",
+  "drivers": [
+    {
+      "id": "rastertokmXXXXdl"
+    }
+  ]
+}

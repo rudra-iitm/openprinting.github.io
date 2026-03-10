@@ -1,0 +1,13 @@
+{
+  "id": "Samsung-ML-1450",
+  "manufacturer": "Samsung",
+  "model": "ML-1450",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Currently Samsung supports this printer with proprietary drivers\n    which come with the printer on its driver CD or can be downloaded\n    on the web sites of Samsung. Unfortunately, these drivers do not\n    work necessarily with all Linux distributions. You will therefore\n    probably get it more easily working by using standard PCL drivers\n    as \"pxlmono\" or \"hpijs-pcl5e\".<p><p>\n\n      Consumables/Refills: <p>",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

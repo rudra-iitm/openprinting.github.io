@@ -1,0 +1,20 @@
+{
+  "id": "Samsung-ML-1520",
+  "manufacturer": "Samsung",
+  "model": "ML-1520",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "User comment:<p>\n\n    Sample of APS-Filter printcap file (ESP Ghostscript must be installed, as it provides the \"gdi\"/\"samsunggdi\" driver):<p>\n\n<pre><tt> \n# APS1_BEGIN:printer1 \n# - don't delete start label for apsfilter printer1 \n# - no other printer defines between BEGIN and END LABEL \nlp|samsunggdi;r=600x600;q=medium;c=gray;p=a4;m=auto:\\ \n    :lp=/dev/usb/lp0:\\ \n    :if=/etc/apsfilter/basedir/bin/apsfilter:\\ \n    :sd=/var/spool/lpd/lp:\\ \n    :lf=/var/spool/lpd/lp/log:\\ \n    :af=/var/spool/lpd/lp/acct:\\ \n    :mx#0:\\ \n    :sh: \n# APS1_END - don't delete this \n</tt></pre>\n \nSample of SETUP.cfg file from apsfilter:<p>\n\n<pre><tt> \nPRINTER='samsunggdi' \nRESOLUTION='600x600' \nCOLOR='gray' \nPAPER='a4' \nMETHOD='auto' \nQUALITY='medium' \nINTERFACE='parallel' \nDEVICE='/dev/usb/lp0' \nBAUDRATE='' \nHANDSHAKE='' \nWORDLENGTH='' \nPARITY='' \nSTARTBITS='' \nSTOPBITS='' \nSMB_SERVER='' \nSMB_IP='' \nSMB_PRINTER='' \nSMB_WORKGROUP='' \nSMB_USER='' \nSMB_PASSWD='' \nNCP_SERVER='' \nNCP_PRINTER='' \nNCP_USER='' \nNCP_PASSWD='' \nrm='' \nrp='' \n</tt></pre>\n \nMain hack is to manualy seting PRINTER='samsunggdi' default not exist \nin menu from SETUP script of apsfiler.And rerun setup script to create \nprintcap file.<p>",
+  "drivers": [
+    {
+      "id": "splix",
+      "name": "splix",
+      "type": "other",
+      "functionality": "?",
+      "comments": "<B>This driver is available in the <A href=\"https://github.com/OpenPrinting/ghostscript-printer-app\">Ghostscript Printer Application</A></B><P>\n    <iframe src=\"https://snapcraft.io/ghostscript-printer-app/embedded?button=black&summary=true\" frameborder=\"0\" width=\"100%\" height=\"300px\" style=\"border: 1px solid #CCC; border-radius: 2px;\"></iframe>\n\n    SpliX is a set of CUPS printer drivers for SPL (Samsung Printer\n    Language) printers. If you have such a printer, you need to\n    download and use SpliX. Moreover you will find documentation\n    about this proprietary language.<p>\n\n    Note that only SPL2 (monochrome) and SPLc (color) printers are\n    currently supported! However we are looking for people who have an\n    SPL 1 printer to implement this SPL version as soon as\n    possible.<p>\n\n    Not all SPL2 and SPLc printers are tested with this driver. Please\n    report your experience here.<p>\n\n    As the PPD files are contained in the driver package we will not\n    provide PPD files here on OpenPrinting.<p>\n\n    <b>Important:</b> For color printers SpliX needs color\n    profiles from the printer's manufacturer, otherwise it will refuse\n    to print. Please see the instructions in the INSTALL file of the\n    driver's source package. Alternatively, you can use the \"<a\n    href=\"/driver/foo2qpdl\">foo2qpdl</a>\" driver for the\n    color printers. That driver also prints without installed color\n    profiles.<p>\n\n    This driver is a pure printer driver. The scanning functionality\n    of multi-function devices is not supported.<p>\n\n    Note that the original author of the driver, Aurelien Croc, doe\n    not have time any more to do further development and maintenance\n    on the driver.  Currently user-supplied patches and fixes are\n    applied by Till Kamppeter to the Subversion repository of the\n    driver and there were no releases and web site updates in the last\n    two years. If you are packaging the driver for a Linux\n    distribution, it is highly recommended to use a Subversion\n    snapshot and not the 2.0.0 release.<p>",
+      "ppd": null,
+      "supportLevel": null,
+      "color": null
+    }
+  ]
+}

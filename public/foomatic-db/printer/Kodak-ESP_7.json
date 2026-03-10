@@ -1,0 +1,13 @@
+{
+  "id": "Kodak-ESP_7",
+  "manufacturer": "Kodak",
+  "model": "ESP 7",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "c2esp"
+    }
+  ]
+}

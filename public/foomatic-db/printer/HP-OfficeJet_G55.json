@@ -1,0 +1,13 @@
+{
+  "id": "HP-OfficeJet_G55",
+  "manufacturer": "HP",
+  "model": "OfficeJet G55",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "Multifunction device: print/copy/scan.<p>\n\n    The model G55xi should be identical.<p>\n\n    For basic printing functionality use the <a href=\"\n    http://hplipopensource.com/\">HPIJS driver </a>. \n    For advanced functionality such as printer status, maintenance \n    features, scanning and photo card unload use the <a href=\"\n    http://hplipopensource.com/\">HPLIP driver</a> (which includes \n    HPIJS). <p>\n\n    The best output one gets with HP's HPIJS 1.3 or newer. If you\n    cannot update to HPIJS 1.3 for some reason, you can also use HPIJS\n    1.2.2 with the patches from Matthias Bunte and Richard\n    Spencer-Smith (\"hpijs-rss\"). The Gimp-Print driver also\n    works (Model setting: \"pcl-900\"), but only up to 600\n    dpi.<p>\n\n    Copying: should just work? Yes, independant of PC.<p>",
+  "drivers": [
+    {
+      "id": "hplip"
+    }
+  ]
+}

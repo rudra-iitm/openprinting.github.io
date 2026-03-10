@@ -1,0 +1,13 @@
+{
+  "id": "HP-Business_Inkjet_2600",
+  "manufacturer": "HP",
+  "model": "Business Inkjet 2600",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "For basic printing functionality use the Postscript PPD. For advanced functionality such as printer status and maintenance features, use the <a href=\"http://hplipopensource.com/\">HPLIP driver</a> (which includes HPIJS). <p>\n\t       \n    CMYK printing, Large format: 13x19inch/A3 paper.<p>\n\n    PostScript/PCL5 printer;<p>\n\n      Consumables/Refills: <p>",
+  "drivers": [
+    {
+      "id": "hplip"
+    }
+  ]
+}

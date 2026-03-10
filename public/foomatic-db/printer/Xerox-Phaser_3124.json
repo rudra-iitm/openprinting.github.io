@@ -1,0 +1,13 @@
+{
+  "id": "Xerox-Phaser_3124",
+  "manufacturer": "Xerox",
+  "model": "Phaser 3124",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 25\n\n      Foomatic entry made by PPDtoXML T/G 0.05",
+  "drivers": [
+    {
+      "id": "gdi"
+    }
+  ]
+}

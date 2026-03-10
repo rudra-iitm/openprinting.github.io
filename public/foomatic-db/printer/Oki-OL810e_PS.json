@@ -1,0 +1,13 @@
+{
+  "id": "Oki-OL810e_PS",
+  "manufacturer": "Oki",
+  "model": "OL810e/PS",
+  "type": "led",
+  "functionality": "A",
+  "notes": "Also speaks PCL 5e.\n<br>PCL-only model 810e should work with ljet4 gs driver.",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

@@ -1,0 +1,9 @@
+{
+  "id": "Oki-Okijet_2010",
+  "manufacturer": "Oki",
+  "model": "Okijet 2010",
+  "type": "inkjet",
+  "functionality": "F",
+  "notes": "Offers PCL 3 emulation for DOS apps in Windows DOS box.\n<br>compatible with HP 500c in Windows DOS box.\n<br>dual head\n<br>(parallel port)<p>\n\n      Consumables/Refills: 2 cartridge (BW / color)<p>",
+  "drivers": []
+}

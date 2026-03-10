@@ -1,0 +1,13 @@
+{
+  "id": "Kyocera-F-800T",
+  "manufacturer": "Kyocera",
+  "model": "F-800T",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "ljetplus"
+    }
+  ]
+}

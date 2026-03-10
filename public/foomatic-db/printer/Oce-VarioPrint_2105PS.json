@@ -1,0 +1,13 @@
+{
+  "id": "Oce-VarioPrint_2105PS",
+  "manufacturer": "Oce",
+  "model": "VarioPrint 2105",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "<b>Modular scan, print and copy production system</b><br/>\nGateway to scalable document production\n<UL>\n<LI>Digital copier printer with 101 A4 prints per min </LI>\n<LI>Concurrent processing </LI>\n<LI>Copy and print queue management </LI>\n<LI>Scan-to-mailbox </LI>\n</UL>\n    \n      <p>\n\n      Maximum paper width: 8.5 inches / 21.6 cm\n      (Standard format printer)<p>\n\n      Printing engine speed: 100 pages/min<p><p>\n\n      Consumables/Refills: Toner\n      <p>",
+  "drivers": [
+    {
+      "id": "Postscript-Oce"
+    }
+  ]
+}

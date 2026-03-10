@@ -1,0 +1,13 @@
+{
+  "id": "Samsung-CLP-550",
+  "manufacturer": "Samsung",
+  "model": "CLP-550",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Foomatic entry made by PPDtoXML T/G 0.20 on 2008-09-07<p>\n\n      Consumables/Refills: toner<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

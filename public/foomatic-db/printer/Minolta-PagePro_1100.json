@@ -1,0 +1,13 @@
+{
+  "id": "Minolta-PagePro_1100",
+  "manufacturer": "Minolta",
+  "model": "PagePro 1100",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "<b>Important</b>: The <a\n    href=\"show_printer.cgi?recnum=Minolta-PagePro_1100L\">Minolta\n    PagePro 1100L</a> is a different printer. This rating does\n    not apply to the 1100L",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

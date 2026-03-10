@@ -1,0 +1,13 @@
+{
+  "id": "HP-LaserJet_2430",
+  "manufacturer": "HP",
+  "model": "LaserJet 2430",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "For basic printing functionality use the Postscript PPD. For advanced functionality such\n    as printer status and maintenance features, use the\n    <a href=\"http://hplipopensource.com/\">\n    HPLIP driver</a> (which includes HPIJS). <p>\n\n    PostScript level 3, PCL 5e, and PCL 6 out of the box, parallel and\n    USB connection, \"n\" models with ethernet connection, 250-sheet\n    tray built-in, extra 250- or 500-sheet tray available (included in\n    \"t\" models), duplex unit in \"d\" models.<p>\n\n    The \"L\" model is software-compatible to the other models, it is\n    only somewhat slower (20 ppm instead of 25 ppm).<p>",
+  "drivers": [
+    {
+      "id": "hplip"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJ-200",
+  "manufacturer": "Canon",
+  "model": "BJ-200",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Prints fine in linux.<p>\n\n      Consumables/Refills: $30 for cartridges<p>",
+  "drivers": [
+    {
+      "id": "bj200"
+    }
+  ]
+}

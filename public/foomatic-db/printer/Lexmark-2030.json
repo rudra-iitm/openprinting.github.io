@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-2030",
+  "manufacturer": "Lexmark",
+  "model": "2030",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "Known to work at 300dpi BW with Tom Paetzold's pbm driver.<p>\n\nDownload the driver on <a href=\"http://home.fhtw-berlin.de/~s0226426/projects/pbm2l2030_news.html\">http://home.fhtw-berlin.de/~s0226426/projects/pbm2l2030_news.html</a>.<p>\n\n      Consumables/Refills: two cartridges: color/bw<p>",
+  "drivers": [
+    {
+      "id": "pbm2l2030"
+    }
+  ]
+}

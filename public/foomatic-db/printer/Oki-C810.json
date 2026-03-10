@@ -1,0 +1,13 @@
+{
+  "id": "Oki-C810",
+  "manufacturer": "Oki",
+  "model": "C810",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "The Oki C810 is a networked color laser printer with a\n\t2013 street price of $870 USD.  This printer is supported\n\tby the foo2hiperc open software printer driver.",
+  "drivers": [
+    {
+      "id": "foo2hiperc-z1"
+    }
+  ]
+}

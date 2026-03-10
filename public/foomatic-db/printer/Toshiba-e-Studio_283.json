@@ -1,0 +1,13 @@
+{
+  "id": "Toshiba-e-Studio_283",
+  "manufacturer": "Toshiba",
+  "model": "e-Studio 283",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 28\n      \n      Foomatic entry made by PPDtoXML T/G 0.19 on 2008-08-07",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

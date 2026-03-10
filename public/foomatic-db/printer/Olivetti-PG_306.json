@@ -1,0 +1,13 @@
+{
+  "id": "Olivetti-PG_306",
+  "manufacturer": "Olivetti",
+  "model": "PG 306",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "NEVER remove the little brass plate of the\ntoner drum unit - I've wrecked my printer by doing this !<p>\n\n      Consumables/Refills: toner cartridge (about 25 $ for 2 toners)<p>",
+  "drivers": [
+    {
+      "id": "laserjet"
+    }
+  ]
+}

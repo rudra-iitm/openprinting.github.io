@@ -1,0 +1,13 @@
+{
+  "id": "Samsung-CLX-92x1_93x1",
+  "manufacturer": "Samsung",
+  "model": "CLX-92x1 93x1",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "This database entry was automatically generated\n      from the PPD file for this printer.<p>\n\n      Maximum paper width: 11.7 inches / 29.7 cm\n      (Wide format printer)<p>",
+  "drivers": [
+    {
+      "id": "Postscript-Samsung"
+    }
+  ]
+}

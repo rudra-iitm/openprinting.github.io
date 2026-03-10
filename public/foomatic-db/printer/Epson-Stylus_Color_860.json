@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Color_860",
+  "manufacturer": "Epson",
+  "model": "Stylus Color 860",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "The best driver is the stp driver from the gimp-print project.  Various older \nstylus drivers also work, but the quality is not as good.\n<p>\nEpson offers this <a href=\"http://www.epson.com/rebates/860_coupon.html\">$50 \nrebate</a> until the end of March, 2001.<p>\n\n      Consumables/Refills: Black Cartridge, Color Cartridge ($ ??)<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

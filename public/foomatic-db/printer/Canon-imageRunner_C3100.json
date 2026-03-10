@@ -1,0 +1,13 @@
+{
+  "id": "Canon-imageRunner_C3100",
+  "manufacturer": "Canon",
+  "model": "imageRunner C3100",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Multi-PDL Printer Kit-B1 (PCL 5c, PostScript 3 Emulation and UFR) and Unit-E1 (Adobe PostScript 3 and PCL 5c)\n      \n      Foomatic entry made by PPDtoXML T/G 0.20 on 2008-09-06",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

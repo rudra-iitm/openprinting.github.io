@@ -1,0 +1,13 @@
+{
+  "id": "Minolta-magicolor_3100",
+  "manufacturer": "Minolta",
+  "model": "magicolor 3100",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "The magicolor 3100 is a PostScript-capable network color\n\tlaser printer.",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

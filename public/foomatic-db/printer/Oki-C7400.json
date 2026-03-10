@@ -1,0 +1,13 @@
+{
+  "id": "Oki-C7400",
+  "manufacturer": "Oki",
+  "model": "C7400",
+  "type": "unknown",
+  "functionality": "A",
+  "notes": "This database entry was automatically generated\n      from the PPD file for this printer.<p>\n\n      Maximum paper width: 9.0 inches / 22.9 cm\n      (Standard format printer)<p>\n\n      Printing engine speed: 12 pages/min<p>",
+  "drivers": [
+    {
+      "id": "Postscript-Oki"
+    }
+  ]
+}

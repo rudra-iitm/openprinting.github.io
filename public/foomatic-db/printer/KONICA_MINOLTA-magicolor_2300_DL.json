@@ -1,0 +1,13 @@
+{
+  "id": "KONICA_MINOLTA-magicolor_2300_DL",
+  "manufacturer": "KONICA MINOLTA",
+  "model": "magicolor 2300 DL",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "The magicolor 2300 DL is a cheap network color laser printer which\n        works with the free driver which Konica Minolta supplies for the\n        magicolor 2430 DL.<p>\n\n\tNote that the older Minolta magicolor 2300 DL and the newer\n\tKonica Minolta magicolor 2300 DL are not 100% equal. So it is not\n\tsure whether the Minolta magicolor 2300 DL perhaps also works with\n\tthe driver from Konica Minolta.<p><p>\n\n      Consumables/Refills: <br>\n\t\tToner Black (4500 prints)<br>\n\t\tToner Yellow (4500 prints)<br>\n\t\tToner Magenta (4500 prints)<br>\n\t\tToner Cyan (4500 prints)<br>\n\t\tWaste Toner Box (25000 prints)<br>\n\t\tOPC Drum Cartridge (45000 prints)<br><p>",
+  "drivers": [
+    {
+      "id": "rastertokmXXXXdl"
+    }
+  ]
+}

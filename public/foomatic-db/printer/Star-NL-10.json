@@ -1,0 +1,13 @@
+{
+  "id": "Star-NL-10",
+  "manufacturer": "Star",
+  "model": "NL-10",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "Alternate drivers: eps9mid, eps9high\n<br>Margin adjustments may need some tuning.<p>\n\n      Consumables/Refills: cartridge<p>",
+  "drivers": [
+    {
+      "id": "epson"
+    }
+  ]
+}

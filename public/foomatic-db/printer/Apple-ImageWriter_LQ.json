@@ -1,0 +1,13 @@
+{
+  "id": "Apple-ImageWriter_LQ",
+  "manufacturer": "Apple",
+  "model": "ImageWriter LQ",
+  "type": "dotmatrix",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "iwhi"
+    }
+  ]
+}

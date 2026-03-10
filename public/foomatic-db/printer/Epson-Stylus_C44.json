@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_C44",
+  "manufacturer": "Epson",
+  "model": "Stylus C44",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Cheap 4-ink home printer with a medium resolution (2880x720 dpi).\n    \"UX\" model with USB port only, \"SX\" model with\n    only a parallel port.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

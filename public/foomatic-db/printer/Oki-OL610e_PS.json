@@ -1,0 +1,13 @@
+{
+  "id": "Oki-OL610e_PS",
+  "manufacturer": "Oki",
+  "model": "OL610e/PS",
+  "type": "led",
+  "functionality": "A",
+  "notes": "Native PS2 interpreter.\n<br>You may want more memory than the default.<p>\n\n      Consumables/Refills: Toner and Drum unit<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

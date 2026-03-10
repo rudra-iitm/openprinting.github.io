@@ -1,0 +1,13 @@
+{
+  "id": "Sharp-ARP350",
+  "manufacturer": "Sharp",
+  "model": "ARP350",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "Throughput = 35\n\n      Foomatic entry made by PPDtoXML T/G 0.06",
+  "drivers": [
+    {
+      "id": "pxlmono"
+    }
+  ]
+}

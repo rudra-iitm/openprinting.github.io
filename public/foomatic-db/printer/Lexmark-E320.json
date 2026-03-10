@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-E320",
+  "manufacturer": "Lexmark",
+  "model": "E320",
+  "type": "unknown",
+  "functionality": "B",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "ljet4d"
+    }
+  ]
+}

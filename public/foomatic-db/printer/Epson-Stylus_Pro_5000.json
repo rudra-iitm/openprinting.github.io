@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Pro_5000",
+  "manufacturer": "Epson",
+  "model": "Stylus Pro 5000",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "Working in gimp-print 4.1.8.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

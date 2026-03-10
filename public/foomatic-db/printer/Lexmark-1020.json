@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-1020",
+  "manufacturer": "Lexmark",
+  "model": "1020",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "This, the model 4078-002, can emulate a HP DeskJet 500C.\n<br>So you must configure your system to make it believe it's printing to a DeskJet 500C.<p>\n\n      Consumables/Refills: BW Cart or Color Cart<p>",
+  "drivers": [
+    {
+      "id": "lm1100"
+    }
+  ]
+}

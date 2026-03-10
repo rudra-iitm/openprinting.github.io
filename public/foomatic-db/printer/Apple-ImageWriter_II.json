@@ -1,0 +1,13 @@
+{
+  "id": "Apple-ImageWriter_II",
+  "manufacturer": "Apple",
+  "model": "ImageWriter II",
+  "type": "dotmatrix",
+  "functionality": "B",
+  "notes": "The ImageWriter II is a four-color dot matrix printer from\n    Apple. Optionally can be driven using AppleTalk/PAP with an option\n    add-on card, LocalTalk card or bridge to Linux machine, kernel\n    AppleTalk support, and netatalk.<p>\n\n      Consumables/Refills: Black Ribbon, $5.15 (Staples.com), Four-Color Ribbon, $11.95, Pr<p>",
+  "drivers": [
+    {
+      "id": "iwhi"
+    }
+  ]
+}

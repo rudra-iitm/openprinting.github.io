@@ -1,0 +1,13 @@
+{
+  "id": "Epson-EPL-N2500_PS3",
+  "manufacturer": "Epson",
+  "model": "EPL-N2500 PS3",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "PostScript version of the EPL-N2500<p><p>\n\n      Consumables/Refills: toner cartridge, drum cartridge<p>",
+  "drivers": [
+    {
+      "id": "Postscript-Epson"
+    }
+  ]
+}

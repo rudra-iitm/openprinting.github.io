@@ -1,0 +1,13 @@
+{
+  "id": "KONICA_MINOLTA-bizhub_C450",
+  "manufacturer": "KONICA MINOLTA",
+  "model": "bizhub C450",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "Postscript-KONICA_MINOLTA"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Canon-BJC-7000",
+  "manufacturer": "Canon",
+  "model": "BJC-7000",
+  "type": "inkjet",
+  "functionality": "D",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

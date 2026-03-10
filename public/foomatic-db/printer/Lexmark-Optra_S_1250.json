@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-Optra_S_1250",
+  "manufacturer": "Lexmark",
+  "model": "Optra S 1250",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Also speaks PCL level 6.<br>\nModel 1250n includes network port.<br>\nModel 1255 is the successor and has\nsome enhanced software features e.g. N-up printing<p>\n\n      Consumables/Refills: toner cartridge<p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

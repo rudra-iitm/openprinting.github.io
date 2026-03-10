@@ -1,0 +1,13 @@
+{
+  "id": "Ricoh-4801",
+  "manufacturer": "Ricoh",
+  "model": "4801",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "",
+  "drivers": [
+    {
+      "id": "r4081"
+    }
+  ]
+}

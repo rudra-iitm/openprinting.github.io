@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Artisan_50",
+  "manufacturer": "Epson",
+  "model": "Artisan 50",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Epson color inkjet printer.<p>\n      Maximum paper width: 21.0 cm / 8.3 inches<p>",
+  "drivers": [
+    {
+      "id": "epson-stylus-photo-t50-series"
+    }
+  ]
+}

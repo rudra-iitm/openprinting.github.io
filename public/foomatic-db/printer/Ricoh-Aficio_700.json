@@ -1,0 +1,13 @@
+{
+  "id": "Ricoh-Aficio_700",
+  "manufacturer": "Ricoh",
+  "model": "Aficio 700",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "Reported to work well when setup with Red Hat's printtool and this driver by\nAlex Roger.",
+  "drivers": [
+    {
+      "id": "hpijs-pcl5e"
+    }
+  ]
+}

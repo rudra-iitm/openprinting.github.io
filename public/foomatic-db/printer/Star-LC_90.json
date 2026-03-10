@@ -1,0 +1,13 @@
+{
+  "id": "Star-LC_90",
+  "manufacturer": "Star",
+  "model": "LC 90",
+  "type": "dotmatrix",
+  "functionality": "B",
+  "notes": "This printer print, with ghostscript.\nBut its designed for resolution \n240x144 dpi. So problem is, by using\nresolution 240x180 dpi, that text is\nsmaller and it is not used all place\n on the A4 format paper.<p>\n\n      Consumables/Refills: Y9 black<p>",
+  "drivers": [
+    {
+      "id": "epson"
+    }
+  ]
+}

@@ -1,0 +1,13 @@
+{
+  "id": "Oce-cm2510",
+  "manufacturer": "Oce",
+  "model": "cm2510",
+  "type": "laser",
+  "functionality": "B",
+  "notes": "Throughput = 25\n\n      Foomatic entry made by PPDtoXML T/G 0.06",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

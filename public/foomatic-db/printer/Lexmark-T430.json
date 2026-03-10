@@ -1,0 +1,13 @@
+{
+  "id": "Lexmark-T430",
+  "manufacturer": "Lexmark",
+  "model": "T430",
+  "type": "laser",
+  "functionality": "A",
+  "notes": "This is a B/W laser printer.\n    It supports PostScript level 3.<p>\n\n      Consumables/Refills: <p>",
+  "drivers": [
+    {
+      "id": "Postscript"
+    }
+  ]
+}

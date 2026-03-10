@@ -1,0 +1,13 @@
+{
+  "id": "Epson-Stylus_Color_980",
+  "manufacturer": "Epson",
+  "model": "Stylus Color 980",
+  "type": "inkjet",
+  "functionality": "A",
+  "notes": "Works perfectly with Gimp-Print.<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

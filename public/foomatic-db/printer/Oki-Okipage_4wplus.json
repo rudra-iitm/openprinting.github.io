@@ -1,0 +1,13 @@
+{
+  "id": "Oki-Okipage_4wplus",
+  "manufacturer": "Oki",
+  "model": "Okipage 4w+",
+  "type": "led",
+  "functionality": "B",
+  "notes": "The oki4w driver package drives this printer properly.<p>\n\n      Consumables/Refills: replacement only 5210/6201 $49.00Cdn<p>",
+  "drivers": [
+    {
+      "id": "oki4w"
+    }
+  ]
+}

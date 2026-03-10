@@ -1,0 +1,13 @@
+{
+  "id": "Epson-PM_940C",
+  "manufacturer": "Epson",
+  "model": "PM 940C",
+  "type": "inkjet",
+  "functionality": "B",
+  "notes": "Only available in Japan.<p>\n\n      6-ink (CcMmYK) high-end photo printer with 1.8 pl minimum drop\n      size. Max. A4/Letter/Legal.<p>\n\n      Successor of the PM 930C.<p><p>\n\n      Consumables/Refills: 6 separate ink tanks: Cyan, light cyan, magenta, light magenta,\n\tyellow, black<p>",
+  "drivers": [
+    {
+      "id": "gutenprint"
+    }
+  ]
+}

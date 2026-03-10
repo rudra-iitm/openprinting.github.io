@@ -1,0 +1,9 @@
+{
+  "id": "NEC-SuperScript_660plus",
+  "manufacturer": "NEC",
+  "model": "SuperScript 660plus",
+  "type": "laser",
+  "functionality": "F",
+  "notes": "PCL 5e emulation appears to be implemented in the Windows driver.",
+  "drivers": []
+}
