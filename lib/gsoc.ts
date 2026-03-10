@@ -105,11 +105,6 @@ function getTitle(frontmatter: Record<string, unknown>, slug: string): string {
   return readable.length > 0 ? readable : slug;
 }
 
-
-
-/**
- * Derive available GSoC years from gsocXXXX.md overview files.
- */
 export async function getGsocYears(): Promise<string[]> {
   const entries = await fs.readdir(GSOC_DIR);
 
@@ -129,7 +124,6 @@ export async function getGsocYearSummaries(): Promise<GsocYearSummary[]> {
       if (contributors.length > 0) {
         return { year, projectCount: contributors.length };
       }
-      // Year not yet completed — count project idea md files instead
       const projects = await getGsocProjectsByYear(year);
       return { year, projectCount: projects.length };
     }),

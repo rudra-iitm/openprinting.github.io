@@ -1,33 +1,12 @@
-/**
- * GSoC contributor data for OpenPrinting projects (2019–2025).
- *
- * Each contributor entry is enriched with:
- *   - `slug`      – matches the markdown file slug in contents/gsoc/<year>/
- *   - `mentors`   – from both the GSoC archive page and the md file
- *   - `desiredKnowledge` – skills listed in the project idea md
- *   - `codeLicense`      – license from the project idea md
- *   - `projectUrl`       – GSoC archive project page
- *   - `codeUrl`          – work-product / final report link
- */
-
 export interface GsocContributor {
-    /** Contributor display name */
     name: string;
-    /** Project title (matches the md file title where possible) */
     project: string;
-    /** Slug of the matching project idea md file in contents/gsoc/<year>/ */
     slug: string;
-    /** Mentor names */
     mentors: string[];
-    /** GSoC archive project detail URL */
     projectUrl: string;
-    /** Code / work-product / final report URL */
     codeUrl: string;
-    /** Desired knowledge / skills from the project idea md */
     desiredKnowledge: string[];
-    /** Code license from the project idea md */
     codeLicense: string;
-    /** Optional avatar image path (relative to /public) */
     image?: string;
 }
 
@@ -37,12 +16,7 @@ export interface GsocYearContributors {
     contributors: GsocContributor[];
 }
 
-// ---------------------------------------------------------------------------
-// Data
-// ---------------------------------------------------------------------------
-
 const gsocContributors: GsocYearContributors[] = [
-    /* ------------------------------------------------------------------ 2019 */
     {
         year: 2019,
         orgUrl:
@@ -98,7 +72,6 @@ const gsocContributors: GsocYearContributors[] = [
         ],
     },
 
-    /* ------------------------------------------------------------------ 2020 */
     {
         year: 2020,
         orgUrl:
@@ -191,7 +164,6 @@ const gsocContributors: GsocYearContributors[] = [
         ],
     },
 
-    /* ------------------------------------------------------------------ 2021 */
     {
         year: 2021,
         orgUrl:
@@ -264,7 +236,6 @@ const gsocContributors: GsocYearContributors[] = [
         ],
     },
 
-    /* ------------------------------------------------------------------ 2022 */
     {
         year: 2022,
         orgUrl:
@@ -350,7 +321,6 @@ const gsocContributors: GsocYearContributors[] = [
         ],
     },
 
-    /* ------------------------------------------------------------------ 2023 */
     {
         year: 2023,
         orgUrl:
@@ -411,7 +381,6 @@ const gsocContributors: GsocYearContributors[] = [
         ],
     },
 
-    /* ------------------------------------------------------------------ 2024 */
     {
         year: 2024,
         orgUrl:
@@ -538,7 +507,6 @@ const gsocContributors: GsocYearContributors[] = [
         ],
     },
 
-    /* ------------------------------------------------------------------ 2025 */
     {
         year: 2025,
         orgUrl:
@@ -695,23 +663,16 @@ const gsocContributors: GsocYearContributors[] = [
     },
 ];
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
-/** Get all contributors for a given year */
 export function getContributorsByYear(year: number): GsocContributor[] {
     const yearData = gsocContributors.find((y) => y.year === year);
     return yearData?.contributors ?? [];
 }
 
-/** Get the GSoC archive org URL for a year */
 export function getOrgUrlByYear(year: number): string {
     const yearData = gsocContributors.find((y) => y.year === year);
     return yearData?.orgUrl ?? "";
 }
 
-/** Get contributor(s) for a specific project slug in a year */
 export function getContributorsBySlug(
     year: number,
     slug: string,
@@ -722,20 +683,14 @@ export function getContributorsBySlug(
     );
 }
 
-/** Get all year data */
 export function getAllContributors(): GsocYearContributors[] {
     return gsocContributors;
 }
 
-/** Get years that have contributor data, sorted descending */
 export function getContributorYears(): number[] {
     return gsocContributors.map((y) => y.year).sort((a, b) => b - a);
 }
 
-/**
- * Static image map for mentors whose photos are available.
- * Key = mentor name (as it appears in contributor.mentors), value = image path.
- */
 export const mentorImages: Record<string, string> = {
     "Till Kamppeter": "/authors/till-kamppeter.jpg",
     "Michael Sweet": "/authors/michael-sweet.jpg",

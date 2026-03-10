@@ -1,35 +1,14 @@
-/**
- * GSoC work summaries extracted from Till Kamppeter's blog posts.
- *
- * Each entry captures the outcome status, a concise work summary,
- * the work-product/final-report URL, key code links, and an optional
- * contributor quote — all sourced from the monthly OpenPrinting News
- * wrap-up posts.
- */
-
 export interface GsocWorkSummary {
-    /** Contributor name — must match `name` in gsoc-contributors.ts */
     name: string;
-    /** GSoC year */
     year: number;
-    /** Final evaluation result */
     status: "passed" | "failed" | "withdrawn";
-    /** 1–3 sentence summary of what was accomplished */
     summary: string;
-    /** Work product / final report URL */
     workProductUrl?: string;
-    /** Notable code repositories, PRs, or merge requests */
     codeLinks?: { label: string; url: string }[];
-    /** Contributor's own quote/feedback */
     quote?: string;
 }
 
-// ---------------------------------------------------------------------------
-// Data — ordered by year
-// ---------------------------------------------------------------------------
-
 const gsocWorkSummaries: GsocWorkSummary[] = [
-    /* ================================================================ 2019 */
     {
         name: "Dheeraj",
         year: 2019,
@@ -67,7 +46,6 @@ const gsocWorkSummaries: GsocWorkSummary[] = [
             "https://github.com/aakashlahoti/Google-Summer-Of-Code-2019-The-Linux-Foundation",
     },
 
-    /* ================================================================ 2020 */
     {
         name: "Vikrant Malik",
         year: 2020,
@@ -113,7 +91,6 @@ const gsocWorkSummaries: GsocWorkSummary[] = [
         workProductUrl: "https://dsam82.github.io/gsoc20",
     },
 
-    /* ================================================================ 2021 */
     {
         name: "Suraj Kulriya",
         year: 2021,
@@ -157,7 +134,6 @@ const gsocWorkSummaries: GsocWorkSummary[] = [
         workProductUrl: "https://github.com/Bhavna2020/GSoC-2021",
     },
 
-    /* ================================================================ 2022 */
     {
         name: "Chandresh Soni",
         year: 2022,
@@ -239,7 +215,6 @@ const gsocWorkSummaries: GsocWorkSummary[] = [
         ],
     },
 
-    /* ================================================================ 2023 */
     {
         name: "Kushagra Sharma",
         year: 2023,
@@ -277,7 +252,6 @@ const gsocWorkSummaries: GsocWorkSummary[] = [
         workProductUrl: "https://github.com/pranjanpr/GSoC-23",
     },
 
-    /* ================================================================ 2024 */
     {
         name: "Rudra Pratap Singh",
         year: 2024,
@@ -441,7 +415,6 @@ const gsocWorkSummaries: GsocWorkSummary[] = [
         ],
     },
 
-    /* ================================================================ 2025 */
     {
         name: "Tarun Srivastava",
         year: 2025,
@@ -600,14 +573,6 @@ const gsocWorkSummaries: GsocWorkSummary[] = [
     },
 ];
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
-/**
- * Get the work summary for a specific contributor in a given year.
- * Falls back to undefined if no summary exists.
- */
 export function getWorkSummary(
     name: string,
     year: number,
@@ -615,16 +580,10 @@ export function getWorkSummary(
     return gsocWorkSummaries.find((s) => s.name === name && s.year === year);
 }
 
-/**
- * Get all work summaries for a given year.
- */
 export function getWorkSummariesByYear(year: number): GsocWorkSummary[] {
     return gsocWorkSummaries.filter((s) => s.year === year);
 }
 
-/**
- * Get all work summaries.
- */
 export function getAllWorkSummaries(): GsocWorkSummary[] {
     return gsocWorkSummaries;
 }

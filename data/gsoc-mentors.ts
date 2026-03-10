@@ -1,10 +1,3 @@
-/**
- * Static mentor data for GSoC years that don't yet have contributors
- * (e.g. ongoing/upcoming years). Extracted from project idea markdown files.
- *
- * For completed years, mentor info comes from gsoc-contributors.ts instead.
- */
-
 export interface GsocProjectMentors {
     slug: string;
     mentors: string[];
@@ -83,18 +76,12 @@ const gsocMentors: GsocYearMentors[] = [
     },
 ];
 
-// ---------------------------------------------------------------------------
-// Helpers
-// ---------------------------------------------------------------------------
-
-/** Get mentors for a specific project slug in a given year */
 export function getMentorsBySlug(year: number, slug: string): string[] {
     const yearData = gsocMentors.find((y) => y.year === year);
     const project = yearData?.projects.find((p) => p.slug === slug);
     return project?.mentors ?? [];
 }
 
-/** Get all project mentors for a year */
 export function getMentorsByYear(year: number): GsocProjectMentors[] {
     const yearData = gsocMentors.find((y) => y.year === year);
     return yearData?.projects ?? [];

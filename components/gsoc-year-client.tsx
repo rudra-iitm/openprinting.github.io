@@ -41,17 +41,14 @@ export function GsocYearClient({
   relatedPosts: RelatedPost[];
   workSummaries: GsocWorkSummary[];
 }) {
-  // Helper to look up work summary by contributor name
   const getSummary = (name: string) =>
     workSummaries.find((s) => s.name === name);
 
-  // Build a map of slug → contributor for fast lookup
   const contributorBySlug = new Map<string, GsocContributor>();
   for (const c of contributors) {
     contributorBySlug.set(c.slug, c);
   }
 
-  // Find contributors that have no matching project md file
   const projectSlugs = new Set(projects.map((p) => p.slug));
   const orphanContributors = contributors.filter(
     (c) => !projectSlugs.has(c.slug),
@@ -60,7 +57,6 @@ export function GsocYearClient({
   const totalCount = projects.length + orphanContributors.length;
   const hasContributors = contributors.length > 0;
 
-  // Build mentor map for project ideas (non-completed years)
   const projectMentors = new Map<string, string[]>();
   if (!hasContributors) {
     for (const pm of getMentorsByYear(Number(year))) {
@@ -70,7 +66,6 @@ export function GsocYearClient({
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* Header */}
       <section className="relative pt-32 pb-12 overflow-hidden">
         <div className="hero-glow-blue opacity-30" />
         <div className="grid-pattern absolute inset-0" />
@@ -109,7 +104,6 @@ export function GsocYearClient({
       <div className="max-w-6xl mx-auto px-6 py-12 space-y-16">
         <div className="section-divider" />
 
-        {/* Contributor projects */}
         {contributors.length > 0 && (
           <section>
             <motion.div
@@ -222,7 +216,6 @@ export function GsocYearClient({
           </section>
         )}
 
-        {/* Project ideas — shown for years without contributors */}
         {!hasContributors && projects.length > 0 && (
           <section>
             <motion.div
@@ -265,7 +258,6 @@ export function GsocYearClient({
                       {project.excerpt}
                     </p>
 
-                    {/* Mentor avatars */}
                     {(projectMentors.get(project.slug) ?? []).length > 0 && (
                       <div className="mt-3 flex items-center gap-1.5 flex-wrap">
                         <span className="text-[10px] text-muted-foreground mr-0.5">
@@ -314,7 +306,6 @@ export function GsocYearClient({
           </section>
         )}
 
-        {/* Contributor Highlights — quotes from blog */}
         {workSummaries.filter((s) => s.quote).length > 0 && (
           <>
             <div className="section-divider" />
@@ -363,7 +354,6 @@ export function GsocYearClient({
           </>
         )}
 
-        {/* Related news posts */}
         {relatedPosts.length > 0 && (
           <>
             <div className="section-divider" />
