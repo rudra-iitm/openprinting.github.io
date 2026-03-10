@@ -75,7 +75,7 @@ export default function Navbar() {
           : "border-b border-transparent",
       )}
     >
-      <div className="max-w-6xl mx-auto px-6">
+      <div className="max-w-6xl mx-auto px-6 relative">
         <div className="flex items-center justify-between h-16">
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-8 h-8">
@@ -155,6 +155,22 @@ export default function Navbar() {
                 </Link>
               </Button>
             </motion.div>
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              animate={{ opacity: 1, scale: 1 }}
+              transition={{ duration: 0.3, delay: 0.55 }}
+              className="ml-1"
+            >
+              <Button
+                variant="ghost"
+                size="icon"
+                onClick={() => setIsOpen(!isOpen)}
+                className="text-muted-foreground hover:text-foreground hover:bg-accent h-8 w-8 rounded-full"
+                aria-label="Toggle menu"
+              >
+                {isOpen ? <X className="h-4 w-4" /> : <Menu className="h-4 w-4" />}
+              </Button>
+            </motion.div>
           </nav>
 
           <div className="flex items-center gap-1 md:hidden">
@@ -179,6 +195,40 @@ export default function Navbar() {
             </Button>
           </div>
         </div>
+
+        {/* Desktop Menu Popover */}
+        <AnimatePresence>
+          {isOpen && (
+            <motion.div
+              initial={{ opacity: 0, y: -10 }}
+              animate={{ opacity: 1, y: 0 }}
+              exit={{ opacity: 0, y: -10 }}
+              transition={{ duration: 0.2 }}
+              className="hidden md:block absolute top-[3.5rem] right-6 w-[260px] z-50"
+            >
+              <div className="absolute -top-[0.4rem] right-[0.625rem] w-3 h-3 bg-background border-t border-l border-border transform rotate-45 z-0" />
+              <div className="relative bg-background border border-border shadow-xl rounded-xl overflow-hidden z-10 flex flex-col py-1">
+                {hamburgerItems.map((item, index) => (
+                  <motion.div
+                    key={item.name}
+                    initial={{ opacity: 0, x: -12 }}
+                    animate={{ opacity: 1, x: 0 }}
+                    transition={{ duration: 0.15, delay: index * 0.03 }}
+                  >
+                    <Link
+                      href={item.href}
+                      prefetch={false}
+                      className="block px-4 py-2.5 text-[13px] text-muted-foreground hover:text-foreground hover:bg-accent transition-all duration-200 border-b border-border/40 last:border-0"
+                      onClick={() => setIsOpen(false)}
+                    >
+                      {item.name}
+                    </Link>
+                  </motion.div>
+                ))}
+              </div>
+            </motion.div>
+          )}
+        </AnimatePresence>
       </div>
 
       <AnimatePresence>
@@ -188,7 +238,7 @@ export default function Navbar() {
             animate={{ opacity: 1, height: "auto" }}
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.2 }}
-            className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border"
+            className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border overflow-hidden"
           >
             <div className="px-6 py-4 space-y-1">
               {[...navItems, ...hamburgerItems].map((item, index) => (
@@ -211,7 +261,7 @@ export default function Navbar() {
               <motion.div
                 initial={{ opacity: 0, x: -12 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.15, delay: navItems.length * 0.04 }}
+                transition={{ duration: 0.15, delay: (navItems.length + hamburgerItems.length) * 0.03 }}
                 className="pt-3"
               >
                 <Button
