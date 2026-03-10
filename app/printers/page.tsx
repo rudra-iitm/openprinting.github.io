@@ -1,5 +1,11 @@
-import { redirect } from "next/navigation"
+"use client"
+
+import { useEffect } from "react"
 
 export default function PrintersPage() {
-  redirect("/foomatic")
+  useEffect(() => {
+    window.location.href = "/foomatic"
+  }, [])
+
+  return null
 }
