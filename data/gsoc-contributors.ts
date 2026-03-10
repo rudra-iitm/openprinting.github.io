@@ -26,7 +26,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Dheeraj",
                 project:
                     "Generic Framework to turn legacy drivers consisting of CUPS filters and PPDs into Printer Applications",
-                slug: "01-legacy-drivers-to-printer-applications",
+                slug: "legacy-drivers-to-printer-applications",
                 mentors: ["Till Kamppeter"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2019/projects/5895498257924096",
@@ -39,7 +39,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Tanmay Anand",
                 project:
                     "Improve the pdftoraster filter to not need copying Poppler source code or using unstable APIs",
-                slug: "07-pdftoraster-filter",
+                slug: "pdftoraster-filter",
                 mentors: ["Till Kamppeter", "Tobias Hoffmann"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2019/projects/5766689135845376",
@@ -50,7 +50,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Sharad Shukla",
                 project: "IPP - ipptool test suite for IPP Errata Updates",
-                slug: "05-ipp-test-tool-for-ipp-errata-updates",
+                slug: "ipp-test-tool-for-ipp-errata-updates",
                 mentors: ["Ira McDonald", "Smith Kennedy"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2019/projects/6361523264086016",
@@ -61,7 +61,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Aakash Lahoti",
                 project: "IPP - ipptool test suite for IPP System Service",
-                slug: "04-ipp-test-tool-for-ipp-system-service",
+                slug: "ipp-test-tool-for-ipp-system-service",
                 mentors: ["Ira McDonald", "Smith Kennedy"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2019/projects/5613725327564800",
@@ -80,7 +80,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Vikrant Malik",
                 project: "Extract Raster data from PDFs for direct printing",
-                slug: "13-extract-raster-from-pdf",
+                slug: "extract-raster-from-pdf",
                 mentors: [
                     "Till Kamppeter",
                     "Michael Sweet",
@@ -97,7 +97,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Jai Luthra",
                 project: "General Printer Application SDK",
-                slug: "05-general-printer-sdk",
+                slug: "general-printer-sdk",
                 mentors: [
                     "Ira McDonald",
                     "Till Kamppeter",
@@ -115,7 +115,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Mohit Mohan",
                 project: "Speed/Scaling optimization of cups-browsed",
-                slug: "08-optimization-cups-browsed",
+                slug: "optimization-cups-browsed",
                 mentors: ["Deepak Patankar", "Till Kamppeter", "Aveek Basu"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2020/projects/6494658156298240",
@@ -128,7 +128,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Lakshay Bandlish",
                 project:
                     "Linux GUI application to admin MF devices using IPP System Service",
-                slug: "01-Linux-GUI-Application",
+                slug: "Linux-GUI-Application",
                 mentors: [
                     "Till Kamppeter",
                     "Michael Sweet",
@@ -147,7 +147,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Sambhav Dusad",
                 project: "Make Printer Applications Configurable",
-                slug: "06-make-printer-application-configurable",
+                slug: "make-printer-application-configurable",
                 mentors: [
                     "Aveek Basu",
                     "Till Kamppeter",
@@ -173,7 +173,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Suraj Kulriya",
                 project:
                     "Make All Filter Functions Work Well Even Without PPD Files",
-                slug: "01-Filter_withour-PPD",
+                slug: "Filter_withour-PPD",
                 mentors: ["Jai Luthra", "Till Kamppeter", "Dheeraj Yadav"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2021/projects/5467975515111424",
@@ -185,7 +185,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Divyasheel",
                 project: "GUI for listing and managing available IPP services",
-                slug: "02-GUI-for-IPP",
+                slug: "GUI-for-IPP",
                 mentors: ["Till Kamppeter"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2021/projects/4690129087627264",
@@ -197,7 +197,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Pranshu Kharkwal",
                 project:
                     "Create a single universal CUPS filter to replace the chain of individual filters",
-                slug: "04-Single-universal-filter",
+                slug: "Single-universal-filter",
                 mentors: ["Till Kamppeter", "Dheeraj Yadav"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2021/projects/6547105979564032",
@@ -209,7 +209,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Bhavna Kosta",
                 project: "Firmware and other file handling in PAPPL",
-                slug: "03-File-Handling-in-PAPPL",
+                slug: "File-Handling-in-PAPPL",
                 mentors: [
                     "Jai Luthra",
                     "Till Kamppeter",
@@ -225,7 +225,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Pratyush Ranjan",
                 project: "CUPS Filters: Converting Filters to Filter Functions",
-                slug: "05-Filters-to-Filter",
+                slug: "Filters-to-Filter",
                 mentors: ["Till Kamppeter", "Dheeraj Yadav"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2021/projects/5205259948916736",
@@ -245,7 +245,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Shivam Mishra",
                 project:
                     "GUI for discovering non-driverless printers and finding suitable Printer Applications for them",
-                slug: "01-GUI-for-discovering-non-driverless-printers-and-finding-suitable-Printer-Applications-for-them",
+                slug: "GUI-for-discovering-non-driverless-printers-and-finding-suitable-Printer-Applications-for-them",
                 mentors: ["Till Kamppeter"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2022/projects/ShivamMishra",
@@ -256,7 +256,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Rishabh Maheshwari",
                 project: "Scanning support in PAPPL",
-                slug: "02-Scanning-support-in-PAPPL",
+                slug: "Scanning-support-in-PAPPL",
                 mentors: [
                     "Till Kamppeter",
                     "Michael Sweet",
@@ -274,7 +274,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Gaurav Guleria",
                 project:
                     "Print Dialogs: Make them use the Common Print Dialog Backends (CPDB)",
-                slug: "03-Print-Dialogs",
+                slug: "Print-Dialogs",
                 mentors: ["Till Kamppeter"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2022/projects/GauravGuleria",
@@ -286,7 +286,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Chandresh Soni",
                 project:
                     "Converting Braille embosser support into a Printer Application",
-                slug: "05-Converting-Braille-embosser-support-into-a-Printer-Application",
+                slug: "Converting-Braille-embosser-support-into-a-Printer-Application",
                 mentors: ["Till Kamppeter", "Samuel Thibault"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2022/projects/ChandreshSoni",
@@ -298,7 +298,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Sachin Thakan",
                 project:
                     "cups-filters: Add Avahi calls for discovering and resolving driverless IPP printers to API and optimize the processes",
-                slug: "07-cups-filters",
+                slug: "cups-filters-avahi-discovery",
                 mentors: ["Till Kamppeter", "Sahil Arora"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2022/projects/SachinThakan",
@@ -310,7 +310,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Mohit Verma",
                 project:
                     "cups-filters: In filter functions call Ghostscript via libgs and not as external executable",
-                slug: "06-cups-filters",
+                slug: "cups-filters-libgs",
                 mentors: ["Till Kamppeter", "Sahil Arora", "Dheeraj Yadav"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2022/projects/MohitVerma",
@@ -330,7 +330,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Mohit Verma",
                 project:
                     "GNOME Control Center: List and handle IPP print services for the New Architecture",
-                slug: "08-GNOME-Control-Center",
+                slug: "GNOME-Control-Center",
                 mentors: ["Till Kamppeter", "Marek Kasik"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2023/projects/sNMpMHvf",
@@ -341,7 +341,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Akarshan Kapoor",
                 project: "Scanning support in PAPPL",
-                slug: "03-Scanning-support-in-PAPPL",
+                slug: "Scanning-support-in-PAPPL",
                 mentors: [
                     "Till Kamppeter",
                     "Michael Sweet",
@@ -358,7 +358,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Pratyush Ranjan",
                 project:
                     "CI Testing programs for libcupsfilters, libpappl-retrofit, libppd, CPDB, etc.",
-                slug: "07-CI-Testing-programs-for-libcupsfilters-libpappl-retrofit-libppd-CPDB-etc-",
+                slug: "CI-Testing-programs-for-libcupsfilters-libpappl-retrofit-libppd-CPDB-etc-",
                 mentors: ["Till Kamppeter", "Michael Sweet"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2023/projects/80Bfeq1D",
@@ -370,7 +370,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Kushagra Sharma",
                 project:
                     "CPDB support for application print dialogs: Firefox, Chromium, LibreOffice, etc.",
-                slug: "02-CPDB-support-for-application-print-dialogs",
+                slug: "CPDB-support-for-application-print-dialogs",
                 mentors: ["Till Kamppeter", "Gaurav Guleria"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2023/projects/NO5z8yiB",
@@ -390,7 +390,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Uddhav Phatak",
                 project:
                     "Replace QPDF by PDFio as PDF manipulation library in libcupsfilters",
-                slug: "06-Replace-QPDF-by-PDFio-as-PDF-manipulation-library-in-libcupsfilters",
+                slug: "Replace-QPDF-by-PDFio-as-PDF-manipulation-library-in-libcupsfilters",
                 mentors: ["Till Kamppeter", "Michael Sweet", "Ira McDonald"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2024/projects/UddhavPhatak",
@@ -402,7 +402,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Kushagra Sharma",
                 project:
                     "Desktop integration: CPDB support for print dialogs of Mozilla (Thunderbird/Firefox) and LibreOffice",
-                slug: "01-Desktop-integration",
+                slug: "Desktop-integration-cpdb-support",
                 mentors: ["Till Kamppeter", "Gaurav Guleria"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2024/projects/KushagraSharma",
@@ -414,7 +414,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Shivam Jaiswal",
                 project:
                     "Desktop Integration: Update system-config-printer for the New Architecture of printing",
-                slug: "02-Desktop-Integration",
+                slug: "Desktop-Integration-system-config-printer",
                 mentors: ["Till Kamppeter", "Zdenek Dohnal"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2024/projects/ShivamJaiswal",
@@ -426,7 +426,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Arun Patwa",
                 project:
                     "Converting Braille embosser support into a Printer Application",
-                slug: "08-Converting-Braille-embosser-support-into-a-Printer-Application",
+                slug: "Converting-Braille-embosser-support-into-a-Printer-Application",
                 mentors: ["Till Kamppeter", "Samuel Thibault", "Chandresh Soni"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2024/projects/ArunPatwa",
@@ -438,7 +438,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Biswadeep Purkayastha",
                 project:
                     "Desktop integration: CPDB support for print dialogs of Mozilla (Thunderbird/Firefox) and LibreOffice",
-                slug: "01-Desktop-integration",
+                slug: "Desktop-integration-cpdb-support",
                 mentors: ["Till Kamppeter", "Gaurav Guleria"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2024/projects/BiswadeepPurkayastha",
@@ -449,7 +449,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Ankit Pal Singh",
                 project: "Make a native Printer Application from Gutenprint",
-                slug: "07-Turn-cups-browsed-into-a-Printer-Application",
+                slug: "Turn-cups-browsed-into-a-Printer-Application",
                 mentors: ["Till Kamppeter"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2024/projects/AnkitPalSingh",
@@ -461,7 +461,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Rudra Pratap Singh",
                 project:
                     "Official OCI containers (Docker, ROCKs, podman, ...) of CUPS and Printer Applications",
-                slug: "05-Official-OCI-containers-Docker-ROCKs-podman-of-CUPS-and-Printer-Applications",
+                slug: "Official-OCI-containers-Docker-ROCKs-podman-of-CUPS-and-Printer-Applications",
                 mentors: ["Till Kamppeter"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2024/projects/RudraPratapSingh",
@@ -473,7 +473,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Kaushik Veeraraghavan",
                 project:
                     "Desktop Integration: User interfaces for using OAuth2 with printers and scanners",
-                slug: "03-Desktop-Integration",
+                slug: "Desktop-Integration-oauth2",
                 mentors: ["Till Kamppeter", "Gaurav Guleria"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2024/projects/K_V",
@@ -485,7 +485,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "ttfish",
                 project:
                     "Integrating C-based OpenPrinting projects in OSS-Fuzz testing",
-                slug: "04-Integrating-C-based-OpenPrinting-projects-in-OSS-Fuzz-testing",
+                slug: "Integrating-C-based-OpenPrinting-projects-in-OSS-Fuzz-testing",
                 mentors: ["Till Kamppeter", "George-Andrei Iosif"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2024/projects/ttfish",
@@ -496,7 +496,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Akarshan Kapoor",
                 project: "CI Testing programs for libpappl-retrofit and libppd",
-                slug: "09-CI-Testing-programs-for-libpappl-retrofit-and-libppd",
+                slug: "CI-Testing-programs-for-libpappl-retrofit-and-libppd",
                 mentors: ["Till Kamppeter", "Michael Sweet"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2024/projects/AkarshanKapoor",
@@ -516,7 +516,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Zixuan Liu",
                 project:
                     "Utilizing OSS-Fuzz-Gen to improve fuzz testing for OpenPrinting projects",
-                slug: "06-Utilizing-OSS-Fuzz-Gen-to-improve-fuzz-testing-for-OpenPrinting-projects",
+                slug: "Utilizing-OSS-Fuzz-Gen-to-improve-fuzz-testing-for-OpenPrinting-projects",
                 mentors: [
                     "Till Kamppeter",
                     "Shivam Mishra",
@@ -532,7 +532,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Rudra Pratap Singh",
                 project: "Modernize OpenPrinting Website with Next.js",
-                slug: "",
+                slug: "Modernize-OpenPrinting-Website-with-Next-js",
                 mentors: [
                     "Till Kamppeter",
                     "Zdenek Dohnal",
@@ -548,7 +548,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Tarun Srivastava",
                 project: "KDE Print Manager vs. CUPS 3.x",
-                slug: "03-KDE-Print-Manager-vs-CUPS-3-x",
+                slug: "KDE-Print-Manager-vs-CUPS-3-x",
                 mentors: ["Till Kamppeter", "Mike Noe"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2025/projects/VON8sRJK",
@@ -560,7 +560,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Soumyadeep Ghosh",
                 project:
                     "Port pyCUPS to CUPS 3.x API + apply the new pyCUPS to system-config-printer",
-                slug: "04-Port-pyCUPS-to-CUPS-3-x-API-apply-the-new-pyCUPS-to-system-config-printer",
+                slug: "Port-pyCUPS-to-CUPS-3-x-API-apply-the-new-pyCUPS-to-system-config-printer",
                 mentors: ["Till Kamppeter", "Zdenek Dohnal"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2025/projects/S3e2JPY8",
@@ -572,7 +572,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Sanskar",
                 project:
                     "Image output evaluation for testing of print/scan job processing",
-                slug: "11-Image-output-evaluation-for-testing-of-print-scan-job-processing",
+                slug: "Image-output-evaluation-for-testing-of-print-scan-job-processing",
                 mentors: [
                     "Till Kamppeter",
                     "Shivam Mishra",
@@ -588,7 +588,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Titiksha Bansal",
                 project: "Rust bindings for libcups2/3",
-                slug: "13-Rust-bindings-for-libcups2-3",
+                slug: "Rust-bindings-for-libcups2-3",
                 mentors: ["Till Kamppeter", "Gaurav Guleria"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2025/projects/Z88JfqZq",
@@ -600,7 +600,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Yash Raj Singh",
                 project:
                     "GTK Print Dialog: Modern dialog with built-in preview in main view",
-                slug: "02-GTK-Print-Dialog",
+                slug: "GTK-Print-Dialog",
                 mentors: ["Till Kamppeter", "Gaurav Guleria"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2025/projects/HcP5bOK2",
@@ -612,7 +612,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Kaushik Veeraraghavan",
                 project:
                     "GNOME Control Center: List and handle IPP print services for the New Architecture",
-                slug: "",
+                slug: "GNOME-Control-Center-List-and-handle-IPP-print-services-for-the-New-Architecture",
                 mentors: ["Till Kamppeter", "Shivam Mishra", "Mohit Verma"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2025/projects/PTiuC47E",
@@ -624,7 +624,7 @@ const gsocContributors: GsocYearContributors[] = [
                 name: "Mohammed Imaduddin",
                 project:
                     "Integrating OSS-Fuzz for Go-based and Python-based OpenPrinting projects",
-                slug: "07-Integrating-OSS-Fuzz-for-Go-based-and-Python-based-OpenPrinting-projects",
+                slug: "Integrating-OSS-Fuzz-for-Go-based-and-Python-based-OpenPrinting-projects",
                 mentors: [
                     "Till Kamppeter",
                     "Shivam Mishra",
@@ -640,7 +640,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Mintu Gogoi",
                 project: "Rust bindings for libcups2/3",
-                slug: "13-Rust-bindings-for-libcups2-3",
+                slug: "Rust-bindings-for-libcups2-3",
                 mentors: ["Till Kamppeter", "Gaurav Guleria"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2025/projects/Vxc0sLQU",
@@ -651,7 +651,7 @@ const gsocContributors: GsocYearContributors[] = [
             {
                 name: "Hubert Guan",
                 project: "Port CUPS and Printer Applications to Zephyr",
-                slug: "12-Port-CUPS-and-Printer-Applications-to-Zephyr",
+                slug: "Port-CUPS-and-Printer-Applications-to-Zephyr",
                 mentors: ["Till Kamppeter", "Iuliana Prodan"],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2025/projects/f9CKDFJW",
