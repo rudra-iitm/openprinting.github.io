@@ -11,30 +11,41 @@ interface PrinterEntry {
   ippeve: string
 }
 
+function getMake(model: string) {
+  return model.split(" ")[0]
+}
+
 const PAGE_SIZE = 25
 
 export default function PrintersPage() {
   const [printers, setPrinters] = useState<PrinterEntry[]>([])
   const [loading, setLoading] = useState(true)
   const [query, setQuery] = useState("")
+  const [selectedMake, setSelectedMake] = useState("")
   const [page, setPage] = useState(1)
 
   useEffect(() => {
     fetch(`${basePath}/assets/json/driverless.json`)
       .then((r) => r.json())
       .then((data: PrinterEntry[]) => {
-        // First entry is a dummy placeholder, skip it
         setPrinters(data.filter((p) => p.model !== "_dummy_"))
         setLoading(false)
       })
       .catch(() => setLoading(false))
   }, [])
 
+  const makes = useMemo(() => {
+    const set = new Set(printers.map((p) => getMake(p.model)))
+    return Array.from(set).sort()
+  }, [printers])
+
   const filtered = useMemo(() => {
-    if (!query.trim()) return printers
-    const q = query.toLowerCase()
-    return printers.filter((p) => p.model.toLowerCase().includes(q))
-  }, [printers, query])
+    return printers.filter((p) => {
+      const matchesQuery = !query.trim() || p.model.toLowerCase().includes(query.toLowerCase())
+      const matchesMake = !selectedMake || getMake(p.model) === selectedMake
+      return matchesQuery && matchesMake
+    })
+  }, [printers, query, selectedMake])
 
   const totalPages = Math.max(1, Math.ceil(filtered.length / PAGE_SIZE))
   const currentPage = Math.min(page, totalPages)
@@ -42,6 +53,11 @@ export default function PrintersPage() {
 
   function handleSearch(e: React.ChangeEvent<HTMLInputElement>) {
     setQuery(e.target.value)
+    setPage(1)
+  }
+
+  function handleMakeChange(e: React.ChangeEvent<HTMLSelectElement>) {
+    setSelectedMake(e.target.value)
     setPage(1)
   }
 
@@ -98,9 +114,9 @@ export default function PrintersPage() {
             for printing directly via Wi-Fi.
           </p>
 
-          {/* Search row */}
-          <div className="flex items-center gap-3 mb-6 max-w-xl">
-            <div className="relative flex-1">
+          {/* Search + Filter row */}
+          <div className="flex flex-wrap items-center gap-3 mb-6">
+            <div className="relative flex-1 min-w-[200px] max-w-sm">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
               <input
                 type="search"
@@ -110,6 +126,16 @@ export default function PrintersPage() {
                 className="w-full pl-9 pr-4 py-2 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
               />
             </div>
+            <select
+              value={selectedMake}
+              onChange={handleMakeChange}
+              className="py-2 pl-3 pr-8 rounded-lg border border-border bg-background text-sm focus:outline-none focus:ring-2 focus:ring-ring"
+            >
+              <option value="">All Makes</option>
+              {makes.map((make) => (
+                <option key={make} value={make}>{make}</option>
+              ))}
+            </select>
             <span className="text-sm text-muted-foreground whitespace-nowrap">
               {loading ? "Loading…" : `${filtered.length.toLocaleString()} result${filtered.length !== 1 ? "s" : ""}`}
             </span>
