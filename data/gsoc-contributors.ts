@@ -587,7 +587,7 @@ const gsocContributors: GsocYearContributors[] = [
                 codeLicense: "Apache 2.0, MIT",
                 socials: {
                     github: "rudra-iitm",
-                    website: "https://rudraworks.github.io/",
+                    website: "https://rudra-iitm.github.io/",
                     medium: "https://medium.com/@rudransh.iitm",
                 },
             },
@@ -682,7 +682,7 @@ const gsocContributors: GsocYearContributors[] = [
                 codeLicense: "MIT",
                 socials: {
                     github: "rudra-iitm",
-                    website: "https://rudraworks.github.io/",
+                    website: "https://rudra-iitm.github.io/",
                     medium: "https://medium.com/@rudransh.iitm",
                 },
             },
