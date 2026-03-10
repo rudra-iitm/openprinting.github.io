@@ -38,7 +38,7 @@ export default function ProjectsSection() {
       description:
         "Most modern printers work 'out of the box' with OpenPrinting software. Browse the thousands of driverless printers.",
       image: `${basePath}/ipp-everywhere.png`,
-      href: "/printers",
+      href: "/foomatic",
       delay: 0.1,
     },
     {
@@ -47,7 +47,7 @@ export default function ProjectsSection() {
         "The Foomatic printer database lists all of the printers that are supported by free software printer drivers.",
       image: `${basePath}/printer.png`,
       delay: 0.2,
-      href: "/printers",
+      href: "/foomatic",
     },
     {
       title: "Windows?!",
