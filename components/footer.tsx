@@ -26,7 +26,7 @@ const footerLinks = {
     { name: "Contribute", href: "/contribute" },
   ],
   Resources: [
-    { name: "CUPS", href: "/cups" },
+    { name: "CUPS", href: "https://openprinting.github.io/cups/" },
     { name: "Printer Database", href: "/printers" },
     { name: "Printer Working Group", href: "https://www.pwg.org/ipp/" },
   ],
