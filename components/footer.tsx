@@ -1,7 +1,7 @@
 "use client"
 
 import Link from "next/link"
-import { Github, Twitter, Linkedin, Rss } from "lucide-react"
+import { Github, Linkedin, Rss } from "lucide-react"
 
 function MastodonIcon({ className }: { className?: string }) {
   return (
@@ -33,7 +33,6 @@ const footerLinks = {
 }
 
 const socialLinks = [
-  { icon: Twitter, href: "https://x.com/open_printing", label: "Twitter" },
   { icon: Github, href: "https://github.com/OpenPrinting", label: "GitHub" },
   { icon: MastodonIcon, href: "https://ubuntu.social/tags/OpenPrinting", label: "Mastodon" },
   { icon: Linkedin, href: "https://www.linkedin.com/company/openprinting/posts/", label: "LinkedIn" },
