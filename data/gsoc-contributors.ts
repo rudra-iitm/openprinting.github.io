@@ -142,7 +142,7 @@ const gsocContributors: GsocYearContributors[] = [
                 desiredKnowledge: ["C", "DNS-SD", "IPP"],
                 codeLicense: "Apache 2.0, MIT",
                 socials: {
-                    github: "jailuthra",
+                    github: "jailuthra1",
                     githubPages: "https://jailuthra1.github.io/google-summer-of-code-2020/",
                     twitter: "https://twitter.com/jailuthra",
                     facebook: "https://www.facebook.com/jailuthra",
@@ -199,12 +199,12 @@ const gsocContributors: GsocYearContributors[] = [
                 ],
                 projectUrl:
                     "https://summerofcode.withgoogle.com/archive/2020/projects/4880658133942272",
-                codeUrl: "https://dsam82.github.io/gsoc20",
+                codeUrl: "https://lonerapier.github.io/gsoc20",
                 desiredKnowledge: ["C", "DNS-SD", "IPP"],
                 codeLicense: "Apache 2.0, MIT",
                 socials: {
                     github: "lonerapier",
-                    githubPages: "https://dsam82.github.io/gsoc20",
+                    githubPages: "https://lonerapier.github.io/gsoc20",
                 },
             },
         ],
