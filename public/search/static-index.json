@@ -3454,58 +3454,6 @@
       "content": ""
     },
     {
-      "id": "page:gsoc",
-      "source": "static",
-      "type": "page",
-      "title": "GSoC - OpenPrinting",
-      "url": "/gsoc",
-      "headings": [
-        "Year-Wise GSoC Project List",
-        "1. GSOC 2021",
-        "2. GSOC 2020",
-        "3. GSOC 2019",
-        "Year-Wise GSoC Students",
-        "1. GSOC 2021",
-        "2. GSOC 2020"
-      ],
-      "tags": [],
-      "snippet": "",
-      "content": ""
-    },
-    {
-      "id": "page:gsoc2019",
-      "source": "static",
-      "type": "page",
-      "title": "GSoC 2019 Projects",
-      "url": "/gsoc2019",
-      "headings": [],
-      "tags": [],
-      "snippet": "",
-      "content": ""
-    },
-    {
-      "id": "page:gsoc2020",
-      "source": "static",
-      "type": "page",
-      "title": "GSoC 2020 Projects",
-      "url": "/gsoc2020",
-      "headings": [],
-      "tags": [],
-      "snippet": "",
-      "content": ""
-    },
-    {
-      "id": "page:gsoc2021",
-      "source": "static",
-      "type": "page",
-      "title": "GSoC 2021 Projects",
-      "url": "/gsoc2021",
-      "headings": [],
-      "tags": [],
-      "snippet": "",
-      "content": ""
-    },
-    {
       "id": "page:gsod",
       "source": "static",
       "type": "page",
@@ -3681,7 +3629,7 @@
     }
   ],
   "metadata": {
-    "documentCount": 248,
+    "documentCount": 244,
     "contentTypes": [
       "post",
       "documentation",
