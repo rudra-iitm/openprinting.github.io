@@ -81,6 +81,8 @@ export async function generateStaticParams() {
         }
     }
 
+    params.push({ slug: "cups" });
+
     return params;
 }
 
@@ -91,6 +93,10 @@ export default async function PostPage({
 }) {
     const { slug } = await params;
     const decodedSlug = decodeURIComponent(slug);
+
+    if (decodedSlug === "cups") {
+        redirect("https://openprinting.github.io/cups/");
+    }
 
     const allPosts = await getAllPostsMetadata();
 
