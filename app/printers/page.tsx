@@ -114,7 +114,6 @@ export default function PrintersPage() {
             for printing directly via Wi-Fi.
           </p>
 
-          {/* Search + Filter row */}
           <div className="flex flex-wrap items-center gap-3 mb-6">
             <div className="relative flex-1 min-w-[200px] max-w-sm">
               <Search className="absolute left-3 top-1/2 -translate-y-1/2 w-4 h-4 text-muted-foreground pointer-events-none" />
@@ -141,7 +140,6 @@ export default function PrintersPage() {
             </span>
           </div>
 
-          {/* Table */}
           <div className="overflow-x-auto rounded-lg border border-border">
             <table className="w-full text-sm">
               <thead className="bg-muted/60 text-left">
@@ -181,7 +179,6 @@ export default function PrintersPage() {
             </table>
           </div>
 
-          {/* Pagination */}
           {totalPages > 1 && (
             <div className="flex items-center justify-center gap-1 mt-6 flex-wrap">
               <button
@@ -224,7 +221,6 @@ export default function PrintersPage() {
             </div>
           )}
 
-          {/* Page info */}
           {!loading && filtered.length > 0 && (
             <p className="text-center text-xs text-muted-foreground mt-3">
               Showing {((currentPage - 1) * PAGE_SIZE) + 1}–{Math.min(currentPage * PAGE_SIZE, filtered.length)} of {filtered.length.toLocaleString()} printers
