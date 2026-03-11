@@ -2,10 +2,16 @@ import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
 import { redirect, notFound } from "next/navigation";
+import Link from "next/link";
+import Image from "next/image";
+import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
 import { TableOfContents } from "@/components/table-of-contents";
 import GiscusComments from "@/components/giscus-comment";
 import AuthorCard from "@/components/AuthorCard";
+import authors from "@/data/authors";
+
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 const POSTS_DIR = path.join(process.cwd(), "contents", "post");
 
@@ -33,12 +39,22 @@ async function getAllPostsMetadata() {
 
                 return {
                     slug: name.replace(/\.md$/, ""),
+                    title: typeof data.title === "string" ? data.title.trim() : name.replace(/\.md$/, ""),
+                    date: typeof data.date === "string" ? data.date : "",
+                    author: typeof data.author === "string" ? data.author.trim() : "",
+                    excerpt: typeof data.excerpt === "string" ? data.excerpt.trim() : "",
                     previousSlugs: Array.isArray(data.previousSlugs)
                         ? data.previousSlugs
                         : [],
                 };
             })
     );
+
+    posts.sort((a, b) => {
+        const da = a.date ? new Date(a.date).getTime() : 0;
+        const db = b.date ? new Date(b.date).getTime() : 0;
+        return db - da;
+    });
 
     return posts;
 }
@@ -65,6 +81,8 @@ export async function generateStaticParams() {
         }
     }
 
+    params.push({ slug: "cups" });
+
     return params;
 }
 
@@ -75,6 +93,10 @@ export default async function PostPage({
 }) {
     const { slug } = await params;
     const decodedSlug = decodeURIComponent(slug);
+
+    if (decodedSlug === "cups") {
+        redirect("https://openprinting.github.io/cups/");
+    }
 
     const allPosts = await getAllPostsMetadata();
 
@@ -91,6 +113,13 @@ export default async function PostPage({
 
         notFound();
     }
+
+    const currentIndex = allPosts.findIndex((post) => post.slug === decodedSlug);
+    const newerPost = currentIndex > 0 ? allPosts[currentIndex - 1] : null;
+    const olderPost = currentIndex < allPosts.length - 1 ? allPosts[currentIndex + 1] : null;
+    const relatedPosts = allPosts
+        .filter((post) => post.slug !== decodedSlug)
+        .slice(0, 3);
 
     const { frontmatter, content: markdownContent } = await getPost(decodedSlug);
 
@@ -172,6 +201,83 @@ export default async function PostPage({
                             <div className="mt-12">
                                 <GiscusComments />
                             </div>
+
+                            <nav className="mt-12 flex flex-col sm:flex-row justify-between gap-4" aria-label="Post navigation">
+                                {olderPost ? (
+                                    <Link
+                                        href={`/${olderPost.slug}`}
+                                        className="group flex-1 rounded-lg border border-border p-4 hover:border-foreground/30 transition-colors duration-200"
+                                    >
+                                        <div className="flex items-center gap-1 text-xs text-muted-foreground mb-1">
+                                            <ChevronLeft className="w-3 h-3" />
+                                            <span>Older post</span>
+                                        </div>
+                                        <div className="text-sm font-medium text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2">{olderPost.title}</div>
+                                    </Link>
+                                ) : <div className="flex-1" />}
+                                {newerPost ? (
+                                    <Link
+                                        href={`/${newerPost.slug}`}
+                                        className="group flex-1 rounded-lg border border-border p-4 text-right hover:border-foreground/30 transition-colors duration-200"
+                                    >
+                                        <div className="flex items-center justify-end gap-1 text-xs text-muted-foreground mb-1">
+                                            <span>Newer post</span>
+                                            <ChevronRight className="w-3 h-3" />
+                                        </div>
+                                        <div className="text-sm font-medium text-foreground group-hover:text-blue-600 dark:group-hover:text-blue-400 line-clamp-2">{newerPost.title}</div>
+                                    </Link>
+                                ) : <div className="flex-1" />}
+                            </nav>
+
+                            {relatedPosts.length > 0 && (
+                                <div className="mt-16">
+                                    <h3 className="text-lg font-semibold mb-6">You may also enjoy</h3>
+                                    <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
+                                        {relatedPosts.map((post) => {
+                                            const postAuthor = post.author ? authors.find((a) => a.key === post.author) : null;
+                                            const placeholder = `${basePath}/authors/placeholder.jpg`;
+                                            const imgRaw = postAuthor?.image && postAuthor.image !== "NA" ? postAuthor.image : placeholder;
+                                            const imgSrc = imgRaw.startsWith("/") ? `${basePath}${imgRaw}` : `${basePath}/${imgRaw}`;
+                                            return (
+                                            <Link
+                                                key={post.slug}
+                                                href={`/${post.slug}`}
+                                                className="group flex flex-col h-full rounded-xl border border-border bg-card p-5 transition-all duration-300 hover:border-border/80 hover:bg-accent/50 card-glow"
+                                            >
+                                                <div className="flex flex-col flex-1">
+                                                    <h3 className="text-sm font-semibold text-foreground group-hover:text-blue-400 transition-colors duration-200 line-clamp-2 leading-snug mb-3">{post.title}</h3>
+
+                                                    {postAuthor && (
+                                                        <div className="flex items-center gap-2 mb-3">
+                                                            <div className="relative w-5 h-5 rounded-full overflow-hidden flex-shrink-0">
+                                                                <Image src={imgSrc} alt={postAuthor.name} fill className="object-cover" />
+                                                            </div>
+                                                            <span className="text-xs text-muted-foreground">{postAuthor.name}</span>
+                                                        </div>
+                                                    )}
+
+                                                    {post.date && (
+                                                        <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-3">
+                                                            <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2"/><line x1="16" y1="2" x2="16" y2="6"/><line x1="8" y1="2" x2="8" y2="6"/><line x1="3" y1="10" x2="21" y2="10"/></svg>
+                                                            {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+                                                        </div>
+                                                    )}
+
+                                                    {post.excerpt && (
+                                                        <p className="text-xs text-muted-foreground leading-relaxed line-clamp-3 mb-3">{post.excerpt}</p>
+                                                    )}
+
+                                                    <div className="mt-auto pt-3 flex items-center gap-1.5 text-xs font-medium text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                                        Read more
+                                                        <ArrowRight className="w-3 h-3" />
+                                                    </div>
+                                                </div>
+                                            </Link>
+                                            );
+                                        })}
+                                    </div>
+                                </div>
+                            )}
                         </div>
                     </section>
 

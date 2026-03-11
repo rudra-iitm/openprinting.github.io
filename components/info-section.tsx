@@ -43,7 +43,7 @@ export default function InfoSection() {
       description:
         "CUPS is the standards-based, open source printing system that is used on Linux® and other operating systems.",
       icon: `${basePath}/cups.png`,
-      href: "/cups",
+      href: "https://openprinting.github.io/cups/",
       delay: 0.3,
     },
   ]

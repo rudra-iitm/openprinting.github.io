@@ -47,7 +47,8 @@ export default function ProjectsSection() {
         "The Foomatic printer database lists all of the printers that are supported by free software printer drivers.",
       image: `${basePath}/printer.png`,
       delay: 0.2,
-      href: "/printers",
+      href: "https://openprinting.org/printers",
+      isExternal: true,
     },
     {
       title: "Windows?!",
