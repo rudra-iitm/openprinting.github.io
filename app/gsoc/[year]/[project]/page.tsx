@@ -28,8 +28,7 @@ import {
   Lightbulb,
 } from "lucide-react";
 
-const basePath =
-  process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 export async function generateStaticParams() {
   const years = await getGsocYears();
@@ -137,8 +136,7 @@ export default async function GsocProjectPage({
                   <>
                     <div className="p-5 space-y-3">
                       {contributors.map((contributor, idx) => {
-                        const contributorImage =
-                          getContributorImageSrc(contributor);
+                        const contributorImage = getContributorImageSrc(contributor);
                         return (
                           <div
                             key={idx}
@@ -167,9 +165,7 @@ export default async function GsocProjectPage({
                                 </p>
                               </div>
                             </div>
-                            <GsocContributorInlineSocials
-                              contributor={contributor}
-                            />
+                            <GsocContributorInlineSocials contributor={contributor} />
                           </div>
                         );
                       })}
@@ -320,8 +316,7 @@ export default async function GsocProjectPage({
               {isCompleted && (
                 <div className="space-y-3">
                   {contributors.map((contributor, idx) => {
-                    const contributorImage =
-                      getContributorImageSrc(contributor);
+                    const contributorImage = getContributorImageSrc(contributor);
                     return (
                       <div
                         key={idx}
@@ -345,9 +340,7 @@ export default async function GsocProjectPage({
                             {contributor.name}
                           </span>
                         </div>
-                        <GsocContributorInlineSocials
-                          contributor={contributor}
-                        />
+                        <GsocContributorInlineSocials contributor={contributor} />
                       </div>
                     );
                   })}
