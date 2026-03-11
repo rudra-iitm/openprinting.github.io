@@ -202,7 +202,6 @@ export default async function PostPage({
                                 <GiscusComments />
                             </div>
 
-                            {/* Prev / Next navigation */}
                             <nav className="mt-12 flex flex-col sm:flex-row justify-between gap-4" aria-label="Post navigation">
                                 {olderPost ? (
                                     <Link
@@ -230,7 +229,6 @@ export default async function PostPage({
                                 ) : <div className="flex-1" />}
                             </nav>
 
-                            {/* You may also enjoy */}
                             {relatedPosts.length > 0 && (
                                 <div className="mt-16">
                                     <h3 className="text-lg font-semibold mb-6">You may also enjoy</h3>
