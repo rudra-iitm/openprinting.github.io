@@ -10,18 +10,24 @@ const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.i
 export default function HeroSection() {
   return (
     <section className="relative min-h-[70vh] md:min-h-[60vh] flex flex-col items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-black/30 dark:bg-black/80" />
+      <div className="absolute inset-0 bg-white/10 dark:bg-black/80" />
       <div
-        className="hero-banner-image"
+        className="absolute inset-0 bg-cover bg-[position:80%_0] opacity-100 mix-blend-normal pointer-events-none dark:hidden"
         style={{
           backgroundImage: `url(${basePath}/rotation_pantone.jpg)`,
         }}
       />
-      <div className="hero-glow" />
-      <div className="hero-glow-blue" />
+      <div
+        className="hero-banner-image hidden dark:block"
+        style={{
+          backgroundImage: `url(${basePath}/rotation_pantone.jpg)`,
+        }}
+      />
+      <div className="hero-glow hidden dark:block" />
+      <div className="hero-glow-blue hidden dark:block" />
       <div className="grid-pattern absolute inset-0" />
 
-      <div className="absolute top-0 left-1/2 -translate-x-1/2 w-[800px] h-[600px] bg-gradient-to-b from-blue-500/[0.07] via-transparent to-transparent rounded-full blur-3xl" />
+      <div className="absolute top-0 left-1/2 hidden h-[600px] w-[800px] -translate-x-1/2 rounded-full bg-gradient-to-b from-blue-500/[0.07] via-transparent to-transparent blur-3xl dark:block" />
 
       <div className="relative z-10 max-w-7xl w-full mx-auto px-6 lg:px-12 text-left">
         <div className="max-w-3xl">
@@ -43,9 +49,8 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-6"
           >
-            <span className="text-neutral-900 dark:text-transparent text-gradient">
-              Open
-            </span>
+            <span className="text-neutral-950 dark:hidden">Open</span>
+            <span className="hidden text-gradient dark:inline">Open</span>
             <span className="text-gradient-blue">Printing</span>
           </motion.h1>
 
