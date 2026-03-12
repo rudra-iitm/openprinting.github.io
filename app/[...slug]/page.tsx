@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
+import type { Metadata } from "next";
 import { redirect, notFound } from "next/navigation";
 import Link from "next/link";
 import Image from "next/image";
@@ -10,8 +11,12 @@ import { TableOfContents } from "@/components/table-of-contents";
 import GiscusComments from "@/components/giscus-comment";
 import AuthorCard from "@/components/AuthorCard";
 import authors from "@/data/authors";
+import { getImageSrc } from "@/lib/utils";
+import { getTeaserImage } from "@/lib/get-latest-posts";
 
 const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+const siteUrl = "https://openprinting.github.io";
+const defaultOgImageUrl = `${siteUrl}${getImageSrc("/OpenPrintingBox.png")}`;
 
 const POSTS_DIR = path.join(process.cwd(), "contents", "post");
 
@@ -57,6 +62,77 @@ async function getAllPostsMetadata() {
     });
 
     return posts;
+}
+
+export async function generateMetadata({
+    params,
+}: {
+    params: Promise<{ slug: string }>;
+}): Promise<Metadata> {
+    const { slug } = await params;
+    const decodedSlug = decodeURIComponent(slug);
+
+    if (decodedSlug === "cups") {
+        return {
+            title: "CUPS",
+            alternates: {
+                canonical: "https://openprinting.github.io/cups/",
+            },
+        };
+    }
+
+    const allPosts = await getAllPostsMetadata();
+    const directMatch = allPosts.find((post) => post.slug === decodedSlug);
+    const redirectMatch = directMatch
+        ? null
+        : allPosts.find((post) => post.previousSlugs.includes(decodedSlug));
+
+    const matchedPost = directMatch ?? redirectMatch;
+    if (!matchedPost) return {};
+
+    const resolvedSlug = matchedPost.slug;
+    const { frontmatter, content } = await getPost(resolvedSlug);
+
+    const title =
+        typeof frontmatter.title === "string" && frontmatter.title.trim() !== ""
+            ? frontmatter.title.trim()
+            : matchedPost.title;
+    const description =
+        typeof frontmatter.excerpt === "string" && frontmatter.excerpt.trim() !== ""
+            ? frontmatter.excerpt.trim()
+            : matchedPost.excerpt;
+    const teaserImage = getTeaserImage(frontmatter, content);
+    const resolvedTeaserImage = teaserImage
+        ? getImageSrc(teaserImage)
+        : undefined;
+    const imageUrl = resolvedTeaserImage
+        ? /^https?:\/\//.test(resolvedTeaserImage)
+            ? resolvedTeaserImage
+            : `${siteUrl}${resolvedTeaserImage}`
+        : defaultOgImageUrl;
+    const canonicalPath = resolvedSlug === decodedSlug ? `/${resolvedSlug}` : `/${decodedSlug}`;
+    const canonicalUrl = `${siteUrl}${canonicalPath}`;
+
+    return {
+        title,
+        description,
+        alternates: {
+            canonical: canonicalUrl,
+        },
+        openGraph: {
+            title,
+            description,
+            url: canonicalUrl,
+            type: "article",
+            images: imageUrl ? [{ url: imageUrl, alt: title }] : undefined,
+        },
+        twitter: {
+            card: "summary_large_image",
+            title,
+            description,
+            images: [imageUrl],
+        },
+    };
 }
 
 export async function generateStaticParams() {
