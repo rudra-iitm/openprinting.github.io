@@ -25,7 +25,7 @@ export async function extractPosts(): Promise<RawPost[]> {
 
     const raw = await fs.readFile(fullPath, "utf8");
     const { data, content } = matter(raw);
-    const teaserImage = getTeaserImage(data, raw);
+    const teaserImage = getTeaserImage(data, content);
 
     posts.push({
       slug,
