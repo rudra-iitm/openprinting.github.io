@@ -7,6 +7,8 @@ import Link from "next/link"
 import { ArrowRight, Calendar, User } from "lucide-react"
 import Image from "next/image"
 
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+
 function formatDate(dateString: string) {
   const date = new Date(dateString)
   return date.toLocaleDateString("en-US", {
@@ -67,7 +69,7 @@ export default function NewsSection({ posts }: { posts: NewsPost[] }) {
                     {item.authorImage ? (
                       <div className="rounded-full overflow-hidden w-4 h-4 border border-border/50">
                         <Image
-                          src={item.authorImage}
+                          src={`${basePath}${item.authorImage}`}
                           alt={item.author}
                           width={16}
                           height={16}
