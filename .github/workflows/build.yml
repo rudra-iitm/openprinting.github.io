@@ -56,5 +56,7 @@ jobs:
       - name: Run linter
         run: ${{ steps.pm.outputs.runner }} lint
 
+      - name: Generate Foomatic printer database
+        run: npm run build:foomatic-data
       - name: Build Next.js
         run: ${{ steps.pm.outputs.runner }} build
