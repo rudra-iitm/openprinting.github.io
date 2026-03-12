@@ -72,7 +72,7 @@ export default function HeroSection() {
             <Button
               asChild
               size="lg"
-              className="bg-white text-black hover:bg-neutral-200 font-medium h-11 px-8 rounded-full text-sm transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
+              className="bg-black text-white border border-black hover:bg-neutral-800 dark:bg-white dark:text-black dark:border-white dark:hover:bg-neutral-200 font-medium h-11 px-8 rounded-full text-sm transition-all duration-200 shadow-[0_0_20px_rgba(255,255,255,0.1)]"
             >
               <Link href="/about-us" prefetch={false} className="flex items-center gap-2">
                 Learn More
