@@ -5,6 +5,7 @@ import { useInView } from "framer-motion"
 import { useRef } from "react"
 import Link from "next/link"
 import { ArrowRight, Calendar, User } from "lucide-react"
+import Image from "next/image"
 
 function formatDate(dateString: string) {
   const date = new Date(dateString)
@@ -18,6 +19,7 @@ function formatDate(dateString: string) {
 type NewsPost = {
   title: string
   author: string
+  authorImage?: string
   date: string
   excerpt: string
   slug: string
@@ -62,7 +64,19 @@ export default function NewsSection({ posts }: { posts: NewsPost[] }) {
 
                 <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
                   <span className="flex items-center gap-1.5">
-                    <User className="w-3 h-3" />
+                    {item.authorImage ? (
+                      <div className="rounded-full overflow-hidden w-4 h-4 border border-border/50">
+                        <Image
+                          src={item.authorImage}
+                          alt={item.author}
+                          width={16}
+                          height={16}
+                          className="object-cover w-full h-full"
+                        />
+                      </div>
+                    ) : (
+                      <User className="w-3 h-3" />
+                    )}
                     {item.author}
                   </span>
                   <span className="flex items-center gap-1.5">
