@@ -10,7 +10,7 @@ const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.i
 export default function HeroSection() {
   return (
     <section className="relative min-h-[70vh] md:min-h-[60vh] flex flex-col items-center justify-center overflow-hidden">
-      <div className="absolute inset-0 bg-black" />
+      <div className="absolute inset-0 bg-black/30 dark:bg-black/80" />
       <div
         className="hero-banner-image"
         style={{
@@ -29,9 +29,9 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.6 }}
-            className="mb-8"
+            className="mb-8 mt-8"
           >
-            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-white/[0.08] bg-white/[0.03] text-xs text-neutral-400 font-medium backdrop-blur-sm">
+            <span className="inline-flex items-center gap-2 px-4 py-1.5 rounded-full border border-black/[0.15] dark:border-white/[0.08] bg-black/[0.05] dark:bg-white/[0.03] text-xs text-neutral-700 dark:text-neutral-400 font-medium backdrop-blur-sm">
               <span className="w-1.5 h-1.5 rounded-full bg-blue-400 animate-glow-pulse" />
               Open Source Printing Infrastructure
             </span>
@@ -43,7 +43,9 @@ export default function HeroSection() {
             transition={{ duration: 0.8, delay: 0.15 }}
             className="text-5xl md:text-7xl lg:text-8xl font-bold tracking-tight leading-[0.95] mb-6"
           >
-            <span className="text-gradient">Open</span>
+            <span className="text-neutral-900 dark:text-transparent text-gradient">
+              Open
+            </span>
             <span className="text-gradient-blue">Printing</span>
           </motion.h1>
 
@@ -51,7 +53,7 @@ export default function HeroSection() {
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.8, delay: 0.3 }}
-            className="text-base md:text-lg text-neutral-400 max-w-2xl mb-10 leading-relaxed"
+            className="text-base md:text-lg text-neutral-700 dark:text-neutral-400 max-w-2xl mb-10 leading-relaxed"
           >
             We make printing just work.
           </motion.p>
@@ -76,7 +78,7 @@ export default function HeroSection() {
               asChild
               variant="outline"
               size="lg"
-              className="border-white/[0.12] text-neutral-300 hover:bg-white/[0.04] hover:text-white font-medium h-11 px-8 rounded-full text-sm bg-transparent transition-all duration-200"
+              className="border-black/[0.2] dark:border-white/[0.12] text-neutral-700 dark:text-neutral-300 hover:bg-black/[0.05] dark:hover:bg-white/[0.04] hover:text-black dark:hover:text-white font-medium h-11 px-8 rounded-full text-sm bg-transparent transition-all duration-200"
             >
               <Link href="/printers" prefetch={false}>Find a Printer</Link>
             </Button>
@@ -95,8 +97,8 @@ export default function HeroSection() {
           transition={{ duration: 2, repeat: Infinity, ease: "easeInOut" }}
           className="flex flex-col items-center gap-2"
         >
-          <span className="text-xs text-neutral-500 uppercase tracking-widest">Scroll</span>
-          <ChevronDown className="w-4 h-4 text-neutral-500" />
+          <span className="text-xs text-neutral-600 dark:text-neutral-500 uppercase tracking-widest">Scroll</span>
+          <ChevronDown className="w-4 h-4 text-neutral-700 dark:text-neutral-500" />
         </motion.div>
       </motion.div>
     </section>
