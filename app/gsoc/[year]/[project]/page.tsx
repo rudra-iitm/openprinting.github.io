@@ -28,6 +28,8 @@ import {
   Lightbulb,
 } from "lucide-react";
 
+const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+
 export async function generateStaticParams() {
   const years = await getGsocYears();
   const allParams: Array<{ year: string; project: string }> = [];
@@ -191,7 +193,7 @@ export default async function GsocProjectPage({
                         <div key={mentor} className="flex items-center gap-2">
                           {mentorImages[mentor] ? (
                             <Image
-                              src={mentorImages[mentor]}
+                              src={`${basePath}${mentorImages[mentor]}`}
                               alt={mentor}
                               width={24}
                               height={24}
@@ -363,7 +365,7 @@ export default async function GsocProjectPage({
                     >
                       {mentorImages[m] ? (
                         <Image
-                          src={mentorImages[m]}
+                          src={`${basePath}${mentorImages[m]}`}
                           alt={m}
                           width={14}
                           height={14}
