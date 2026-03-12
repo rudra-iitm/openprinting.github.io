@@ -193,7 +193,7 @@ export default async function GsocProjectPage({
                         <div key={mentor} className="flex items-center gap-2">
                           {mentorImages[mentor] ? (
                             <Image
-                              src={basePath + mentorImages[mentor]}
+                              src={`${basePath}${mentorImages[mentor]}`}
                               alt={mentor}
                               width={24}
                               height={24}
@@ -365,7 +365,7 @@ export default async function GsocProjectPage({
                     >
                       {mentorImages[m] ? (
                         <Image
-                          src={basePath + mentorImages[m]}
+                          src={`${basePath}${mentorImages[m]}`}
                           alt={m}
                           width={14}
                           height={14}

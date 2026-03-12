@@ -183,7 +183,7 @@ export function GsocYearClient({
                             >
                               {mentorImages[mentor] ? (
                                 <Image
-                                  src={basePath + mentorImages[mentor]}
+                                  src={`${basePath}${mentorImages[mentor]}`}
                                   alt={mentor}
                                   width={14}
                                   height={14}
@@ -271,7 +271,7 @@ export function GsocYearClient({
                             >
                               {mentorImages[mentor] ? (
                                 <Image
-                                  src={basePath + mentorImages[mentor]}
+                                  src={`${basePath}${mentorImages[mentor]}`}
                                   alt={mentor}
                                   width={14}
                                   height={14}
