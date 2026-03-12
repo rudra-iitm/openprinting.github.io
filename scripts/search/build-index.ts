@@ -3,6 +3,7 @@ import path from "path";
 import { extractPosts } from "./extract-posts";
 import { extractContent, type RawStaticContent } from "./extract-content";
 import { normalizeMarkdown } from "./normalize-markdown";
+import { getImageSrc } from "@/lib/utils";
 import { type SearchDocument, type StaticSearchIndex } from "@/lib/search/types";
 
 const OUTPUT_DIR = path.join(process.cwd(), "public", "search");
@@ -36,7 +37,9 @@ async function buildIndex() {
 
       headings,
       tags: [],
-
+      teaserImage: post.teaserImage
+        ? getImageSrc(post.teaserImage)
+        : undefined,
       snippet: excerpt || snippet,
       content: text,
     };

@@ -13,6 +13,7 @@ export interface SearchDocument {
 
   title: string;
   url: string;
+  teaserImage?: string;
 
   headings: string[];
   tags: string[];
