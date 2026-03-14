@@ -9,7 +9,7 @@ const OUTPUT_DIR = path.join(process.cwd(), "public", "search");
 const OUTPUT_FILE = path.join(OUTPUT_DIR, "static-index.json");
 
 function safeString(value: unknown): string {
-  return typeof value === "string" ? value.trim() : "";
+  return typeof value === "string" ? value.trim().replace(/\\/g, "") : "";
 }
 
 async function buildIndex() {
