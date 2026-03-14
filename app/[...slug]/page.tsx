@@ -131,7 +131,7 @@ export default async function PostPage({
 
     const title =
         typeof frontmatter.title === "string" && frontmatter.title.trim() !== ""
-            ? frontmatter.title.trim()
+            ? frontmatter.title.trim().replace(/\\/g,"")
             : "Untitled Article";
 
     let formattedDate = "";
