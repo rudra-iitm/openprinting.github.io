@@ -49,7 +49,7 @@ export default async function NewsPage() {
 
         return {
           slug: file.replace(/\.md$/, ""),
-          title: typeof data.title === "string" ? data.title : file.replace(/\.md$/, ""),
+          title: typeof data.title === "string" ? data.title.replace(/\\/g, ""): file.replace(/\.md$/, ""),
           excerpt: typeof data.excerpt === "string" ? data.excerpt : "",
           date,
           year: date.getFullYear(),

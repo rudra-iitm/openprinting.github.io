@@ -30,7 +30,7 @@ export function getLatestPosts(limit = 3): PostMeta[] {
       const authorImage = authorDef?.image
 
       return {
-        title: data.title,
+        title: (data.title||"").replace(/\\/g,""),
         author: authorDef ? authorDef.name : data.author,
         authorImage,
         date: data.date,
