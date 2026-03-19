@@ -2,7 +2,7 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { MapPin, Mail, Github } from "lucide-react";
+import { MapPin, Mail, Github, Linkedin, Globe, Link2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import authors from "@/data/authors";
 
@@ -47,6 +47,44 @@ export default function AuthorCard({ authorKey, className }: Props) {
     author.image && author.image !== "NA" ? author.image : placeholder;
   const imgSrc = imgRaw.startsWith("/") ? `${basePath}${imgRaw}` : `${basePath}/${imgRaw}`;
 
+  const extraLinks =
+    author.links?.filter((l) => typeof l?.href === "string" && l.href.trim() !== "") ?? [];
+
+  const linkItems: { label: string; href: string; icon: React.ReactNode; external?: boolean }[] = [
+    ...(author.email
+      ? [
+        {
+          label: "Email",
+          href: author.email,
+          icon: <Mail size={14} className="text-muted-foreground" />,
+          external: false,
+        },
+      ]
+      : []),
+    ...(author.github
+      ? [
+        {
+          label: "GitHub",
+          href: author.github,
+          icon: <Github size={14} className="text-muted-foreground" />,
+          external: true,
+        },
+      ]
+      : []),
+    ...extraLinks.map((l) => {
+      const kind = l.kind ?? "other";
+      const icon =
+        kind === "linkedin" ? (
+          <Linkedin size={14} className="text-muted-foreground" />
+        ) : kind === "website" ? (
+          <Globe size={14} className="text-muted-foreground" />
+        ) : (
+          <Link2 size={14} className="text-muted-foreground" />
+        );
+      return { label: l.label, href: l.href, icon, external: true };
+    }),
+  ];
+
   return (
     <>
       <div className="lg:hidden flex items-center gap-3 px-4 py-4">
@@ -65,8 +103,10 @@ export default function AuthorCard({ authorKey, className }: Props) {
           <h2 className="text-base font-semibold text-foreground leading-tight tracking-tight">
             {author.name}
           </h2>
-          {author.role && (
-            <p className="text-[13px] text-muted-foreground mt-0.5">{author.role}</p>
+          {author.bio && (
+            <p className="text-[13px] text-muted-foreground mt-1 leading-snug">
+              {author.bio}
+            </p>
           )}
         </div>
 
@@ -87,27 +127,18 @@ export default function AuthorCard({ authorKey, className }: Props) {
                 </div>
               )}
 
-              {author.email && (
+              {linkItems.map((item) => (
                 <a
-                  href={author.email}
+                  key={`${item.label}-${item.href}`}
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
                   className="flex items-center gap-2 px-3 py-2 text-muted-foreground hover:text-foreground hover:bg-accent"
                 >
-                  <Mail size={14} className="text-muted-foreground" />
-                  <span className="text-sm">Email</span>
+                  {item.icon}
+                  <span className="text-sm">{item.label}</span>
                 </a>
-              )}
-
-              {author.github && (
-                <a
-                  href={author.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-2 text-muted-foreground hover:text-foreground hover:bg-accent"
-                >
-                  <Github size={14} className="text-muted-foreground" />
-                  <span className="text-sm">GitHub</span>
-                </a>
-              )}
+              ))}
             </div>
           )}
         </div>
@@ -141,9 +172,9 @@ export default function AuthorCard({ authorKey, className }: Props) {
             {author.name}
           </h2>
 
-          {author.role && (
-            <p className="text-sm text-muted-foreground mb-5 pl-2">
-              {author.role}
+          {author.bio && (
+            <p className="text-sm text-muted-foreground mb-5 pl-2 leading-snug">
+              {author.bio}
             </p>
           )}
 
@@ -155,27 +186,28 @@ export default function AuthorCard({ authorKey, className }: Props) {
           )}
 
           <div className="flex flex-col items-start pl-2 gap-3">
-            {author.email && (
+            {linkItems.map((item) => (
               <a
-                href={author.email}
+                key={`${item.label}-${item.href}-desktop`}
+                href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener noreferrer" : undefined}
                 className="inline-flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-200"
               >
-                <Mail size={16} />
-                <span className="text-sm">Email</span>
+                {item.label === "Email" ? (
+                  <Mail size={16} />
+                ) : item.label === "GitHub" ? (
+                  <Github size={16} />
+                ) : item.label === "LinkedIn" ? (
+                  <Linkedin size={16} />
+                ) : item.label === "Website" ? (
+                  <Globe size={16} />
+                ) : (
+                  <Link2 size={16} />
+                )}
+                <span className="text-sm">{item.label}</span>
               </a>
-            )}
-
-            {author.github && (
-              <a
-                href={author.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-200"
-              >
-                <Github size={16} />
-                <span className="text-sm">GitHub</span>
-              </a>
-            )}
+            ))}
           </div>
         </div>
       </div>
