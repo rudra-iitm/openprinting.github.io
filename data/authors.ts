@@ -70,7 +70,7 @@ const authors: Author[] = [
     links: [
       {
         label: "LinkedIn",
-        href: "https://linkedin.com/in/dheeraj-yadav-282330154",
+        href: "https://www.linkedin.com/in/dheeraj135/",
         kind: "linkedin",
       },
     ],
