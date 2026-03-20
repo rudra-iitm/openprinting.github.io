@@ -10,14 +10,6 @@ function isExternalHref(href: string): boolean {
   return /^(https?:)?\/\//.test(href) || href.startsWith("mailto:") || href.startsWith("tel:");
 }
 
-function addTrailingSlash(pathname: string): string {
-  if (pathname === "/" || pathname.endsWith("/") || /\.[^/]+$/.test(pathname)) {
-    return pathname;
-  }
-
-  return `${pathname}/`;
-}
-
 function withBasePath(href: string): string {
   if (!href || isExternalHref(href) || href.startsWith("#")) {
     return href;
@@ -36,7 +28,7 @@ function withBasePath(href: string): string {
   }
 
   const [, rawPath = "", query = "", hash = ""] = match;
-  const pathname = addTrailingSlash(rawPath);
+  const pathname = rawPath;
 
   if (!basePath) {
     return `${pathname}${query}${hash}`;

@@ -28,7 +28,7 @@ const nextConfig: NextConfig = {
   output: "export",
   basePath: deployment.basePath,
   assetPrefix: deployment.assetPrefix,
-  trailingSlash: true,
+  trailingSlash: false,
   images: { unoptimized: true },
   env: {
     NEXT_PUBLIC_BASE_PATH: deployment.basePath,
