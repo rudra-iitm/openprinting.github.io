@@ -3,31 +3,9 @@
 import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
-import Link from "next/link"
-import { ArrowRight, Calendar, User } from "lucide-react"
-import Image from "next/image"
+import NewsCard, { type NewsCardPost } from "@/components/news-card"
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
-
-function formatDate(dateString: string) {
-  const date = new Date(dateString)
-  return date.toLocaleDateString("en-US", {
-    year: "numeric",
-    month: "long",
-    day: "numeric",
-  })
-}
-
-type NewsPost = {
-  title: string
-  author: string
-  authorImage?: string
-  date: string
-  excerpt: string
-  slug: string
-}
-
-export default function NewsSection({ posts }: { posts: NewsPost[] }) {
+export default function NewsSection({ posts }: { posts: NewsCardPost[] }) {
   const ref = useRef(null)
   const isInView = useInView(ref, { once: true, amount: 0.2 })
 
@@ -55,47 +33,7 @@ export default function NewsSection({ posts }: { posts: NewsPost[] }) {
               animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
               transition={{ duration: 0.5, delay: index * 0.08 }}
             >
-              <Link
-                href={item.slug}
-                prefetch={false}
-                className="group block h-full rounded-xl border border-border bg-card p-6 transition-all duration-300 hover:border-border/80 hover:bg-accent/50 card-glow"
-              >
-                <h3 className="text-base font-semibold text-foreground mb-3 leading-snug group-hover:text-blue-400 transition-colors duration-200 line-clamp-2">
-                  {item.title}
-                </h3>
-
-                <div className="flex items-center gap-4 text-xs text-muted-foreground mb-4">
-                  <span className="flex items-center gap-1.5">
-                    {item.authorImage ? (
-                      <div className="rounded-full overflow-hidden w-4 h-4 border border-border/50">
-                        <Image
-                          src={`${basePath}${item.authorImage}`}
-                          alt={item.author}
-                          width={16}
-                          height={16}
-                          className="object-cover w-full h-full"
-                        />
-                      </div>
-                    ) : (
-                      <User className="w-3 h-3" />
-                    )}
-                    {item.author}
-                  </span>
-                  <span className="flex items-center gap-1.5">
-                    <Calendar className="w-3 h-3" />
-                    {formatDate(item.date)}
-                  </span>
-                </div>
-
-                <p className="text-sm text-muted-foreground leading-relaxed line-clamp-3">
-                  {item.excerpt}
-                </p>
-
-                <div className="mt-5 flex items-center gap-1.5 text-xs font-medium text-blue-400 opacity-0 group-hover:opacity-100 transition-opacity duration-300">
-                  Read more
-                  <ArrowRight className="w-3 h-3" />
-                </div>
-              </Link>
+              <NewsCard item={item} />
             </motion.div>
           ))}
         </div>

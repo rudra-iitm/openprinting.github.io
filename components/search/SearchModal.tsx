@@ -4,11 +4,13 @@ import { useEffect, useState } from "react";
 import { Search as SearchIcon } from "lucide-react";
 import { searchRuntime } from "@/lib/search/runtime-search";
 import type { SearchRuntimeResult } from "@/lib/search/runtime-search";
+import { getImageSrc } from "@/lib/utils";
 import Link from "next/link";
+import TeaserImage from "@/components/teaser-image";
 
 interface SearchModalProps {
-    isOpen: boolean;
-    onClose: () => void;
+  isOpen: boolean;
+  onClose: () => void;
 }
 
 export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
@@ -131,11 +133,21 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
                                     }`}
                                     onMouseEnter={() => setSelectedIndex(index)}
                                 >
-                                    <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-b from-blue-400 to-blue-600 flex items-center justify-center shadow-sm">
-                                        <span className="text-white font-bold text-lg">
-                                            {result.title.charAt(0).toUpperCase()}
-                                        </span>
-                                    </div>
+                                    {result.teaserImage ? (
+                                        <div className="relative flex-shrink-0 w-16 aspect-video overflow-hidden rounded-lg bg-white/5 shadow-sm">
+                                            <TeaserImage
+                                                src={getImageSrc(result.teaserImage)}
+                                                alt={result.title}
+                                                className="object-cover"
+                                            />
+                                        </div>
+                                    ) : (
+                                        <div className="flex-shrink-0 w-10 h-10 rounded-lg bg-gradient-to-b from-blue-400 to-blue-600 flex items-center justify-center shadow-sm">
+                                            <span className="text-white font-bold text-lg">
+                                                {result.title.charAt(0).toUpperCase()}
+                                            </span>
+                                        </div>
+                                    )}
 
                                     <div className="flex flex-col min-w-0 flex-1">
                                         <div

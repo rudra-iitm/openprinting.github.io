@@ -16,7 +16,7 @@ async function initializeSearch(): Promise<MiniSearch<SearchDocument>> {
 
   miniSearch = new MiniSearch<SearchDocument>({
     fields: ["title", "content", "headings"],
-    storeFields: ["id", "title", "url", "snippet", "type", "source"],
+    storeFields: ["id", "title", "url", "snippet", "type", "source", "teaserImage"],
     searchOptions: {
       boost: { title: 3, headings: 2 },
       fuzzy: 0.2,

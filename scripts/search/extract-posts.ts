@@ -1,10 +1,12 @@
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
+import { getTeaserImage } from "@/lib/get-latest-posts";
 
 export interface RawPost {
   slug: string;
   frontmatter: Record<string, unknown>;
+  teaserImage?: string,
   content: string;
 }
 
@@ -23,10 +25,12 @@ export async function extractPosts(): Promise<RawPost[]> {
 
     const raw = await fs.readFile(fullPath, "utf8");
     const { data, content } = matter(raw);
+    const teaserImage = getTeaserImage(data, content);
 
     posts.push({
       slug,
       frontmatter: data as Record<string, unknown>,
+      teaserImage,
       content: content ?? "",
     });
   }

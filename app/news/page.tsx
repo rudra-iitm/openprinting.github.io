@@ -4,7 +4,10 @@ import matter from "gray-matter"
 import Link from "next/link"
 import Image from "next/image"
 import OpenPrintingCard from "@/components/OpenPrintingCard"
+import TeaserImage from "@/components/teaser-image"
 import authors from "@/data/authors"
+import { getImageSrc } from "@/lib/utils"
+import { getTeaserImage } from "@/lib/get-latest-posts"
 
 const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
@@ -18,6 +21,7 @@ type Post = {
   authorKey?: string
   authorName?: string
   authorImage?: string
+  teaserImage?: string
   formattedDate: string
 }
 
@@ -34,7 +38,7 @@ export default async function NewsPage() {
           path.join(POSTS_DIR, file),
           "utf8"
         )
-        const { data } = matter(raw)
+        const { data, content } = matter(raw)
         const date = new Date(data.date ?? "1970-01-01")
 
         const authorKeyRaw = typeof data.author === "string" ? data.author.trim() : undefined;
@@ -57,6 +61,7 @@ export default async function NewsPage() {
           authorKey: authorKeyRaw,
           authorName: authorDef ? authorDef.name : authorKeyRaw,
           authorImage,
+          teaserImage: getTeaserImage(data, content),
           formattedDate: date.toLocaleDateString("en-US", {
             year: "numeric",
             month: "long",
@@ -133,52 +138,66 @@ export default async function NewsPage() {
                     {postsByYear[year].map((post) => (
                       <article
                         key={post.slug}
-                        className="rounded-xl border border-border/60 bg-card/50 p-4 sm:p-6 transition-all duration-300 hover:border-border card-glow"
+                        className="rounded-xl border border-border/90 bg-card/50 transition-all duration-300 hover:border-foreground/20 card-glow"
                       >
-                        <Link
-                          href={`/${post.slug}`}
-                          prefetch={false}
-                          className="text-base sm:text-lg md:text-xl font-semibold text-foreground hover:text-blue-400 transition-colors block break-words"
-                        >
-                          {post.title}
-                        </Link>
-
-                        <div className="flex items-center gap-2 text-xs text-muted-foreground mt-2 sm:mt-2.5 mb-2.5 sm:mb-3 flex-wrap">
-                          {post.authorName && (
-                            <>
-                              <div className="flex items-center gap-1.5 shrink-0">
-                                {post.authorImage && (
-                                  <div className="rounded-full overflow-hidden w-5 h-5 border border-border/50 shrink-0">
-                                    <Image
-                                      src={post.authorImage}
-                                      alt={post.authorName}
-                                      width={20}
-                                      height={20}
-                                      className="object-cover w-full h-full"
-                                    />
-                                  </div>
-                                )}
-                                <span className="font-medium text-foreground/80">{post.authorName}</span>
-                              </div>
-                              <span className="text-border/60 shrink-0">•</span>
-                            </>
+                        <div className="flex flex-col sm:flex-row">
+                          {post.teaserImage && (
+                            <div className="relative aspect-video overflow-hidden rounded-t-xl bg-accent/30 sm:mt-4 sm:ml-4 sm:w-56 sm:shrink-0 sm:self-start sm:rounded-xl md:w-64">
+                              <TeaserImage
+                                src={getImageSrc(post.teaserImage)}
+                                alt={post.title}
+                                className="object-cover"
+                              />
+                            </div>
                           )}
-                          <span className="shrink-0">{post.formattedDate}</span>
-                          <span className="text-border/60 shrink-0">•</span>
-                          <span className="flex items-center gap-1 shrink-0">
-                            <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                              <circle cx="12" cy="12" r="10" strokeWidth="2" />
-                              <path strokeWidth="2" d="M12 6v6l4 2" />
-                            </svg>
-                            {post.readTime}
-                          </span>
-                        </div>
 
-                        {post.excerpt && (
-                          <p className="text-sm text-muted-foreground leading-relaxed break-words">
-                            {post.excerpt}
-                          </p>
-                        )}
+                          <div className="min-w-0 flex-1 p-4 sm:p-6">
+                            <Link
+                              href={`/${post.slug}`}
+                              prefetch={false}
+                              className="text-base sm:text-lg md:text-xl font-semibold text-foreground hover:text-blue-400 transition-colors block break-words"
+                            >
+                              {post.title}
+                            </Link>
+
+                            <div className="flex items-center gap-2 text-xs text-muted-foreground mt-2 sm:mt-2.5 mb-2.5 sm:mb-3 flex-wrap">
+                              {post.authorName && (
+                                <>
+                                  <div className="flex items-center gap-1.5 shrink-0">
+                                    {post.authorImage && (
+                                      <div className="rounded-full overflow-hidden w-5 h-5 border border-border/50 shrink-0">
+                                        <Image
+                                          src={post.authorImage}
+                                          alt={post.authorName}
+                                          width={20}
+                                          height={20}
+                                          className="object-cover w-full h-full"
+                                        />
+                                      </div>
+                                    )}
+                                    <span className="font-medium text-foreground/80">{post.authorName}</span>
+                                  </div>
+                                  <span className="text-border/60 shrink-0">•</span>
+                                </>
+                              )}
+                              <span className="shrink-0">{post.formattedDate}</span>
+                              <span className="text-border/60 shrink-0">•</span>
+                              <span className="flex items-center gap-1 shrink-0">
+                                <svg className="w-3 h-3" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                                  <circle cx="12" cy="12" r="10" strokeWidth="2" />
+                                  <path strokeWidth="2" d="M12 6v6l4 2" />
+                                </svg>
+                                {post.readTime}
+                              </span>
+                            </div>
+
+                            {post.excerpt && (
+                              <p className="text-sm text-muted-foreground leading-relaxed break-words">
+                                {post.excerpt}
+                              </p>
+                            )}
+                          </div>
+                        </div>
                       </article>
                     ))}
                   </div>
