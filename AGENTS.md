@@ -45,7 +45,8 @@ If a PR changes generated output without changing the inputs that produce it, ca
 ## Architecture Notes
 
 - Static export is enabled in [`next.config.ts`](/Users/rudra/Desktop/workspace/openprinting/openprinting.github.io/next.config.ts). `output: "export"` means features requiring a server runtime are risky by default.
-- Production builds use `basePath` and `assetPrefix` of `/openprinting.github.io`. Absolute links, image paths, and asset references must continue to work under that prefix.
+- Production deployment settings are centralized in [`lib/site-config.ts`](/Users/rudra/Desktop/workspace/openprinting/openprinting.github.io/lib/site-config.ts) and consumed by helpers such as [`lib/utils.ts`](/Users/rudra/Desktop/workspace/openprinting/openprinting.github.io/lib/utils.ts). `basePath`, `assetPrefix`, site URL, repo identity, and Giscus settings are intended to derive from repository/env configuration rather than from hardcoded repo-specific values.
+- Review changes for transferability between GitHub Pages repositories. Code should not assume this repo will always live at a fixed owner/name or fixed `basePath`.
 - Search index generation runs in `prebuild` via `tsx scripts/search/build-index.ts`. Changes affecting content extraction, slugs, URLs, or searchable text often require regenerating `public/search/static-index.json`.
 - A large part of the site is Markdown-driven. Review content pipeline changes for frontmatter assumptions, slug handling, excerpt/title sanitization, and image resolution.
 - This repo uses Yarn as the expected package manager. Flag changes that introduce package-manager drift or inconsistent lockfile/package-manager usage unless the migration is intentional.
@@ -61,9 +62,16 @@ If a PR changes generated output without changing the inputs that produce it, ca
 ### Static export constraints
 
 - Flag use of features that depend on request-time server execution unless the repo already supports them safely.
-- Be suspicious of changes that assume root-relative assets without considering the production `basePath`.
-- For images and links, prefer helpers already used by the repo such as `getImageSrc`.
+- Be suspicious of changes that assume root-relative assets without considering the configured production `basePath`.
+- For images and links, prefer helpers already used by the repo such as `getImageSrc`, `getBasePath`, and shared values from `siteConfig`.
 - Check that asset `src` values are valid for both local development and production export. A change that appears to work locally but breaks under the production prefix should be treated as a bug.
+- Flag newly introduced hardcoded repo-specific values such as GitHub repository slugs, GitHub Pages hostnames, absolute site URLs, fixed Giscus repo/category identifiers, or literal `"/openprinting.github.io"` path prefixes when the same value should come from centralized config.
+
+### Deployment portability
+
+- Review changes to [`next.config.ts`](/Users/rudra/Desktop/workspace/openprinting/openprinting.github.io/next.config.ts), [`lib/site-config.ts`](/Users/rudra/Desktop/workspace/openprinting/openprinting.github.io/lib/site-config.ts), [`lib/utils.ts`](/Users/rudra/Desktop/workspace/openprinting/openprinting.github.io/lib/utils.ts), and [`components/giscus-comment.tsx`](/Users/rudra/Desktop/workspace/openprinting/openprinting.github.io/components/giscus-comment.tsx) together when deployment, repo identity, absolute URLs, or comments integration are touched.
+- Prefer centralized configuration over repeating deployment assumptions in components or routes.
+- Treat reintroduction of hardcoded GitHub Pages repository names or owner-specific URLs as a maintainability bug unless the change explicitly documents why it must be fixed to one deployment target.
 
 ### UI and styling
 

@@ -7,11 +7,9 @@ import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { cn } from "@/lib/utils"
+import { cn, getImageSrc } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 const navItems = [
   { name: "About Us", href: "/about-us" },
@@ -80,7 +78,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-8 h-8">
               <Image
-                src={`${basePath}/openprinting.png`}
+                src={getImageSrc("/openprinting.png")}
                 alt="OpenPrinting Logo"
                 width={32}
                 height={32}
@@ -195,8 +193,6 @@ export default function Navbar() {
             </Button>
           </div>
         </div>
-
-        {/* Desktop Menu Popover */}
         <AnimatePresence>
           {isOpen && (
             <motion.div

@@ -2,26 +2,28 @@
 
 import Giscus from "@giscus/react";
 import { useTheme } from "next-themes";
+import { siteConfig } from "@/lib/site-config";
 
 export default function GiscusComments() {
     const { resolvedTheme } = useTheme();
+    const { giscus } = siteConfig;
 
     return (
         <div className="mt-10">
             <Giscus
                 id="comments"
-                repo="rudra-iitm/openprinting.github.io"
-                repoId="R_kgDOOJ9tYQ"
-                category="Blog Comments"
-                categoryId="DIC_kwDOOJ9tYc4C4B5V"
-                mapping="url"
-                term="Welcome to OpenPrinting Blog"
-                reactionsEnabled="1"
-                emitMetadata="0"
-                inputPosition="top"
+                repo={giscus.repo}
+                repoId={giscus.repoId}
+                category={giscus.category}
+                categoryId={giscus.categoryId}
+                mapping={giscus.mapping}
+                term={giscus.term}
+                reactionsEnabled={giscus.reactionsEnabled}
+                emitMetadata={giscus.emitMetadata}
+                inputPosition={giscus.inputPosition}
                 theme={resolvedTheme === "dark" ? "transparent_dark" : "noborder_light"}
-                lang="en"
-                loading="lazy"
+                lang={giscus.lang}
+                loading={giscus.loading}
             />
         </div>
     );

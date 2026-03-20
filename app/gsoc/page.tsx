@@ -9,7 +9,6 @@ export default async function GsocIndexPage() {
 
   return (
     <main className="min-h-screen bg-background text-foreground">
-      {/* Hero banner */}
       <section className="relative pt-32 pb-16 overflow-hidden">
         <div className="hero-glow-blue opacity-40" />
         <div className="grid-pattern absolute inset-0" />
@@ -31,7 +30,6 @@ export default async function GsocIndexPage() {
 
       <div className="section-divider mx-auto max-w-6xl" />
 
-      {/* Org info banner */}
       <section className="py-10">
         <div className="max-w-6xl mx-auto px-6">
           <GsocOrgBanner />
@@ -40,7 +38,6 @@ export default async function GsocIndexPage() {
 
       <div className="section-divider mx-auto max-w-6xl" />
 
-      {/* Year cards */}
       <section className="py-16">
         <div className="max-w-6xl mx-auto px-6">
           <div className="mb-10">

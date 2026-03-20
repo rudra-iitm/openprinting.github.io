@@ -6,9 +6,7 @@ import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-
-const basePath =
-  process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+import { getImageSrc } from "@/lib/utils"
 
 type SoftwareItem = {
   title: string
@@ -37,7 +35,7 @@ export default function ProjectsSection() {
       title: "Driverless Printers",
       description:
         "Most modern printers work 'out of the box' with OpenPrinting software. Browse the thousands of driverless printers.",
-      image: `${basePath}/ipp-everywhere.png`,
+      image: getImageSrc("/ipp-everywhere.png"),
       href: "/printers",
       delay: 0.1,
     },
@@ -45,7 +43,7 @@ export default function ProjectsSection() {
       title: "Legacy Printers",
       description:
         "The Foomatic printer database lists all of the printers that are supported by free software printer drivers.",
-      image: `${basePath}/printer.png`,
+      image: getImageSrc("/printer.png"),
       delay: 0.2,
       href: "https://openprinting.org/printers",
       isExternal: true,
@@ -54,7 +52,7 @@ export default function ProjectsSection() {
       title: "Windows?!",
       description:
         "Our Printer Applications revive old printers under current Windows, any model which works under Linux.",
-      image: `${basePath}/wsl-printing-icon.png`,
+      image: getImageSrc("/wsl-printing-icon.png"),
       delay: 0.3,
       href: "/wsl-printer-app",
     },
@@ -65,7 +63,7 @@ export default function ProjectsSection() {
       title: "Printer Working Group",
       description:
         "OpenPrinting collaborates with the PWG's Internet Printing Protocol workgroup to support this ubiquitous printing standard.",
-      image: `${basePath}/pwg.png`,
+      image: getImageSrc("/pwg.png"),
       href: "https://www.pwg.org/ipp/",
       delay: 0.1,
       isExternal: true,
@@ -74,7 +72,7 @@ export default function ProjectsSection() {
       title: "GSoC - OpenPrinting",
       description:
         "OpenPrinting participates in the GSoC program under its umbrella organization The Linux Foundation.",
-      image: `${basePath}/gsoc.jpeg`,
+      image: getImageSrc("/gsoc.jpeg"),
       delay: 0.2,
       href: "/gsoc",
     },
@@ -82,7 +80,7 @@ export default function ProjectsSection() {
       title: "GSoD - OpenPrinting",
       description:
         "OpenPrinting participates in the GSoD program under its umbrella organization The Linux Foundation.",
-      image: `${basePath}/gsod.jpg`,
+      image: getImageSrc("/gsod.jpg"),
       delay: 0.3,
       href: "/gsod",
     },
@@ -91,7 +89,6 @@ export default function ProjectsSection() {
   return (
     <section ref={ref} className="relative py-24 bg-background" id="projects">
       <div className="max-w-6xl mx-auto px-6">
-        {/* Find Your Printer */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -129,7 +126,7 @@ export default function ProjectsSection() {
               >
                 <div className="p-4 bg-muted border-b border-border flex items-center justify-center">
                   <Image
-                    src={software.image || `${basePath}/placeholder.svg`}
+                    src={software.image || getImageSrc("/placeholder.svg")}
                     alt={software.title}
                     width={200}
                     height={120}
@@ -155,7 +152,6 @@ export default function ProjectsSection() {
 
         <div className="section-divider mb-24" />
 
-        {/* Collaborations */}
         <motion.div
           initial={{ opacity: 0, y: 20 }}
           animate={isInView ? { opacity: 1, y: 0 } : { opacity: 0, y: 20 }}
@@ -189,7 +185,7 @@ export default function ProjectsSection() {
                 >
                   <div className="p-4 bg-muted border-b border-border flex items-center justify-center">
                     <Image
-                      src={project.image || `${basePath}/placeholder.svg`}
+                      src={project.image || getImageSrc("/placeholder.svg")}
                       alt={project.title}
                       width={200}
                       height={120}
@@ -217,7 +213,7 @@ export default function ProjectsSection() {
                 >
                   <div className="p-4 bg-muted border-b border-border flex items-center justify-center">
                     <Image
-                      src={project.image || `${basePath}/placeholder.svg`}
+                      src={project.image || getImageSrc("/placeholder.svg")}
                       alt={project.title}
                       width={200}
                       height={120}

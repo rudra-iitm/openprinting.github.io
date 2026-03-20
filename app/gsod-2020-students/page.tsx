@@ -2,9 +2,7 @@ import Image from "next/image"
 import { notFound } from "next/navigation"
 import { GsodHero } from "@/components/gsod-hero"
 import { getGsodContributorBySlug } from "@/data/gsod-contributors"
-
-const basePath =
-  process.env.NODE_ENV === "production" ? "/openprinting.github.io" : ""
+import { getImageSrc } from "@/lib/utils"
 
 export default function GSoD2020StudentsPage() {
   const contributor = getGsodContributorBySlug("gsod-2020-students")
@@ -30,7 +28,7 @@ export default function GSoD2020StudentsPage() {
             <article className="w-full max-w-sm rounded-xl border border-border bg-card p-8 text-center card-glow">
               <div className="mx-auto mb-6 h-40 w-40 overflow-hidden rounded-full border border-border bg-muted">
                 <Image
-                  src={`${basePath}${contributor.image}`}
+                  src={getImageSrc(contributor.image)}
                   alt={contributor.name}
                   width={160}
                   height={160}

@@ -1,90 +1,84 @@
-import fs from "fs/promises"
-import path from "path"
-import matter from "gray-matter"
-import Link from "next/link"
-import Image from "next/image"
-import OpenPrintingCard from "@/components/OpenPrintingCard"
-import TeaserImage from "@/components/teaser-image"
-import authors from "@/data/authors"
-import { getImageSrc } from "@/lib/utils"
-import { getTeaserImage } from "@/lib/get-latest-posts"
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+import fs from "fs/promises";
+import path from "path";
+import matter from "gray-matter";
+import Image from "next/image";
+import Link from "next/link";
+import OpenPrintingCard from "@/components/OpenPrintingCard";
+import TeaserImage from "@/components/teaser-image";
+import authors from "@/data/authors";
+import {
+  formatUsDate,
+  getMarkdownSlug,
+  getOptionalString,
+  getSanitizedText,
+  getTrimmedString,
+  isMarkdownFile,
+} from "@/lib/content";
+import { getTeaserImage } from "@/lib/get-latest-posts";
+import { getImageSrc } from "@/lib/utils";
 
 type Post = {
-  slug: string
-  title: string
-  excerpt: string
-  date: Date
-  year: number
-  readTime: string
-  authorKey?: string
-  authorName?: string
-  authorImage?: string
-  teaserImage?: string
-  formattedDate: string
-}
+  slug: string;
+  title: string;
+  excerpt: string;
+  date: Date;
+  year: number;
+  readTime: string;
+  authorName?: string;
+  authorImage?: string;
+  teaserImage?: string;
+  formattedDate: string;
+};
 
-const POSTS_DIR = path.join(process.cwd(), "contents", "post")
+const POSTS_DIR = path.join(process.cwd(), "contents", "post");
 
 export default async function NewsPage() {
-  const files = await fs.readdir(POSTS_DIR)
+  const files = await fs.readdir(POSTS_DIR);
 
   const posts: Post[] = await Promise.all(
     files
-      .filter((f) => f.endsWith(".md"))
+      .filter(isMarkdownFile)
       .map(async (file) => {
-        const raw = await fs.readFile(
-          path.join(POSTS_DIR, file),
-          "utf8"
-        )
-        const { data, content } = matter(raw)
-        const date = new Date(data.date ?? "1970-01-01")
+        const raw = await fs.readFile(path.join(POSTS_DIR, file), "utf8");
+        const { data, content } = matter(raw);
+        const date = new Date(data.date ?? "1970-01-01");
 
-        const authorKeyRaw = typeof data.author === "string" ? data.author.trim() : undefined;
-        const authorDef = authorKeyRaw ? authors.find(a => a.key === authorKeyRaw) : undefined;
+        const authorKey = getOptionalString(data.author)?.trim();
+        const authorDef = authorKey ? authors.find((author) => author.key === authorKey) : undefined;
 
-        let authorImage;
-        if (authorDef) {
-          const placeholder = `/authors/placeholder.jpg`;
-          const imgRaw = authorDef.image && authorDef.image !== "NA" ? authorDef.image : placeholder;
-          authorImage = imgRaw.startsWith("/") ? `${basePath}${imgRaw}` : `${basePath}/${imgRaw}`;
-        }
+        const authorImage = authorDef
+          ? getImageSrc(authorDef.image && authorDef.image !== "NA" ? authorDef.image : "/authors/placeholder.jpg")
+          : undefined;
 
         return {
-          slug: file.replace(/\.md$/, ""),
-          title: typeof data.title === "string" ? data.title.replace(/\\/g, ""): file.replace(/\.md$/, ""),
-          excerpt: typeof data.excerpt === "string" ? data.excerpt : "",
+          slug: getMarkdownSlug(file),
+          title: getSanitizedText(data.title) || getMarkdownSlug(file),
+          excerpt: getTrimmedString(data.excerpt),
           date,
           year: date.getFullYear(),
-          readTime: typeof data.readTime === "string" ? data.readTime : "less than 1 minute read",
-          authorKey: authorKeyRaw,
-          authorName: authorDef ? authorDef.name : authorKeyRaw,
+          readTime: getOptionalString(data.readTime) ?? "less than 1 minute read",
+          authorName: authorDef ? authorDef.name : authorKey,
           authorImage,
           teaserImage: getTeaserImage(data, content),
-          formattedDate: date.toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-          }),
-        }
+          formattedDate: formatUsDate(date),
+        };
       })
-  )
+  );
 
-  posts.sort((a, b) => b.date.getTime() - a.date.getTime())
+  posts.sort((a, b) => b.date.getTime() - a.date.getTime());
 
   const postsByYear = posts.reduce<Record<number, Post[]>>(
     (acc, post) => {
-      acc[post.year] = acc[post.year] || []
-      acc[post.year].push(post)
-      return acc
+      acc[post.year] = acc[post.year] || [];
+      acc[post.year].push(post);
+      return acc;
     },
-    {}
-  )
+    {},
+  );
 
   const years = Object.keys(postsByYear)
     .map(Number)
-    .sort((a, b) => b - a)
+    .sort((a, b) => b - a);
 
   return (
     <main className="w-full min-h-screen pt-20 sm:pt-24 pb-12 sm:pb-16 bg-background text-foreground">
@@ -210,5 +204,5 @@ export default async function NewsPage() {
         </div>
       </div>
     </main>
-  )
+  );
 }

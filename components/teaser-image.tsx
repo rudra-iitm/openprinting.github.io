@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { getImageSrc } from "@/lib/utils";
 
 type TeaserImageProps = {
   src: string;
@@ -9,9 +10,6 @@ type TeaserImageProps = {
   className?: string;
   priority?: boolean;
 };
-
-const basePath =
-  process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 export default function TeaserImage({
   src,
@@ -27,7 +25,7 @@ export default function TeaserImage({
       <div className="absolute inset-0 flex items-center justify-center bg-slate-200/35 dark:bg-slate-900/35">
         <div className="relative h-12 w-12 opacity-20 dark:opacity-25">
           <Image
-            src={`${basePath}/openprinting.png`}
+            src={getImageSrc("/openprinting.png")}
             alt=""
             fill
             aria-hidden="true"

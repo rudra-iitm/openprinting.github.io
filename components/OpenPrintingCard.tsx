@@ -3,9 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import { MapPin, Github, Globe } from "lucide-react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+import { siteConfig } from "@/lib/site-config";
+import { cn, getImageSrc } from "@/lib/utils";
 
 interface Props {
   className?: string;
@@ -42,7 +41,7 @@ export default function OpenPrintingCard({ className }: Props) {
         <div className="flex-1 min-w-0 flex flex-col items-center text-center">
           <div className="mb-3">
             <Image
-              src={`${basePath}/openprinting.png`}
+              src={getImageSrc("/openprinting.png")}
               alt="OpenPrinting Logo"
               width={64}
               height={64}
@@ -74,7 +73,7 @@ export default function OpenPrintingCard({ className }: Props) {
               </div>
 
               <a
-                href="https://openprinting.github.io/"
+                href={siteConfig.deployment.links.home}
                 className="flex items-center gap-2 px-3 py-2 text-foreground hover:bg-muted"
               >
                 <Globe size={16} className="text-muted-foreground" />
@@ -104,7 +103,7 @@ export default function OpenPrintingCard({ className }: Props) {
         <div className="flex flex-col items-center text-center">
           <div className="mb-4">
             <Image
-              src={`${basePath}/openprinting.png`}
+              src={getImageSrc("/openprinting.png")}
               alt="OpenPrinting Logo"
               width={96}
               height={96}
@@ -127,7 +126,7 @@ export default function OpenPrintingCard({ className }: Props) {
 
           <div className="flex flex-col items-start pl-2 gap-3 self-start">
             <a
-              href="https://openprinting.github.io/"
+              href={siteConfig.deployment.links.home}
               className="inline-flex items-center gap-3 text-muted-foreground hover:text-primary"
             >
               <Globe size={18} />

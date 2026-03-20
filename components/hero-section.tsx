@@ -4,8 +4,7 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, ChevronDown } from "lucide-react"
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+import { getImageSrc } from "@/lib/utils"
 
 export default function HeroSection() {
   return (
@@ -14,13 +13,13 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-[position:80%_0] opacity-100 mix-blend-normal pointer-events-none dark:hidden"
         style={{
-          backgroundImage: `url(${basePath}/rotation_pantone.jpg)`,
+          backgroundImage: `url(${getImageSrc("/rotation_pantone.jpg")})`,
         }}
       />
       <div
         className="hero-banner-image hidden dark:block"
         style={{
-          backgroundImage: `url(${basePath}/rotation_pantone.jpg)`,
+          backgroundImage: `url(${getImageSrc("/rotation_pantone.jpg")})`,
         }}
       />
       <div className="hero-glow hidden dark:block" />

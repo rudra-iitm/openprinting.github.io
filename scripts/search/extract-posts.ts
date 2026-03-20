@@ -1,6 +1,7 @@
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
+import { getMarkdownSlug, isMarkdownFile } from "@/lib/content";
 import { getTeaserImage } from "@/lib/get-latest-posts";
 
 export interface RawPost {
@@ -15,12 +16,12 @@ const POSTS_DIR = path.join(process.cwd(), "contents", "post");
 export async function extractPosts(): Promise<RawPost[]> {
   const files = await fs.readdir(POSTS_DIR);
 
-  const markdownFiles = files.filter((file) => file.endsWith(".md"));
+  const markdownFiles = files.filter(isMarkdownFile);
 
   const posts: RawPost[] = [];
 
   for (const file of markdownFiles) {
-    const slug = file.replace(/\.md$/, "");
+    const slug = getMarkdownSlug(file);
     const fullPath = path.join(POSTS_DIR, file);
 
     const raw = await fs.readFile(fullPath, "utf8");

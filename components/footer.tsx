@@ -2,6 +2,7 @@
 
 import Link from "next/link"
 import { Github, Linkedin, Rss } from "lucide-react"
+import { siteConfig } from "@/lib/site-config"
 
 function MastodonIcon({ className }: { className?: string }) {
   return (
@@ -26,7 +27,7 @@ const footerLinks = {
     { name: "Contribute", href: "/contribute" },
   ],
   Resources: [
-    { name: "CUPS", href: "https://openprinting.github.io/cups/" },
+    { name: "CUPS", href: siteConfig.deployment.links.cups },
     { name: "Printer Database", href: "/printers" },
     { name: "Printer Working Group", href: "https://www.pwg.org/ipp/" },
   ],
@@ -39,14 +40,11 @@ const socialLinks = [
   { icon: Rss, href: "/feed.xml", label: "RSS Feed" },
 ]
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
-
 export default function Footer() {
   return (
     <footer className="bg-neutral-100 dark:bg-black border-t border-border">
       <div className="max-w-6xl mx-auto px-6 py-16">
         <div className="grid grid-cols-1 md:grid-cols-5 gap-12 md:gap-8">
-          {/* Brand */}
           <div className="md:col-span-2">
             <h3 className="text-lg font-semibold text-foreground mb-3 tracking-tight">OpenPrinting</h3>
             <p className="text-sm text-muted-foreground leading-relaxed max-w-xs mb-6">
@@ -56,7 +54,7 @@ export default function Footer() {
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
-                  href={social.label === "RSS Feed" ? `${basePath}${social.href}` : social.href}
+                  href={social.label === "RSS Feed" ? siteConfig.deployment.links.feed : social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full border border-border bg-background flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-all duration-200"
@@ -68,7 +66,6 @@ export default function Footer() {
             </div>
           </div>
 
-          {/* Link Columns */}
           {Object.entries(footerLinks).map(([category, links]) => (
             <div key={category}>
               <h4 className="text-xs font-semibold text-muted-foreground uppercase tracking-wider mb-4">
@@ -103,7 +100,6 @@ export default function Footer() {
         </div>
       </div>
 
-      {/* Bottom bar */}
       <div className="border-t border-border">
         <div className="max-w-6xl mx-auto px-6 py-5 flex flex-col sm:flex-row items-center justify-between gap-3">
           <p className="text-xs text-muted-foreground">

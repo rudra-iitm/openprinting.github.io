@@ -3,15 +3,12 @@ import path from "path";
 import { extractPosts } from "./extract-posts";
 import { extractContent, type RawStaticContent } from "./extract-content";
 import { normalizeMarkdown } from "./normalize-markdown";
+import { getSanitizedText } from "@/lib/content";
 import { getImageSrc } from "@/lib/utils";
 import { type SearchDocument, type StaticSearchIndex } from "@/lib/search/types";
 
 const OUTPUT_DIR = path.join(process.cwd(), "public", "search");
 const OUTPUT_FILE = path.join(OUTPUT_DIR, "static-index.json");
-
-function safeString(value: unknown): string {
-  return typeof value === "string" ? value.trim().replace(/\\/g, "") : "";
-}
 
 async function buildIndex() {
   console.log("Building static search index...");
@@ -20,10 +17,8 @@ async function buildIndex() {
   const rawContent: RawStaticContent[] = await extractContent();
 
   const postDocuments: SearchDocument[] = rawPosts.map((post) => {
-    const title =
-      safeString(post.frontmatter.title) || "Untitled Article";
-
-    const excerpt = safeString(post.frontmatter.excerpt);
+    const title = getSanitizedText(post.frontmatter.title) || "Untitled Article";
+    const excerpt = getSanitizedText(post.frontmatter.excerpt);
 
     const { headings, text, snippet } = normalizeMarkdown(post.content);
 
@@ -46,8 +41,8 @@ async function buildIndex() {
   });
 
   const contentDocuments: SearchDocument[] = rawContent.map((post) => {
-    const title = safeString(post.frontmatter.title) || "Untitled Article";
-    const excerpt = safeString(post.frontmatter.excerpt);
+    const title = getSanitizedText(post.frontmatter.title) || "Untitled Article";
+    const excerpt = getSanitizedText(post.frontmatter.excerpt);
 
     const { headings, text, snippet } = normalizeMarkdown(post.content);
 
