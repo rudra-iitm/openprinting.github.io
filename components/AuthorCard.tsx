@@ -2,9 +2,17 @@
 
 import { useState, useEffect, useRef } from "react";
 import Image from "next/image";
-import { MapPin, Mail, Github } from "lucide-react";
+import { MapPin, Mail, Github, Linkedin, Globe, Link2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 import authors from "@/data/authors";
+
+function MastodonIcon({ className }: { className?: string }) {
+  return (
+    <svg className={className} viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M21.327 8.566c0-4.339-2.843-5.61-2.843-5.61-1.433-.658-3.894-.935-6.451-.956h-.063c-2.557.021-5.016.298-6.45.956 0 0-2.843 1.272-2.843 5.61 0 .993-.019 2.181.012 3.441.103 4.243.778 8.425 4.701 9.463 1.809.479 3.362.579 4.612.51 2.268-.126 3.536-.766 3.536-.766l-.072-1.574s-1.619.511-3.338.449c-1.693-.063-3.476-.194-3.752-2.448a4.198 4.198 0 0 1-.037-.575s1.661.406 3.764.502c1.287.059 2.495-.075 3.724-.221 2.354-.28 4.405-1.724 4.663-3.043.405-2.089.372-5.098.372-5.098l-.001-.002zm-3.809 5.447h-2.494V8.818c0-1.143-.48-1.723-1.443-1.723-1.063 0-1.596.688-1.596 2.047v2.964h-2.48V9.142c0-1.359-.534-2.047-1.596-2.047-.962 0-1.443.58-1.443 1.723v5.195H4.972V8.648c0-1.142.291-2.048.875-2.717.601-.67 1.389-1.013 2.368-1.013 1.132 0 1.989.435 2.556 1.305l.551.924.551-.924c.568-.87 1.425-1.305 2.556-1.305.979 0 1.767.344 2.368 1.013.583.669.875 1.575.875 2.717v5.365z" />
+    </svg>
+  )
+}
 
 const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
@@ -47,6 +55,46 @@ export default function AuthorCard({ authorKey, className }: Props) {
     author.image && author.image !== "NA" ? author.image : placeholder;
   const imgSrc = imgRaw.startsWith("/") ? `${basePath}${imgRaw}` : `${basePath}/${imgRaw}`;
 
+  const extraLinks =
+    author.links?.filter((l) => typeof l?.href === "string" && l.href.trim() !== "") ?? [];
+
+  const linkItems: { label: string; href: string; icon: React.ReactNode; external?: boolean }[] = [
+    ...(author.email
+      ? [
+        {
+          label: "Email",
+          href: author.email,
+          icon: <Mail size={14} className="text-muted-foreground" />,
+          external: false,
+        },
+      ]
+      : []),
+    ...(author.github
+      ? [
+        {
+          label: "GitHub",
+          href: author.github,
+          icon: <Github size={14} className="text-muted-foreground" />,
+          external: true,
+        },
+      ]
+      : []),
+    ...extraLinks.map((l) => {
+      const kind = l.kind ?? "other";
+      const icon =
+        kind === "linkedin" ? (
+          <Linkedin size={14} className="text-muted-foreground" />
+        ) : kind === "website" ? (
+          <Globe size={14} className="text-muted-foreground" />
+        ) : kind === "mastodon" ? (
+          <MastodonIcon className="w-[14px] h-[14px] text-muted-foreground" />
+        ) : (
+          <Link2 size={14} className="text-muted-foreground" />
+        );
+      return { label: l.label, href: l.href, icon, external: true };
+    }),
+  ];
+
   return (
     <>
       <div className="lg:hidden flex items-center gap-3 px-4 py-4">
@@ -65,8 +113,10 @@ export default function AuthorCard({ authorKey, className }: Props) {
           <h2 className="text-base font-semibold text-foreground leading-tight tracking-tight">
             {author.name}
           </h2>
-          {author.role && (
-            <p className="text-[13px] text-muted-foreground mt-0.5">{author.role}</p>
+          {author.bio && (
+            <p className="text-[13px] text-muted-foreground mt-1 leading-snug">
+              {author.bio}
+            </p>
           )}
         </div>
 
@@ -87,27 +137,18 @@ export default function AuthorCard({ authorKey, className }: Props) {
                 </div>
               )}
 
-              {author.email && (
+              {linkItems.map((item) => (
                 <a
-                  href={author.email}
+                  key={`${item.label}-${item.href}`}
+                  href={item.href}
+                  target={item.external ? "_blank" : undefined}
+                  rel={item.external ? "noopener noreferrer" : undefined}
                   className="flex items-center gap-2 px-3 py-2 text-muted-foreground hover:text-foreground hover:bg-accent"
                 >
-                  <Mail size={14} className="text-muted-foreground" />
-                  <span className="text-sm">Email</span>
+                  {item.icon}
+                  <span className="text-sm">{item.label}</span>
                 </a>
-              )}
-
-              {author.github && (
-                <a
-                  href={author.github}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  className="flex items-center gap-2 px-3 py-2 text-muted-foreground hover:text-foreground hover:bg-accent"
-                >
-                  <Github size={14} className="text-muted-foreground" />
-                  <span className="text-sm">GitHub</span>
-                </a>
-              )}
+              ))}
             </div>
           )}
         </div>
@@ -141,9 +182,9 @@ export default function AuthorCard({ authorKey, className }: Props) {
             {author.name}
           </h2>
 
-          {author.role && (
-            <p className="text-sm text-muted-foreground mb-5 pl-2">
-              {author.role}
+          {author.bio && (
+            <p className="text-sm text-muted-foreground mb-5 pl-2 leading-snug">
+              {author.bio}
             </p>
           )}
 
@@ -155,30 +196,33 @@ export default function AuthorCard({ authorKey, className }: Props) {
           )}
 
           <div className="flex flex-col items-start pl-2 gap-3">
-            {author.email && (
+            {linkItems.map((item) => (
               <a
-                href={author.email}
+                key={`${item.label}-${item.href}-desktop`}
+                href={item.href}
+                target={item.external ? "_blank" : undefined}
+                rel={item.external ? "noopener noreferrer" : undefined}
                 className="inline-flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-200"
               >
-                <Mail size={16} />
-                <span className="text-sm">Email</span>
+                {item.label === "Email" ? (
+                  <Mail size={16} />
+                ) : item.label === "GitHub" ? (
+                  <Github size={16} />
+                ) : item.label === "LinkedIn" ? (
+                  <Linkedin size={16} />
+                ) : item.label === "Website" ? (
+                  <Globe size={16} />
+                ) : item.label === "Mastodon" ? (
+                  <MastodonIcon className="w-[16px] h-[16px]" />
+                ) : (
+                  <Link2 size={16} />
+                )}
+                <span className="text-sm">{item.label}</span>
               </a>
-            )}
-
-            {author.github && (
-              <a
-                href={author.github}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="inline-flex items-center gap-3 text-muted-foreground hover:text-foreground transition-colors duration-200"
-              >
-                <Github size={16} />
-                <span className="text-sm">GitHub</span>
-              </a>
-            )}
+            ))}
           </div>
         </div>
-      </div>
+      </div >
     </>
   );
 }
