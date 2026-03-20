@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/hard-refresh-link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {

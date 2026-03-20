@@ -2,7 +2,7 @@
 
 import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
-import Link from "next/link"
+import Link from "@/components/hard-refresh-link"
 import { ArrowRight, ChevronDown } from "lucide-react"
 import { getImageSrc } from "@/lib/utils"
 

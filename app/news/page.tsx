@@ -2,7 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
 import Image from "next/image";
-import Link from "next/link";
+import Link from "@/components/hard-refresh-link";
 import OpenPrintingCard from "@/components/OpenPrintingCard";
 import TeaserImage from "@/components/teaser-image";
 import authors from "@/data/authors";

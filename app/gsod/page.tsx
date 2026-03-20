@@ -1,7 +1,7 @@
 import fs from "fs/promises"
 import path from "path"
 import matter from "gray-matter"
-import Link from "next/link"
+import Link from "@/components/hard-refresh-link"
 import { ArrowRight, FolderOpen, Users } from "lucide-react"
 import { GsodHero } from "@/components/gsod-hero"
 

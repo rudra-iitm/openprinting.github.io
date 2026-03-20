@@ -1,6 +1,6 @@
 "use client"
 
-import Link from "next/link"
+import Link from "@/components/hard-refresh-link"
 import { Github, Linkedin, Rss } from "lucide-react"
 import { siteConfig } from "@/lib/site-config"
 

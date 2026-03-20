@@ -64,6 +64,8 @@ If a PR changes generated output without changing the inputs that produce it, ca
 - Flag use of features that depend on request-time server execution unless the repo already supports them safely.
 - Be suspicious of changes that assume root-relative assets without considering the configured production `basePath`.
 - For images and links, prefer helpers already used by the repo such as `getImageSrc`, `getBasePath`, and shared values from `siteConfig`.
+- Internal navigation is expected to use hard document navigations rather than Next.js client-side route transitions. Prefer the shared hard-refresh link wrapper over `next/link` for internal page-to-page navigation unless a change explicitly requires SPA behavior.
+- Review image and asset path changes with hard refreshes and in-app navigation both in mind. Relative Markdown asset paths and route-dependent asset resolution are risky because they can behave differently after client navigation versus a full page load.
 - Check that asset `src` values are valid for both local development and production export. A change that appears to work locally but breaks under the production prefix should be treated as a bug.
 - Flag newly introduced hardcoded repo-specific values such as GitHub repository slugs, GitHub Pages hostnames, absolute site URLs, fixed Giscus repo/category identifiers, or literal `"/openprinting.github.io"` path prefixes when the same value should come from centralized config.
 

@@ -3,7 +3,7 @@
 import { Search as SearchIcon } from "lucide-react";
 import SearchModal from "@/components/search/SearchModal";
 import { useState, useEffect } from "react"
-import Link from "next/link"
+import Link from "@/components/hard-refresh-link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"

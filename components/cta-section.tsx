@@ -4,7 +4,7 @@ import { motion } from "framer-motion"
 import { useInView } from "framer-motion"
 import { useRef } from "react"
 import { Button } from "@/components/ui/button"
-import Link from "next/link"
+import Link from "@/components/hard-refresh-link"
 
 export default function CTASection() {
   const ref = useRef(null)

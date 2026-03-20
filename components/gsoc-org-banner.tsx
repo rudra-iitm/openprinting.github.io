@@ -1,7 +1,7 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import Link from "@/components/hard-refresh-link";
 import { Mail, Github, MessageCircle, ExternalLink } from "lucide-react";
 
 export function GsocOrgBanner() {

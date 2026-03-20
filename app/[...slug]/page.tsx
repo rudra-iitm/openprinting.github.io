@@ -3,7 +3,7 @@ import path from "path";
 import matter from "gray-matter";
 import type { Metadata } from "next";
 import { redirect, notFound } from "next/navigation";
-import Link from "next/link";
+import Link from "@/components/hard-refresh-link";
 import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { MarkdownRenderer } from "@/components/markdown-renderer";

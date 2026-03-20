@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/hard-refresh-link";
 import Image from "next/image";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
 import { TableOfContents } from "@/components/table-of-contents";
