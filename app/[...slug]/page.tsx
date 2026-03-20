@@ -39,7 +39,7 @@ async function getAllPostsMetadata() {
 
                 return {
                     slug: name.replace(/\.md$/, ""),
-                    title: typeof data.title === "string" ? data.title.trim() : name.replace(/\.md$/, ""),
+                    title: typeof data.title === "string" ? data.title.trim().replace(/\\/g,"") : name.replace(/\.md$/, ""),
                     date: typeof data.date === "string" ? data.date : "",
                     author: typeof data.author === "string" ? data.author.trim() : "",
                     excerpt: typeof data.excerpt === "string" ? data.excerpt.trim() : "",
@@ -131,7 +131,7 @@ export default async function PostPage({
 
     const title =
         typeof frontmatter.title === "string" && frontmatter.title.trim() !== ""
-            ? frontmatter.title.trim()
+            ? frontmatter.title.trim().replace(/\\/g,"")
             : "Untitled Article";
 
     let formattedDate = "";
