@@ -11,11 +11,19 @@ import { TableOfContents } from "@/components/table-of-contents";
 import GiscusComments from "@/components/giscus-comment";
 import AuthorCard from "@/components/AuthorCard";
 import authors from "@/data/authors";
+import {
+  formatUsDate,
+  getMarkdownSlug,
+  getSanitizedText,
+  getStringArray,
+  getTrimmedString,
+  isMarkdownFile,
+} from "@/lib/content";
+import { siteConfig } from "@/lib/site-config";
 import { getImageSrc } from "@/lib/utils";
 import { getTeaserImage } from "@/lib/get-latest-posts";
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
-const siteUrl = "https://openprinting.github.io";
+const { siteUrl } = siteConfig.deployment;
 const defaultOgImageUrl = `${siteUrl}${getImageSrc("/OpenPrintingBox.png")}`;
 
 const POSTS_DIR = path.join(process.cwd(), "contents", "post");
@@ -43,14 +51,12 @@ async function getAllPostsMetadata() {
                 const { data } = matter(raw);
 
                 return {
-                    slug: name.replace(/\.md$/, ""),
-                    title: typeof data.title === "string" ? data.title.trim().replace(/\\/g,"") : name.replace(/\.md$/, ""),
-                    date: typeof data.date === "string" ? data.date : "",
-                    author: typeof data.author === "string" ? data.author.trim() : "",
-                    excerpt: typeof data.excerpt === "string" ? data.excerpt.trim() : "",
-                    previousSlugs: Array.isArray(data.previousSlugs)
-                        ? data.previousSlugs
-                        : [],
+                    slug: getMarkdownSlug(name),
+                    title: getSanitizedText(data.title) || getMarkdownSlug(name),
+                    date: getTrimmedString(data.date),
+                    author: getTrimmedString(data.author),
+                    excerpt: getTrimmedString(data.excerpt),
+                    previousSlugs: getStringArray(data.previousSlugs),
                 };
             })
     );
@@ -76,7 +82,7 @@ export async function generateMetadata({
         return {
             title: "CUPS",
             alternates: {
-                canonical: "https://openprinting.github.io/cups/",
+                canonical: siteConfig.deployment.links.cups,
             },
         };
     }
@@ -141,19 +147,17 @@ export async function generateStaticParams() {
     const params: { slug: string[] }[] = [];
 
     for (const name of entries) {
-        if (!name.endsWith(".md")) continue;
+        if (!isMarkdownFile(name)) continue;
 
-        const slug = name.replace(/\.md$/, "");
+        const slug = getMarkdownSlug(name);
         params.push({ slug: [slug] });
 
         const filePath = path.join(POSTS_DIR, name);
         const raw = await fs.readFile(filePath, "utf8");
         const { data } = matter(raw);
 
-        if (Array.isArray(data.previousSlugs)) {
-            for (const prevSlug of data.previousSlugs) {
+        for (const prevSlug of getStringArray(data.previousSlugs)) {
                 params.push({ slug: [prevSlug] });
-            }
         }
     }
 
@@ -173,7 +177,7 @@ export default async function PostPage({
     const decodedSlug = decodeURIComponent(slugString);
 
     if (decodedSlug === "cups") {
-        redirect("https://openprinting.github.io/cups/");
+        redirect(siteConfig.deployment.links.cups);
     }
 
     const allPosts = await getAllPostsMetadata();
@@ -206,25 +210,16 @@ export default async function PostPage({
     const authorKey = rawAuthor !== "" ? rawAuthor : undefined;
 
     const title =
-        typeof frontmatter.title === "string" && frontmatter.title.trim() !== ""
-            ? frontmatter.title.trim().replace(/\\/g,"")
+        getSanitizedText(frontmatter.title) !== ""
+            ? getSanitizedText(frontmatter.title)
             : "Untitled Article";
 
-    let formattedDate = "";
-    if (typeof frontmatter.date === "string" && frontmatter.date.trim() !== "") {
-        const parsedDate = new Date(frontmatter.date);
-        formattedDate = parsedDate.toLocaleDateString("en-US", {
-            year: "numeric",
-            month: "long",
-            day: "numeric",
-        });
-    }
+    const formattedDate = getTrimmedString(frontmatter.date)
+        ? formatUsDate(getTrimmedString(frontmatter.date))
+        : "";
 
     const readTime =
-        typeof frontmatter.readTime === "string" &&
-            frontmatter.readTime.trim() !== ""
-            ? frontmatter.readTime.trim()
-            : "";
+        getTrimmedString(frontmatter.readTime);
 
     const showToc =
         !!frontmatter &&
@@ -313,9 +308,11 @@ export default async function PostPage({
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         {relatedPosts.map((post) => {
                                             const postAuthor = post.author ? authors.find((a) => a.key === post.author) : null;
-                                            const placeholder = `${basePath}/authors/placeholder.jpg`;
-                                            const imgRaw = postAuthor?.image && postAuthor.image !== "NA" ? postAuthor.image : placeholder;
-                                            const imgSrc = imgRaw.startsWith("/") ? `${basePath}${imgRaw}` : `${basePath}/${imgRaw}`;
+                                            const imgSrc = getImageSrc(
+                                                postAuthor?.image && postAuthor.image !== "NA"
+                                                    ? postAuthor.image
+                                                    : "/authors/placeholder.jpg"
+                                            );
                                             return (
                                                 <Link
                                                     key={post.slug}
@@ -337,7 +334,7 @@ export default async function PostPage({
                                                         {post.date && (
                                                             <div className="flex items-center gap-1.5 text-xs text-muted-foreground mb-3">
                                                                 <svg className="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2"><rect x="3" y="4" width="18" height="18" rx="2" ry="2" /><line x1="16" y1="2" x2="16" y2="6" /><line x1="8" y1="2" x2="8" y2="6" /><line x1="3" y1="10" x2="21" y2="10" /></svg>
-                                                                {new Date(post.date).toLocaleDateString("en-US", { year: "numeric", month: "long", day: "numeric" })}
+                                                                {formatUsDate(post.date)}
                                                             </div>
                                                         )}
 

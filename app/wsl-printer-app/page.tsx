@@ -3,8 +3,7 @@ import path from "path"
 import matter from "gray-matter"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
 import AuthorCard from "@/components/AuthorCard"
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : ""
+import { getImageSrc } from "@/lib/utils"
 
 const FILE_PATH = path.join(
   process.cwd(),
@@ -27,7 +26,7 @@ export default async function WSLPrinterAppPage() {
       <div className="relative bg-zinc-900 text-white py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-right bg-no-repeat opacity-40"
-          style={{ backgroundImage: `url('${basePath}/rotation_pantone.jpg')` }}
+          style={{ backgroundImage: `url('${getImageSrc("/rotation_pantone.jpg")}')` }}
           aria-hidden
         />
         <div className="absolute inset-0 bg-zinc-900/90" aria-hidden />
@@ -41,7 +40,6 @@ export default async function WSLPrinterAppPage() {
       <main className="min-h-screen bg-background text-foreground pt-24 pb-16">
         <div className="container mx-auto px-4 sm:px-6 lg:px-8">
           <div className="grid grid-cols-1 lg:grid-cols-4 gap-8">
-            {/* Sidebar with Author Card */}
             {author && (
               <aside className="lg:col-span-1">
                 <div className="sticky top-24">

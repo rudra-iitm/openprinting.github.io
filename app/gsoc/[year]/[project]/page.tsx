@@ -15,6 +15,7 @@ import {
 import { getWorkSummary } from "@/data/gsoc-work-summaries";
 import { getMentorsBySlug } from "@/data/gsoc-mentors";
 import { GsocContributorInlineSocials } from "@/components/gsoc-contributor-socials";
+import { getImageSrc } from "@/lib/utils";
 import {
   ArrowLeft,
   User,
@@ -27,8 +28,6 @@ import {
   Shield,
   Lightbulb,
 } from "lucide-react";
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 export async function generateStaticParams() {
   const years = await getGsocYears();
@@ -43,8 +42,6 @@ export async function generateStaticParams() {
 
   return allParams;
 }
-
-/* ---------- small helpers ---------- */
 
 function StatusBadge({
   status,
@@ -79,8 +76,6 @@ function StatusBadge({
   );
 }
 
-/* ---------- page ---------- */
-
 export default async function GsocProjectPage({
   params,
 }: {
@@ -92,7 +87,6 @@ export default async function GsocProjectPage({
   const currentSlug = decodeURIComponent(project);
   const contributors = getContributorsBySlug(Number(year), currentSlug);
 
-  // gather work summaries for each contributor
   const workSummaries = contributors
     .map((c) => ({
       contributor: c,
@@ -117,7 +111,6 @@ export default async function GsocProjectPage({
   return (
     <main className="w-full min-h-screen pt-24 pb-16 bg-background text-foreground">
       <div className="max-w-[1400px] mx-auto px-6 lg:px-8 py-8 w-full">
-        {/* Back link */}
         <Link
           href={`/gsoc/${year}`}
           className="inline-flex items-center gap-1.5 text-sm text-muted-foreground hover:text-foreground transition-colors mb-6"
@@ -127,11 +120,9 @@ export default async function GsocProjectPage({
         </Link>
 
         <div className="flex flex-col lg:flex-row gap-10 items-start">
-          {/* ── Left sidebar (desktop) ── */}
           {(isCompleted || mentors.length > 0) && (
             <aside className="hidden lg:block w-[260px] flex-shrink-0 sticky top-24 self-start">
               <div className="rounded-xl border border-border bg-card overflow-hidden">
-                {/* Contributor header — only for completed projects */}
                 {isCompleted && (
                   <>
                     <div className="p-5 space-y-3">
@@ -182,7 +173,6 @@ export default async function GsocProjectPage({
                   </>
                 )}
 
-                {/* Mentors — always shown */}
                 {mentors.length > 0 && (
                   <div className="p-5 space-y-2">
                     <p className="text-[10px] text-muted-foreground uppercase tracking-wider font-medium">
@@ -192,8 +182,8 @@ export default async function GsocProjectPage({
                       {mentors.map((mentor) => (
                         <div key={mentor} className="flex items-center gap-2">
                           {mentorImages[mentor] ? (
-                            <Image
-                              src={`${basePath}${mentorImages[mentor]}`}
+                              <Image
+                              src={getImageSrc(mentorImages[mentor])}
                               alt={mentor}
                               width={24}
                               height={24}
@@ -213,7 +203,6 @@ export default async function GsocProjectPage({
                   </div>
                 )}
 
-                {/* Skills — completed projects only */}
                 {skills.length > 0 && (
                   <>
                     <div className="border-t border-border" />
@@ -236,7 +225,6 @@ export default async function GsocProjectPage({
                   </>
                 )}
 
-                {/* License */}
                 {license && (
                   <>
                     <div className="border-t border-border" />
@@ -249,7 +237,6 @@ export default async function GsocProjectPage({
                   </>
                 )}
 
-                {/* Links — completed projects only */}
                 {isCompleted &&
                   (() => {
                     const links: {
@@ -309,10 +296,8 @@ export default async function GsocProjectPage({
             </aside>
           )}
 
-          {/* ── Mobile info ── */}
           {(isCompleted || mentors.length > 0) && (
             <div className="lg:hidden w-full rounded-xl border border-border bg-card p-4 space-y-3">
-              {/* Contributors (completed only) */}
               {isCompleted && (
                 <div className="space-y-3">
                   {contributors.map((contributor, idx) => {
@@ -352,7 +337,6 @@ export default async function GsocProjectPage({
                 </div>
               )}
 
-              {/* Mentors — always */}
               {mentors.length > 0 && (
                 <div className="flex flex-wrap items-center gap-2">
                   <span className="text-[10px] text-muted-foreground uppercase tracking-wider">
@@ -365,7 +349,7 @@ export default async function GsocProjectPage({
                     >
                       {mentorImages[m] ? (
                         <Image
-                          src={`${basePath}${mentorImages[m]}`}
+                          src={getImageSrc(mentorImages[m])}
                           alt={m}
                           width={14}
                           height={14}
@@ -380,7 +364,6 @@ export default async function GsocProjectPage({
                 </div>
               )}
 
-              {/* Mobile links (completed only) */}
               {isCompleted &&
                 (() => {
                   const links: { label: string; href: string }[] = [];
@@ -423,16 +406,13 @@ export default async function GsocProjectPage({
                   );
                 })()}
 
-              {/* Mobile ToC */}
               <div className="pt-2">
                 <TableOfContents content={post.content} />
               </div>
             </div>
           )}
 
-          {/* ── Main content column ── */}
           <section className="w-full lg:flex-1 lg:min-w-0 lg:max-w-[720px]">
-            {/* Title area */}
             <div className="mb-8">
               <div className="flex flex-wrap items-center gap-2 mb-3">
                 <span className="rounded-full bg-blue-500/10 border border-blue-500/20 px-2.5 py-0.5 text-[11px] font-medium text-blue-700 dark:text-blue-300">
@@ -450,7 +430,6 @@ export default async function GsocProjectPage({
               <div className="section-divider mt-6" />
             </div>
 
-            {/* Work summary card (for completed projects) */}
             {workSummaries.length > 0 && (
               <div className="mb-8 space-y-4">
                 {workSummaries.map((ws, idx) => (
@@ -510,7 +489,6 @@ export default async function GsocProjectPage({
               </div>
             )}
 
-            {/* Markdown content */}
             <div className="w-full">
               <div className="prose max-w-none dark:prose-invert prose-headings:tracking-tight prose-a:text-blue-600 hover:prose-a:text-blue-500 dark:prose-a:text-blue-400 dark:hover:prose-a:text-blue-300 prose-p:text-muted-foreground prose-strong:text-foreground prose-li:text-muted-foreground prose-code:text-foreground/80">
                 <MarkdownRenderer content={post.content} />
@@ -518,7 +496,6 @@ export default async function GsocProjectPage({
             </div>
           </section>
 
-          {/* ── Right sidebar ── */}
           <aside className="hidden lg:block w-[300px] flex-shrink-0 sticky top-24 self-start">
             <div className="space-y-5">
               <TableOfContents content={post.content} />

@@ -30,7 +30,6 @@ export default function SearchModal({ isOpen, onClose }: SearchModalProps) {
         };
     }, [query]);
 
-    // Reset selection when results change
     useEffect(() => {
         setSelectedIndex(0);
     }, [results]);

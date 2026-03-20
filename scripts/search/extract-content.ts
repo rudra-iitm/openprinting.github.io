@@ -2,6 +2,7 @@ import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
 
+import { getMarkdownSlug, isMarkdownFile } from "@/lib/content";
 import type { RawPost } from "./extract-posts";
 import type { StaticContentType } from "@/lib/search/types";
 
@@ -20,10 +21,10 @@ export async function extractContent(): Promise<RawStaticContent[]> {
   for (const [dir, type] of Object.entries(CONTENT_DIRS)) {
     const fullDirPath = path.join(process.cwd(), "contents", dir);
     const files = await fs.readdir(fullDirPath);
-    const markdownFiles = files.filter((file) => file.endsWith(".md"));
+    const markdownFiles = files.filter(isMarkdownFile);
 
     for (const file of markdownFiles) {
-      const slug = file.replace(/\.md$/, "");
+      const slug = getMarkdownSlug(file);
       const fullPath = path.join(fullDirPath, file);
 
       const raw = await fs.readFile(fullPath, "utf8");

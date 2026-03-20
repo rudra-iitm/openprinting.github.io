@@ -1,36 +1,40 @@
-import ReactMarkdown from "react-markdown"
-import remarkGfm from "remark-gfm"
-import rehypeHighlight from "rehype-highlight"
-import rehypeAutolinkHeadings from "rehype-autolink-headings"
-import rehypeSlug from "rehype-slug"
-import rehypeRaw from 'rehype-raw'
-import readingTime from "reading-time"
-import "highlight.js/styles/github-dark.css"
-import bash from "highlight.js/lib/languages/bash"
-import matter from "gray-matter"
-import { Clock } from 'lucide-react';
+import bash from "highlight.js/lib/languages/bash";
+import "highlight.js/styles/github-dark.css";
+import matter from "gray-matter";
+import { Clock } from "lucide-react";
+import ReactMarkdown from "react-markdown";
+import readingTime from "reading-time";
+import rehypeAutolinkHeadings from "rehype-autolink-headings";
+import rehypeHighlight from "rehype-highlight";
+import rehypeRaw from "rehype-raw";
+import rehypeSlug from "rehype-slug";
+import remarkGfm from "remark-gfm";
+import type { ComponentPropsWithoutRef } from "react";
 
 interface MarkdownRendererProps {
-  content: string,
-  showMeta?: boolean
-  /** When true, no card wrapper (flat on page background, e.g. About Us) */
-  noCard?: boolean
+  content: string;
+  showMeta?: boolean;
+  noCard?: boolean;
 }
 
-export interface Metadata {
-  title?: string
-  layout?: string
-  toc?: boolean
-  toc_sticky?: boolean
-  author?: string
-  excerpt?: string
-  [key: string]: unknown
+export interface MarkdownFrontmatter {
+  title?: string;
+  layout?: string;
+  toc?: boolean;
+  toc_sticky?: boolean;
+  author?: string;
+  excerpt?: string;
+  [key: string]: unknown;
 }
+
+type MarkdownCodeProps = ComponentPropsWithoutRef<"code"> & {
+  inline?: boolean;
+};
 
 export function MarkdownRenderer({ content, showMeta = true, noCard = false }: MarkdownRendererProps) {
-  const { data, content: markdownContent } = matter(content)
-  const metadata: Metadata = data
-  const stats = readingTime(markdownContent)
+  const { data, content: markdownContent } = matter(content);
+  const metadata: MarkdownFrontmatter = data;
+  const stats = readingTime(markdownContent);
 
   return (
     <div className={noCard ? "max-w-4xl mx-auto" : "p-4 md:p-6 rounded-lg shadow-lg max-w-4xl mx-auto bg-card border border-border"}>
@@ -58,8 +62,7 @@ export function MarkdownRenderer({ content, showMeta = true, noCard = false }: M
               [rehypeAutolinkHeadings, { behavior: "wrap" }],
             ]}
             components={{
-              // @ts-expect-error: TypeScript does not recognize the code component props
-              code({ inline, className, children, ...props }) {
+              code({ inline, className, children, ...props }: MarkdownCodeProps) {
                 const match = /language-(\w+)/.exec(className || "")
                 return !inline ? (
                   <code className={`${className || ""} ${!match ? "language-bash" : ""} rounded-md`} {...props}>
@@ -78,5 +81,5 @@ export function MarkdownRenderer({ content, showMeta = true, noCard = false }: M
         </div>
       </div>
     </div>
-  )
+  );
 }

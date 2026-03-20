@@ -6,8 +6,8 @@ import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+import { siteConfig } from "@/lib/site-config"
+import { getImageSrc } from "@/lib/utils"
 
 type InfoItem = {
   title: string
@@ -26,7 +26,7 @@ export default function InfoSection() {
       title: "About Us",
       description:
         "Learn more about OpenPrinting, how it works, the people involved, and the projects maintained by it",
-      icon: `${basePath}/OpenPrintingBox.png`,
+      icon: getImageSrc("/OpenPrintingBox.png"),
       href: "/about-us",
       delay: 0.1,
     },
@@ -34,7 +34,7 @@ export default function InfoSection() {
       title: "Contribute",
       description:
         "Know how you can be part of an excellent community and help improve printing experience for millions of users",
-      icon: `${basePath}/contribute.png`,
+      icon: getImageSrc("/contribute.png"),
       href: "/contribute",
       delay: 0.2,
     },
@@ -42,8 +42,8 @@ export default function InfoSection() {
       title: "CUPS",
       description:
         "CUPS is the standards-based, open source printing system that is used on Linux® and other operating systems.",
-      icon: `${basePath}/cups.png`,
-      href: "https://openprinting.github.io/cups/",
+      icon: getImageSrc("/cups.png"),
+      href: siteConfig.deployment.links.cups,
       delay: 0.3,
     },
   ]
@@ -79,7 +79,7 @@ export default function InfoSection() {
               >
                 <div className="mb-5 rounded-lg bg-muted border border-border flex items-center justify-center overflow-hidden p-4 h-40">
                   <Image
-                    src={item.icon || `${basePath}/placeholder.svg`}
+                    src={item.icon || getImageSrc("/placeholder.svg")}
                     alt={item.title}
                     width={160}
                     height={120}
