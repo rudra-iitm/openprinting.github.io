@@ -1,7 +1,7 @@
 import fs from "fs/promises"
 import path from "path"
 import matter from "gray-matter"
-import Link from "next/link"
+import Link from "@/components/site-link"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
 
 const PAGE_MD = path.join(process.cwd(), "contents", "pages", "documentation.md")

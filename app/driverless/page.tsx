@@ -3,6 +3,8 @@ import path from "path"
 import matter from "gray-matter"
 import Image from "next/image"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
+import { siteConfig } from "@/config/site.config"
+import { getImageSrc } from "@/lib/utils"
 
 const FILE_PATH = path.join(
   process.cwd(),
@@ -10,8 +12,6 @@ const FILE_PATH = path.join(
   "pages",
   "driverless.md"
 )
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 const driverlessNavItems = [
   { name: "Introduction to Driverless Printing", href: "#introduction" },
@@ -34,7 +34,7 @@ export default async function DriverlessPage() {
             <div className="sticky top-24 bg-card rounded-lg overflow-hidden border border-border">
               <div className="relative w-full h-48">
                 <Image
-                  src={`${basePath}/assets/images/ipp-everywhere.png`}
+                  src={getImageSrc(siteConfig.assets.driverlessHero)}
                   alt="Driverless Printing"
                   fill
                   className="object-cover"

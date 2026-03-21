@@ -2,6 +2,7 @@ import fs from "fs/promises"
 import path from "path"
 import matter from "gray-matter"
 import Image from "next/image"
+import { getImageSrc } from "@/lib/utils"
 
 type FeatureItem = {
   image_path: string
@@ -17,8 +18,6 @@ const FILE_PATH = path.join(
   "pages",
   "downloads.md"
 )
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 export default async function DownloadsPage() {
   const raw = await fs.readFile(FILE_PATH, "utf8")
@@ -43,7 +42,7 @@ export default async function DownloadsPage() {
             <div key={idx}>
               <div className="bg-muted rounded-xl w-full h-[260px] flex items-center justify-center mb-6">
                 <Image
-                  src={`${basePath}/${item.image_path}`}
+                  src={getImageSrc(item.image_path)}
                   alt={item.alt}
                   width={250}
                   height={250}

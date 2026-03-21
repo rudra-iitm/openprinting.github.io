@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/site-link";
 import Image from "next/image";
 import { motion } from "framer-motion";
 import {
@@ -17,7 +17,7 @@ import type { GsocWorkSummary } from "@/data/gsoc-work-summaries";
 import type { GsocProjectSummary } from "@/lib/gsoc";
 import { getMentorsByYear } from "@/data/gsoc-mentors";
 import { GsocContributorHoverChip } from "@/components/gsoc-contributor-socials";
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+import { getMentorImageSrc } from "@/lib/site";
 
 type RelatedPost = {
   title: string;
@@ -181,9 +181,9 @@ export function GsocYearClient({
                               key={mentor}
                               className="inline-flex items-center gap-1 rounded-full bg-muted/60 px-2 py-0.5 text-[10px] text-muted-foreground"
                             >
-                              {mentorImages[mentor] ? (
+                              {getMentorImageSrc(mentorImages[mentor]) ? (
                                 <Image
-                                  src={`${basePath}${mentorImages[mentor]}`}
+                                  src={getMentorImageSrc(mentorImages[mentor])!}
                                   alt={mentor}
                                   width={14}
                                   height={14}
@@ -269,9 +269,9 @@ export function GsocYearClient({
                               key={mentor}
                               className="inline-flex items-center gap-1 rounded-full bg-muted/60 px-2 py-0.5 text-[10px] text-muted-foreground"
                             >
-                              {mentorImages[mentor] ? (
+                              {getMentorImageSrc(mentorImages[mentor]) ? (
                                 <Image
-                                  src={`${basePath}${mentorImages[mentor]}`}
+                                  src={getMentorImageSrc(mentorImages[mentor])!}
                                   alt={mentor}
                                   width={14}
                                   height={14}

@@ -3,20 +3,20 @@ import path from "path";
 import matter from "gray-matter";
 import type { Metadata } from "next";
 import { redirect, notFound } from "next/navigation";
-import Link from "next/link";
+import Link from "@/components/site-link";
 import Image from "next/image";
 import { ArrowRight, ChevronLeft, ChevronRight } from "lucide-react";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
 import { TableOfContents } from "@/components/table-of-contents";
 import GiscusComments from "@/components/giscus-comment";
+import { siteConfig } from "@/config/site.config";
 import AuthorCard from "@/components/AuthorCard";
 import authors from "@/data/authors";
 import { getImageSrc } from "@/lib/utils";
 import { getTeaserImage } from "@/lib/get-latest-posts";
+import { getAuthorImageSrc, toAbsoluteSiteUrl } from "@/lib/site";
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
-const siteUrl = "https://openprinting.github.io";
-const defaultOgImageUrl = `${siteUrl}${getImageSrc("/OpenPrintingBox.png")}`;
+const defaultOgImageUrl = toAbsoluteSiteUrl(getImageSrc(siteConfig.assets.boxLogo));
 
 const POSTS_DIR = path.join(process.cwd(), "contents", "post");
 
@@ -76,7 +76,7 @@ export async function generateMetadata({
         return {
             title: "CUPS",
             alternates: {
-                canonical: "https://openprinting.github.io/cups/",
+                canonical: siteConfig.links.cups,
             },
         };
     }
@@ -108,10 +108,10 @@ export async function generateMetadata({
     const imageUrl = resolvedTeaserImage
         ? /^https?:\/\//.test(resolvedTeaserImage)
             ? resolvedTeaserImage
-            : `${siteUrl}${resolvedTeaserImage}`
+            : toAbsoluteSiteUrl(resolvedTeaserImage)
         : defaultOgImageUrl;
     const canonicalPath = resolvedSlug === decodedSlug ? `/${resolvedSlug}` : `/${decodedSlug}`;
-    const canonicalUrl = `${siteUrl}${canonicalPath}`;
+    const canonicalUrl = toAbsoluteSiteUrl(canonicalPath);
 
     return {
         title,
@@ -173,7 +173,7 @@ export default async function PostPage({
     const decodedSlug = decodeURIComponent(slugString);
 
     if (decodedSlug === "cups") {
-        redirect("https://openprinting.github.io/cups/");
+        redirect(siteConfig.links.cups);
     }
 
     const allPosts = await getAllPostsMetadata();
@@ -313,9 +313,7 @@ export default async function PostPage({
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         {relatedPosts.map((post) => {
                                             const postAuthor = post.author ? authors.find((a) => a.key === post.author) : null;
-                                            const placeholder = `${basePath}/authors/placeholder.jpg`;
-                                            const imgRaw = postAuthor?.image && postAuthor.image !== "NA" ? postAuthor.image : placeholder;
-                                            const imgSrc = imgRaw.startsWith("/") ? `${basePath}${imgRaw}` : `${basePath}/${imgRaw}`;
+                                            const imgSrc = getAuthorImageSrc(postAuthor?.image);
                                             return (
                                                 <Link
                                                     key={post.slug}

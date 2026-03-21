@@ -1,7 +1,9 @@
 "use client"
 
-import Link from "next/link"
+import Link from "@/components/site-link"
 import { Github, Linkedin, Rss } from "lucide-react"
+import { siteConfig } from "@/config/site.config"
+import { withBasePath } from "@/lib/site"
 
 function MastodonIcon({ className }: { className?: string }) {
   return (
@@ -20,26 +22,24 @@ const footerLinks = {
     { name: "Documentation", href: "/documentation" },
   ],
   Community: [
-    { name: "GitHub", href: "https://github.com/OpenPrinting" },
+    { name: "GitHub", href: siteConfig.links.githubOrg },
     { name: "Google Summer of Code", href: "/gsoc" },
     { name: "Google Season of Docs", href: "/gsod" },
     { name: "Contribute", href: "/contribute" },
   ],
   Resources: [
-    { name: "CUPS", href: "https://openprinting.github.io/cups/" },
+    { name: "CUPS", href: siteConfig.links.cups },
     { name: "Printer Database", href: "/printers" },
-    { name: "Printer Working Group", href: "https://www.pwg.org/ipp/" },
+    { name: "Printer Working Group", href: siteConfig.links.printerWorkingGroup },
   ],
 }
 
 const socialLinks = [
-  { icon: Github, href: "https://github.com/OpenPrinting", label: "GitHub" },
-  { icon: MastodonIcon, href: "https://ubuntu.social/tags/OpenPrinting", label: "Mastodon" },
-  { icon: Linkedin, href: "https://www.linkedin.com/company/openprinting/posts/", label: "LinkedIn" },
-  { icon: Rss, href: "/feed.xml", label: "RSS Feed" },
+  { icon: Github, href: siteConfig.links.githubOrg, label: "GitHub" },
+  { icon: MastodonIcon, href: siteConfig.links.mastodon, label: "Mastodon" },
+  { icon: Linkedin, href: siteConfig.links.linkedin, label: "LinkedIn" },
+  { icon: Rss, href: siteConfig.links.rssFeed, label: "RSS Feed" },
 ]
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 export default function Footer() {
   return (
@@ -56,7 +56,7 @@ export default function Footer() {
               {socialLinks.map((social) => (
                 <a
                   key={social.label}
-                  href={social.label === "RSS Feed" ? `${basePath}${social.href}` : social.href}
+                  href={social.label === "RSS Feed" ? withBasePath(social.href) : social.href}
                   target="_blank"
                   rel="noopener noreferrer"
                   className="w-9 h-9 rounded-full border border-border bg-background flex items-center justify-center text-muted-foreground hover:text-foreground hover:border-foreground/20 transition-all duration-200"

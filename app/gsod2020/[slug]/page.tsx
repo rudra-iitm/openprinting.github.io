@@ -1,7 +1,7 @@
 import fs from "fs/promises"
 import path from "path"
 import matter from "gray-matter"
-import Link from "next/link"
+import Link from "@/components/site-link"
 import { notFound } from "next/navigation"
 import { ArrowLeft } from "lucide-react"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
@@ -73,4 +73,3 @@ export default async function GSoD2020IdeaPage({
     </main>
   )
 }
-
