@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/site-link";
 import Image from "next/image";
 import { MarkdownRenderer } from "@/components/markdown-renderer";
 import { TableOfContents } from "@/components/table-of-contents";
@@ -15,6 +15,7 @@ import {
 import { getWorkSummary } from "@/data/gsoc-work-summaries";
 import { getMentorsBySlug } from "@/data/gsoc-mentors";
 import { GsocContributorInlineSocials } from "@/components/gsoc-contributor-socials";
+import { getMentorImageSrc } from "@/lib/site";
 import {
   ArrowLeft,
   User,
@@ -27,8 +28,6 @@ import {
   Shield,
   Lightbulb,
 } from "lucide-react";
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
 
 export async function generateStaticParams() {
   const years = await getGsocYears();
@@ -191,9 +190,9 @@ export default async function GsocProjectPage({
                     <div className="space-y-2">
                       {mentors.map((mentor) => (
                         <div key={mentor} className="flex items-center gap-2">
-                          {mentorImages[mentor] ? (
+                          {getMentorImageSrc(mentorImages[mentor]) ? (
                             <Image
-                              src={`${basePath}${mentorImages[mentor]}`}
+                              src={getMentorImageSrc(mentorImages[mentor])!}
                               alt={mentor}
                               width={24}
                               height={24}
@@ -363,9 +362,9 @@ export default async function GsocProjectPage({
                       key={m}
                       className="inline-flex items-center gap-1 rounded-full border border-purple-500/20 bg-purple-500/10 px-2 py-0.5 text-[11px] font-medium text-purple-700 dark:text-purple-300"
                     >
-                      {mentorImages[m] ? (
+                      {getMentorImageSrc(mentorImages[m]) ? (
                         <Image
-                          src={`${basePath}${mentorImages[m]}`}
+                          src={getMentorImageSrc(mentorImages[m])!}
                           alt={m}
                           width={14}
                           height={14}

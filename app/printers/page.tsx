@@ -2,8 +2,8 @@
 
 import { useState, useEffect, useMemo } from "react"
 import { Search, ChevronLeft, ChevronRight } from "lucide-react"
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : ""
+import { siteConfig } from "@/config/site.config"
+import { withBasePath } from "@/lib/site"
 
 interface PrinterEntry {
   model: string
@@ -25,7 +25,7 @@ export default function PrintersPage() {
   const [page, setPage] = useState(1)
 
   useEffect(() => {
-    fetch(`${basePath}/assets/json/driverless.json`)
+    fetch(withBasePath("/assets/json/driverless.json"))
       .then((r) => r.json())
       .then((data: PrinterEntry[]) => {
         setPrinters(data.filter((p) => p.model !== "_dummy_"))
@@ -79,7 +79,7 @@ export default function PrintersPage() {
       <div className="relative bg-zinc-900 text-white py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-right bg-no-repeat opacity-40"
-          style={{ backgroundImage: `url('${basePath}/ipp-everywhere.png')` }}
+          style={{ backgroundImage: `url('${withBasePath(siteConfig.assets.ippEverywhere)}')` }}
           aria-hidden
         />
         <div className="absolute inset-0 bg-zinc-900/90" aria-hidden />

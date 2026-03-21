@@ -1,7 +1,7 @@
 import fs from "fs/promises"
 import path from "path"
 import matter from "gray-matter"
-import Link from "next/link"
+import Link from "@/components/site-link"
 import { ArrowRight, Lightbulb } from "lucide-react"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
 import { GsodHero } from "@/components/gsod-hero"

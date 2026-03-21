@@ -1,17 +1,17 @@
-import { clsx, type ClassValue } from "clsx"
-import { twMerge } from "tailwind-merge"
+import { clsx, type ClassValue } from "clsx";
+import { twMerge } from "tailwind-merge";
+import { withBasePath } from "@/lib/site";
 
 export function cn(...inputs: ClassValue[]) {
-  return twMerge(clsx(inputs))
+  return twMerge(clsx(inputs));
 }
 
 export function getImageSrc(src: string): string {
   if (/^https?:\/\//.test(src)) return src;
 
-  const basePath = process.env.NODE_ENV == "production" ? '/openprinting.github.io' : ""
   const normalizedSrc = src.startsWith("../")
     ? src.replace(/^\.\.\//, "/")
     : src;
 
-  return `${basePath}${normalizedSrc.startsWith("/") ? normalizedSrc : `/${normalizedSrc}`}`;
+  return withBasePath(normalizedSrc);
 }

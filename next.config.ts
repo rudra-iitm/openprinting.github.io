@@ -1,16 +1,21 @@
 import type { NextConfig } from "next";
+import { siteConfig } from "./config/site.config";
 
 const isProd = process.env.NODE_ENV === "production";
+const basePath = isProd ? siteConfig.deployment.productionBasePath : "";
+const assetPrefix = isProd
+  ? siteConfig.deployment.productionAssetPrefix
+  : "";
 
 const nextConfig: NextConfig = {
   /* config options here */
   output: "export",
-  basePath: isProd ? "/openprinting.github.io" : "",
-  assetPrefix: isProd ? "/openprinting.github.io/" : "",
+  basePath,
+  assetPrefix,
   trailingSlash: true,
   images: { unoptimized: true },
   env: {
-    NEXT_PUBLIC_BASE_PATH: isProd ? "/openprinting.github.io" : "",
+    NEXT_PUBLIC_BASE_PATH: basePath,
   },
 };
 

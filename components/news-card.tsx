@@ -1,6 +1,6 @@
 "use client"
 
-import Link from "next/link"
+import Link from "@/components/site-link"
 import { ArrowRight, Calendar, User } from "lucide-react"
 import Image from "next/image"
 import { getImageSrc } from "@/lib/utils"

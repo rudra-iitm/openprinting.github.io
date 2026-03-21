@@ -1,15 +1,15 @@
 import fs from "fs/promises"
 import path from "path"
 import matter from "gray-matter"
-import Link from "next/link"
+import Link from "@/components/site-link"
 import Image from "next/image"
 import OpenPrintingCard from "@/components/OpenPrintingCard"
 import TeaserImage from "@/components/teaser-image"
+import { siteConfig } from "@/config/site.config"
 import authors from "@/data/authors"
 import { getImageSrc } from "@/lib/utils"
 import { getTeaserImage } from "@/lib/get-latest-posts"
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+import { getAuthorImageSrc } from "@/lib/site"
 
 type Post = {
   slug: string
@@ -46,9 +46,7 @@ export default async function NewsPage() {
 
         let authorImage;
         if (authorDef) {
-          const placeholder = `/authors/placeholder.jpg`;
-          const imgRaw = authorDef.image && authorDef.image !== "NA" ? authorDef.image : placeholder;
-          authorImage = imgRaw.startsWith("/") ? `${basePath}${imgRaw}` : `${basePath}/${imgRaw}`;
+          authorImage = getAuthorImageSrc(authorDef.image);
         }
 
         return {
@@ -102,7 +100,7 @@ export default async function NewsPage() {
                 News and Events
               </h1>
               <a
-                href="http://ftp.pwg.org/pub/pwg/liaison/openprinting/minutes/"
+                href={siteConfig.links.monthlyCallMinutes}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors break-all sm:break-normal"

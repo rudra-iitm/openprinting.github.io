@@ -1,15 +1,14 @@
 import MiniSearch, { type SearchResult } from "minisearch";
+import { withBasePath } from "@/lib/site";
 import type { SearchDocument } from "./types";
 
 let miniSearch: MiniSearch<SearchDocument> | null = null;
 let isInitialized = false;
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
-
 async function initializeSearch(): Promise<MiniSearch<SearchDocument>> {
   if (isInitialized && miniSearch) return miniSearch;
 
-  const response = await fetch(`${basePath}/search/static-index.json`);
+  const response = await fetch(withBasePath("/search/static-index.json"));
   const data = await response.json();
 
   const documents: SearchDocument[] = data.documents;

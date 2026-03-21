@@ -1,4 +1,4 @@
-import Link from "next/link";
+import Link from "@/components/site-link";
 import { getGsocYearSummaries } from "@/lib/gsoc";
 import { getContributorsByYear } from "@/data/gsoc-contributors";
 import { ArrowRight, Users, FolderOpen } from "lucide-react";

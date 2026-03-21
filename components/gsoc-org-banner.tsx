@@ -1,8 +1,9 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Link from "next/link";
+import Link from "@/components/site-link";
 import { Mail, Github, MessageCircle, ExternalLink } from "lucide-react";
+import { siteConfig } from "@/config/site.config";
 
 export function GsocOrgBanner() {
   return (
@@ -39,7 +40,7 @@ export function GsocOrgBanner() {
             LF GSoC Wiki
           </Link>
           <Link
-            href="https://github.com/OpenPrinting"
+            href={siteConfig.links.githubOrg}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-3 py-1.5 text-xs text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"

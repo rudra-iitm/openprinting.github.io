@@ -1,11 +1,11 @@
 "use client"
 
 import { Button } from "@/components/ui/button"
+import { siteConfig } from "@/config/site.config"
 import { motion } from "framer-motion"
-import Link from "next/link"
+import Link from "@/components/site-link"
 import { ArrowRight, ChevronDown } from "lucide-react"
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+import { withBasePath } from "@/lib/site"
 
 export default function HeroSection() {
   return (
@@ -14,13 +14,13 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-[position:80%_0] opacity-100 mix-blend-normal pointer-events-none dark:hidden"
         style={{
-          backgroundImage: `url(${basePath}/rotation_pantone.jpg)`,
+          backgroundImage: `url(${withBasePath(siteConfig.assets.heroBackground)})`,
         }}
       />
       <div
         className="hero-banner-image hidden dark:block"
         style={{
-          backgroundImage: `url(${basePath}/rotation_pantone.jpg)`,
+          backgroundImage: `url(${withBasePath(siteConfig.assets.heroBackground)})`,
         }}
       />
       <div className="hero-glow hidden dark:block" />

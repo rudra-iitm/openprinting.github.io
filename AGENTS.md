@@ -15,9 +15,10 @@ When reviewing changes in this repo, optimize for:
 
 - `app/`: route handlers and page entry points
 - `components/`: shared UI, Markdown rendering, navigation, search UI
+- `config/`: centralized site, deployment, and repository-specific configuration
 - `contents/`: source content in Markdown
 - `data/`: structured data for authors, GSOC/GSOD pages, summaries
-- `lib/`: shared helpers for content loading, image path handling, search runtime
+- `lib/`: shared helpers for content loading, image path handling, site path/url resolution, search runtime
 - `scripts/search/`: build-time search index generation
 - `public/`: static assets and generated search index output
 
@@ -29,6 +30,7 @@ Treat these as source files:
 - `components/**`
 - `contents/**`
 - `data/**`
+- `config/**`
 - `lib/**`
 - `scripts/**`
 - config files such as `package.json`, `tsconfig.json`, `next.config.ts`, `eslint.config.mjs`
@@ -45,10 +47,30 @@ If a PR changes generated output without changing the inputs that produce it, ca
 ## Architecture Notes
 
 - Static export is enabled in [`next.config.ts`](/Users/rudra/Desktop/workspace/openprinting/openprinting.github.io/next.config.ts). `output: "export"` means features requiring a server runtime are risky by default.
-- Production builds use `basePath` and `assetPrefix` of `/openprinting.github.io`. Absolute links, image paths, and asset references must continue to work under that prefix.
+- Production build path settings come from [`config/site.config.ts`](/Users/rudra/Desktop/workspace/openprinting/openprinting.github.io/config/site.config.ts). `next.config.ts` reads `productionBasePath` and `productionAssetPrefix` from that file, so repository or deployment moves should be handled there instead of inline.
 - Search index generation runs in `prebuild` via `tsx scripts/search/build-index.ts`. Changes affecting content extraction, slugs, URLs, or searchable text often require regenerating `public/search/static-index.json`.
 - A large part of the site is Markdown-driven. Review content pipeline changes for frontmatter assumptions, slug handling, excerpt/title sanitization, and image resolution.
 - This repo uses Yarn as the expected package manager. Flag changes that introduce package-manager drift or inconsistent lockfile/package-manager usage unless the migration is intentional.
+- Shared asset/url helpers now live in [`lib/site.ts`](/Users/rudra/Desktop/workspace/openprinting/openprinting.github.io/lib/site.ts) and [`lib/utils.ts`](/Users/rudra/Desktop/workspace/openprinting/openprinting.github.io/lib/utils.ts). Prefer `withBasePath`, `toAbsoluteSiteUrl`, `getAuthorImageSrc`, and `getImageSrc` over ad hoc path concatenation.
+
+## Portability Rules
+
+- Treat [`config/site.config.ts`](/Users/rudra/Desktop/workspace/openprinting/openprinting.github.io/config/site.config.ts) as the single source of truth for:
+  - GitHub Pages base path and asset prefix
+  - canonical site URL
+  - repository slug and related GitHub links
+  - Giscus repo/category configuration
+  - repo- or deployment-specific external links that are reused across the UI
+- When migrating this project to a new repository or deployment target, update `config/site.config.ts` or its `NEXT_PUBLIC_*` overrides first. Do not scatter new repository names, domains, base paths, or Giscus identifiers across route files or components.
+- For static assets and internal fetches that must honor GitHub Pages subpaths, use the shared helpers instead of `process.env.NODE_ENV` checks in page/component files.
+- If a change introduces a new repo-specific value, add it to the centralized config before using it elsewhere.
+
+## Portability Checklist
+
+- `next.config.ts` still derives `basePath`, `assetPrefix`, and exported env values from the centralized config.
+- Components and routes do not hardcode repository slugs, site URLs, Giscus IDs, or production-only asset prefixes inline.
+- Asset `src` values and fetch URLs continue to work both in local dev and under the configured production base path.
+- Redirects, canonical metadata, and social/organization links still resolve correctly after config changes.
 
 ## Review Focus
 
@@ -62,7 +84,7 @@ If a PR changes generated output without changing the inputs that produce it, ca
 
 - Flag use of features that depend on request-time server execution unless the repo already supports them safely.
 - Be suspicious of changes that assume root-relative assets without considering the production `basePath`.
-- For images and links, prefer helpers already used by the repo such as `getImageSrc`.
+- For images and links, prefer helpers already used by the repo such as `getImageSrc` and `withBasePath`.
 - Check that asset `src` values are valid for both local development and production export. A change that appears to work locally but breaks under the production prefix should be treated as a bug.
 
 ### UI and styling
@@ -121,3 +143,4 @@ If no issues are found, say that explicitly and mention any residual risk, espec
 - Do not overwrite user changes in generated artifacts to "clean up" the diff.
 - If content or search behavior changes, mention whether `public/search/static-index.json` should be regenerated.
 - Keep new code compatible with static export unless the task clearly changes deployment assumptions.
+- When adding repo-specific settings, extend `config/site.config.ts` and consume them via shared helpers instead of new inline constants.

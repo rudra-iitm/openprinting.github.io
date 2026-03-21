@@ -1,6 +1,6 @@
 "use client";
 
-import Link from "next/link";
+import Link from "@/components/site-link";
 import { useEffect, useMemo, useState } from "react";
 
 type RelatedPostsByYear = Record<string, GsocRelatedPost[]>;

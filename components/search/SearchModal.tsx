@@ -5,7 +5,7 @@ import { Search as SearchIcon } from "lucide-react";
 import { searchRuntime } from "@/lib/search/runtime-search";
 import type { SearchRuntimeResult } from "@/lib/search/runtime-search";
 import { getImageSrc } from "@/lib/utils";
-import Link from "next/link";
+import Link from "@/components/site-link";
 import TeaserImage from "@/components/teaser-image";
 
 interface SearchModalProps {

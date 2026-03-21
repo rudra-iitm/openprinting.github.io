@@ -3,15 +3,14 @@
 import { Search as SearchIcon } from "lucide-react";
 import SearchModal from "@/components/search/SearchModal";
 import { useState, useEffect } from "react"
-import Link from "next/link"
+import Link from "@/components/site-link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { cn } from "@/lib/utils"
+import { siteConfig } from "@/config/site.config"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
-
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+import { cn, getImageSrc } from "@/lib/utils"
 
 const navItems = [
   { name: "About Us", href: "/about-us" },
@@ -80,7 +79,7 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-8 h-8">
               <Image
-                src={`${basePath}/openprinting.png`}
+                src={getImageSrc(siteConfig.assets.logo)}
                 alt="OpenPrinting Logo"
                 width={32}
                 height={32}
@@ -150,7 +149,7 @@ export default function Navbar() {
                 size="sm"
                 className="bg-foreground text-background hover:bg-foreground/90 text-xs font-medium h-8 px-4 rounded-full transition-all duration-200"
               >
-                <Link href="https://github.com/OpenPrinting" target="_blank" rel="noopener noreferrer">
+                <Link href={siteConfig.links.githubOrg} target="_blank" rel="noopener noreferrer">
                   GitHub
                 </Link>
               </Button>
@@ -270,7 +269,7 @@ export default function Navbar() {
                   className="w-full bg-foreground text-background hover:bg-foreground/90 text-xs font-medium rounded-full"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Link href="https://github.com/OpenPrinting" target="_blank" rel="noopener noreferrer">
+                  <Link href={siteConfig.links.githubOrg} target="_blank" rel="noopener noreferrer">
                     GitHub
                   </Link>
                 </Button>
