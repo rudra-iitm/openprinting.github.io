@@ -1,4 +1,5 @@
 import type { AnchorHTMLAttributes, ReactNode } from "react";
+import { normalizeInternalHref } from "@/lib/site";
 
 type SiteLinkProps = Omit<
   AnchorHTMLAttributes<HTMLAnchorElement>,
@@ -18,7 +19,7 @@ export default function SiteLink({
   void prefetch;
 
   return (
-    <a href={href} {...props}>
+    <a href={normalizeInternalHref(href)} {...props}>
       {children}
     </a>
   );
