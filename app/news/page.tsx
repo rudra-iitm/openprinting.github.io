@@ -3,6 +3,7 @@ import path from "path"
 import matter from "gray-matter"
 import Link from "next/link"
 import Image from "next/image"
+import { Rss } from "lucide-react"
 import OpenPrintingCard from "@/components/OpenPrintingCard"
 import TeaserImage from "@/components/teaser-image"
 import authors from "@/data/authors"
@@ -108,6 +109,14 @@ export default async function NewsPage() {
                 className="inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors break-all sm:break-normal"
               >
                 Monthly Call Minutes
+              </a>
+              <a
+                href={`${basePath}/feed.xml`}
+                className="inline-flex items-center gap-1.5 text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors ml-4"
+                title="Subscribe via RSS"
+              >
+                <Rss className="w-4 h-4" aria-hidden="true" />
+                RSS Feed
               </a>
               <div className="section-divider mt-6 sm:mt-8" />
             </div>

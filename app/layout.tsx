@@ -20,6 +20,11 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "Openprinting - Openprinting",
   description: "OpenPrinting is dedicated to providing open-source printing solutions for Linux, Unix, and other operating systems. Explore drivers, tools, and resources to enhance your printing experience.",
+  alternates: {
+    types: {
+      "application/rss+xml": "https://openprinting.github.io/feed.xml",
+    },
+  },
 };
 
 export default function RootLayout({
