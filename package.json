@@ -4,7 +4,7 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "prebuild": "tsx scripts/search/build-index.ts",
+    "prebuild": "tsx scripts/search/build-index.ts && tsx scripts/generate-rss.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint"
