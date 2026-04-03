@@ -1,0 +1,342 @@
+"use client"
+
+import { useEffect, useState } from "react"
+import type { Printer } from "@/lib/foomatic/types"
+import { Card, CardContent, CardDescription, CardHeader, CardTitle } from "@/components/foomatic/ui/card"
+import { Badge } from "@/components/foomatic/ui/badge"
+import Link from "next/link"
+import { Button } from "@/components/foomatic/ui/button"
+import { Separator } from "@/components/foomatic/ui/separator"
+import { Skeleton } from "@/components/foomatic/ui/skeleton"
+import { ArrowLeft, Download, ExternalLink, Eye, Info, Loader2, PrinterIcon } from "lucide-react"
+import { withBasePath } from "@/lib/foomatic/base-path"
+import { calculateAccurateStatus } from "@/lib/foomatic/utils"
+
+interface PrinterPageClientProps {
+  printerId: string
+}
+
+export default function PrinterPageClient({ printerId }: PrinterPageClientProps) {
+  const [printer, setPrinter] = useState<Printer | null>(null)
+  const [loading, setLoading] = useState(true)
+  const [error, setError] = useState<string | null>(null)
+  const hasAnyPpd = Boolean(printer?.drivers?.some((driver) => driver.hasPpd && driver.ppdPath))
+
+  const getStatusStyling = (status: string) => {
+    switch (status.toLowerCase()) {
+      case "perfect":
+        return {
+          variant: "default" as const,
+          className: "bg-green-500/20 text-green-300 border-green-400/30",
+        }
+      case "partial":
+        return {
+          variant: "secondary" as const,
+          className: "bg-yellow-500/20 text-yellow-300 border-yellow-400/30",
+        }
+      case "mostly":
+        return {
+          variant: "secondary" as const,
+          className: "bg-yellow-500/20 text-yellow-300 border-yellow-400/30",
+        }
+      case "unsupported":
+        return {
+          variant: "secondary" as const,
+          className: "bg-red-500/20 text-red-300 border-red-400/30",
+        }
+      case "unknown":
+        return {
+          variant: "secondary" as const,
+          className: "bg-gray-500/20 text-gray-300 border-gray-400/30",
+        }
+      default:
+        return {
+          variant: "secondary" as const,
+          className: "bg-gray-500/20 text-gray-300 border-gray-400/30",
+        }
+    }
+  }
+
+  useEffect(() => {
+    async function fetchPrinter() {
+      try {
+        setLoading(true)
+        setError(null)
+
+        const res = await fetch(withBasePath(`/foomatic-db/printers/${printerId}.json`))
+
+        if (!res.ok) {
+          throw new Error(`Failed to load printer: ${res.status}`)
+        }
+
+        const data = await res.json()
+        setPrinter(data)
+      } catch (err) {
+        console.error("Failed to load printer:", err)
+        setError(err instanceof Error ? err.message : "Failed to load printer")
+      } finally {
+        setLoading(false)
+      }
+    }
+
+    fetchPrinter()
+  }, [printerId])
+
+  if (loading) {
+    return (
+      <main className="min-h-screen bg-background text-foreground pt-24 pb-16">
+        <div className="container mx-auto p-4">
+        <div className="flex items-center mb-6">
+          <Link href="/foomatic">
+            <Button
+              variant="outline"
+              size="sm"
+              className="gap-2 border-border bg-card text-muted-foreground hover:bg-muted/50"
+            >
+              <ArrowLeft className="h-4 w-4" />
+              Back
+            </Button>
+          </Link>
+          <div className="ml-4 flex items-center gap-2 text-sm text-muted-foreground">
+            <PrinterIcon className="h-4 w-4" />
+            <span>OpenPrinting Database</span>
+          </div>
+        </div>
+
+        <div className="flex items-start gap-4 mb-6">
+          <Skeleton className="h-16 w-16 rounded-xl" />
+          <div className="flex-1">
+            <Skeleton className="h-10 w-64 mb-2" />
+            <Skeleton className="h-6 w-32 mb-3" />
+            <div className="flex gap-3">
+              <Skeleton className="h-6 w-20" />
+              <Skeleton className="h-6 w-16" />
+            </div>
+          </div>
+        </div>
+
+        <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+          <Card className="border-border bg-card shadow-sm">
+            <CardHeader>
+              <Skeleton className="h-6 w-48" />
+              <Skeleton className="h-4 w-24" />
+            </CardHeader>
+            <CardContent>
+              <Skeleton className="h-4 w-12 mb-1" />
+              <Skeleton className="h-5 w-20" />
+            </CardContent>
+          </Card>
+
+          <div className="lg:col-span-2">
+            <div className="flex items-center gap-3 mb-6">
+              <Loader2 className="h-7 w-7 text-primary animate-spin" />
+              <Skeleton className="h-8 w-48" />
+            </div>
+
+            {[...Array(2)].map((_, i) => (
+              <Card key={i} className="border-border bg-card shadow-sm">
+                <CardHeader>
+                  <Skeleton className="h-6 w-32" />
+                </CardHeader>
+                <CardContent>
+                  <Skeleton className="h-16 w-full" />
+                </CardContent>
+              </Card>
+            ))}
+          </div>
+        </div>
+        </div>
+      </main>
+    )
+  }
+
+  if (error || !printer) {
+    return (
+      <main className="min-h-screen bg-background text-foreground pt-24 pb-16">
+        <div className="container mx-auto p-4 text-center">
+        <div className="py-20">
+          <div className="p-6 rounded-full bg-destructive/10 border border-destructive/20 text-destructive w-24 h-24 mx-auto mb-8 flex items-center justify-center">
+            <PrinterIcon className="h-12 w-12" />
+          </div>
+          <h1 className="text-3xl font-bold text-foreground mb-4">Printer not found</h1>
+          <p className="text-muted-foreground text-lg mb-8">
+            {error || "This printer may have been removed or doesn't exist in the OpenPrinting database."}
+          </p>
+          <Link href="/foomatic">
+            <Button className="gap-2">
+              <ArrowLeft className="h-4 w-4" />
+              Back to all printers
+            </Button>
+          </Link>
+        </div>
+        </div>
+      </main>
+    )
+  }
+
+  return (
+    <main className="min-h-screen bg-background text-foreground pt-24 pb-16">
+      <div className="container mx-auto p-4">
+      <div className="flex items-center mb-6">
+        <Link href="/foomatic">
+          <Button
+            variant="outline"
+            size="sm"
+            className="gap-2 border-border bg-card text-muted-foreground hover:bg-muted/50"
+          >
+            <ArrowLeft className="h-4 w-4" />
+            Back
+          </Button>
+        </Link>
+
+        <div className="ml-4 flex items-center gap-2 text-sm text-muted-foreground">
+          <PrinterIcon className="h-4 w-4" />
+          <span>OpenPrinting Database</span>
+        </div>
+      </div>
+
+      {/* HEADER */}
+      <div className="flex items-start gap-4 mb-8">
+        <div className="p-4 rounded-xl bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/30">
+          <PrinterIcon className="h-8 w-8 text-primary" />
+        </div>
+
+        <div>
+          <h1 className="text-4xl font-bold text-foreground mb-2">{printer.model}</h1>
+          <p className="text-xl text-muted-foreground">{printer.manufacturer}</p>
+
+          <div className="flex items-center gap-3 mt-3">
+            {(() => {
+              const accurateStatus = calculateAccurateStatus(printer)
+              const style = getStatusStyling(accurateStatus)
+              return <Badge variant={style.variant} className={style.className}>{accurateStatus}</Badge>
+            })()}
+
+            <Badge variant="outline" className="border-border bg-muted/50 text-muted-foreground">
+              {printer.type}
+            </Badge>
+          </div>
+        </div>
+      </div>
+
+      <div className="grid grid-cols-1 lg:grid-cols-3 gap-8">
+        {/* LEFT CARD */}
+        <div>
+          <Card className="border-border bg-card shadow-sm">
+            <CardHeader>
+              <CardTitle className="text-2xl text-foreground flex items-center gap-2">
+                <Info className="h-5 w-5 text-primary" />
+                Printer Information
+              </CardTitle>
+              <CardDescription className="text-muted-foreground">{printer.manufacturer}</CardDescription>
+            </CardHeader>
+
+            <CardContent>
+              <p className="text-sm font-medium text-muted-foreground mb-1">Type</p>
+              <p className="text-foreground">{printer.type}</p>
+
+              <Separator className="my-4 bg-border" />
+
+              <p className="text-sm font-medium text-muted-foreground mb-1">Status</p>
+              {(() => {
+                const accurateStatus = calculateAccurateStatus(printer)
+                const style = getStatusStyling(accurateStatus)
+                return <Badge variant={style.variant} className={style.className}>{accurateStatus}</Badge>
+              })()}
+
+              {printer.notes && (
+                <>
+                  <Separator className="my-4 bg-border" />
+                  <h3 className="font-semibold mb-2 text-foreground">Notes</h3>
+                  <div
+                    className="prose prose-sm max-w-none text-muted-foreground dark:prose-invert"
+                    dangerouslySetInnerHTML={{ __html: printer.notes }}
+                  />
+                </>
+              )}
+            </CardContent>
+          </Card>
+        </div>
+
+        {/* RIGHT SECTION — DRIVERS */}
+        <div className="lg:col-span-2">
+          <div className="mb-6 flex flex-col gap-4">
+            <div className="flex flex-wrap items-center justify-between gap-3">
+              <h2 className="text-3xl font-bold text-foreground">Available Drivers</h2>
+
+              {!hasAnyPpd && <p className="text-sm text-muted-foreground">No PPD file available for this printer.</p>}
+            </div>
+          </div>
+
+          <div className="space-y-6">
+            {(printer.drivers ?? [])
+              .sort((a, b) => {
+                if (a.id === printer.recommended_driver) return -1
+                if (b.id === printer.recommended_driver) return 1
+                return 0
+              })
+              .map((driver) => (
+                <Card key={driver.id} className="border-border bg-card shadow-sm">
+                  <CardHeader className="flex flex-row items-start justify-between">
+                    <div className="flex-1">
+                      <CardTitle className="text-xl text-foreground">{driver.name}</CardTitle>
+                      
+                      {driver.url && (
+                        <Link
+                          href={driver.url}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                          className="text-sm text-primary hover:underline flex items-center gap-1 mt-2"
+                        >
+                          <ExternalLink className="h-3 w-3" />
+                          {driver.url}
+                        </Link>
+                      )}
+                    </div>
+
+                    {driver.id === printer.recommended_driver && (
+                      <Badge className="bg-green-500/20 text-green-300 border-green-400/30">Recommended</Badge>
+                    )}
+                  </CardHeader>
+
+                  <CardContent>
+                    <div className="space-y-4">
+                      <h4 className="font-semibold text-foreground mb-2">Comments</h4>
+                      <div
+                        className="prose prose-sm max-w-none text-muted-foreground dark:prose-invert"
+                        dangerouslySetInnerHTML={{
+                          __html: driver.comments || "No comments available.",
+                        }}
+                      />
+
+                      {driver.hasPpd && driver.ppdPath ? (
+                        <div className="flex flex-wrap gap-3 border-t border-border/50 pt-4">
+                          <Button asChild className="gap-2">
+                            <a
+                              href={withBasePath(driver.ppdPath)}
+                              download={`${printer.id}-${driver.id.replace(/^driver\//, "")}.ppd`}
+                            >
+                              <Download className="h-4 w-4" />
+                              Download PPD
+                            </a>
+                          </Button>
+
+                          <Button asChild variant="outline" className="gap-2">
+                            <Link href={`/foomatic/view-ppd?path=${encodeURIComponent(driver.ppdPath)}`}>
+                              <Eye className="h-4 w-4" />
+                              View PPD
+                            </Link>
+                          </Button>
+                        </div>
+                      ) : null}
+                    </div>
+                  </CardContent>
+                </Card>
+              ))}
+          </div>
+        </div>
+      </div>
+      </div>
+    </main>
+  )
+}
