@@ -1,3 +1,5 @@
+import { siteConfig } from "@/config/site.config"
+
 export function getBasePath() {
   const configuredBasePath = process.env.NEXT_PUBLIC_BASE_PATH ?? ""
 
@@ -7,9 +9,10 @@ export function getBasePath() {
 
   if (
     typeof window !== "undefined" &&
-    window.location.pathname.startsWith("/openprinting.github.io")
+    siteConfig.urls.basePath &&
+    window.location.pathname.startsWith(siteConfig.urls.basePath)
   ) {
-    return "/openprinting.github.io"
+    return siteConfig.urls.basePath
   }
 
   return ""

@@ -9,8 +9,9 @@ const FILE_PATH = path.join(
   "pages",
   "current.md"
 )
+import { siteConfig } from "@/config/site.config";
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+const basePath = siteConfig.urls.basePath;
 
 export default async function CurrentPage() {
   const raw = await fs.readFile(FILE_PATH, "utf8")

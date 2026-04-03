@@ -4,8 +4,9 @@ import { Button } from "@/components/ui/button"
 import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, ChevronDown } from "lucide-react"
+import { siteConfig } from "@/config/site.config"
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+const basePath = siteConfig.urls.basePath;
 
 export default function HeroSection() {
   return (

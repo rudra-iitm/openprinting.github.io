@@ -9,8 +9,9 @@ import TeaserImage from "@/components/teaser-image"
 import authors from "@/data/authors"
 import { getImageSrc } from "@/lib/utils"
 import { getTeaserImage } from "@/lib/get-latest-posts"
+import { siteConfig } from "@/config/site.config";
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+const basePath = siteConfig.urls.basePath;
 
 type Post = {
   slug: string

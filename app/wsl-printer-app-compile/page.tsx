@@ -3,6 +3,9 @@ import path from "path"
 import matter from "gray-matter"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
 import AuthorCard from "@/components/AuthorCard"
+import { siteConfig } from "@/config/site.config";
+
+const basePath = siteConfig.urls.basePath;
 
 const FILE_PATH = path.join(
   process.cwd(),
@@ -25,7 +28,7 @@ export default async function WSLPrinterAppCompilePage() {
       <div className="relative bg-zinc-900 text-white py-24 overflow-hidden">
         <div
           className="absolute inset-0 bg-cover bg-right bg-no-repeat opacity-40"
-          style={{ backgroundImage: "url('/rotation_pantone.jpg')" }}
+          style={{ backgroundImage: `url('${basePath}/rotation_pantone.jpg')` }}
           aria-hidden
         />
         <div className="absolute inset-0 bg-zinc-900/90" aria-hidden />

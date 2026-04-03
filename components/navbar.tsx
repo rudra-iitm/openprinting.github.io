@@ -10,8 +10,9 @@ import { motion, AnimatePresence } from "framer-motion"
 import { cn } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
+import { siteConfig } from "@/config/site.config"
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+const basePath = siteConfig.urls.basePath;
 
 const navItems = [
   { name: "About Us", href: "/about-us" },

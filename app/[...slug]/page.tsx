@@ -13,9 +13,10 @@ import AuthorCard from "@/components/AuthorCard";
 import authors from "@/data/authors";
 import { getImageSrc } from "@/lib/utils";
 import { getTeaserImage } from "@/lib/get-latest-posts";
+import { siteConfig } from "@/config/site.config";
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
-const siteUrl = "https://openprinting.github.io";
+const basePath = siteConfig.urls.basePath;
+const siteUrl = siteConfig.urls.baseUrl;
 const defaultOgImageUrl = `${siteUrl}${getImageSrc("/OpenPrintingBox.png")}`;
 
 const POSTS_DIR = path.join(process.cwd(), "contents", "post");

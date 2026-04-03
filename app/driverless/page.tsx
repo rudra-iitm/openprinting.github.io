@@ -10,8 +10,9 @@ const FILE_PATH = path.join(
   "pages",
   "driverless.md"
 )
+import { siteConfig } from "@/config/site.config";
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+const basePath = siteConfig.urls.basePath;
 
 const driverlessNavItems = [
   { name: "Introduction to Driverless Printing", href: "#introduction" },

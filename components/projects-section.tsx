@@ -6,9 +6,9 @@ import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { siteConfig } from "@/config/site.config"
 
-const basePath =
-  process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+const basePath = siteConfig.urls.basePath;
 
 type SoftwareItem = {
   title: string

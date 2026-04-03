@@ -45,10 +45,15 @@ If a PR changes generated output without changing the inputs that produce it, ca
 ## Architecture Notes
 
 - Static export is enabled in [`next.config.ts`](/Users/rudra/Desktop/workspace/openprinting/openprinting.github.io/next.config.ts). `output: "export"` means features requiring a server runtime are risky by default.
-- Production builds use `basePath` and `assetPrefix` of `/openprinting.github.io`. Absolute links, image paths, and asset references must continue to work under that prefix.
+- Production builds compute `basePath` and `assetPrefix` dynamically via `config/site.config.ts`. Absolute links, image paths, and asset references must continue to work correctly under this generated prefix. Do not hardcode strings like `/openprinting.github.io`.
 - Search index generation runs in `prebuild` via `tsx scripts/search/build-index.ts`. Changes affecting content extraction, slugs, URLs, or searchable text often require regenerating `public/search/static-index.json`.
 - A large part of the site is Markdown-driven. Review content pipeline changes for frontmatter assumptions, slug handling, excerpt/title sanitization, and image resolution.
 - This repo uses Yarn as the expected package manager. Flag changes that introduce package-manager drift or inconsistent lockfile/package-manager usage unless the migration is intentional.
+
+## Configuration & Portability
+
+- **Single Source of Truth**: All deployment-specific values, such as GitHub organization / repository names, base paths, and external URLs (e.g., Giscus configs, CI pipelines), are centralized in `config/site.config.ts`.
+- **Migration Guide**: When migrating the repository or deploying to a new location, update `config/site.config.ts`. Always import `siteConfig` from `"@/config/site.config"` rather than hardcoding.
 
 ## Review Focus
 

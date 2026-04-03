@@ -2,6 +2,7 @@
 
 import Giscus from "@giscus/react";
 import { useTheme } from "next-themes";
+import { siteConfig } from "@/config/site.config";
 
 export default function GiscusComments() {
     const { resolvedTheme } = useTheme();
@@ -10,10 +11,10 @@ export default function GiscusComments() {
         <div className="mt-10">
             <Giscus
                 id="comments"
-                repo="rudra-iitm/openprinting.github.io"
-                repoId="R_kgDOOJ9tYQ"
-                category="Blog Comments"
-                categoryId="DIC_kwDOOJ9tYc4C4B5V"
+                repo={siteConfig.giscus.repo}
+                repoId={siteConfig.giscus.repoId}
+                category={siteConfig.giscus.category}
+                categoryId={siteConfig.giscus.categoryId}
                 mapping="url"
                 term="Welcome to OpenPrinting Blog"
                 reactionsEnabled="1"

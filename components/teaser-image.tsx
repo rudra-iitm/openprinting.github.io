@@ -10,8 +10,8 @@ type TeaserImageProps = {
   priority?: boolean;
 };
 
-const basePath =
-  process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+import { siteConfig } from "@/config/site.config"
+const basePath = siteConfig.urls.basePath;
 
 export default function TeaserImage({
   src,

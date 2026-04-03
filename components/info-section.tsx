@@ -6,8 +6,9 @@ import { useRef } from "react"
 import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
+import { siteConfig } from "@/config/site.config"
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+const basePath = siteConfig.urls.basePath;
 
 type InfoItem = {
   title: string
@@ -43,7 +44,7 @@ export default function InfoSection() {
       description:
         "CUPS is the standards-based, open source printing system that is used on Linux® and other operating systems.",
       icon: `${basePath}/cups.png`,
-      href: "https://openprinting.github.io/cups/",
+      href: siteConfig.urls.cupsUrl,
       delay: 0.3,
     },
   ]

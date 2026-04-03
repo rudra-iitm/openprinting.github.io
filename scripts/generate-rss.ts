@@ -1,12 +1,13 @@
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
+import { siteConfig } from "../config/site.config.js";
 
 const POSTS_DIR = path.join(process.cwd(), "contents", "post");
 const OUTPUT_DIR = path.join(process.cwd(), "public");
 const OUTPUT_FILE = path.join(OUTPUT_DIR, "feed.xml");
 
-const SITE_URL = "https://openprinting.github.io";
+const SITE_URL = siteConfig.urls.baseUrl;
 const SITE_TITLE = "OpenPrinting News";
 const SITE_DESCRIPTION =
   "Latest news and updates from the OpenPrinting project";

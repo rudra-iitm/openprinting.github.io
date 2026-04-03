@@ -2,9 +2,9 @@ import Image from "next/image"
 import { notFound } from "next/navigation"
 import { GsodHero } from "@/components/gsod-hero"
 import { getGsodContributorBySlug } from "@/data/gsod-contributors"
+import { siteConfig } from "@/config/site.config";
 
-const basePath =
-  process.env.NODE_ENV === "production" ? "/openprinting.github.io" : ""
+const basePath = siteConfig.urls.basePath
 
 export default function GSoD2020StudentsPage() {
   const contributor = getGsodContributorBySlug("gsod-2020-students")

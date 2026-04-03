@@ -4,8 +4,9 @@ import { useState, useEffect, useRef } from "react";
 import { MapPin, Github, Globe } from "lucide-react";
 import Image from "next/image";
 import { cn } from "@/lib/utils";
+import { siteConfig } from "@/config/site.config";
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+const basePath = siteConfig.urls.basePath;
 
 interface Props {
   className?: string;
@@ -74,7 +75,7 @@ export default function OpenPrintingCard({ className }: Props) {
               </div>
 
               <a
-                href="https://openprinting.github.io/"
+                href={siteConfig.urls.baseUrl}
                 className="flex items-center gap-2 px-3 py-2 text-foreground hover:bg-muted"
               >
                 <Globe size={16} className="text-muted-foreground" />
@@ -127,7 +128,7 @@ export default function OpenPrintingCard({ className }: Props) {
 
           <div className="flex flex-col items-start pl-2 gap-3 self-start">
             <a
-              href="https://openprinting.github.io/"
+              href={siteConfig.urls.baseUrl}
               className="inline-flex items-center gap-3 text-muted-foreground hover:text-primary"
             >
               <Globe size={18} />

@@ -27,8 +27,9 @@ import {
   Shield,
   Lightbulb,
 } from "lucide-react";
+import { siteConfig } from "@/config/site.config";
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+const basePath = siteConfig.urls.basePath;
 
 export async function generateStaticParams() {
   const years = await getGsocYears();

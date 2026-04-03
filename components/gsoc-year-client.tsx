@@ -17,7 +17,9 @@ import type { GsocWorkSummary } from "@/data/gsoc-work-summaries";
 import type { GsocProjectSummary } from "@/lib/gsoc";
 import { getMentorsByYear } from "@/data/gsoc-mentors";
 import { GsocContributorHoverChip } from "@/components/gsoc-contributor-socials";
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+import { siteConfig } from "@/config/site.config";
+
+const basePath = siteConfig.urls.basePath;
 
 type RelatedPost = {
   title: string;

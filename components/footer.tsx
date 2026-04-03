@@ -26,7 +26,7 @@ const footerLinks = {
     { name: "Contribute", href: "/contribute" },
   ],
   Resources: [
-    { name: "CUPS", href: "https://openprinting.github.io/cups/" },
+    { name: "CUPS", href: siteConfig.urls.cupsUrl },
     { name: "Printer Database", href: "/printers" },
     { name: "Printer Working Group", href: "https://www.pwg.org/ipp/" },
   ],
@@ -39,7 +39,8 @@ const socialLinks = [
   { icon: Rss, href: "/feed.xml", label: "RSS Feed" },
 ]
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+import { siteConfig } from "@/config/site.config"
+const basePath = siteConfig.urls.basePath;
 
 export default function Footer() {
   return (

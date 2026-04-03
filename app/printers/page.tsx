@@ -2,8 +2,9 @@
 
 import { useState, useEffect, useMemo } from "react"
 import { Search, ChevronLeft, ChevronRight } from "lucide-react"
+import { siteConfig } from "@/config/site.config";
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : ""
+const basePath = siteConfig.urls.basePath;
 
 interface PrinterEntry {
   model: string

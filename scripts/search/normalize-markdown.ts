@@ -2,7 +2,7 @@ import { unified } from "unified";
 import remarkParse from "remark-parse";
 import { visit } from "unist-util-visit";
 import { toString } from "mdast-util-to-string";
-
+import type { Node } from "unist";
 export interface NormalizedMarkdown {
   headings: string[];
   text: string;
@@ -26,8 +26,8 @@ export function normalizeMarkdown(markdown: string): NormalizedMarkdown {
   const headings: string[] = [];
   const textParts: string[] = [];
 
-  visit(tree, (node: any) => {
-    if (node.type === "heading" && node.depth <= 3) {
+  visit(tree, (node: Node) => {
+    if (node.type === "heading" && "depth" in node && (node.depth as number) <= 3) {
       const headingText = toString(node).trim();
       if (headingText) {
         headings.push(headingText);

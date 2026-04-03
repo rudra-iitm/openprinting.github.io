@@ -3,8 +3,9 @@ import path from "path"
 import matter from "gray-matter"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
 import AuthorCard from "@/components/AuthorCard"
+import { siteConfig } from "@/config/site.config";
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : ""
+const basePath = siteConfig.urls.basePath;
 
 const FILE_PATH = path.join(
   process.cwd(),

@@ -5,8 +5,9 @@ import Image from "next/image";
 import { MapPin, Mail, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
 import authors from "@/data/authors";
+import { siteConfig } from "@/config/site.config";
 
-const basePath = process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+const basePath = siteConfig.urls.basePath;
 
 interface Props {
   authorKey: string;
