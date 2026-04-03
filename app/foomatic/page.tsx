@@ -1,25 +1,55 @@
 "use client"
 
-import { useEffect, useState, useMemo, useCallback } from "react"
-import type { PrinterSummary } from "@/lib/foomatic/types"
+import { useCallback, useEffect, useMemo, useState } from "react"
+import {
+  ArrowLeft,
+  ArrowRight,
+  PrinterIcon,
+} from "lucide-react"
+
 import PrinterSearch from "@/components/foomatic/PrinterSearch"
 import Printers from "@/components/foomatic/Printers"
-import { Skeleton } from "@/components/foomatic/ui/skeleton"
-import { PrinterIcon, Database, Zap, Shield } from "lucide-react"
+import {
+  FoomaticCard,
+  FoomaticHeroPill,
+  FoomaticPageSection,
+  FoomaticSelect,
+} from "@/components/foomatic/shared"
+import { Button } from "@/components/ui/button"
 import { withBasePath } from "@/lib/foomatic/base-path"
+import type { PrinterSummary } from "@/lib/foomatic/types"
 import { calculateAccurateStatus } from "@/lib/foomatic/utils"
 
 const ITEMS_PER_PAGE_OPTIONS = [20, 50, 100, 200, -1] as const
+
 const STORAGE_KEYS = {
-  SEARCH: 'printer_search',
-  MANUFACTURER: 'printer_manufacturer',
-  DRIVER_TYPE: 'printer_driver_type',
-  MECHANISM_TYPE: 'printer_mechanism_type',
-  SUPPORT_LEVEL: 'printer_support_level',
-  COLOR_CAPABILITY: 'printer_color_capability',
-  PAGE: 'printer_page',
-  ITEMS_PER_PAGE: 'printer_items_per_page',
+  SEARCH: "printer_search",
+  MANUFACTURER: "printer_manufacturer",
+  DRIVER_TYPE: "printer_driver_type",
+  MECHANISM_TYPE: "printer_mechanism_type",
+  SUPPORT_LEVEL: "printer_support_level",
+  COLOR_CAPABILITY: "printer_color_capability",
+  PAGE: "printer_page",
+  ITEMS_PER_PAGE: "printer_items_per_page",
 } as const
+
+function LoadingCard() {
+  return (
+    <FoomaticCard className="overflow-hidden">
+      <div className="h-28 animate-pulse border-b border-border/60 bg-muted/70" />
+      <div className="space-y-4 p-6">
+        <div className="h-5 w-2/3 animate-pulse rounded bg-muted" />
+        <div className="h-4 w-1/3 animate-pulse rounded bg-muted" />
+        <div className="flex gap-2">
+          <div className="h-6 w-20 animate-pulse rounded-full bg-muted" />
+          <div className="h-6 w-24 animate-pulse rounded-full bg-muted" />
+        </div>
+        <div className="h-4 w-full animate-pulse rounded bg-muted" />
+        <div className="h-4 w-4/5 animate-pulse rounded bg-muted" />
+      </div>
+    </FoomaticCard>
+  )
+}
 
 function PaginationControls({
   itemsPerPage,
@@ -40,29 +70,32 @@ function PaginationControls({
   const displayEnd = filteredLength === 0 ? 0 : endIndex
 
   return (
-    <div className="flex flex-col sm:flex-row items-center justify-between gap-4 mb-6">
-      <div className="flex items-center gap-2">
-        <span className="text-sm text-muted-foreground">Items per page:</span>
-        <select
-          value={itemsPerPage}
-          onChange={(e) => {
-            const value = parseInt(e.target.value, 10)
-            setItemsPerPage(value)
-            setCurrentPage(1)
-          }}
-          className="px-3 py-1.5 rounded-md border border-border bg-card text-foreground text-sm focus:outline-none focus:ring-2 focus:ring-primary/50"
-        >
-          {ITEMS_PER_PAGE_OPTIONS.map(option => (
-            <option key={option} value={option}>
-              {option === -1 ? 'Show All' : option}
-            </option>
-          ))}
-        </select>
+    <FoomaticCard className="mb-8 p-4 sm:p-5">
+      <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+        <div className="flex flex-col gap-2 sm:flex-row sm:items-center">
+          <span className="text-sm font-medium text-foreground">Results per page</span>
+          <FoomaticSelect
+            value={itemsPerPage}
+            onChange={(event) => {
+              const value = parseInt(event.target.value, 10)
+              setItemsPerPage(value)
+              setCurrentPage(1)
+            }}
+            className="w-full sm:w-40"
+          >
+            {ITEMS_PER_PAGE_OPTIONS.map((option) => (
+              <option key={option} value={option}>
+                {option === -1 ? "All results" : option}
+              </option>
+            ))}
+          </FoomaticSelect>
+        </div>
+
+        <p className="text-sm text-muted-foreground">
+          Showing {displayStart}-{displayEnd} of {filteredLength} printer models
+        </p>
       </div>
-      <div className="text-sm text-muted-foreground">
-        Showing {displayStart}-{displayEnd} of {filteredLength} printers
-      </div>
-    </div>
+    </FoomaticCard>
   )
 }
 
@@ -71,42 +104,42 @@ export default function HomePage() {
   const [manufacturers, setManufacturers] = useState<string[]>([])
   const [loading, setLoading] = useState(true)
   const [error, setError] = useState<string | null>(null)
-  
   const [searchQuery, setSearchQuery] = useState("")
   const [selectedManufacturer, setSelectedManufacturer] = useState("all")
   const [selectedDriverType, setSelectedDriverType] = useState("all")
   const [selectedMechanismType, setSelectedMechanismType] = useState("all")
   const [selectedSupportLevel, setSelectedSupportLevel] = useState("all")
   const [selectedColorCapability, setSelectedColorCapability] = useState("all")
-  
   const [currentPage, setCurrentPage] = useState(1)
   const [itemsPerPage, setItemsPerPage] = useState(20)
 
   useEffect(() => {
-    if (typeof window !== 'undefined') {
-      const savedSearch = localStorage.getItem(STORAGE_KEYS.SEARCH)
-      const savedManufacturer = localStorage.getItem(STORAGE_KEYS.MANUFACTURER)
-      const savedDriverType = localStorage.getItem(STORAGE_KEYS.DRIVER_TYPE)
-      const savedMechanismType = localStorage.getItem(STORAGE_KEYS.MECHANISM_TYPE)
-      const savedSupportLevel = localStorage.getItem(STORAGE_KEYS.SUPPORT_LEVEL)
-      const savedColorCapability = localStorage.getItem(STORAGE_KEYS.COLOR_CAPABILITY)
-      const savedPage = localStorage.getItem(STORAGE_KEYS.PAGE)
-      const savedItemsPerPage = localStorage.getItem(STORAGE_KEYS.ITEMS_PER_PAGE)
-      
-      if (savedSearch) setSearchQuery(String(savedSearch))
-      if (savedManufacturer) setSelectedManufacturer(String(savedManufacturer))
-      if (savedDriverType) setSelectedDriverType(String(savedDriverType))
-      if (savedMechanismType) setSelectedMechanismType(String(savedMechanismType))
-      if (savedSupportLevel) setSelectedSupportLevel(String(savedSupportLevel))
-      if (savedColorCapability) setSelectedColorCapability(String(savedColorCapability))
-      if (savedPage) {
-        const p = parseInt(savedPage, 10)
-        setCurrentPage(Number.isFinite(p) && p > 0 ? p : 1)
-      }
-      if (savedItemsPerPage) {
-        const ip = parseInt(savedItemsPerPage, 10)
-        setItemsPerPage(Number.isFinite(ip) ? ip : 20)
-      }
+    if (typeof window === "undefined") {
+      return
+    }
+
+    const savedSearch = localStorage.getItem(STORAGE_KEYS.SEARCH)
+    const savedManufacturer = localStorage.getItem(STORAGE_KEYS.MANUFACTURER)
+    const savedDriverType = localStorage.getItem(STORAGE_KEYS.DRIVER_TYPE)
+    const savedMechanismType = localStorage.getItem(STORAGE_KEYS.MECHANISM_TYPE)
+    const savedSupportLevel = localStorage.getItem(STORAGE_KEYS.SUPPORT_LEVEL)
+    const savedColorCapability = localStorage.getItem(STORAGE_KEYS.COLOR_CAPABILITY)
+    const savedPage = localStorage.getItem(STORAGE_KEYS.PAGE)
+    const savedItemsPerPage = localStorage.getItem(STORAGE_KEYS.ITEMS_PER_PAGE)
+
+    if (savedSearch) setSearchQuery(String(savedSearch))
+    if (savedManufacturer) setSelectedManufacturer(String(savedManufacturer))
+    if (savedDriverType) setSelectedDriverType(String(savedDriverType))
+    if (savedMechanismType) setSelectedMechanismType(String(savedMechanismType))
+    if (savedSupportLevel) setSelectedSupportLevel(String(savedSupportLevel))
+    if (savedColorCapability) setSelectedColorCapability(String(savedColorCapability))
+    if (savedPage) {
+      const page = parseInt(savedPage, 10)
+      setCurrentPage(Number.isFinite(page) && page > 0 ? page : 1)
+    }
+    if (savedItemsPerPage) {
+      const savedValue = parseInt(savedItemsPerPage, 10)
+      setItemsPerPage(Number.isFinite(savedValue) ? savedValue : 20)
     }
   }, [])
 
@@ -114,131 +147,147 @@ export default function HomePage() {
     async function fetchData() {
       setLoading(true)
       setError(null)
+
       try {
-        const res = await fetch(withBasePath("/foomatic-db/printersMap.json"))
-        
-        if (!res.ok) {
-          throw new Error(`Failed to load printer data: ${res.status}`)
+        const response = await fetch(withBasePath("/foomatic-db/printersMap.json"))
+
+        if (!response.ok) {
+          throw new Error("The printer directory is temporarily unavailable.")
         }
-        
-        const data = await res.json()
-        
+
+        const data = await response.json()
         const printersWithStatus: PrinterSummary[] = []
         const manufacturerSet = new Set<string>()
-        
-        for (const p of data.printers) {
-          // Normalize data-provided status values and map legacy 'Partial' to 'Mostly'
-          let status = (p.status || calculateAccurateStatus(p)) as string
-          if (typeof status === 'string' && status.toLowerCase() === 'partial') {
-            status = 'Mostly'
+
+        for (const printer of data.printers) {
+          let status = (printer.status || calculateAccurateStatus(printer)) as string
+          if (typeof status === "string" && status.toLowerCase() === "partial") {
+            status = "Mostly"
           }
-          const printer = {
-            ...p,
+
+          printersWithStatus.push({
+            ...printer,
             status,
-          }
-          printersWithStatus.push(printer)
-          if (p.manufacturer) {
-            manufacturerSet.add(p.manufacturer)
+          })
+
+          if (printer.manufacturer) {
+            manufacturerSet.add(printer.manufacturer)
           }
         }
-        
+
         setPrinters(printersWithStatus)
         setManufacturers(Array.from(manufacturerSet).sort())
       } catch (err) {
-        console.error('Failed to load printer data:', err)
-        setError(err instanceof Error ? err.message : 'Failed to load printer data')
+        console.error("Failed to load printer data:", err)
+        setError(
+          err instanceof Error ? err.message : "The printer directory could not be loaded right now."
+        )
       } finally {
         setLoading(false)
       }
     }
+
     fetchData()
   }, [])
 
   const driverTypes = useMemo(() => {
     const types = new Set<string>()
-    printers.forEach(p => {
-      if (p.driverCount && p.driverCount > 0) {
-        types.add('Has Drivers')
-      } else {
-        types.add('No Drivers')
-      }
+    printers.forEach((printer) => {
+      types.add((printer.driverCount ?? 0) > 0 ? "Drivers available" : "No listed drivers")
     })
     return Array.from(types).sort()
   }, [printers])
 
   const mechanismTypes = useMemo(() => {
     const types = new Set<string>()
-    printers.forEach(p => {
-      if (p.type) {
-        types.add(p.type)
+    printers.forEach((printer) => {
+      if (printer.type) {
+        types.add(printer.type)
       }
     })
     return Array.from(types).sort()
   }, [printers])
 
-  const supportLevels = useMemo(() => {
-    return ['Perfect', 'Mostly', 'Unsupported', 'Unknown']
-  }, [])
+  const supportLevels = useMemo(
+    () => ["Perfect", "Mostly", "Unsupported", "Unknown"],
+    []
+  )
 
-  const colorCapabilities = useMemo(() => {
-    return ['color', 'monochrome', 'unknown']
-  }, [])
+  const colorCapabilities = useMemo(
+    () => ["color", "monochrome", "unknown"],
+    []
+  )
 
   const filteredPrinters = useMemo(() => {
     let result = printers
 
     if (selectedManufacturer !== "all") {
-      result = result.filter((p) => p.manufacturer === selectedManufacturer)
+      result = result.filter((printer) => printer.manufacturer === selectedManufacturer)
     }
 
     if (searchQuery) {
       const queryLower = searchQuery.toLowerCase()
       result = result.filter(
-        (p) =>
-          (p.model && String(p.model).toLowerCase().includes(queryLower)) ||
-          (p.manufacturer && String(p.manufacturer).toLowerCase().includes(queryLower)),
+        (printer) =>
+          (printer.model && String(printer.model).toLowerCase().includes(queryLower)) ||
+          (printer.manufacturer &&
+            String(printer.manufacturer).toLowerCase().includes(queryLower))
       )
     }
 
     if (selectedDriverType !== "all") {
-      if (selectedDriverType === 'Has Drivers') {
-        result = result.filter((p) => (p.driverCount ?? 0) > 0)
-      } else if (selectedDriverType === 'No Drivers') {
-        result = result.filter((p) => (p.driverCount ?? 0) === 0)
-      }
+      result = result.filter((printer) =>
+        selectedDriverType === "Drivers available"
+          ? (printer.driverCount ?? 0) > 0
+          : (printer.driverCount ?? 0) === 0
+      )
     }
 
     if (selectedMechanismType !== "all") {
-      result = result.filter((p) => p.type === selectedMechanismType)
+      result = result.filter((printer) => printer.type === selectedMechanismType)
     }
 
     if (selectedSupportLevel !== "all") {
-      result = result.filter((p) => p.status === selectedSupportLevel)
+      result = result.filter((printer) => printer.status === selectedSupportLevel)
     }
 
     if (selectedColorCapability !== "all") {
-      result = result.filter((p) => {
-        const type = p.type?.toLowerCase() || ''
-        const model = typeof p.model === "string" ? p.model.toLowerCase() : ""
-        if (selectedColorCapability === 'color') {
-          return type.includes('color') || model.includes('color')
-        } else if (selectedColorCapability === 'monochrome') {
-          return type.includes('mono') || type.includes('dot-matrix') || model.includes('mono')
+      result = result.filter((printer) => {
+        const type = printer.type?.toLowerCase() || ""
+        const model = typeof printer.model === "string" ? printer.model.toLowerCase() : ""
+
+        if (selectedColorCapability === "color") {
+          return type.includes("color") || model.includes("color")
         }
+
+        if (selectedColorCapability === "monochrome") {
+          return type.includes("mono") || type.includes("dot-matrix") || model.includes("mono")
+        }
+
         return true
       })
     }
 
     return result
-  }, [searchQuery, selectedManufacturer, selectedDriverType, selectedMechanismType, selectedSupportLevel, selectedColorCapability, printers])
+  }, [
+    printers,
+    searchQuery,
+    selectedManufacturer,
+    selectedDriverType,
+    selectedMechanismType,
+    selectedSupportLevel,
+    selectedColorCapability,
+  ])
 
   useEffect(() => {
     setCurrentPage(1)
   }, [filteredPrinters])
 
   useEffect(() => {
-    if (typeof window === 'undefined') return
-    
+    if (typeof window === "undefined") {
+      return
+    }
+
     localStorage.setItem(STORAGE_KEYS.SEARCH, String(searchQuery).trim())
     localStorage.setItem(STORAGE_KEYS.MANUFACTURER, selectedManufacturer)
     localStorage.setItem(STORAGE_KEYS.DRIVER_TYPE, selectedDriverType)
@@ -247,7 +296,16 @@ export default function HomePage() {
     localStorage.setItem(STORAGE_KEYS.COLOR_CAPABILITY, selectedColorCapability)
     localStorage.setItem(STORAGE_KEYS.PAGE, currentPage.toString())
     localStorage.setItem(STORAGE_KEYS.ITEMS_PER_PAGE, itemsPerPage.toString())
-  }, [searchQuery, selectedManufacturer, selectedDriverType, selectedMechanismType, selectedSupportLevel, selectedColorCapability, currentPage, itemsPerPage])
+  }, [
+    searchQuery,
+    selectedManufacturer,
+    selectedDriverType,
+    selectedMechanismType,
+    selectedSupportLevel,
+    selectedColorCapability,
+    currentPage,
+    itemsPerPage,
+  ])
 
   const resetFilters = useCallback(() => {
     setSearchQuery("")
@@ -258,200 +316,167 @@ export default function HomePage() {
     setSelectedColorCapability("all")
     setCurrentPage(1)
     setItemsPerPage(20)
-    
-    if (typeof window !== 'undefined') {
-      Object.values(STORAGE_KEYS).forEach(key => {
+
+    if (typeof window !== "undefined") {
+      Object.values(STORAGE_KEYS).forEach((key) => {
         localStorage.removeItem(key)
       })
     }
   }, [])
 
   const totalPages = useMemo(() => {
-    if (itemsPerPage === -1) return 1
+    if (itemsPerPage === -1) {
+      return 1
+    }
     return Math.ceil(filteredPrinters.length / itemsPerPage)
   }, [filteredPrinters.length, itemsPerPage])
 
   const displayedPrinters = useMemo(() => {
-    if (itemsPerPage === -1) return filteredPrinters
+    if (itemsPerPage === -1) {
+      return filteredPrinters
+    }
+
     const startIndex = Math.max(0, (currentPage - 1) * itemsPerPage)
     const endIndex = startIndex + itemsPerPage
     return filteredPrinters.slice(startIndex, endIndex)
   }, [filteredPrinters, currentPage, itemsPerPage])
 
-  const startIndex = useMemo(() => (itemsPerPage === -1 ? 0 : Math.max(0, (currentPage - 1) * itemsPerPage)), [currentPage, itemsPerPage])
-  const endIndex = useMemo(() => (itemsPerPage === -1 ? filteredPrinters.length : Math.min(startIndex + itemsPerPage, filteredPrinters.length)), [startIndex, itemsPerPage, filteredPrinters.length])
+  const startIndex = useMemo(
+    () => (itemsPerPage === -1 ? 0 : Math.max(0, (currentPage - 1) * itemsPerPage)),
+    [currentPage, itemsPerPage]
+  )
+
+  const endIndex = useMemo(
+    () =>
+      itemsPerPage === -1
+        ? filteredPrinters.length
+        : Math.min(startIndex + itemsPerPage, filteredPrinters.length),
+    [filteredPrinters.length, itemsPerPage, startIndex]
+  )
 
   useEffect(() => {
     if (itemsPerPage === -1) {
       setCurrentPage(1)
       return
     }
+
     if (currentPage > totalPages) {
       setCurrentPage(Math.max(1, totalPages))
     }
-  }, [totalPages, itemsPerPage, currentPage])
+  }, [currentPage, itemsPerPage, totalPages])
 
-  const goToPage = useCallback((page: number) => {
-    if (page >= 1 && page <= totalPages) {
-      setCurrentPage(page)
-    }
-  }, [totalPages])
-
-  const goToNextPage = useCallback(() => {
-    if (currentPage < totalPages) {
-      goToPage(currentPage + 1)
-    }
-  }, [currentPage, totalPages, goToPage])
-
-  const goToPreviousPage = useCallback(() => {
-    if (currentPage > 1) {
-      goToPage(currentPage - 1)
-    }
-  }, [currentPage, goToPage])
+  const goToPage = useCallback(
+    (page: number) => {
+      if (page >= 1 && page <= totalPages) {
+        setCurrentPage(page)
+      }
+    },
+    [totalPages]
+  )
 
   const getPageNumbers = useCallback(() => {
     const pages: (number | string)[] = []
     const maxVisiblePages = 7
-    
-    if (totalPages <= maxVisiblePages) {
-      for (let i = 1; i <= totalPages; i++) {
-        pages.push(i)
-      }
-    } else {
-      if (currentPage <= 4) {
-        for (let i = 1; i <= 5; i++) {
-          pages.push(i)
-        }
-        pages.push('...')
-        pages.push(totalPages)
-      } else if (currentPage >= totalPages - 3) {
-        pages.push(1)
-        pages.push('...')
-        for (let i = totalPages - 4; i <= totalPages; i++) {
-          pages.push(i)
-        }
-      } else {
-        pages.push(1)
-        pages.push('...')
-        for (let i = currentPage - 1; i <= currentPage + 1; i++) {
-          pages.push(i)
-        }
-        pages.push('...')
-        pages.push(totalPages)
-      }
-    }
-    
-    return pages
-  }, [totalPages, currentPage])
 
-  
+    if (totalPages <= maxVisiblePages) {
+      for (let index = 1; index <= totalPages; index += 1) {
+        pages.push(index)
+      }
+      return pages
+    }
+
+    if (currentPage <= 4) {
+      for (let index = 1; index <= 5; index += 1) {
+        pages.push(index)
+      }
+      pages.push("...", totalPages)
+      return pages
+    }
+
+    if (currentPage >= totalPages - 3) {
+      pages.push(1, "...")
+      for (let index = totalPages - 4; index <= totalPages; index += 1) {
+        pages.push(index)
+      }
+      return pages
+    }
+
+    pages.push(1, "...")
+    for (let index = currentPage - 1; index <= currentPage + 1; index += 1) {
+      pages.push(index)
+    }
+    pages.push("...", totalPages)
+    return pages
+  }, [currentPage, totalPages])
 
   return (
-    <main className="min-h-screen bg-background text-foreground pt-24 pb-16">
-      <div className="container mx-auto px-4 py-8">
-        <div className="text-center py-16 mb-16 animate-in fade-in-0">
-          <div className="mb-8">
-            <div className="inline-flex items-center gap-3 px-6 py-3 rounded-full bg-card border border-border shadow-sm mb-8">
-              <PrinterIcon className="h-5 w-5 text-primary" />
-              <span className="text-sm font-semibold text-foreground tracking-wide">OpenPrinting Project</span>
-            </div>
-          </div>
-          
-          <h1 className="text-6xl lg:text-8xl font-black tracking-tighter mb-8 leading-tight">
-            <span className="bg-gradient-to-r from-foreground to-foreground/80 bg-clip-text text-transparent">
-              Foomatic
-            </span>
-            <br />
-            <span className="text-4xl lg:text-5xl text-muted-foreground font-light tracking-wide">
-              Printer Database
-            </span>
-          </h1>
-          
-          <p className="text-xl text-muted-foreground max-w-4xl mx-auto leading-relaxed mb-12 font-light">
-            Discover and explore printers from the comprehensive Foomatic database maintained by the OpenPrinting
-            community. Find drivers, specifications, and compatibility information for seamless Linux printing.
-          </p>
-          
-          <div className="flex flex-wrap justify-center gap-8 text-sm">
-            <div className="flex items-center gap-3 px-4 py-2 rounded-lg bg-card border border-border/60 shadow-sm">
-              <Database className="h-4 w-4 text-primary" />
-              <span className="text-foreground font-medium">Open Source Drivers</span>
-            </div>
-            <div className="flex items-center gap-3 px-4 py-2 rounded-lg bg-card border border-border/60 shadow-sm">
-              <Zap className="h-4 w-4 text-primary" />
-              <span className="text-foreground font-medium">Linux Compatible</span>
-            </div>
-            <div className="flex items-center gap-3 px-4 py-2 rounded-lg bg-card border border-border/60 shadow-sm">
-              <Shield className="h-4 w-4 text-primary" />
-              <span className="text-foreground font-medium">Community Maintained</span>
-            </div>
-          </div>
-        </div>
+    <main className="min-h-screen bg-background pb-20 pt-24 text-foreground">
+      <section className="relative min-h-[48vh] overflow-hidden border-b border-border/60 flex items-center">
+        <div className="absolute inset-0 bg-white/10 dark:bg-black/80" />
+        <div className="hero-glow hidden dark:block" />
+        <div className="hero-glow-blue hidden dark:block" />
+        <div className="grid-pattern absolute inset-0" />
 
-        <div className="mb-12">
-          <PrinterSearch 
-            manufacturers={manufacturers}
-            driverTypes={driverTypes}
-            mechanismTypes={mechanismTypes}
-            supportLevels={supportLevels}
-            colorCapabilities={colorCapabilities}
-            onSearch={setSearchQuery}
-            onFilterManufacturer={setSelectedManufacturer}
-            onFilterDriverType={setSelectedDriverType}
-            onFilterMechanismType={setSelectedMechanismType}
-            onFilterSupportLevel={setSelectedSupportLevel}
-            onFilterColorCapability={setSelectedColorCapability}
-            selectedManufacturer={selectedManufacturer}
-            selectedDriverType={selectedDriverType}
-            selectedMechanismType={selectedMechanismType}
-            selectedSupportLevel={selectedSupportLevel}
-            selectedColorCapability={selectedColorCapability}
-            onReset={resetFilters}
-          />
-        </div>
+        <FoomaticPageSection className="relative py-16 sm:py-20">
+          <div className="max-w-4xl">
+            <FoomaticHeroPill className="text-blue-400">
+              <PrinterIcon className="h-4 w-4" />
+              OpenPrinting Foomatic database
+            </FoomaticHeroPill>
 
-        {error ? (
-          <div className="text-center py-24 animate-in fade-in-0">
-            <div className="p-8 rounded-2xl bg-destructive/10 border border-destructive/50 shadow-sm w-32 h-32 mx-auto mb-8 flex items-center justify-center">
-              <PrinterIcon className="h-16 w-16 text-destructive" />
-            </div>
-            <h2 className="text-3xl font-bold mb-4 text-foreground">Failed to load printer data</h2>
-            <p className="text-muted-foreground text-lg max-w-md mx-auto leading-relaxed">
-              {error}
+            <h1 className="mt-6 text-5xl font-bold tracking-tight leading-[0.98] sm:text-6xl lg:text-7xl">
+              <span className="text-neutral-950 dark:hidden">Foomatic</span>
+              <span className="hidden text-gradient-foreground dark:inline">Foomatic</span>
+              <span className="block text-gradient-blue">Printer Lookup</span>
+            </h1>
+            <p className="mt-6 max-w-2xl text-base leading-relaxed text-neutral-700 dark:text-neutral-400 md:text-lg">
+              Find support information for legacy printers, review available drivers, and open PPD
+              files for closer inspection.
             </p>
           </div>
+        </FoomaticPageSection>
+      </section>
+
+      <FoomaticPageSection className="space-y-10 py-10 sm:py-12">
+        <PrinterSearch
+          manufacturers={manufacturers}
+          driverTypes={driverTypes}
+          mechanismTypes={mechanismTypes}
+          supportLevels={supportLevels}
+          colorCapabilities={colorCapabilities}
+          searchQuery={searchQuery}
+          onSearch={setSearchQuery}
+          onFilterManufacturer={setSelectedManufacturer}
+          onFilterDriverType={setSelectedDriverType}
+          onFilterMechanismType={setSelectedMechanismType}
+          onFilterSupportLevel={setSelectedSupportLevel}
+          onFilterColorCapability={setSelectedColorCapability}
+          selectedManufacturer={selectedManufacturer}
+          selectedDriverType={selectedDriverType}
+          selectedMechanismType={selectedMechanismType}
+          selectedSupportLevel={selectedSupportLevel}
+          selectedColorCapability={selectedColorCapability}
+          onReset={resetFilters}
+        />
+
+        {error ? (
+          <FoomaticCard className="p-8 text-center sm:p-12">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-destructive/20 bg-destructive/10 text-destructive">
+              <PrinterIcon className="h-8 w-8" />
+            </div>
+            <h2 className="mt-6 text-2xl font-semibold tracking-tight">Unable to load the printer directory</h2>
+            <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">
+              {error || "Please try again in a moment."}
+            </p>
+          </FoomaticCard>
         ) : loading ? (
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-            {[...Array(8)].map((_, i) => (
-              <div 
-                key={i} 
-                className="bg-card border border-border rounded-2xl p-6 shadow-sm"
-                style={{ animationDelay: `${i * 100}ms` }}
-              >
-                <div className="flex items-center gap-4 mb-6">
-                  <Skeleton className="h-12 w-12 rounded-xl bg-muted/50" />
-                  <div className="space-y-3 flex-1">
-                    <Skeleton className="h-5 w-3/4 bg-muted/50" />
-                    <Skeleton className="h-4 w-1/2 bg-muted/50" />
-                  </div>
-                </div>
-                <div className="space-y-4">
-                  <div className="flex gap-2">
-                    <Skeleton className="h-6 w-20 rounded-md bg-muted/50" />
-                    <Skeleton className="h-6 w-24 rounded-md bg-muted/50" />
-                  </div>
-                  <Skeleton className="h-4 w-full bg-muted/50" />
-                  <Skeleton className="h-4 w-2/3 bg-muted/50" />
-                  <div className="flex gap-3 pt-2">
-                    <Skeleton className="h-10 flex-1 rounded-lg bg-muted/50" />
-                    <Skeleton className="h-10 w-12 rounded-lg bg-muted/50" />
-                  </div>
-                </div>
-              </div>
+          <div className="grid grid-cols-1 gap-5 md:grid-cols-2 xl:grid-cols-3">
+            {Array.from({ length: 6 }).map((_, index) => (
+              <LoadingCard key={index} />
             ))}
           </div>
         ) : displayedPrinters.length > 0 ? (
-          <div className="animate-in fade-in-0">
+          <div className="space-y-8">
             <PaginationControls
               itemsPerPage={itemsPerPage}
               setItemsPerPage={setItemsPerPage}
@@ -460,77 +485,81 @@ export default function HomePage() {
               endIndex={endIndex}
               filteredLength={filteredPrinters.length}
             />
+
             <Printers printers={displayedPrinters} />
-            
-            {totalPages > 1 && (
-              <div className="mt-12">
-                
-                <div className="text-center mb-6 text-sm text-muted-foreground">
-                  {searchQuery && ` matching "${searchQuery}"`}
-                  {selectedManufacturer !== "all" && ` from ${selectedManufacturer}`}
+
+            {totalPages > 1 ? (
+            <FoomaticCard className="space-y-6 p-6">
+              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                <p className="text-sm text-muted-foreground">
+                  Page {currentPage} of {totalPages}
+                  </p>
+                  <p className="text-sm text-muted-foreground">
+                    {searchQuery ? `Results for "${searchQuery}"` : "Browsing all printer models"}
+                    {selectedManufacturer !== "all" ? ` in ${selectedManufacturer}` : ""}
+                  </p>
                 </div>
-                
-                <div className="flex items-center justify-center gap-4">
-                  <button
-                    onClick={goToPreviousPage}
+
+                <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+                  <Button
+                    variant="outline"
+                    onClick={() => goToPage(currentPage - 1)}
                     disabled={currentPage === 1}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border bg-card text-foreground hover:bg-muted/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                    className="gap-2"
                   >
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
-                    </svg>
+                    <ArrowLeft className="h-4 w-4" />
                     Previous
-                  </button>
-                  
-                  <div className="flex items-center gap-2">
-                    {getPageNumbers().map((page, index) => (
-                      <button
-                        key={index}
-                        onClick={() => typeof page === 'number' && goToPage(page)}
-                        disabled={page === '...'}
-                        className={`px-3 py-2 rounded-lg text-sm font-medium transition-colors ${
-                          page === currentPage
-                            ? 'bg-primary text-primary-foreground shadow-lg cursor-pointer'
-                            : page === '...'
-                            ? 'text-muted-foreground cursor-default'
-                            : 'text-foreground hover:bg-muted/50 border border-border/30 cursor-pointer'
-                        }`}
-                      >
-                        {page}
-                      </button>
-                    ))}
+                  </Button>
+
+                  <div className="flex flex-wrap items-center justify-center gap-2">
+                    {getPageNumbers().map((page, index) =>
+                      typeof page !== "number" ? (
+                        <span
+                          key={`${page}-${index}`}
+                          className="px-2 text-sm text-muted-foreground"
+                        >
+                          ...
+                        </span>
+                      ) : (
+                        <Button
+                          key={page}
+                          variant={page === currentPage ? "default" : "outline"}
+                          size="sm"
+                          onClick={() => goToPage(page)}
+                          className="min-w-9"
+                        >
+                          {page}
+                        </Button>
+                      )
+                    )}
                   </div>
-                  
-                  <button
-                    onClick={goToNextPage}
+
+                  <Button
+                    variant="outline"
+                    onClick={() => goToPage(currentPage + 1)}
                     disabled={currentPage === totalPages}
-                    className="flex items-center gap-2 px-4 py-2 rounded-lg border border-border bg-card text-foreground hover:bg-muted/50 transition-colors disabled:opacity-50 disabled:cursor-not-allowed cursor-pointer"
+                    className="gap-2"
                   >
                     Next
-                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
-                    </svg>
-                  </button>
+                    <ArrowRight className="h-4 w-4" />
+                  </Button>
                 </div>
-                
-                <div className="text-center mt-4 text-xs text-muted-foreground">
-                  Page {currentPage} of {totalPages}
-                </div>
-              </div>
-            )}
+              </FoomaticCard>
+            ) : null}
           </div>
         ) : (
-          <div className="text-center py-24 animate-in fade-in-0">
-            <div className="p-8 rounded-2xl bg-card border border-border shadow-sm w-32 h-32 mx-auto mb-8 flex items-center justify-center">
-              <PrinterIcon className="h-16 w-16 text-muted-foreground" />
+          <FoomaticCard className="p-8 text-center sm:p-12">
+            <div className="mx-auto flex h-16 w-16 items-center justify-center rounded-full border border-border bg-muted text-muted-foreground">
+              <PrinterIcon className="h-8 w-8" />
             </div>
-            <h2 className="text-3xl font-bold mb-4 text-foreground">No Printers Found</h2>
-            <p className="text-muted-foreground text-lg max-w-md mx-auto leading-relaxed">
-              Try adjusting your search terms or filter criteria to find the printer you&apos;re looking for.
+            <h2 className="mt-6 text-2xl font-semibold tracking-tight">No matching printers found</h2>
+            <p className="mx-auto mt-3 max-w-xl text-sm leading-6 text-muted-foreground sm:text-base">
+              Try a different model name, broaden your filters, or clear the current search to see more results.
             </p>
-          </div>
+          </FoomaticCard>
         )}
-      </div>
+      </FoomaticPageSection>
+      <div className="section-divider mx-auto mt-8 max-w-6xl" />
     </main>
   )
 }

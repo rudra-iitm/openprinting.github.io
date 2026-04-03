@@ -1,8 +1,12 @@
-import type { PrinterSummary } from "@/lib/foomatic/types"
-import { Card, CardContent, CardDescription, CardFooter, CardHeader, CardTitle } from "@/components/foomatic/ui/card"
-import { Badge } from "@/components/foomatic/ui/badge"
 import Link from "next/link"
-import { PrinterIcon } from "lucide-react"
+import { ArrowRight, PrinterIcon } from "lucide-react"
+
+import {
+  FoomaticBadge,
+  FoomaticCard,
+  FoomaticStatusBadge,
+} from "@/components/foomatic/shared"
+import type { PrinterSummary } from "@/lib/foomatic/types"
 import { calculateAccurateStatus } from "@/lib/foomatic/utils"
 
 interface PrinterCardProps {
@@ -12,84 +16,54 @@ interface PrinterCardProps {
 export default function PrinterCard({ printer }: PrinterCardProps) {
   const printerId = printer.id.replace("printer/", "")
   const accurateStatus = calculateAccurateStatus(printer)
-
-  const getStatusStyling = (status: string) => {
-    switch (status.toLowerCase()) {
-      case 'perfect':
-        return {
-          variant: 'default' as const,
-          className: 'bg-green-500/20 text-green-300 border-green-400/30'
-        }
-      case 'partial':
-        return {
-          variant: 'secondary' as const,
-          className: 'bg-yellow-500/20 text-yellow-300 border-yellow-400/30'
-        }
-      case 'mostly':
-        return {
-          variant: 'secondary' as const,
-          className: 'bg-yellow-500/20 text-yellow-300 border-yellow-400/30'
-        }
-      case 'unsupported':
-        return {
-          variant: 'secondary' as const,
-          className: 'bg-red-500/20 text-red-300 border-red-400/30'
-        }
-      case 'unknown':
-        return {
-          variant: 'secondary' as const,
-          className: 'bg-gray-500/20 text-gray-300 border-gray-400/30'
-        }
-      default:
-        return {
-          variant: 'secondary' as const,
-          className: 'bg-gray-500/20 text-gray-300 border-gray-400/30'
-        }
-    }
-  }
+  const driverCount = printer.driverCount ?? 0
 
   return (
-    <Link href={`/foomatic/printer/${printerId}`} className="h-full">
-      <Card className="h-full flex flex-col rounded-2xl border border-border bg-card shadow-sm group transition-all duration-300 hover:border-primary/50">
-        <CardHeader className="pb-3">
-          <div className="flex items-start gap-3">
-            <div className="p-2 rounded-lg bg-gradient-to-br from-primary/20 to-primary/10 border border-primary/20 group-hover:border-primary/40 transition-colors">
-              <PrinterIcon className="h-5 w-5 text-primary" />
+    <Link href={`/foomatic/printer/${printerId}`} className="group block h-full">
+      <FoomaticCard className="flex h-full flex-col overflow-hidden transition-all duration-300 hover:border-border/80 hover:bg-accent/50 card-glow">
+        <div className="border-b border-border/60 bg-accent/30 p-5">
+          <div className="flex items-start gap-4">
+            <div className="rounded-lg border border-border bg-muted p-3 text-blue-400 transition-colors group-hover:border-border/80">
+              <PrinterIcon className="h-5 w-5" />
             </div>
-            <div className="flex-1 min-w-0">
-              <CardTitle className="text-lg font-semibold text-foreground group-hover:text-primary transition-colors line-clamp-2">
+            <div className="min-w-0 flex-1">
+              <p className="text-sm text-muted-foreground">{printer.manufacturer}</p>
+              <h3 className="mt-1 line-clamp-2 text-lg font-semibold tracking-tight text-foreground transition-colors group-hover:text-blue-400">
                 {printer.model}
-              </CardTitle>
-              <CardDescription className="text-muted-foreground mt-1">{printer.manufacturer}</CardDescription>
+              </h3>
             </div>
           </div>
-        </CardHeader>
-        <CardContent className="flex-grow pb-3">
-          <p className="text-sm text-muted-foreground line-clamp-3 leading-relaxed">
-            {printer.driverCount ? `${printer.driverCount} driver${printer.driverCount > 1 ? 's' : ''} available` : 'No drivers available'}
-          </p>
-        </CardContent>
-        <CardFooter className="pt-0">
-          <div className="flex flex-wrap gap-2 w-full">
-            <Badge variant="outline" className="text-xs border-border bg-muted/50 text-muted-foreground">
-              {printer.type}
-            </Badge>
-            <Badge
-              variant={getStatusStyling(accurateStatus).variant}
-              className={getStatusStyling(accurateStatus).className}
-            >
-              {accurateStatus}
-            </Badge>
-            {
-              (printer.driverCount ?? 0) >= 0 && (
-                <Badge variant="outline" className="text-xs border-primary/30 text-primary bg-primary/10">
-                  {printer.driverCount ?? 0} driver{(printer.driverCount ?? 0) > 1 ? 's' : ''}
-                </Badge>
-              )
-            }
+        </div>
+
+        <div className="flex flex-1 flex-col justify-between p-5">
+          <div className="space-y-4">
+            <div className="flex flex-wrap gap-2">
+              <FoomaticStatusBadge status={accurateStatus} />
+              {printer.type ? (
+                <FoomaticBadge className="border-border bg-accent/50 text-muted-foreground">
+                  {printer.type}
+                </FoomaticBadge>
+              ) : null}
+            </div>
+
+            <p className="text-sm leading-6 text-muted-foreground">
+              {driverCount > 0
+                ? `${driverCount} driver${driverCount === 1 ? "" : "s"} listed for this printer model.`
+                : "No drivers are currently listed for this printer model."}
+            </p>
           </div>
-        </CardFooter>
-      </Card>
+
+          <div className="mt-6 flex items-center justify-between text-sm">
+            <FoomaticBadge className="border-border/70 bg-accent/60 text-muted-foreground">
+              {driverCount} driver{driverCount === 1 ? "" : "s"}
+            </FoomaticBadge>
+            <span className="inline-flex items-center gap-1 font-medium text-blue-400 transition-colors group-hover:text-blue-300">
+              View details
+              <ArrowRight className="h-4 w-4 transition-transform duration-200 group-hover:translate-x-0.5" />
+            </span>
+          </div>
+        </div>
+      </FoomaticCard>
     </Link>
   )
 }

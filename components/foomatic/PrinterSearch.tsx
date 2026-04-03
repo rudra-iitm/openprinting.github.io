@@ -1,12 +1,16 @@
 "use client"
 
-import { Input } from "@/components/foomatic/ui/input"
-import { SimpleSelect, SimpleSelectItem } from "@/components/foomatic/ui/simple-select"
-import { Card, CardContent, CardHeader, CardTitle } from "@/components/foomatic/ui/card"
-import { Button } from "@/components/foomatic/ui/button"
-import { useState, useEffect } from "react"
-import { useDebounce } from "@/lib/foomatic/hooks/use-debounce"
+import { useEffect, useState } from "react"
 import { Search, X } from "lucide-react"
+
+import { Button } from "@/components/ui/button"
+import { Input } from "@/components/ui/input"
+import {
+  FoomaticCard,
+  FoomaticHeroPill,
+  FoomaticSelect,
+} from "@/components/foomatic/shared"
+import { useDebounce } from "@/lib/foomatic/hooks/use-debounce"
 
 interface PrinterSearchProps {
   manufacturers: string[]
@@ -14,6 +18,7 @@ interface PrinterSearchProps {
   mechanismTypes: string[]
   supportLevels: string[]
   colorCapabilities: string[]
+  searchQuery: string
   onSearch: (query: string) => void
   onFilterManufacturer: (manufacturer: string) => void
   onFilterDriverType: (driverType: string) => void
@@ -28,12 +33,41 @@ interface PrinterSearchProps {
   onReset: () => void
 }
 
+function FilterField({
+  label,
+  value,
+  onChange,
+  options,
+}: {
+  label: string
+  value: string
+  onChange: (value: string) => void
+  options: string[]
+}) {
+  return (
+    <label className="space-y-2">
+      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+        {label}
+      </span>
+      <FoomaticSelect value={value} onChange={(event) => onChange(event.target.value)}>
+        <option value="all">Any {label}</option>
+        {options.map((option) => (
+          <option key={option} value={option}>
+            {option}
+          </option>
+        ))}
+      </FoomaticSelect>
+    </label>
+  )
+}
+
 export default function PrinterSearch({
   manufacturers,
   driverTypes,
   mechanismTypes,
   supportLevels,
   colorCapabilities,
+  searchQuery,
   onSearch,
   onFilterManufacturer,
   onFilterDriverType,
@@ -47,128 +81,111 @@ export default function PrinterSearch({
   selectedColorCapability,
   onReset,
 }: PrinterSearchProps) {
-  const [searchQuery, setSearchQuery] = useState("")
-  const debouncedSearchQuery = useDebounce(searchQuery, 300)
+  const [localSearchQuery, setLocalSearchQuery] = useState(searchQuery)
+  const debouncedSearchQuery = useDebounce(localSearchQuery, 300)
+
+  useEffect(() => {
+    setLocalSearchQuery(searchQuery)
+  }, [searchQuery])
 
   useEffect(() => {
     onSearch(debouncedSearchQuery)
   }, [debouncedSearchQuery, onSearch])
 
-  const hasActiveFilters = 
+  const hasActiveFilters =
     selectedManufacturer !== "all" ||
     selectedDriverType !== "all" ||
     selectedMechanismType !== "all" ||
     selectedSupportLevel !== "all" ||
     selectedColorCapability !== "all" ||
-    searchQuery !== ""
+    localSearchQuery !== ""
 
   return (
-    <Card className="mb-8 border-border bg-card shadow-sm">
-      <CardHeader className="pb-4">
-        <div className="flex items-center justify-between">
-          <CardTitle className="text-2xl font-bold text-foreground">Search and Filter</CardTitle>
+    <FoomaticCard className="overflow-hidden">
+      <div className="border-b border-border/60 bg-accent/30 px-6 py-5">
+        <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
+          <div className="space-y-2">
+            <FoomaticHeroPill className="w-fit text-blue-400">
+              <Search className="h-4 w-4" />
+              Refine results
+            </FoomaticHeroPill>
+            <div>
+              <h2 className="text-3xl font-bold tracking-tight text-foreground">
+                Find the right printer
+              </h2>
+              <p className="text-sm leading-6 text-muted-foreground">
+                Filter by manufacturer, support level, printer type, and color capability to narrow the directory quickly.
+              </p>
+            </div>
+          </div>
+
           {hasActiveFilters && (
             <Button
               onClick={() => {
-                setSearchQuery("")
+                setLocalSearchQuery("")
                 onReset()
               }}
               variant="outline"
               size="sm"
-              className="gap-2"
+              className="gap-2 self-start lg:self-auto"
             >
               <X className="h-4 w-4" />
-              Reset Filters
+              Clear filters
             </Button>
           )}
         </div>
-      </CardHeader>
-      <CardContent>
-        <div className="space-y-4">
+      </div>
+
+      <div className="space-y-6 p-6">
+        <label className="block space-y-2">
+          <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+            Search directory
+          </span>
           <div className="relative">
-            <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 text-muted-foreground h-4 w-4" />
+            <Search className="pointer-events-none absolute left-3 top-1/2 h-4 w-4 -translate-y-1/2 text-muted-foreground" />
             <Input
               type="search"
-              placeholder="Search by model or make..."
-              value={searchQuery}
-              onChange={(e) => setSearchQuery(e.target.value)}
-              className="pl-10 h-12 bg-muted/50 border-border/50 text-foreground placeholder:text-muted-foreground focus:border-primary/50 focus:ring-primary/20"
+              placeholder="Search by printer model or manufacturer"
+              value={localSearchQuery}
+              onChange={(event) => setLocalSearchQuery(event.target.value)}
+              className="h-11 bg-background pl-10"
             />
           </div>
-          
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-4">
-            <SimpleSelect
-              value={selectedManufacturer}
-              onValueChange={onFilterManufacturer}
-              placeholder="All Manufacturers"
-              triggerClassName="h-12 bg-muted/50 border-border/50 text-foreground focus:border-primary/50 focus:ring-primary/20"
-            >
-              <SimpleSelectItem value="all">All Manufacturers</SimpleSelectItem>
-              {manufacturers.map((manufacturer) => (
-                <SimpleSelectItem key={manufacturer} value={manufacturer}>
-                  {manufacturer}
-                </SimpleSelectItem>
-              ))}
-            </SimpleSelect>
+        </label>
 
-            <SimpleSelect
-              value={selectedDriverType}
-              onValueChange={onFilterDriverType}
-              placeholder="Driver Type"
-              triggerClassName="h-12 bg-muted/50 border-border/50 text-foreground focus:border-primary/50 focus:ring-primary/20"
-            >
-              <SimpleSelectItem value="all">All Driver Types</SimpleSelectItem>
-              {driverTypes.map((type) => (
-                <SimpleSelectItem key={type} value={type}>
-                  {type}
-                </SimpleSelectItem>
-              ))}
-            </SimpleSelect>
-
-            <SimpleSelect
-              value={selectedMechanismType}
-              onValueChange={onFilterMechanismType}
-              placeholder="Mechanism Type"
-              triggerClassName="h-12 bg-muted/50 border-border/50 text-foreground focus:border-primary/50 focus:ring-primary/20"
-            >
-              <SimpleSelectItem value="all">All Mechanism Types</SimpleSelectItem>
-              {mechanismTypes.map((type) => (
-                <SimpleSelectItem key={type} value={type}>
-                  {type}
-                </SimpleSelectItem>
-              ))}
-            </SimpleSelect>
-
-            <SimpleSelect
-              value={selectedSupportLevel}
-              onValueChange={onFilterSupportLevel}
-              placeholder="Support Level"
-              triggerClassName="h-12 bg-muted/50 border-border/50 text-foreground focus:border-primary/50 focus:ring-primary/20"
-            >
-              <SimpleSelectItem value="all">All Support Levels</SimpleSelectItem>
-              {supportLevels.map((level) => (
-                <SimpleSelectItem key={level} value={level}>
-                  {level}
-                </SimpleSelectItem>
-              ))}
-            </SimpleSelect>
-
-            <SimpleSelect
-              value={selectedColorCapability}
-              onValueChange={onFilterColorCapability}
-              placeholder="Color Capability"
-              triggerClassName="h-12 bg-muted/50 border-border/50 text-foreground focus:border-primary/50 focus:ring-primary/20"
-            >
-              <SimpleSelectItem value="all">All Color Capabilities</SimpleSelectItem>
-              {colorCapabilities.map((capability) => (
-                <SimpleSelectItem key={capability} value={capability}>
-                  {capability}
-                </SimpleSelectItem>
-              ))}
-            </SimpleSelect>
-          </div>
+        <div className="grid gap-4 sm:grid-cols-2 xl:grid-cols-5">
+          <FilterField
+            label="Manufacturer"
+            value={selectedManufacturer}
+            onChange={onFilterManufacturer}
+            options={manufacturers}
+          />
+          <FilterField
+            label="Driver availability"
+            value={selectedDriverType}
+            onChange={onFilterDriverType}
+            options={driverTypes}
+          />
+          <FilterField
+            label="Printer type"
+            value={selectedMechanismType}
+            onChange={onFilterMechanismType}
+            options={mechanismTypes}
+          />
+          <FilterField
+            label="Support status"
+            value={selectedSupportLevel}
+            onChange={onFilterSupportLevel}
+            options={supportLevels}
+          />
+          <FilterField
+            label="Color capability"
+            value={selectedColorCapability}
+            onChange={onFilterColorCapability}
+            options={colorCapabilities}
+          />
         </div>
-      </CardContent>
-    </Card>
+      </div>
+    </FoomaticCard>
   )
 }
