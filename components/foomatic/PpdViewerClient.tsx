@@ -67,7 +67,7 @@ export default function PpdViewerClient() {
   const downloadHref = normalizedPath ? withBasePath(normalizedPath) : "#"
 
   return (
-    <main className="min-h-screen bg-background pt-6 text-foreground">
+    <main className="min-h-screen bg-background pt-24 text-foreground">
       <FoomaticPageSection className="space-y-8 py-10 sm:py-12">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
           <Button asChild variant="outline" size="sm" className="gap-2" aria-label="Back to printer directory">
