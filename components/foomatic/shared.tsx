@@ -47,7 +47,7 @@ export function FoomaticBadge({
   return (
     <span
       className={cn(
-        "inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium",
+        "inline-flex items-center rounded-full border px-2.5 py-1 text-xs font-medium transition-colors",
         className
       )}
       {...props}
@@ -73,7 +73,10 @@ export function FoomaticStatusBadge({
           : "Unknown"
 
   return (
-    <FoomaticBadge className={cn(statusClasses[variant], className)}>
+    <FoomaticBadge
+      className={cn(statusClasses[variant], className)}
+      aria-label={`Support status: ${variant}`}
+    >
       {variant}
     </FoomaticBadge>
   )
@@ -104,15 +107,19 @@ export function FoomaticSelect({
 
 export function FoomaticHeroPill({
   className,
+  children,
   ...props
 }: React.HTMLAttributes<HTMLDivElement>) {
   return (
     <div
       className={cn(
-        "inline-flex items-center gap-2 rounded-full border border-border/70 bg-accent/60 px-4 py-2 text-sm text-muted-foreground",
+        "inline-flex items-center gap-2 rounded-full border border-black/[0.15] dark:border-white/[0.08] bg-black/[0.05] dark:bg-white/[0.03] px-4 py-1.5 text-xs font-medium text-neutral-700 dark:text-neutral-400 backdrop-blur-sm",
         className
       )}
       {...props}
-    />
+    >
+      <span className="h-1.5 w-1.5 rounded-full bg-blue-400 animate-glow-pulse" />
+      {children}
+    </div>
   )
 }

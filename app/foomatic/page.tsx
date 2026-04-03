@@ -91,7 +91,7 @@ function PaginationControls({
           </FoomaticSelect>
         </div>
 
-        <p className="text-sm text-muted-foreground">
+        <p className="text-sm text-muted-foreground" aria-live="polite">
           Showing {displayStart}-{displayEnd} of {filteredLength} printer models
         </p>
       </div>
@@ -410,7 +410,7 @@ export default function HomePage() {
   }, [currentPage, totalPages])
 
   return (
-    <main className="min-h-screen bg-background pb-20 pt-24 text-foreground">
+    <main className="min-h-screen bg-background pt-6 text-foreground">
       <section className="relative min-h-[48vh] overflow-hidden border-b border-border/60 flex items-center">
         <div className="absolute inset-0 bg-white/10 dark:bg-black/80" />
         <div className="hero-glow hidden dark:block" />
@@ -419,8 +419,7 @@ export default function HomePage() {
 
         <FoomaticPageSection className="relative py-16 sm:py-20">
           <div className="max-w-4xl">
-            <FoomaticHeroPill className="text-blue-400">
-              <PrinterIcon className="h-4 w-4" />
+            <FoomaticHeroPill>
               OpenPrinting Foomatic database
             </FoomaticHeroPill>
 
@@ -489,10 +488,10 @@ export default function HomePage() {
             <Printers printers={displayedPrinters} />
 
             {totalPages > 1 ? (
-            <FoomaticCard className="space-y-6 p-6">
-              <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
-                <p className="text-sm text-muted-foreground">
-                  Page {currentPage} of {totalPages}
+              <FoomaticCard className="space-y-6 p-6" role="navigation" aria-label="Pagination">
+                <div className="flex flex-col gap-2 sm:flex-row sm:items-center sm:justify-between">
+                  <p className="text-sm text-muted-foreground">
+                    Page {currentPage} of {totalPages}
                   </p>
                   <p className="text-sm text-muted-foreground">
                     {searchQuery ? `Results for "${searchQuery}"` : "Browsing all printer models"}
@@ -506,6 +505,7 @@ export default function HomePage() {
                     onClick={() => goToPage(currentPage - 1)}
                     disabled={currentPage === 1}
                     className="gap-2"
+                    aria-label="Go to previous page"
                   >
                     <ArrowLeft className="h-4 w-4" />
                     Previous
@@ -539,6 +539,7 @@ export default function HomePage() {
                     onClick={() => goToPage(currentPage + 1)}
                     disabled={currentPage === totalPages}
                     className="gap-2"
+                    aria-label="Go to next page"
                   >
                     Next
                     <ArrowRight className="h-4 w-4" />

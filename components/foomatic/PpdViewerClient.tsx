@@ -3,7 +3,7 @@
 import { useEffect, useMemo, useState } from "react"
 import Link from "next/link"
 import { useSearchParams } from "next/navigation"
-import { ArrowLeft, Download, FileText, Loader2 } from "lucide-react"
+import { ArrowLeft, Download, Loader2 } from "lucide-react"
 
 import {
   FoomaticCard,
@@ -67,10 +67,10 @@ export default function PpdViewerClient() {
   const downloadHref = normalizedPath ? withBasePath(normalizedPath) : "#"
 
   return (
-    <main className="min-h-screen bg-background pb-20 pt-24 text-foreground">
+    <main className="min-h-screen bg-background pt-6 text-foreground">
       <FoomaticPageSection className="space-y-8 py-10 sm:py-12">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <Button asChild variant="outline" size="sm" className="gap-2">
+          <Button asChild variant="outline" size="sm" className="gap-2" aria-label="Back to printer directory">
             <Link href="/foomatic">
               <ArrowLeft className="h-4 w-4" />
               Back to directory
@@ -78,7 +78,7 @@ export default function PpdViewerClient() {
           </Button>
 
           {normalizedPath && !loading && !error ? (
-            <Button asChild className="gap-2">
+            <Button asChild className="gap-2" aria-label="Download PPD file">
               <a href={downloadHref} download={getDownloadName(normalizedPath)}>
                 <Download className="h-4 w-4" />
                 Download file
@@ -88,8 +88,7 @@ export default function PpdViewerClient() {
         </div>
 
         <section className="space-y-4">
-          <FoomaticHeroPill className="text-blue-400">
-            <FileText className="h-4 w-4" />
+          <FoomaticHeroPill>
             PPD file preview
           </FoomaticHeroPill>
 
@@ -107,11 +106,11 @@ export default function PpdViewerClient() {
               Selected file
             </p>
             <p className="mt-2 break-all font-mono text-sm text-foreground">
-              {normalizedPath ?? requestedPath ?? "No PPD file selected"}
+              <code>{normalizedPath ?? requestedPath ?? "No PPD file selected"}</code>
             </p>
           </div>
 
-          <div className="p-6">
+          <div className="p-6" role="status" aria-live="polite">
             {loading ? (
               <div className="flex min-h-64 items-center justify-center gap-3 text-muted-foreground">
                 <Loader2 className="h-5 w-5 animate-spin text-primary" />

@@ -29,7 +29,7 @@ interface PrinterPageClientProps {
 
 function LoadingState() {
   return (
-    <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.5fr)]">
+    <div className="grid gap-6 lg:grid-cols-[minmax(0,0.9fr)_minmax(0,1.5fr)]" role="status" aria-label="Loading printer details">
       <FoomaticCard className="space-y-4 p-6">
         <div className="h-8 w-36 animate-pulse rounded bg-muted" />
         <div className="h-5 w-28 animate-pulse rounded bg-muted" />
@@ -80,9 +80,9 @@ export default function PrinterPageClient({ printerId }: PrinterPageClientProps)
 
   if (loading) {
     return (
-      <main className="min-h-screen bg-background pb-20 pt-24 text-foreground">
+      <main className="min-h-screen bg-background pt-6 text-foreground">
         <FoomaticPageSection className="space-y-8 py-10 sm:py-12">
-          <Button asChild variant="outline" size="sm" className="gap-2">
+          <Button asChild variant="outline" size="sm" className="gap-2" aria-label="Back to printer directory">
             <Link href="/foomatic">
               <ArrowLeft className="h-4 w-4" />
               Back to directory
@@ -129,15 +129,14 @@ export default function PrinterPageClient({ printerId }: PrinterPageClientProps)
     <main className="min-h-screen bg-background pb-20 pt-24 text-foreground">
       <FoomaticPageSection className="space-y-8 py-10 sm:py-12">
         <div className="flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-          <Button asChild variant="outline" size="sm" className="gap-2">
+          <Button asChild variant="outline" size="sm" className="gap-2" aria-label="Back to printer directory">
             <Link href="/foomatic">
               <ArrowLeft className="h-4 w-4" />
               Back to directory
             </Link>
           </Button>
 
-          <FoomaticHeroPill className="w-fit text-blue-400">
-            <PrinterIcon className="h-4 w-4 text-blue-400" />
+          <FoomaticHeroPill className="w-fit">
             Printer details
           </FoomaticHeroPill>
         </div>
@@ -148,7 +147,7 @@ export default function PrinterPageClient({ printerId }: PrinterPageClientProps)
           <div className="relative px-6 py-8 sm:px-8 sm:py-10">
             <div className="flex flex-col gap-6 md:flex-row md:items-start md:justify-between">
               <div className="space-y-4">
-                <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-border bg-accent/50 text-blue-400">
+                <div className="flex h-14 w-14 items-center justify-center rounded-lg border border-border bg-accent/50 text-primary">
                   <PrinterIcon className="h-7 w-7" />
                 </div>
                 <div>
@@ -251,7 +250,7 @@ export default function PrinterPageClient({ printerId }: PrinterPageClientProps)
                     <div className="flex flex-wrap items-center gap-2">
                       <h3 className="text-xl font-semibold tracking-tight">{driver.name}</h3>
                       {driver.id === printer.recommended_driver ? (
-                        <FoomaticBadge className="border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300">
+                        <FoomaticBadge className="border-emerald-500/30 bg-emerald-500/10 text-emerald-700 dark:text-emerald-300" aria-label="Recommended driver">
                           Recommended
                         </FoomaticBadge>
                       ) : null}

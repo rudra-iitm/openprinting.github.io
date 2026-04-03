@@ -44,12 +44,13 @@ function FilterField({
   onChange: (value: string) => void
   options: string[]
 }) {
+  const fieldId = `filter-${label.toLowerCase().replace(/\s+/g, "-")}`
   return (
-    <label className="space-y-2">
-      <span className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
+    <div className="space-y-2">
+      <label htmlFor={fieldId} className="text-xs font-semibold uppercase tracking-[0.18em] text-muted-foreground">
         {label}
-      </span>
-      <FoomaticSelect value={value} onChange={(event) => onChange(event.target.value)}>
+      </label>
+      <FoomaticSelect id={fieldId} value={value} onChange={(event) => onChange(event.target.value)} aria-label={`Filter by ${label.toLowerCase()}`}>
         <option value="all">Any {label}</option>
         {options.map((option) => (
           <option key={option} value={option}>
@@ -57,7 +58,7 @@ function FilterField({
           </option>
         ))}
       </FoomaticSelect>
-    </label>
+    </div>
   )
 }
 
@@ -105,8 +106,7 @@ export default function PrinterSearch({
       <div className="border-b border-border/60 bg-accent/30 px-6 py-5">
         <div className="flex flex-col gap-4 lg:flex-row lg:items-center lg:justify-between">
           <div className="space-y-2">
-            <FoomaticHeroPill className="w-fit text-blue-400">
-              <Search className="h-4 w-4" />
+            <FoomaticHeroPill className="w-fit">
               Refine results
             </FoomaticHeroPill>
             <div>
@@ -149,6 +149,7 @@ export default function PrinterSearch({
               value={localSearchQuery}
               onChange={(event) => setLocalSearchQuery(event.target.value)}
               className="h-11 bg-background pl-10"
+              aria-label="Search by printer model or manufacturer"
             />
           </div>
         </label>
