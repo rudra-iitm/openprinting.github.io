@@ -6,10 +6,12 @@ export type StaticContentType =
   | "project"
   | "page";
 
+export type SearchContentType = StaticContentType | "printer";
+
 export interface SearchDocument {
   id: string;
   source: SearchSource;
-  type: StaticContentType;
+  type: SearchContentType;
 
   title: string;
   url: string;
@@ -22,12 +24,23 @@ export interface SearchDocument {
   content: string;
 }
 
-export interface StaticSearchIndex {
+export interface SearchIndex<TDocument extends SearchDocument = SearchDocument> {
   version: "1.0";
-  documents: SearchDocument[];
+  documents: TDocument[];
 
   metadata: {
     documentCount: number;
-    contentTypes: StaticContentType[];
+    contentTypes: SearchContentType[];
   };
+}
+
+export type StaticSearchIndex = SearchIndex<SearchDocument>;
+
+export interface FoomaticSearchDocument extends SearchDocument {
+  source: "foomatic";
+  type: "printer";
+  manufacturer: string;
+  model: string;
+  status?: string;
+  driverCount: number;
 }
