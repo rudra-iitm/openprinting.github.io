@@ -7,8 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { siteConfig } from "@/config/site.config"
-
-const basePath = siteConfig.urls.basePath;
+import { getAssetPath } from "@/lib/utils";
 
 type InfoItem = {
   title: string
@@ -27,7 +26,7 @@ export default function InfoSection() {
       title: "About Us",
       description:
         "Learn more about OpenPrinting, how it works, the people involved, and the projects maintained by it",
-      icon: `${basePath}/OpenPrintingBox.png`,
+      icon: getAssetPath("/OpenPrintingBox.png"),
       href: "/about-us",
       delay: 0.1,
     },
@@ -35,7 +34,7 @@ export default function InfoSection() {
       title: "Contribute",
       description:
         "Know how you can be part of an excellent community and help improve printing experience for millions of users",
-      icon: `${basePath}/contribute.png`,
+      icon: getAssetPath("/contribute.png"),
       href: "/contribute",
       delay: 0.2,
     },
@@ -43,8 +42,8 @@ export default function InfoSection() {
       title: "CUPS",
       description:
         "CUPS is the standards-based, open source printing system that is used on Linux® and other operating systems.",
-      icon: `${basePath}/cups.png`,
-      href: siteConfig.urls.cupsUrl,
+      icon: getAssetPath("/cups.png"),
+      href: siteConfig.destinations.cups,
       delay: 0.3,
     },
   ]
@@ -80,7 +79,7 @@ export default function InfoSection() {
               >
                 <div className="mb-5 rounded-lg bg-muted border border-border flex items-center justify-center overflow-hidden p-4 h-40">
                   <Image
-                    src={item.icon || `${basePath}/placeholder.svg`}
+                    src={item.icon || getAssetPath("/placeholder.svg")}
                     alt={item.title}
                     width={160}
                     height={120}

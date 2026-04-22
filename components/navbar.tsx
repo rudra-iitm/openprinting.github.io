@@ -7,30 +7,10 @@ import Link from "next/link"
 import Image from "next/image"
 import { Menu, X } from "lucide-react"
 import { motion, AnimatePresence } from "framer-motion"
-import { cn } from "@/lib/utils"
+import { cn, getAssetPath } from "@/lib/utils"
 import { Button } from "@/components/ui/button"
 import { ThemeToggle } from "@/components/theme-toggle"
 import { siteConfig } from "@/config/site.config"
-
-const basePath = siteConfig.urls.basePath;
-
-const navItems = [
-  { name: "About Us", href: "/about-us" },
-  { name: "News and Events", href: "/news" },
-  { name: "Projects", href: "/projects" },
-  { name: "Downloads", href: "/downloads" },
-  { name: "Documentation", href: "/documentation" },
-]
-
-const hamburgerItems = [
-  { name: "Upcoming Technologies", href: "/upcoming-technologies" },
-  { name: "Driverless Printing", href: "/driverless" },
-  { name: "Printers", href: "/foomatic" },
-  { name: "Printer Drivers", href: "/drivers" },
-  { name: "Legacy Printers under Windows", href: "/wsl-printer-app" },
-  { name: "Contact Us", href: "/contact" },
-  { name: "Donations", href: "/donations" },
-]
 
 export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
@@ -81,20 +61,20 @@ export default function Navbar() {
           <Link href="/" className="flex items-center gap-3 group">
             <div className="relative w-8 h-8">
               <Image
-                src={`${basePath}/openprinting.png`}
-                alt="OpenPrinting Logo"
+                src={getAssetPath(siteConfig.brand.logoPath)}
+                alt={`${siteConfig.brand.name} Logo`}
                 width={32}
                 height={32}
                 className="object-contain transition-transform duration-300 group-hover:scale-110"
               />
             </div>
             <span className="text-[15px] font-semibold text-foreground tracking-tight">
-              OpenPrinting
+              {siteConfig.brand.name}
             </span>
           </Link>
 
           <nav className="hidden md:flex items-center gap-1">
-            {navItems.map((item, index) => (
+            {siteConfig.navigation.primary.map((item, index) => (
               <motion.div
                 key={item.name}
                 initial={{ opacity: 0, y: -8 }}
@@ -151,7 +131,7 @@ export default function Navbar() {
                 size="sm"
                 className="bg-foreground text-background hover:bg-foreground/90 text-xs font-medium h-8 px-4 rounded-full transition-all duration-200"
               >
-                <Link href="https://github.com/OpenPrinting" target="_blank" rel="noopener noreferrer">
+                <Link href={siteConfig.destinations.github} target="_blank" rel="noopener noreferrer">
                   GitHub
                 </Link>
               </Button>
@@ -209,7 +189,7 @@ export default function Navbar() {
             >
               <div className="absolute -top-[0.4rem] right-[0.625rem] w-3 h-3 bg-background border-t border-l border-border transform rotate-45 z-0" />
               <div className="relative bg-background border border-border shadow-xl rounded-xl overflow-hidden z-10 flex flex-col py-1">
-                {hamburgerItems.map((item, index) => (
+                {siteConfig.navigation.secondary.map((item, index) => (
                   <motion.div
                     key={item.name}
                     initial={{ opacity: 0, x: -12 }}
@@ -242,7 +222,7 @@ export default function Navbar() {
             className="md:hidden bg-background/95 backdrop-blur-xl border-t border-border overflow-hidden"
           >
             <div className="px-6 py-4 space-y-1">
-              {[...navItems, ...hamburgerItems].map((item, index) => (
+              {[...siteConfig.navigation.primary, ...siteConfig.navigation.secondary].map((item, index) => (
                 <motion.div
                   key={item.name}
                   initial={{ opacity: 0, x: -12 }}
@@ -262,7 +242,7 @@ export default function Navbar() {
               <motion.div
                 initial={{ opacity: 0, x: -12 }}
                 animate={{ opacity: 1, x: 0 }}
-                transition={{ duration: 0.15, delay: (navItems.length + hamburgerItems.length) * 0.03 }}
+                transition={{ duration: 0.15, delay: (siteConfig.navigation.primary.length + siteConfig.navigation.secondary.length) * 0.03 }}
                 className="pt-3"
               >
                 <Button
@@ -271,7 +251,7 @@ export default function Navbar() {
                   className="w-full bg-foreground text-background hover:bg-foreground/90 text-xs font-medium rounded-full"
                   onClick={() => setIsOpen(false)}
                 >
-                  <Link href="https://github.com/OpenPrinting" target="_blank" rel="noopener noreferrer">
+                  <Link href={siteConfig.destinations.github} target="_blank" rel="noopener noreferrer">
                     GitHub
                   </Link>
                 </Button>

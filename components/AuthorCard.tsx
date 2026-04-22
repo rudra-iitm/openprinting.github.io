@@ -5,9 +5,7 @@ import Image from "next/image";
 import { MapPin, Mail, Github } from "lucide-react";
 import { cn } from "@/lib/utils";
 import authors from "@/data/authors";
-import { siteConfig } from "@/config/site.config";
-
-const basePath = siteConfig.urls.basePath;
+import { getAuthorImageSrc } from "@/lib/utils";
 
 interface Props {
   authorKey: string;
@@ -43,10 +41,7 @@ export default function AuthorCard({ authorKey, className }: Props) {
 
   if (!author) return null;
 
-  const placeholder = `${basePath}/authors/placeholder.jpg`;
-  const imgRaw =
-    author.image && author.image !== "NA" ? author.image : placeholder;
-  const imgSrc = imgRaw.startsWith("/") ? `${basePath}${imgRaw}` : `${basePath}/${imgRaw}`;
+  const imgSrc = getAuthorImageSrc(author.image);
 
   return (
     <>

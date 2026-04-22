@@ -7,11 +7,9 @@ import { Rss } from "lucide-react"
 import OpenPrintingCard from "@/components/OpenPrintingCard"
 import TeaserImage from "@/components/teaser-image"
 import authors from "@/data/authors"
-import { getImageSrc } from "@/lib/utils"
+import { getAuthorImageSrc, getImageSrc } from "@/lib/utils"
 import { getTeaserImage } from "@/lib/get-latest-posts"
 import { siteConfig } from "@/config/site.config";
-
-const basePath = siteConfig.urls.basePath;
 
 type Post = {
   slug: string
@@ -48,9 +46,7 @@ export default async function NewsPage() {
 
         let authorImage;
         if (authorDef) {
-          const placeholder = `/authors/placeholder.jpg`;
-          const imgRaw = authorDef.image && authorDef.image !== "NA" ? authorDef.image : placeholder;
-          authorImage = imgRaw.startsWith("/") ? `${basePath}${imgRaw}` : `${basePath}/${imgRaw}`;
+          authorImage = getAuthorImageSrc(authorDef.image);
         }
 
         return {
@@ -104,7 +100,7 @@ export default async function NewsPage() {
                 News and Events
               </h1>
               <a
-                href="http://ftp.pwg.org/pub/pwg/liaison/openprinting/minutes/"
+                href={siteConfig.destinations.monthlyCallMinutes}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="inline-flex items-center text-sm font-medium text-blue-400 hover:text-blue-300 transition-colors break-all sm:break-normal"
@@ -112,7 +108,7 @@ export default async function NewsPage() {
                 Monthly Call Minutes
               </a>
               <a
-                href={`${basePath}/feed.xml`}
+                href={getImageSrc(siteConfig.urls.rssPath)}
                 className="inline-flex items-center gap-1.5 text-sm font-medium text-orange-400 hover:text-orange-300 transition-colors ml-4"
                 title="Subscribe via RSS"
               >

@@ -1,14 +1,14 @@
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
-import { siteConfig } from "../config/site.config.js";
+import { siteConfig } from "../config/site.config.ts";
 
 const POSTS_DIR = path.join(process.cwd(), "contents", "post");
 const OUTPUT_DIR = path.join(process.cwd(), "public");
 const OUTPUT_FILE = path.join(OUTPUT_DIR, "feed.xml");
 
-const SITE_URL = siteConfig.urls.baseUrl;
-const SITE_TITLE = "OpenPrinting News";
+const SITE_URL = siteConfig.urls.canonicalOrigin;
+const SITE_TITLE = `${siteConfig.brand.name} News`;
 const SITE_DESCRIPTION =
   "Latest news and updates from the OpenPrinting project";
 const MAX_ITEMS = 20;
@@ -88,7 +88,7 @@ async function generateRss() {
     <description>${escapeXml(SITE_DESCRIPTION)}</description>
     <language>en-us</language>
     <lastBuildDate>${new Date().toUTCString()}</lastBuildDate>
-    <atom:link href="${SITE_URL}/feed.xml" rel="self" type="application/rss+xml" />
+    <atom:link href="${SITE_URL}${siteConfig.urls.rssPath}" rel="self" type="application/rss+xml" />
 ${items}
   </channel>
 </rss>

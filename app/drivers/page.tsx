@@ -1,10 +1,11 @@
 "use client"
 
 import { useEffect } from "react"
+import { siteConfig } from "@/config/site.config";
 
 export default function DriversPage() {
   useEffect(() => {
-    window.location.href = "https://openprinting.org/drivers"
+    window.location.href = siteConfig.destinations.drivers
   }, [])
   
   return (

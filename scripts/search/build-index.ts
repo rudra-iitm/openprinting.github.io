@@ -1,16 +1,30 @@
 import fs from "fs/promises";
 import path from "path";
-import { extractPosts } from "./extract-posts";
-import { extractContent, type RawStaticContent } from "./extract-content";
-import { normalizeMarkdown } from "./normalize-markdown";
-import { getImageSrc } from "@/lib/utils";
-import { type SearchDocument, type StaticSearchIndex } from "@/lib/search/types";
+import { siteConfig } from "../../config/site.config.ts";
+import { extractPosts } from "./extract-posts.ts";
+import { extractContent, type RawStaticContent } from "./extract-content.ts";
+import { normalizeMarkdown } from "./normalize-markdown.ts";
+import { type SearchDocument, type StaticSearchIndex } from "../../lib/search/types.ts";
 
 const OUTPUT_DIR = path.join(process.cwd(), "public", "search");
 const OUTPUT_FILE = path.join(OUTPUT_DIR, "static-index.json");
 
 function safeString(value: unknown): string {
   return typeof value === "string" ? value.trim().replace(/\\/g, "") : "";
+}
+
+function getImageSrc(src: string): string {
+  if (/^(https?:)?\/\//.test(src)) {
+    return src;
+  }
+
+  const normalizedSrc = src.startsWith("../")
+    ? src.replace(/^\.\.\//, "/")
+    : src;
+
+  return `${siteConfig.urls.basePath}${
+    normalizedSrc.startsWith("/") ? normalizedSrc : `/${normalizedSrc}`
+  }`;
 }
 
 async function buildIndex() {

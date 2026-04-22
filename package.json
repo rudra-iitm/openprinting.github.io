@@ -4,16 +4,16 @@
   "private": true,
   "scripts": {
     "dev": "next dev --turbopack",
-    "prebuild": "node scripts/foomatic/data-generate.mjs && tsx scripts/search/build-index.ts && tsx scripts/search/build-foomatic-index.ts && tsx scripts/generate-rss.ts",
+    "prebuild": "tsx scripts/foomatic/data-generate.ts && tsx scripts/search/build-index.ts && tsx scripts/search/build-foomatic-index.ts && tsx scripts/generate-rss.ts",
     "build": "next build",
     "start": "next start",
     "lint": "next lint",
     "foomatic:generate:ppds": "./scripts/foomatic/generate-ppds.sh",
-    "foomatic:data:generate": "node scripts/foomatic/data-generate.mjs",
-    "foomatic:build:data": "node scripts/foomatic/data-generate.mjs",
-    "foomatic:generate:xml": "node scripts/foomatic/generate-from-xml.mjs",
-    "foomatic:data:combine": "node scripts/foomatic/combine-data.mjs",
-    "foomatic:data:split": "node scripts/foomatic/split-printers.mjs"
+    "foomatic:data:generate": "tsx scripts/foomatic/data-generate.ts",
+    "foomatic:build:data": "tsx scripts/foomatic/data-generate.ts",
+    "foomatic:generate:xml": "tsx scripts/foomatic/generate-from-xml.ts",
+    "foomatic:data:combine": "tsx scripts/foomatic/combine-data.ts",
+    "foomatic:data:split": "tsx scripts/foomatic/split-printers.ts"
   },
   "dependencies": {
     "@giscus/react": "^3.1.0",

@@ -1,7 +1,6 @@
 import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
-import { getTeaserImage } from "@/lib/get-latest-posts";
 
 export interface RawPost {
   slug: string;
@@ -11,6 +10,24 @@ export interface RawPost {
 }
 
 const POSTS_DIR = path.join(process.cwd(), "contents", "post");
+
+function getTeaserImage(
+  meta: Record<string, unknown> & { teaser_image?: string },
+  content: string
+): string | undefined {
+  if (meta.teaser_image) return meta.teaser_image;
+
+  const marked = content.match(/!\[.*?\]\((.*?)\).*?\{.*?teaser.*?\}/);
+  if (marked) return marked[1];
+
+  const firstImage = content.match(/!\[.*?\]\((.*?)\)/);
+  if (firstImage) return firstImage[1];
+
+  const yt = content.match(/youtube\.com\/watch\?v=([A-Za-z0-9_-]+)/);
+  if (yt) return `https://img.youtube.com/vi/${yt[1]}/hqdefault.jpg`;
+
+  return undefined;
+}
 
 export async function extractPosts(): Promise<RawPost[]> {
   const files = await fs.readdir(POSTS_DIR);

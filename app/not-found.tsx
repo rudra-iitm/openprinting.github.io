@@ -2,16 +2,15 @@
 
 import { useEffect, useState } from "react";
 import Link from "next/link";
+import { getBasePath } from "@/lib/site";
 
 export default function NotFound() {
   const [redirecting, setRedirecting] = useState(false);
 
   useEffect(() => {
     const path = window.location.pathname;
-    const basePath =
-      process.env.NODE_ENV === "production" ? "/openprinting.github.io" : "";
+    const basePath = getBasePath();
 
-    // Normalize by removing basePath prefix for analysis
     const normalizedPath = basePath
       ? path.startsWith(basePath)
         ? path.slice(basePath.length) || "/"

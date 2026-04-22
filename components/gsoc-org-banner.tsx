@@ -3,6 +3,7 @@
 import { motion } from "framer-motion";
 import Link from "next/link";
 import { Mail, Github, MessageCircle, ExternalLink } from "lucide-react";
+import { siteConfig } from "@/config/site.config";
 
 export function GsocOrgBanner() {
   return (
@@ -18,7 +19,7 @@ export function GsocOrgBanner() {
             About Us
           </p>
           <h2 className="text-xl md:text-2xl font-bold text-foreground tracking-tight">
-            OpenPrinting — The Linux Foundation
+            {siteConfig.brand.name} — The {siteConfig.brand.organization}
           </h2>
           <p className="mt-3 text-sm text-muted-foreground leading-relaxed">
             We develop the printing infrastructure for Linux and similar
@@ -30,7 +31,7 @@ export function GsocOrgBanner() {
 
         <div className="flex flex-wrap gap-2 md:flex-col md:items-end shrink-0">
           <Link
-            href="https://wiki.linuxfoundation.org/gsoc/"
+            href={siteConfig.destinations.linuxFoundationGsocWiki}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-3 py-1.5 text-xs text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
@@ -39,7 +40,7 @@ export function GsocOrgBanner() {
             LF GSoC Wiki
           </Link>
           <Link
-            href="https://github.com/OpenPrinting"
+            href={siteConfig.destinations.github}
             target="_blank"
             rel="noopener noreferrer"
             className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-3 py-1.5 text-xs text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
@@ -48,7 +49,7 @@ export function GsocOrgBanner() {
             GitHub
           </Link>
           <Link
-            href="mailto:printing-architecture@lists.linux-foundation.org"
+            href={siteConfig.destinations.mailingList}
             className="inline-flex items-center gap-1.5 rounded-full border border-border bg-muted px-3 py-1.5 text-xs text-muted-foreground hover:bg-accent hover:text-foreground transition-colors"
           >
             <Mail className="w-3 h-3" />

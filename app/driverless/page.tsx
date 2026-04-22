@@ -3,6 +3,7 @@ import path from "path"
 import matter from "gray-matter"
 import Image from "next/image"
 import { MarkdownRenderer } from "@/components/markdown-renderer"
+import { getAssetPath } from "@/lib/utils";
 
 const FILE_PATH = path.join(
   process.cwd(),
@@ -10,9 +11,6 @@ const FILE_PATH = path.join(
   "pages",
   "driverless.md"
 )
-import { siteConfig } from "@/config/site.config";
-
-const basePath = siteConfig.urls.basePath;
 
 const driverlessNavItems = [
   { name: "Introduction to Driverless Printing", href: "#introduction" },
@@ -35,7 +33,7 @@ export default async function DriverlessPage() {
             <div className="sticky top-24 bg-card rounded-lg overflow-hidden border border-border">
               <div className="relative w-full h-48">
                 <Image
-                  src={`${basePath}/assets/images/ipp-everywhere.png`}
+                  src={getAssetPath("/assets/images/ipp-everywhere.png")}
                   alt="Driverless Printing"
                   fill
                   className="object-cover"

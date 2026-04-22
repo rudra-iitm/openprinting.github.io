@@ -11,13 +11,12 @@ import { TableOfContents } from "@/components/table-of-contents";
 import GiscusComments from "@/components/giscus-comment";
 import AuthorCard from "@/components/AuthorCard";
 import authors from "@/data/authors";
-import { getImageSrc } from "@/lib/utils";
+import { getAuthorImageSrc, getImageSrc } from "@/lib/utils";
 import { getTeaserImage } from "@/lib/get-latest-posts";
 import { siteConfig } from "@/config/site.config";
+import { getSiteUrl } from "@/lib/site";
 
-const basePath = siteConfig.urls.basePath;
-const siteUrl = siteConfig.urls.baseUrl;
-const defaultOgImageUrl = `${siteUrl}${getImageSrc("/OpenPrintingBox.png")}`;
+const defaultOgImageUrl = getSiteUrl(siteConfig.brand.defaultOgImagePath);
 
 const POSTS_DIR = path.join(process.cwd(), "contents", "post");
 
@@ -77,7 +76,7 @@ export async function generateMetadata({
         return {
             title: "CUPS",
             alternates: {
-                canonical: "https://openprinting.github.io/cups/",
+                canonical: siteConfig.destinations.cups,
             },
         };
     }
@@ -109,10 +108,10 @@ export async function generateMetadata({
     const imageUrl = resolvedTeaserImage
         ? /^https?:\/\//.test(resolvedTeaserImage)
             ? resolvedTeaserImage
-            : `${siteUrl}${resolvedTeaserImage}`
+            : getSiteUrl(resolvedTeaserImage)
         : defaultOgImageUrl;
     const canonicalPath = resolvedSlug === decodedSlug ? `/${resolvedSlug}` : `/${decodedSlug}`;
-    const canonicalUrl = `${siteUrl}${canonicalPath}`;
+    const canonicalUrl = getSiteUrl(canonicalPath);
 
     return {
         title,
@@ -174,7 +173,7 @@ export default async function PostPage({
     const decodedSlug = decodeURIComponent(slugString);
 
     if (decodedSlug === "cups") {
-        redirect("https://openprinting.github.io/cups/");
+        redirect(siteConfig.destinations.cups);
     }
 
     const allPosts = await getAllPostsMetadata();
@@ -314,9 +313,7 @@ export default async function PostPage({
                                     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
                                         {relatedPosts.map((post) => {
                                             const postAuthor = post.author ? authors.find((a) => a.key === post.author) : null;
-                                            const placeholder = `${basePath}/authors/placeholder.jpg`;
-                                            const imgRaw = postAuthor?.image && postAuthor.image !== "NA" ? postAuthor.image : placeholder;
-                                            const imgSrc = imgRaw.startsWith("/") ? `${basePath}${imgRaw}` : `${basePath}/${imgRaw}`;
+                                            const imgSrc = getAuthorImageSrc(postAuthor?.image);
                                             return (
                                                 <Link
                                                     key={post.slug}

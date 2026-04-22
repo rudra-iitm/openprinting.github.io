@@ -5,8 +5,7 @@ import { motion } from "framer-motion"
 import Link from "next/link"
 import { ArrowRight, ChevronDown } from "lucide-react"
 import { siteConfig } from "@/config/site.config"
-
-const basePath = siteConfig.urls.basePath;
+import { getAssetPath } from "@/lib/utils";
 
 export default function HeroSection() {
   return (
@@ -15,13 +14,13 @@ export default function HeroSection() {
       <div
         className="absolute inset-0 bg-cover bg-[position:80%_0] opacity-100 mix-blend-normal pointer-events-none dark:hidden"
         style={{
-          backgroundImage: `url(${basePath}/rotation_pantone.jpg)`,
+          backgroundImage: `url(${getAssetPath(siteConfig.brand.heroTexturePath)})`,
         }}
       />
       <div
         className="hero-banner-image hidden dark:block"
         style={{
-          backgroundImage: `url(${basePath}/rotation_pantone.jpg)`,
+          backgroundImage: `url(${getAssetPath(siteConfig.brand.heroTexturePath)})`,
         }}
       />
       <div className="hero-glow hidden dark:block" />

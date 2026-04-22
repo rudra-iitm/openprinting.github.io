@@ -3,10 +3,8 @@
 import { useState, useEffect, useRef } from "react";
 import { MapPin, Github, Globe } from "lucide-react";
 import Image from "next/image";
-import { cn } from "@/lib/utils";
+import { cn, getAssetPath } from "@/lib/utils";
 import { siteConfig } from "@/config/site.config";
-
-const basePath = siteConfig.urls.basePath;
 
 interface Props {
   className?: string;
@@ -43,8 +41,8 @@ export default function OpenPrintingCard({ className }: Props) {
         <div className="flex-1 min-w-0 flex flex-col items-center text-center">
           <div className="mb-3">
             <Image
-              src={`${basePath}/openprinting.png`}
-              alt="OpenPrinting Logo"
+              src={getAssetPath(siteConfig.brand.logoPath)}
+              alt={`${siteConfig.brand.name} Logo`}
               width={64}
               height={64}
               className="object-contain"
@@ -52,10 +50,10 @@ export default function OpenPrintingCard({ className }: Props) {
             />
           </div>
           <h2 className="text-base font-semibold text-foreground leading-tight">
-            OpenPrinting
+            {siteConfig.brand.name}
           </h2>
           <p className="text-[15px] text-muted-foreground mt-0.5">
-            Making Printing Just Work!
+            {siteConfig.brand.tagline}
           </p>
         </div>
 
@@ -71,11 +69,11 @@ export default function OpenPrintingCard({ className }: Props) {
             <div className="absolute right-0 top-full mt-2 w-48 bg-card rounded shadow-xl border border-border py-1 z-50">
               <div className="flex items-center gap-2 px-3 py-2 text-foreground">
                 <MapPin size={16} className="text-muted-foreground" />
-                <span className="text-sm">Linux Foundation</span>
+                <span className="text-sm">{siteConfig.brand.organization}</span>
               </div>
 
               <a
-                href={siteConfig.urls.baseUrl}
+                href={siteConfig.urls.canonicalOrigin}
                 className="flex items-center gap-2 px-3 py-2 text-foreground hover:bg-muted"
               >
                 <Globe size={16} className="text-muted-foreground" />
@@ -83,7 +81,7 @@ export default function OpenPrintingCard({ className }: Props) {
               </a>
 
               <a
-                href="https://github.com/OpenPrinting"
+                href={siteConfig.destinations.github}
                 target="_blank"
                 rel="noopener noreferrer"
                 className="flex items-center gap-2 px-3 py-2 text-foreground hover:bg-muted"
@@ -105,8 +103,8 @@ export default function OpenPrintingCard({ className }: Props) {
         <div className="flex flex-col items-center text-center">
           <div className="mb-4">
             <Image
-              src={`${basePath}/openprinting.png`}
-              alt="OpenPrinting Logo"
+              src={getAssetPath(siteConfig.brand.logoPath)}
+              alt={`${siteConfig.brand.name} Logo`}
               width={96}
               height={96}
               className="object-contain"
@@ -114,21 +112,21 @@ export default function OpenPrintingCard({ className }: Props) {
             />
           </div>
           <h2 className="text-2xl font-extrabold tracking-tight text-foreground mb-3">
-            OpenPrinting
+            {siteConfig.brand.name}
           </h2>
 
           <p className="text-[15px] text-muted-foreground mb-5 pl-2">
-            Making Printing Just Work!
+            {siteConfig.brand.tagline}
           </p>
 
           <div className="flex items-center gap-3 text-muted-foreground mb-4 pl-2 self-start">
             <MapPin size={16} />
-            <span className="text-sm">Linux Foundation</span>
+            <span className="text-sm">{siteConfig.brand.organization}</span>
           </div>
 
           <div className="flex flex-col items-start pl-2 gap-3 self-start">
             <a
-              href={siteConfig.urls.baseUrl}
+              href={siteConfig.urls.canonicalOrigin}
               className="inline-flex items-center gap-3 text-muted-foreground hover:text-primary"
             >
               <Globe size={18} />
@@ -136,7 +134,7 @@ export default function OpenPrintingCard({ className }: Props) {
             </a>
 
             <a
-              href="https://github.com/OpenPrinting"
+              href={siteConfig.destinations.github}
               target="_blank"
               rel="noopener noreferrer"
               className="inline-flex items-center gap-3 text-muted-foreground hover:text-primary"

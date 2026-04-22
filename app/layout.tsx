@@ -4,6 +4,8 @@ import "./globals.css";
 import Navbar from "@/components/navbar";
 import Footer from "@/components/footer";
 import { ThemeProvider } from "@/components/theme-provider";
+import { siteConfig } from "@/config/site.config";
+import { getSiteUrl } from "@/lib/site";
 
 const inter = Inter({ subsets: ["latin"] })
 
@@ -18,11 +20,11 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "Openprinting - Openprinting",
-  description: "OpenPrinting is dedicated to providing open-source printing solutions for Linux, Unix, and other operating systems. Explore drivers, tools, and resources to enhance your printing experience.",
+  title: siteConfig.brand.title,
+  description: siteConfig.brand.description,
   alternates: {
     types: {
-      "application/rss+xml": "https://openprinting.github.io/feed.xml",
+      "application/rss+xml": getSiteUrl(siteConfig.urls.rssPath),
     },
   },
 };

@@ -6,12 +6,26 @@ const __filename = fileURLToPath(import.meta.url)
 const __dirname = path.dirname(__filename)
 const ROOT_DIR = path.join(__dirname, "..", "..")
 
+type PrinterRecord = {
+  id: string
+  manufacturer?: string
+  model?: string
+  type?: string
+  status?: string
+  functionality?: string
+  drivers?: unknown[]
+}
+
+type PrintersPayload = {
+  printers: PrinterRecord[]
+}
+
 async function splitPrintersData() {
   try {
     console.log('Starting printer data splitting process...')
     
     const printersPath = path.join(ROOT_DIR, 'public', 'foomatic-db', 'printers.json')
-    const data = JSON.parse(await fs.readFile(printersPath, 'utf-8'))
+    const data = JSON.parse(await fs.readFile(printersPath, 'utf-8')) as PrintersPayload
     
     console.log(`Found ${data.printers.length} printers to process`)
     
@@ -38,7 +52,7 @@ async function splitPrintersData() {
     for (let i = 0; i < data.printers.length; i += batchSize) {
       const batch = data.printers.slice(i, i + batchSize)
       
-      await Promise.all(batch.map(async (printer) => {
+      await Promise.all(batch.map(async (printer: PrinterRecord) => {
         const printerPath = path.join(printersDir, `${printer.id}.json`)
         await fs.writeFile(printerPath, JSON.stringify(printer, null, 2))
         processed++

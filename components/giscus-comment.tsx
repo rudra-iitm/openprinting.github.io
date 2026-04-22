@@ -11,12 +11,12 @@ export default function GiscusComments() {
         <div className="mt-10">
             <Giscus
                 id="comments"
-                repo={siteConfig.giscus.repo}
-                repoId={siteConfig.giscus.repoId}
-                category={siteConfig.giscus.category}
-                categoryId={siteConfig.giscus.categoryId}
+                repo={siteConfig.discussion.repo}
+                repoId={siteConfig.discussion.repoId}
+                category={siteConfig.discussion.category}
+                categoryId={siteConfig.discussion.categoryId}
                 mapping="url"
-                term="Welcome to OpenPrinting Blog"
+                term={siteConfig.discussion.term}
                 reactionsEnabled="1"
                 emitMetadata="0"
                 inputPosition="top"

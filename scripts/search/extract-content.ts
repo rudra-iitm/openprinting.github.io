@@ -2,8 +2,8 @@ import fs from "fs/promises";
 import path from "path";
 import matter from "gray-matter";
 
-import type { RawPost } from "./extract-posts";
-import type { StaticContentType } from "@/lib/search/types";
+import type { RawPost } from "./extract-posts.ts";
+import type { StaticContentType } from "../../lib/search/types.ts";
 
 const CONTENT_DIRS: Record<string, StaticContentType> = {
   documentation: "documentation",

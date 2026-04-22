@@ -3,7 +3,7 @@ import path from "path";
 import {
   type FoomaticSearchDocument,
   type SearchIndex,
-} from "@/lib/search/types";
+} from "../../lib/search/types.ts";
 
 const INPUT_FILE = path.join(
   process.cwd(),

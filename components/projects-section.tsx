@@ -7,8 +7,7 @@ import Image from "next/image"
 import Link from "next/link"
 import { ArrowRight } from "lucide-react"
 import { siteConfig } from "@/config/site.config"
-
-const basePath = siteConfig.urls.basePath;
+import { getAssetPath } from "@/lib/utils";
 
 type SoftwareItem = {
   title: string
@@ -37,7 +36,7 @@ export default function ProjectsSection() {
       title: "Driverless Printers",
       description:
         "Most modern printers work 'out of the box' with OpenPrinting software. Browse the thousands of driverless printers.",
-      image: `${basePath}/ipp-everywhere.png`,
+      image: getAssetPath("/ipp-everywhere.png"),
       href: "/printers",
       delay: 0.1,
     },
@@ -45,16 +44,16 @@ export default function ProjectsSection() {
       title: "Legacy Printers",
       description:
         "The Foomatic printer database lists all of the printers that are supported by free software printer drivers.",
-      image: `${basePath}/printer.png`,
+      image: getAssetPath("/printer.png"),
       delay: 0.2,
-      href: "https://openprinting.org/printers",
+      href: siteConfig.destinations.legacyPrinters,
       isExternal: true,
     },
     {
       title: "Windows?!",
       description:
         "Our Printer Applications revive old printers under current Windows, any model which works under Linux.",
-      image: `${basePath}/wsl-printing-icon.png`,
+      image: getAssetPath("/wsl-printing-icon.png"),
       delay: 0.3,
       href: "/wsl-printer-app",
     },
@@ -65,8 +64,8 @@ export default function ProjectsSection() {
       title: "Printer Working Group",
       description:
         "OpenPrinting collaborates with the PWG's Internet Printing Protocol workgroup to support this ubiquitous printing standard.",
-      image: `${basePath}/pwg.png`,
-      href: "https://www.pwg.org/ipp/",
+      image: getAssetPath("/pwg.png"),
+      href: siteConfig.destinations.printerWorkingGroup,
       delay: 0.1,
       isExternal: true,
     },
@@ -74,7 +73,7 @@ export default function ProjectsSection() {
       title: "GSoC - OpenPrinting",
       description:
         "OpenPrinting participates in the GSoC program under its umbrella organization The Linux Foundation.",
-      image: `${basePath}/gsoc.jpeg`,
+      image: getAssetPath("/gsoc.jpeg"),
       delay: 0.2,
       href: "/gsoc",
     },
@@ -82,7 +81,7 @@ export default function ProjectsSection() {
       title: "GSoD - OpenPrinting",
       description:
         "OpenPrinting participates in the GSoD program under its umbrella organization The Linux Foundation.",
-      image: `${basePath}/gsod.jpg`,
+      image: getAssetPath("/gsod.jpg"),
       delay: 0.3,
       href: "/gsod",
     },
@@ -129,7 +128,7 @@ export default function ProjectsSection() {
               >
                 <div className="p-4 bg-muted border-b border-border flex items-center justify-center">
                   <Image
-                    src={software.image || `${basePath}/placeholder.svg`}
+                    src={software.image || getAssetPath("/placeholder.svg")}
                     alt={software.title}
                     width={200}
                     height={120}
@@ -189,7 +188,7 @@ export default function ProjectsSection() {
                 >
                   <div className="p-4 bg-muted border-b border-border flex items-center justify-center">
                     <Image
-                      src={project.image || `${basePath}/placeholder.svg`}
+                      src={project.image || getAssetPath("/placeholder.svg")}
                       alt={project.title}
                       width={200}
                       height={120}
@@ -217,7 +216,7 @@ export default function ProjectsSection() {
                 >
                   <div className="p-4 bg-muted border-b border-border flex items-center justify-center">
                     <Image
-                      src={project.image || `${basePath}/placeholder.svg`}
+                      src={project.image || getAssetPath("/placeholder.svg")}
                       alt={project.title}
                       width={200}
                       height={120}
