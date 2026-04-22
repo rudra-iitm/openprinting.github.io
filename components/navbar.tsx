@@ -25,7 +25,7 @@ const navItems = [
 const hamburgerItems = [
   { name: "Upcoming Technologies", href: "/upcoming-technologies" },
   { name: "Driverless Printing", href: "/driverless" },
-  { name: "Printers", href: "/printers" },
+  { name: "Printers", href: "/foomatic" },
   { name: "Printer Drivers", href: "/drivers" },
   { name: "Legacy Printers under Windows", href: "/wsl-printer-app" },
   { name: "Contact Us", href: "/contact" },
