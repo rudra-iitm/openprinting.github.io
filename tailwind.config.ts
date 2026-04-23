@@ -4,8 +4,6 @@ import tailwindAnimation from "tailwindcss-animate";
 import tailwindTypography from "@tailwindcss/typography";
 
 const config: Config = {
-  // Use class-based dark mode so the site defaults to light unless the
-  // user explicitly chooses dark (stored in localStorage).
   darkMode: ["class"],
   content: ["app/**/*.{ts,tsx}", "components/**/*.{ts,tsx}"],
   theme: {
@@ -80,11 +78,16 @@ const config: Config = {
           "0%, 100%": { opacity: "0.4" },
           "50%": { opacity: "0.8" },
         },
+        marquee: {
+          from: { transform: "translateX(0)" },
+          to: { transform: "translateX(-50%)" },
+        },
       },
       animation: {
         "accordion-down": "accordion-down 0.2s ease-out",
         "accordion-up": "accordion-up 0.2s ease-out",
         "glow-pulse": "glow-pulse 3s ease-in-out infinite",
+        marquee: "marquee 20s linear infinite",
       },
       typography: (theme: (arg0: string) => unknown) => ({
         invert: {
